@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(scripts/cp.sh:*)",
+      "Bash(scripts/skill-path.sh:*)",
+      "Bash(scripts/novo-artigo.sh:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(python3:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(sed:*)",
+      "mcp__BD_-_Consultar",
+      "mcp__BD_-_backlinks",
+      "mcp__DataForSeo",
+      "mcp__seo-tools",
+      "mcp__site_tabela_planos__listar_artigos",
+      "mcp__site_tabela_planos__buscar_artigo",
+      "mcp__site_tabela_planos__auditar_links"
+    ]
+  },
+  "_comentario": [
+    "Escrita fica DE FORA do allow de propósito: BD - Criar, BD - Editar e as",
+    "ferramentas de escrita do WordPress continuam pedindo confirmação, porque",
+    "gravam em produção. Não mova nada disso para cá sem pedir ao usuário."
+  ]
+}
