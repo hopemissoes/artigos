@@ -14,6 +14,7 @@ cobertura, bookkeeping (EUA) e Mowana.
 | saber por que algo é do jeito que é | [`docs/DECISOES.md`](docs/DECISOES.md) |
 | entender a linha de 25 agentes | [`docs/LINHA-V7.md`](docs/LINHA-V7.md) |
 | ler concorrente com a rede bloqueada | [`docs/CI1-SEM-EGRESS.md`](docs/CI1-SEM-EGRESS.md) |
+| **liberar a rede do ambiente** | [`docs/LIBERAR-REDE.md`](docs/LIBERAR-REDE.md) |
 | ver onde cada artigo parou | `artigos/*/00-ESTADO.md` |
 
 ## Comandos

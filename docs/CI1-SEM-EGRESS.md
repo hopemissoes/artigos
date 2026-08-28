@@ -24,11 +24,11 @@ abriu um concorrente, e duas afirmações saíram falsas. Ver `docs/DECISOES.md`
 
 ### Rota 1 — liberar o domínio no ambiente (a solução de verdade)
 
-A política de rede é escolhida por **você**, na configuração do environment do
-Claude Code na web. Liberando `hapvida.com.br`, `ans.gov.br`, `ibge.gov.br`,
-`cnes.datasus.gov.br` e os domínios dos concorrentes, o `WebFetch` volta a
-funcionar e a CI-1 roda como foi desenhada.
-Documentação: <https://code.claude.com/docs/en/claude-code-on-the-web>
+O ambiente está no nível **Trusted**, que não libera site externo. Passando para
+**Custom** com a lista de domínios, o `WebFetch` volta a funcionar e a CI-1 roda
+como foi desenhada.
+
+**Passo a passo e lista pronta para colar: `docs/LIBERAR-REDE.md`.**
 
 **Esta é a rota preferida. As outras são contorno.**
 
