@@ -36,6 +36,7 @@ scripts/novo-artigo.sh <slug> [city|hospital|tr|pillar|cobertura]
 scripts/skill-path.sh <nome-da-skill>
 scripts/cp.sh <skill> <checkpoint.py> [args...]
 scripts/testar-egress.sh                  # antes de toda CI-1
+scripts/ler-pagina.sh <slug> <url>        # lê concorrente e salva em fontes/
 ```
 
 ## O que este repositório não guarda

@@ -95,7 +95,8 @@ por estimativa.
 | MCP `DataForSeo`, `BD - *`, `SEO - Hapvida`, `site_tabela_planos`, `seo-tools` | ✅ | rodam no servidor, fora deste contêiner |
 | `pip install` | ✅ | pypi liberado (`requirements.txt`) |
 | Subagentes com modelo por chamada (`Agent`) | ✅ | é o que torna a linha da v7.2 possível — ver `docs/LINHA-V7.md` |
-| `WebFetch` / `curl` para site externo | ❌ **bloqueado** (nível Trusted) | **a CI-1 não lê concorrente direto** — contorno em `docs/CI1-SEM-EGRESS.md`, solução em `docs/LIBERAR-REDE.md` |
+| `curl` para site externo | ✅ desde a mudança para `Full` | consulta o gateway a cada chamada |
+| `WebFetch` | ⚠️ **depende de quando a sessão começou** | carrega a política do início da sessão: numa sessão aberta antes da liberação, volta `EGRESS_BLOCKED` mesmo com o `curl` passando. Teste com uma chamada antes da CI-1 — ver `docs/CI1-SEM-EGRESS.md` |
 
 Meça na hora, não confie nesta tabela:
 

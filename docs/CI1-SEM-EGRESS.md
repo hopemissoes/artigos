@@ -1,6 +1,11 @@
 # CI-1 quando a rede bloqueia o concorrente
 
-**Medido em 2026-08-28, neste ambiente (Claude Code na web):**
+> **Situação em 2026-08-28, fim do dia:** o ambiente passou para o nível `Full` e a
+> rede está liberada. Este documento deixa de ser o caminho normal e vira
+> **contingência** — mas continua valendo, porque um domínio cai sozinho e porque
+> o `WebFetch` pode estar defasado (ver a ressalva logo abaixo da tabela).
+
+**Medido em 2026-08-28, ANTES da liberação (ambiente no nível `Trusted`):**
 
 | Rota | Status | O que devolve |
 |---|---|---|
@@ -11,6 +16,30 @@
 | MCP `SEO - Hapvida` (n8n) | ✅ funciona | **roda `httpRequest` fora deste contêiner** |
 | MCP `site_tabela_planos` (WordPress) | ✅ funciona | o próprio site |
 | `pip install` | ✅ funciona | pypi está liberado |
+
+## ⚠️ curl liberado não é WebFetch liberado
+
+Medido nesta sessão, depois da mudança para `Full`: **`curl` alcançou os cinco
+alvos e o `WebFetch` continuou devolvendo `EGRESS_BLOCKED`** para os mesmos
+domínios. O `WebFetch` carrega a política de rede do **início da sessão**; o `curl`
+consulta o gateway a cada chamada.
+
+**Consequência prática:** numa sessão aberta antes de uma mudança de política, o
+`scripts/testar-egress.sh` diz que está livre e o `WebFetch` falha assim mesmo.
+Faça **uma chamada `WebFetch` de teste** antes da CI-1. Falhou → rota 1b, ou
+sessão nova.
+
+## Rota 1b — ler a página com `curl`
+
+Quando o ambiente está liberado mas o `WebFetch` está defasado:
+
+```bash
+curl -sL -m 20 -A 'Mozilla/5.0' "https://<concorrente>/<url>"   -o artigos/<slug>/fontes/concorrente-<dominio>.html
+```
+
+Depois leia o arquivo salvo. **Conta como concorrente lido** — é a página inteira,
+não trecho de busca. Guardar em `fontes/` ainda deixa o original conferível meses
+depois, que é melhor do que o WebFetch faz.
 
 O `checkpoint_ci1.py` pergunta uma coisa só: **o concorrente foi LIDO?** Trecho de
 busca não é leitura. Em 27/08 a linha inteira rodou em cima de uma CI-1 que nunca

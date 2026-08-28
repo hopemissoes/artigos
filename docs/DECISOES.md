@@ -114,3 +114,25 @@ nível. E página de concorrente segue sendo conteúdo não confiável: dado ext
 dela é `[VERIFICAR]` até bater com fonte primária.
 
 ---
+## 2026-08-28 (fim do dia) — Rede liberada em `Full`, e uma armadilha medida
+
+O ambiente passou para `Full` e a rede está liberada. Confirmado em sessão nova e
+nesta. **Mas o `curl` e o `WebFetch` não andam juntos:**
+
+| | Nesta sessão (aberta ANTES da mudança) |
+|---|---|
+| `curl` | ✅ alcança os cinco alvos — consulta o gateway a cada chamada |
+| `WebFetch` | ❌ `EGRESS_BLOCKED` em `hapvida.com.br` e `ibge.gov.br` — carrega a política do início da sessão |
+
+**Por que isto importa:** o `scripts/testar-egress.sh` concluía "✅ egress livre —
+CI-1 pode ler concorrente direto por WebFetch". Era falso numa sessão aberta antes
+da liberação, e mandaria a CI-1 por um caminho que falha. O script, o hook e os
+três documentos foram corrigidos: teste do `curl` não vale como prova do `WebFetch`;
+faça uma chamada de teste antes da CI-1.
+
+**Rota 1b, nova:** `scripts/ler-pagina.sh <slug> <url>` lê a página com `curl`,
+salva em `fontes/` e detecta desafio de bot. Medido: lê `tabelaplanos`, `hapvida`,
+`tabelasaude` e `meuplanohap` inteiros; o IBGE devolve interstitial do Cloudflare
+e o script reprova. Para concorrente — que é o que a CI-1 pede — funciona.
+
+---

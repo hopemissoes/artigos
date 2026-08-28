@@ -33,11 +33,21 @@ Não há mais nada a preencher: em `Full` não existe lista de domínios, e a ca
 "Also include default list of common package managers" não aparece — ela só
 existe no nível `Custom`.
 
-## A mudança não vale para esta sessão
+## O que vale na sessão em curso, e o que não vale
 
-Sessões em andamento mantêm a configuração com que começaram. **Abra uma sessão
-nova** depois de salvar. Mudar o acesso de rede também refaz o cache do ambiente,
-então a primeira sessão nova demora um pouco mais.
+Medido em 2026-08-28, numa sessão aberta **antes** da mudança:
+
+| | Depois de salvar |
+|---|---|
+| `curl` / scripts | ✅ passa a alcançar na hora — consulta o gateway a cada chamada |
+| **`WebFetch`** | ❌ **continua bloqueado** — carrega a política do início da sessão |
+
+Ou seja: `scripts/testar-egress.sh` pode dizer "livre" e o `WebFetch` falhar assim
+mesmo. **Abra uma sessão nova** para o `WebFetch` acompanhar; enquanto isso, ler
+concorrente com `curl` funciona (rota 1b de `docs/CI1-SEM-EGRESS.md`).
+
+Mudar o acesso de rede também refaz o cache do ambiente, então a primeira sessão
+nova demora um pouco mais.
 
 ## O que `Full` não muda
 

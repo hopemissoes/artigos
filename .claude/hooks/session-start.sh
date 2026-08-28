@@ -23,7 +23,10 @@ echo
 # 3. egress: dizer AGORA se a leitura de concorrente está bloqueada
 if command -v curl >/dev/null 2>&1; then
   if curl -s -o /dev/null -m 8 https://www.hapvida.com.br 2>/dev/null; then
-    echo "REDE   : egress direto OK — CI-1 pode ler concorrente via WebFetch."
+    echo "REDE   : ✅ ambiente liberado (curl alcança site externo)."
+    echo "         ⚠️  Antes da CI-1, teste o WebFetch com UMA chamada: ele"
+    echo "             carrega a política do início da sessão e pode estar"
+    echo "             defasado. Falhou → rota 1b (curl) de docs/CI1-SEM-EGRESS.md."
   else
     echo "REDE   : ⚠️  egress BLOQUEADO para sites externos."
     echo "         WebFetch e curl não leem concorrente. WebSearch e DataForSeo"

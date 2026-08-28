@@ -37,4 +37,16 @@ if [ "$falha" -gt 0 ]; then
 MSG
   exit 1
 fi
-echo "✅ egress livre — CI-1 pode ler concorrente direto por WebFetch."
+cat <<'MSG'
+✅ A REDE DO AMBIENTE ESTÁ LIBERADA — curl alcança todos os alvos.
+
+⚠️  ISSO NÃO PROVA QUE O WebFetch FUNCIONA.
+    O WebFetch carrega a política de rede do INÍCIO da sessão; o curl
+    consulta o gateway a cada chamada. Numa sessão aberta ANTES da
+    liberação, curl passa e WebFetch volta EGRESS_BLOCKED.
+
+    Antes da CI-1, faça UMA chamada WebFetch a um alvo real.
+      · funcionou  → CI-1 pela rota normal;
+      · EGRESS_BLOCKED → use curl para ler a página (rota 1b de
+        docs/CI1-SEM-EGRESS.md) ou abra uma sessão nova.
+MSG
