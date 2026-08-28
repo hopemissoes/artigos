@@ -67,10 +67,10 @@ Tabela completa, com gatilhos: **`docs/ROTEAMENTO.md`**. Resumo:
 | Inventário de artigos, anti-doorway, overlap | `hapvida-article-database` |
 | Pesquisa Hapvida | ⛔ `hapvida-research` está **descontinuada** — use a FASE 0 da builder |
 
-> **VERSÃO PADRÃO DA BUILDER HAPVIDA — edite esta linha quando quiser trocar:**
-> **`v7`** (inclui v7.4 lead-herói e v7.2 multiagente).
-> Esta linha é a autorização explícita que a skill v7 exige. Para usar outra
-> versão numa tarefa específica, o usuário pede na hora ("faz na v6").
+> **VERSÃO PADRÃO DA BUILDER HAPVIDA: `v7`** (com v7.4 lead-herói e v7.2 multiagente).
+> Artigo Hapvida é feito na **v7**, sempre, sem perguntar. Este parágrafo é a
+> autorização explícita e permanente que a skill exige — não peça confirmação a
+> cada tarefa. Outra versão só quando o usuário nomear uma na hora ("faz na v6").
 
 ---
 
@@ -111,6 +111,15 @@ esses caminhos não existem.** Traduza sempre:
 | `/mnt/user-data/outputs/` | `artigos/<slug>/` |
 
 Detalhes e diagnóstico: `docs/AMBIENTE.md`.
+
+**Duas coisas que mudam o trabalho neste ambiente:**
+
+- ❌ **`WebFetch` e `curl` não alcançam site externo** (política de rede). A CI-1
+  não lê concorrente pelo caminho normal. Rode `scripts/testar-egress.sh` **antes**
+  da CI-1 e siga a escada de `docs/CI1-SEM-EGRESS.md`. Trecho de busca **não** é
+  concorrente lido.
+- ✅ **Subagentes aceitam modelo por chamada** — é o que torna a linha multimodelo
+  da v7.2 executável de verdade. Ver `docs/LINHA-V7.md`.
 
 ---
 

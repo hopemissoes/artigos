@@ -33,5 +33,17 @@
     "Escrita fica DE FORA do allow de propósito: BD - Criar, BD - Editar e as",
     "ferramentas de escrita do WordPress continuam pedindo confirmação, porque",
     "gravam em produção. Não mova nada disso para cá sem pedir ao usuário."
-  ]
+  ],
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/session-start.sh"
+          }
+        ]
+      }
+    ]
+  }
 }

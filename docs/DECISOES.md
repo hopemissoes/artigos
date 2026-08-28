@@ -60,3 +60,37 @@ registre cada tentativa no state file e, se nada funcionar, **pare e avise**.
 **Consequência:** o que muda na prática para quem vier depois.
 
 -->
+## 2026-08-28 — v7 é o padrão implícito, sem confirmação
+
+O usuário determinou: artigo Hapvida é feito na **v7**, sempre. O parágrafo do
+`CLAUDE.md` §3 é a autorização explícita e permanente que a skill exige. Não
+perguntar a cada tarefa. Outra versão só quando o usuário nomear na hora.
+
+---
+
+## 2026-08-28 — Medida a diferença real entre este ambiente e o Desktop
+
+Testado, não suposto:
+
+- ❌ **`WebFetch` e `curl` para site externo são bloqueados** pela política de rede
+  do environment (gateway responde 403 no CONNECT). Vale para `hapvida.com.br`,
+  `ans.gov.br`, `ibge.gov.br`, `cnes.datasus.gov.br` e para os concorrentes.
+  **É a mesma causa do incidente de 27/08.**
+- ✅ `WebSearch`, todos os MCP (DataForSeo, BD, n8n, WordPress, GSC/GA4, Drive) e
+  `pip install` funcionam — rodam no servidor, fora do contêiner.
+- ✅ Subagentes com **modelo por chamada** (`opus`/`sonnet`/`haiku`/`fable`).
+
+**Conclusão:** neste ambiente a linha multimodelo da v7.2 roda como foi desenhada —
+coisa que o Desktop não permite, porque lá não há como dar modelo diferente ao
+conferente. O único ponto em que se perde é a **leitura direta de concorrente**.
+
+**Decisão:** `scripts/testar-egress.sh` roda antes de toda CI-1, e a escada de
+rotas de `docs/CI1-SEM-EGRESS.md` passa a ser obrigatória. A rota 2 usa o
+`assets/CI1-extrator-concorrentes.json` — um workflow n8n que já existia na skill
+e nunca tinha sido usado; ele faz o `httpRequest` fora do contêiner, então o
+bloqueio não o alcança.
+
+**Pendente com o usuário:** liberar os domínios na política de rede do environment
+resolve na origem e devolve o `WebFetch`. É a rota 1, e é a preferida.
+
+---

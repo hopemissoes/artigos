@@ -12,6 +12,8 @@ cobertura, bookkeeping (EUA) e Mowana.
 | entender as fases e os portões | [`docs/FLUXO.md`](docs/FLUXO.md) |
 | rodar um checkpoint / entender caminhos | [`docs/AMBIENTE.md`](docs/AMBIENTE.md) |
 | saber por que algo é do jeito que é | [`docs/DECISOES.md`](docs/DECISOES.md) |
+| entender a linha de 25 agentes | [`docs/LINHA-V7.md`](docs/LINHA-V7.md) |
+| ler concorrente com a rede bloqueada | [`docs/CI1-SEM-EGRESS.md`](docs/CI1-SEM-EGRESS.md) |
 | ver onde cada artigo parou | `artigos/*/00-ESTADO.md` |
 
 ## Comandos
@@ -24,6 +26,7 @@ Na sessão do Claude:
 | `/onde-parei` | tabela de todos os artigos em produção e o próximo passo de cada um |
 | `/continuar <slug>` | retoma exatamente de onde a sessão anterior parou |
 | `/checar <slug>` | roda as travas mecânicas e cola as saídas |
+| `/linha <slug>` | dispara a linha multiagente/multimodelo da v7.2 |
 
 No terminal:
 
@@ -31,6 +34,7 @@ No terminal:
 scripts/novo-artigo.sh <slug> [city|hospital|tr|pillar|cobertura]
 scripts/skill-path.sh <nome-da-skill>
 scripts/cp.sh <skill> <checkpoint.py> [args...]
+scripts/testar-egress.sh                  # antes de toda CI-1
 ```
 
 ## O que este repositório não guarda

@@ -87,9 +87,38 @@ ls "$(scripts/skill-path.sh hapvida-article-builder-v7)"/checkpoint_*.py
 Se um conector não responder, **diga que não respondeu** — não substitua o dado
 por estimativa.
 
-## 6. Rede
+## 6. O que este ambiente alcança (medido em 2026-08-28)
 
-A saída HTTPS passa por proxy. Se um domínio de concorrente for bloqueado
-(já aconteceu, ver `docs/DECISOES.md`), a CI-1 **não** pode degradar em silêncio:
-registre a falha, desça a escada de rotas da skill e, se nada funcionar, pare e
-avise. `checkpoint_ci1.py` existe por causa disso.
+| Recurso | Status | Consequência |
+|---|---|---|
+| `WebSearch` | ✅ | SERP, títulos e trechos — **não** a página inteira |
+| MCP `DataForSeo`, `BD - *`, `SEO - Hapvida`, `site_tabela_planos`, `seo-tools` | ✅ | rodam no servidor, fora deste contêiner |
+| `pip install` | ✅ | pypi liberado (`requirements.txt`) |
+| Subagentes com modelo por chamada (`Agent`) | ✅ | é o que torna a linha da v7.2 possível — ver `docs/LINHA-V7.md` |
+| `WebFetch` / `curl` para site externo | ❌ **bloqueado** | **a CI-1 não lê concorrente direto** — ver `docs/CI1-SEM-EGRESS.md` |
+
+Meça na hora, não confie nesta tabela:
+
+```bash
+scripts/testar-egress.sh
+```
+
+## 7. Dependências python
+
+```bash
+pip install -r requirements.txt   # só Pillow; os checkpoint_*.py são stdlib
+```
+
+O `SessionStart` hook (`.claude/hooks/session-start.sh`) já faz isso e ainda
+imprime o roteamento, o estado do egress e os artigos abertos.
+
+## 8. Arquivos-fonte (PDF de rede, OCR, captura de concorrente)
+
+Não há arrastar-e-soltar aqui. Três rotas:
+
+1. **Google Drive** — o MCP está disponível (`search_files`, `read_file_content`);
+2. **colar no chat** e eu salvo em `artigos/<slug>/fontes/`;
+3. **commitar** direto na pasta `fontes/` do artigo.
+
+Arquivo-fonte fica em `artigos/<slug>/fontes/`, sempre — é o que permite conferir
+o dado meses depois.

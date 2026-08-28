@@ -1,0 +1,4 @@
+# Dependências dos scripts das skills de artigo.
+# Só o que é de fato importado: gerar_imagem_artigo.py usa PIL.
+# Os checkpoint_*.py são todos stdlib.
+Pillow>=10.0
