@@ -70,6 +70,13 @@ perguntar a cada tarefa. Outra versão só quando o usuário nomear na hora.
 
 ## 2026-08-28 — Medida a diferença real entre este ambiente e o Desktop
 
+> 🔁 **SUPERADA no mesmo dia, no ponto do egress.** O ambiente passou para o nível
+> `Full` e o `WebFetch` voltou a funcionar — ver a entrada *"Acesso de rede do
+> ambiente: `Full`"*, logo abaixo, e a de 28/08 sobre Desktop × Claude Code. O
+> registro fica como está para preservar a medição e a causa do incidente de
+> 27/08. **O que continua valendo:** o `scripts/testar-egress.sh` antes de toda
+> CI-1, e a vantagem do modelo por subagente.
+
 Testado, não suposto:
 
 - ❌ **`WebFetch` e `curl` para site externo são bloqueados** pela política de rede
@@ -90,8 +97,9 @@ rotas de `docs/CI1-SEM-EGRESS.md` passa a ser obrigatória. A rota 2 usa o
 e nunca tinha sido usado; ele faz o `httpRequest` fora do contêiner, então o
 bloqueio não o alcança.
 
-**Pendente com o usuário:** liberar os domínios na política de rede do environment
-resolve na origem e devolve o `WebFetch`. É a rota 1, e é a preferida.
+**~~Pendente com o usuário~~ — RESOLVIDO em 28/08:** liberar a rede do environment
+resolve na origem e devolve o `WebFetch`. É a rota 1, e é a preferida. O usuário
+escolheu o nível `Full`; medido livre em 28/08 (5 alvos, nenhum bloqueado).
 
 ---
 ## 2026-08-28 — Acesso de rede do ambiente: `Full`
@@ -112,5 +120,32 @@ continua sendo o primeiro passo de toda CI-1.
 **O que não muda:** o proxy de segurança continua à frente do tráfego em qualquer
 nível. E página de concorrente segue sendo conteúdo não confiável: dado extraído
 dela é `[VERIFICAR]` até bater com fonte primária.
+
+---
+
+## 2026-08-28 — "Desktop" são duas coisas, e só uma delas degrada a v7
+
+**Contexto:** a entrada acima e o `docs/LINHA-V7.md` dizem que "o Desktop não
+permite modelo por subagente". Está certo, mas é ambíguo — e a ambiguidade
+subestima o ambiente local do usuário.
+
+**Distinção:**
+
+| Onde | Disco local + git | Modelo por subagente | v7 |
+|---|---|---|---|
+| **Claude Code** (terminal do Windows ou app desktop) | ✅ | ✅ | **completa** — é o ambiente para o qual os `SKILL.md` foram escritos; os caminhos `C:\Users\netop\...` são literais lá |
+| **Claude Desktop, o app de chat** | ⚠️ só por download manual, ou por conector local de sistema de arquivos | ❌ | **degradada** — `MODO: monomodelo` |
+
+**Consequência:** ao dizer "no Desktop", pergunte qual dos dois. Teste de 10
+segundos: peça um `git status`. Se rodar, é Claude Code e a v7 roda inteira.
+
+**O que salvar em disco NÃO resolve:** a independência dos juízes. Os pares
+proibidos de compartilhar modelo (`2×6`, `4×7`, `8/9/10×11`, `11×19`, `5×13`,
+`13×21`) não são um problema de arquivo. No app de chat, declare `MODO:
+monomodelo` no state file e reforce o portão humano.
+
+**A ponte entre os dois mundos é este repositório:** trabalhando num clone local,
+`00-ESTADO.md` e checkpoints viajam por `git push`/`pull`, e cada sessão continua
+de onde a outra parou. É para isso que serve a regra 7 do `CLAUDE.md`.
 
 ---

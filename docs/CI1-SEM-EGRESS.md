@@ -1,10 +1,15 @@
 # CI-1 quando a rede bloqueia o concorrente
 
+> ⚠️ **Este documento é CONTINGÊNCIA, não o caminho normal.** Desde 28/08 o
+> ambiente está no nível de rede `Full` e o `WebFetch` alcança site externo — a
+> CI-1 roda pela **rota 1**, lendo o concorrente direto. Desça para as rotas 2 a 5
+> só quando `scripts/testar-egress.sh` acusar domínio bloqueado.
+
 **Medido em 2026-08-28, neste ambiente (Claude Code na web):**
 
 | Rota | Status | O que devolve |
 |---|---|---|
-| `curl` / `WebFetch` para site externo | ❌ **bloqueado** (403 no CONNECT, política de rede do ambiente) | nada |
+| `curl` / `WebFetch` para site externo | ✅ **liberado** (nível `Full`; era 403 no CONNECT enquanto o ambiente estava em `Trusted`) | a página do concorrente, inteira |
 | `WebSearch` | ✅ funciona | título, URL e trecho — **não** a página |
 | MCP `DataForSeo` | ✅ funciona | SERP real, volume, dificuldade, PAA, keywords do concorrente |
 | MCP `BD - *` (Supabase) | ✅ funciona | o dado proprietário de vocês |
@@ -22,13 +27,15 @@ abriu um concorrente, e duas afirmações saíram falsas. Ver `docs/DECISOES.md`
 
 **Rode antes de começar:** `scripts/testar-egress.sh`
 
-### Rota 1 — liberar o domínio no ambiente (a solução de verdade)
+### Rota 1 — ler o concorrente direto (o caminho normal desde 28/08)
 
-O ambiente está no nível **Trusted**, que não libera site externo. Passando para
-**Full**, o `WebFetch` volta a funcionar e a CI-1 roda como foi desenhada — sem
-lista de domínios para manter, que é o ponto: concorrente muda a cada cidade.
+O ambiente está no nível **`Full`**: o `WebFetch` alcança qualquer domínio e a
+CI-1 roda como foi desenhada — sem lista de domínios para manter, que é o ponto,
+porque concorrente muda a cada cidade. **É por aqui que se começa.**
 
-**Passo a passo: `docs/LIBERAR-REDE.md`.**
+Se o `scripts/testar-egress.sh` acusar bloqueio, confira antes de tudo se o nível
+de rede do ambiente continua em `Full` — **passo a passo: `docs/LIBERAR-REDE.md`**.
+Só depois desça para as rotas abaixo.
 
 **Esta é a rota preferida. As outras são contorno.**
 

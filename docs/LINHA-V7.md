@@ -1,13 +1,20 @@
 # A linha de 25 agentes da v7.2 — como rodar aqui
 
-Este é o ponto em que **este ambiente é melhor que o Claude Desktop**, e vale
-saber por quê: a v7.2 exige que quem confere rode em **modelo diferente** de quem
-produziu, e que o painel de juízes tenha **≥2 modelos distintos**. Isso depende de
-poder escolher o modelo de cada subagente. O Desktop não tem esse controle — lá a
-linha vira "o mesmo modelo com prompts diferentes", que é exatamente o que a skill
-diz **não** ser separação: *"o ponto cego é do modelo, não do prompt"*.
+Este é o ponto em que **este ambiente é melhor que o Claude Desktop, o app de
+chat**, e vale saber por quê: a v7.2 exige que quem confere rode em **modelo
+diferente** de quem produziu, e que o painel de juízes tenha **≥2 modelos
+distintos**. Isso depende de poder escolher o modelo de cada subagente. O app de
+chat não tem esse controle — lá a linha vira "o mesmo modelo com prompts
+diferentes", que é exatamente o que a skill diz **não** ser separação: *"o ponto
+cego é do modelo, não do prompt"*.
 
 Aqui existe a ferramenta `Agent`, com `model` por chamada.
+
+> **Não confunda os dois "desktop".** O **Claude Code** — no terminal do Windows
+> ou no app desktop — tem a ferramenta `Agent` e roda a linha inteira, igual a
+> aqui. Quem degrada para monomodelo é só o **app de chat**. Teste de 10 segundos:
+> peça um `git status`; se rodar, é Claude Code. Ver `docs/DECISOES.md`, entrada
+> *"'Desktop' são duas coisas"*.
 
 ## Os degraus (a skill manda; isto é só o mapa para cá)
 

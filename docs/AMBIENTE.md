@@ -95,7 +95,7 @@ por estimativa.
 | MCP `DataForSeo`, `BD - *`, `SEO - Hapvida`, `site_tabela_planos`, `seo-tools` | ✅ | rodam no servidor, fora deste contêiner |
 | `pip install` | ✅ | pypi liberado (`requirements.txt`) |
 | Subagentes com modelo por chamada (`Agent`) | ✅ | é o que torna a linha da v7.2 possível — ver `docs/LINHA-V7.md` |
-| `WebFetch` / `curl` para site externo | ❌ **bloqueado** (nível Trusted) | **a CI-1 não lê concorrente direto** — contorno em `docs/CI1-SEM-EGRESS.md`, solução em `docs/LIBERAR-REDE.md` |
+| `WebFetch` / `curl` para site externo | ✅ **liberado** (nível `Full` desde 28/08) | **a CI-1 lê concorrente direto, pela rota 1** — a escada de `docs/CI1-SEM-EGRESS.md` vira contingência; o histórico está em `docs/LIBERAR-REDE.md` |
 
 Meça na hora, não confie nesta tabela:
 

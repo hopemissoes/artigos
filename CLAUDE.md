@@ -114,10 +114,12 @@ Detalhes e diagnóstico: `docs/AMBIENTE.md`.
 
 **Duas coisas que mudam o trabalho neste ambiente:**
 
-- ❌ **`WebFetch` e `curl` não alcançam site externo** (política de rede). A CI-1
-  não lê concorrente pelo caminho normal. Rode `scripts/testar-egress.sh` **antes**
-  da CI-1 e siga a escada de `docs/CI1-SEM-EGRESS.md`. Trecho de busca **não** é
-  concorrente lido.
+- ✅ **`WebFetch` e `curl` alcançam site externo** — o ambiente está no nível de
+  rede `Full` (medido em 28/08: 5 alvos, nenhum bloqueado). **A CI-1 lê concorrente
+  direto, pela rota 1.** Ainda assim, rode `scripts/testar-egress.sh` **antes** de
+  toda CI-1: um domínio pode cair sozinho, e aí vale a escada de
+  `docs/CI1-SEM-EGRESS.md` — que agora é contingência, não o caminho normal.
+  Trecho de busca continua **não** sendo concorrente lido.
 - ✅ **Subagentes aceitam modelo por chamada** — é o que torna a linha multimodelo
   da v7.2 executável de verdade. Ver `docs/LINHA-V7.md`.
 
