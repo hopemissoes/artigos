@@ -21,7 +21,7 @@ curl -sL -m 30 \
 
 size=$(wc -c < "$out" 2>/dev/null || echo 0)
 title=$(grep -o -i -m1 '<title>[^<]*</title>' "$out" 2>/dev/null | sed 's/<[^>]*>//g')
-h2=$(grep -c -o -i '<h2' "$out" 2>/dev/null || echo 0)
+h2=$(grep -c -o -i '<h2' "$out" 2>/dev/null); h2=${h2:-0}
 
 echo "arquivo : ${out#$root/}"
 echo "tamanho : $size bytes"
