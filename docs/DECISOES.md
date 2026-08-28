@@ -94,3 +94,23 @@ bloqueio não o alcança.
 resolve na origem e devolve o `WebFetch`. É a rota 1, e é a preferida.
 
 ---
+## 2026-08-28 — Acesso de rede do ambiente: `Full`
+
+**Contexto:** o ambiente estava em `Trusted`, que não alcança site externo — a
+causa do incidente de 27/08, em que a CI-1 nunca leu um concorrente.
+
+**Decisão do usuário:** nível **`Full`**, não `Custom` com lista. Motivo: os
+concorrentes variam demais entre cidades e artigos; lista de domínios viraria
+manutenção permanente e, pior, falharia em silêncio a cada concorrente novo na
+SERP — reproduzindo o mesmo incidente por outro caminho.
+
+**Consequência:** `WebFetch` volta a funcionar e a CI-1 roda pela rota 1. As rotas
+2 a 5 de `docs/CI1-SEM-EGRESS.md` continuam documentadas como contingência — um
+domínio pode cair sozinho a qualquer momento, e o `scripts/testar-egress.sh`
+continua sendo o primeiro passo de toda CI-1.
+
+**O que não muda:** o proxy de segurança continua à frente do tráfego em qualquer
+nível. E página de concorrente segue sendo conteúdo não confiável: dado extraído
+dela é `[VERIFICAR]` até bater com fonte primária.
+
+---

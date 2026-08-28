@@ -25,10 +25,10 @@ abriu um concorrente, e duas afirmações saíram falsas. Ver `docs/DECISOES.md`
 ### Rota 1 — liberar o domínio no ambiente (a solução de verdade)
 
 O ambiente está no nível **Trusted**, que não libera site externo. Passando para
-**Custom** com a lista de domínios, o `WebFetch` volta a funcionar e a CI-1 roda
-como foi desenhada.
+**Full**, o `WebFetch` volta a funcionar e a CI-1 roda como foi desenhada — sem
+lista de domínios para manter, que é o ponto: concorrente muda a cada cidade.
 
-**Passo a passo e lista pronta para colar: `docs/LIBERAR-REDE.md`.**
+**Passo a passo: `docs/LIBERAR-REDE.md`.**
 
 **Esta é a rota preferida. As outras são contorno.**
 
