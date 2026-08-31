@@ -1,0 +1,40 @@
+======================================================================
+VARREDURA FINAL ANTI-DOORWAY [V7.2] — artigos/hapclinica-duque-de-caxias-manaus/artigo.html
+tipo: hospital | cidade: Manaus | ancoras carregadas: 0 | irmaos: 4
+======================================================================
+
+D1 · TESTE DE SUBSTITUICAO
+   texto visivel julgado: 2043 palavras
+   em paragrafos SEM ancora local: 31.3%
+   - <p> para casos que nao exigem exame fisico a rede oferece teleconsulta pelo mesmo aplicativo alternativa a vir ate...
+   - <p> alem de manha e tarde o cadastro registra turno da noite na praca 14 o que abre agenda...
+   - <p> o que a unidade oferece alem da consulta esta nomeado nesta ordem e com estas palavras em um...
+   - <p> ao marcar pelo app diga que o exame e na hapclinica duque de caxias laboratorio ultrassom raio x...
+   - <p> uma avaliacao publicada em diretorio cita espera na unidade marcar para o comeco do expediente antes que a...
+   - <p> horario manha tarde e noite conforme o cadastro oficial o horario exato de abertura e fechamento nao e...
+   - <p> contato nao ha telefone proprio divulgado para a unidade o agendamento passa pela central de atendimento da hapvida...
+   - <p> a unidade atende de manha a tarde e a noite e o que o cadastro oficial registra e...
+   (+7 paragrafos genericos)
+
+D2 · SECAO SEM ANCORA LOCAL
+   nenhuma — toda secao tem ancora local
+
+D3 · CLICHE DE OPERADORA / REGULATORIO
+   nenhum da lista
+
+D4 · SOBREPOSICAO COM ARTIGOS IRMAOS
+   - clinicas-hapvida-por-capital.html        0.0% de shingles | maior trecho identico: 8 palavras
+   - hospital-nilton-lins-hapvida-manaus.ht   0.0% de shingles | maior trecho identico: 8 palavras
+   - plano-hapvida-manaus.html                0.0% de shingles | maior trecho identico: 0 palavras
+   - plano-hapvida-rio-de-janeiro.html        0.0% de shingles | maior trecho identico: 0 palavras
+
+D5 · TITULO E META NO TESTE DE SUBSTITUICAO
+   title e meta citam a cidade
+
+----------------------------------------------------------------------
+🟡 AVISOS (1)
+   - D1 31.3% do texto sem ancora local (alerta a partir de 30%)
+
+✅ APROVADO — nenhuma medida de doorway estourou o limite.
+   Lembrete: o script mede repeticao e ausencia de ancora. A consulta
+   ao banco (overlaps, FAQs, saturacao) continua sendo do Agente 21.
