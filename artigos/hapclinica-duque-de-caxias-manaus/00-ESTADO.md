@@ -15,11 +15,14 @@
 
 ## Fase atual
 
-- **Fase:** Estágio 3 fechado (artigo escrito e costurado). **Estágio 4 em curso**
-  — auditorias 12, 13, 14, 15 e a voz humana 19, em paralelo.
-- **Próximo passo concreto:** revisar as cinco saídas, aplicar o procedente e
-  disparar o Estágio 5 (painel 16a/16b/16c e varredura final 21).
-- **Bloqueios:** nenhum. O usuário aprovou o valor comercial indireto em 2026-08-31.
+- **Fase:** LINHA DA v7.2 COMPLETA — 25 agentes, 5 estágios. Artigo pronto,
+  todas as travas verdes, varredura final aprovada sem avisos.
+- **Próximo passo concreto:** decisão do usuário sobre 3 pendências que o
+  orquestrador NÃO pode executar sozinho (ver "Pendências para o usuário").
+  Depois: gerar schema (execução separada), publicar no WordPress e registrar
+  no banco (Agente 18).
+- **Bloqueios:** o artigo em si não tem bloqueio. O que falta é decisão e dado
+  de campo.
 
 ## Portões
 
@@ -41,7 +44,9 @@
 | Citabilidade (`checkpoint_citabilidade.py`) | ✅ aprovado | 5 reprovadas → 0 |
 | Completude (`checkpoint_completude.py`) | ✅ aprovado | 6 H2, 12 FAQ, 2.346 palavras |
 | `[VERIFICAR]` / tokens (`checkpoint_verificar.py`) | ✅ aprovado | lista de tokens corrigida antes |
-| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ Estágio 5 | |
+| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ✅ aprovado | `checkpoints/doorway_final.txt` — 0 avisos, D1 12,1%, D4 0,0% contra os 4 irmãos |
+| Painel de juízes 16a/16b/16c | ✅ 3 rodadas de correção | 16a 5,0 · 16b 4,0 · 16c 6,5 na 1ª leitura; tudo corrigido |
+| Varredura humana (Agente 21) | ✅ PUBLICA COM RESSALVA | itens do artigo aplicados; itens dos irmãos pendentes |
 | Registro no banco Supabase | ⬜ pendente | |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
@@ -95,6 +100,24 @@ sustenta é o turno de manhã, tarde e noite.
 
 Não citar, em nenhuma hipótese: lista de especialidades (os diretórios se
 contradizem), ano de inauguração, nome de médico e estacionamento — todos sem fonte.
+
+## Pendências para o usuário — NÃO executáveis pelo orquestrador
+
+1. **O horário real da unidade.** Três versões e nenhuma primária: CNES garante
+   só manhã/tarde/noite; um diretório diz 6h-20h; o **nosso hub, no ar, diz
+   7h-19h**. Alguém precisa ligar na unidade. O artigo hoje não afirma hora.
+2. **A coordenada.** CNES (-3.101992, -60.025113) e a página oficial da Hapvida
+   (-3.119259) estão a **2,43 km**. Nenhuma pode ir para o `schema.json`.
+3. **Correções em páginas NO AR** (exigem autorização expressa — regra da
+   `pendencias-tabelaplanos`):
+   - `clinicas-hapvida-por-capital`: criar link descendente para este artigo
+     (é a condição para o spoke ter chance na keyword) e remover a lista de
+     especialidades da unidade, que não tem fonte primária;
+   - `plano-hapvida-manaus`: corrigir "Av. Camapuã, **8**" para **695** no PA
+     Cidade Nova (é endereço de emergência, e está errado independentemente
+     deste artigo); rever o horário 7h-19h e o "10+ especialidades".
+4. **`[URL_DA_IMAGEM]`** — a imagem de abertura ainda não existe.
+5. No registro pós-publicação, `registrar_uso_faq` para os templates 95, 64 e 11.
 
 ## Fio condutor
 

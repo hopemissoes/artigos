@@ -521,11 +521,12 @@ kit_onpage:
   intencao_principal: navigational
   posicoes_principal:
     h1: "Hapclínica Duque de Caxias (Manaus): endereço, horário e como marcar consulta"
-    title: "Hapclínica Duque de Caxias Manaus: Horário e Como Marcar 2026"
+    title: "Hapclínica Duque de Caxias em Manaus: Turnos e Como Marcar"
     url: "hapclinica-duque-de-caxias-manaus"
-    meta: "A Hapclínica Duque de Caxias fica na Av. Duque de Caxias, 1905, Praça 14 de Janeiro, em Manaus. Veja horário de atendimento, como marcar consulta e para onde ir quando o caso não é de ambulatório."
+    meta: "Hapclínica Duque de Caxias, Praça 14 de Janeiro, Manaus: em que turnos atende, como marcar consulta e exame e para onde ir se o caso não for de ambulatório."
     primeiro_paragrafo: "sim — lead GEO com a passagem citável de 40-60 palavras"
     h2: "o H2 da HS3 contém a keyword principal junto de 'endereço e horário'"
+    nota_horario_e_logradouro: "Correção do Agente 21: o title dizia Horário e a meta dizia Veja horário de atendimento, mas a página NÃO entrega hora exata por decisão da própria pesquisa — prometer no title o que a página não dá é o pior dos dois mundos. Trocado por Turnos. E a meta trazia o prefixo Av., que a regra logradouro_em_conflito proíbe; agora não tem prefixo."
     nota_especialidades: "nem o H1 nem o title nem a meta prometem lista de especialidades — a seção 8 proíbe afirmá-la e prometer no título o que não se pode entregar é o pior dos dois mundos. Achado convergente dos Agentes 6 e 24."
   valor_comercial_da_pagina: "INDIRETO, e isto fica declarado por escrito. Esta página não converte pela keyword: quem busca a unidade em geral já é beneficiário. Ela converte pela ponte da HS4 para o hub plano-hapvida-manaus e pelo reforço de autoridade tópica do cluster de Manaus. Quem busca também inclui quem avalia a rede antes de contratar — mas não é a maioria. Declaração exigida pelo juiz P-B (Agente 24) no refino de 2026-08-31."
   secundarias:
