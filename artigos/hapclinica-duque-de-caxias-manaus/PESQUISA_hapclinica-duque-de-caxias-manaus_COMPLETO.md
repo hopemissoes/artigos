@@ -276,7 +276,21 @@ fonte: "skill hapvida-data, seções 'Which Brand for Which City' e 'Which Copay
 
 ---
 
-## 5 · DR1 PARTE 3---
+## 5 · DR1 PARTE 3### 4.5 Fonte primária encontrada no Estágio 4 (Agente 12) — serviços da unidade
+
+O que a FASE 0 não achou e a auditoria de veracidade achou: a própria operadora
+publica uma página de notícia sobre esta unidade.
+
+url: "https://www2.hapvida.com.br/noticias/ampliação-da-haplínica-duque-de-caxias"
+titulo_literal: "Ampliação da Haplínica Duque de Caxias"
+texto_literal: "Agora, em Manaus, você pode contar com mais serviços: laboratório, ultrassom, raio X e mamografia."
+o_que_isso_resolve: "nomeia LABORATÓRIO, ULTRASSOM, RAIO X e MAMOGRAFIA nesta unidade, em fonte primária da operadora. Fecha o item de coleta que estava em nao_encontrado."
+o_que_isso_NAO_resolve: "não há data de publicação em lugar nenhum da página — nem em meta, nem em og, nem em JSON-LD, nem no corpo (que é JavaScript e não renderiza). Portanto é PROIBIDO escrever recência: nada de recentemente ampliada, nova, agora conta com. Afirmar o serviço, jamais a data."
+distincao_importante: "isto é lista de SERVIÇO vinda da operadora, não lista de ESPECIALIDADE MÉDICA vinda de diretório. A proibição da seção 8 e os tokens neurologia e clínico geral continuam valendo — o que caiu foi só o item de coleta."
+confirma_tambem: "a frase da própria operadora diz em Manaus, o que reforça a desambiguação central do artigo."
+fonte: "leitura do HTML da página oficial por curl e WebFetch, 2026-08-31"
+
+---
 
 ## 5 · DR1 PARTE 3 — CONTEXTO LOCAL
 
@@ -375,7 +389,7 @@ nao_encontrado:
     conclusao: "nenhuma fonte confiável. NÃO citar nome de médico."
   - procurei: "confirmação de que a unidade faz coleta laboratorial própria"
     onde: "guia oficial, CNES, diretórios"
-    conclusao: "o CNES registra serviço de apoio, o que é compatível com coleta, mas não a nomeia. Tratar como VERIFICAR antes de afirmar."
+    conclusao: "RESOLVIDO em 2026-08-31 pelo Agente 12 — ver seção 4.5. A operadora nomeia os serviços na própria página de notícia da unidade. O campo do CNES continua NÃO servindo de lastro."
   - procurei: "prova documental do que a unidade NAO faz (cirurgia, obstetricia, internacao)"
     onde: "campos booleanos da ficha CNES, testados comparativamente em 3 unidades"
     conclusao: "os booleanos nao sao preenchidos para estabelecimento privado — ver secao 3.1. NAO citar esses campos como prova de nada. O que sustenta o escopo e o codigo_tipo_unidade 4 (Policlinica) e o turno de tres turnos."
