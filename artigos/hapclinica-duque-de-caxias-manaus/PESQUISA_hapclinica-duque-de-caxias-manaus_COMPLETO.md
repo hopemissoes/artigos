@@ -394,13 +394,13 @@ FORBIDDEN_TOKENS:
 Duque de Caxias/RJ como sede da unidade
 Hospital do Coração
 Centro Clínico Duque de Caxias  # EXCEÇÃO ÚNICA: permitido apenas na frase de negação da HS1, do tipo "se você procura o Centro Clínico Duque de Caxias do Rio de Janeiro, é outra unidade". Em qualquer outra posição, reprova.
-pronto-socorro 24h
-urgência 24 horas
-internação
-centro cirúrgico
-maternidade
-parto
-UTI
+pronto-socorro na Hapclínica
+urgência 24 horas na Hapclínica
+internação na Hapclínica
+centro cirúrgico na Hapclínica
+maternidade na Hapclínica
+parto na Hapclínica
+UTI na Hapclínica
 atende pelo SUS
 implante dentário
 Invisalign
@@ -430,6 +430,24 @@ de entrada ambulatorial" usa artigo definido para 1 de 10 clínicas de Manaus; "
 ficha do CNES prova" e "sem centro cirúrgico segundo o CNES" são a afirmação que a
 seção 3.1 derrubou; "o horário mais largo entre as clínicas" é o superlativo que
 nunca foi medido contra as outras 9 unidades.
+
+**Correção de 2026-08-31, depois de rodar o `checkpoint_verificar` no HTML.** A
+primeira lista proibia as PALAVRAS "internação", "parto", "UTI", "maternidade",
+"centro cirúrgico" e "pronto-socorro 24h". Isso estava errado por dois motivos:
+
+1. **Bloqueava o próprio ganho do artigo.** O CI-2 desta página é o roteiro de
+   encaminhamento — dizer que quem precisa de internação vai ao Nilton Lins e quem
+   vai ter parto vai ao São Lucas ou ao Rio Amazonas. Sem essas palavras não há
+   como escrever o encaminhamento, e o artigo perde exatamente aquilo que o
+   distingue de um diretório.
+2. **A trava faz busca de substring no HTML cru**, então token curto colide com o
+   texto de sistema. "UTI" reprovava o artigo por casar dentro do comentário
+   `/* === UTILITY CLASSES === */` do CSS padrão da skill — um falso positivo
+   garantido em qualquer artigo do site.
+
+Os tokens passaram a nomear a unidade ("internação na Hapclínica"), que é o que de
+fato não pode ser afirmado. A palavra solta, usada para mandar o leitor à unidade
+certa, é o objetivo do artigo, não a violação.
 
 ---
 

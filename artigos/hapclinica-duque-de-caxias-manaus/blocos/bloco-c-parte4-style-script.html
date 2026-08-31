@@ -1,0 +1,104 @@
+<style>
+/* === UTILITY CLASSES === */
+.fx{display:flex!important}
+.fx-col{display:flex!important;flex-direction:column!important}
+.fx-center{display:flex!important;align-items:center!important;justify-content:center!important}
+
+/* === GRIDS (FLEXBOX) === */
+.grid2{display:flex!important;flex-wrap:wrap!important;gap:16px!important}
+.grid3{display:flex!important;flex-wrap:wrap!important;gap:16px!important}
+.grid4{display:flex!important;flex-wrap:wrap!important;gap:12px!important}
+.grid5{display:flex!important;flex-wrap:wrap!important;gap:12px!important}
+
+/* === ANTI-WPAUTOP (GRIDS) === */
+.grid2>p,.grid2>br,.grid3>p,.grid3>br,.grid4>p,.grid4>br,.grid5>p,.grid5>br{display:none!important;margin:0!important;padding:0!important;height:0!important;line-height:0!important}
+
+/* === ANTI-WPAUTOP (SUMÁRIO) === */
+.toc-list>p,.toc-list>br,.toc-item>p,.toc-item>br{display:none!important}
+
+/* === ANTI-WPAUTOP (BOXES) === */
+.box-row>p{display:contents!important}
+.box-row>br{display:none!important}
+
+/* === ANTI-WPAUTOP (STEPS) === */
+.step-row>p,.step-row>br,.step-col>p,.step-col>br{display:none!important}
+
+/* === ANTI-WPAUTOP (CHECKLIST DE DOCUMENTOS) === */
+.doc-col>p,.doc-col>br{display:none!important}
+.doc-row>p{display:contents!important}
+.doc-row>br{display:none!important}
+
+/* === PARÁGRAFOS === */
+article p{text-align:justify!important}
+
+/* === EXCEÇÃO COTAÇÃO === */
+.titulo-cotacao,.subtitulo-cotacao,.titulo-cotacao .elementor-heading-title,.subtitulo-cotacao .elementor-heading-title{text-align:center!important}
+
+/* === CARDS === */
+.card-head{display:flex!important;align-items:center!important;gap:12px!important;margin-bottom:14px}
+.card-icon{flex-shrink:0!important}
+
+/* === ANIMATED HIGHLIGHT (REFORÇO) === */
+.destaque-laranja-suave{
+background-image:linear-gradient(120deg,rgba(255,107,0,0.22) 0%,rgba(255,133,51,0.22) 100%);
+background-repeat:no-repeat;
+background-position:0 50%;
+background-size:100% 100%;
+padding:2px 6px;
+transition:background-size 1.2s ease-out;
+}
+
+/* === FAQ === */
+details summary{list-style:none}
+details summary::-webkit-details-marker{display:none}
+details[open] summary span:last-child{transform:rotate(45deg)}
+
+/* === SCROLL SUAVE === */
+html{scroll-behavior:smooth}
+
+/* === RESPONSIVO (apenas padding/font — NÃO grids) === */
+@media(max-width:768px){
+section{padding:10px 5px!important}
+table{font-size:13px!important}
+.toc-item a{font-size:14px!important}
+}
+
+/* === [V5] LANDING === */
+.v5-sticky-cta{display:none!important}
+.v5-sticky-cta.v5-on{display:flex!important}
+@media(min-width:769px){.v5-sticky-cta{display:none!important}}
+.v5-tabbar{display:none!important}
+.v5-tabs.v5-on .v5-tabbar{display:flex!important}
+.v5-tabs.v5-on .v5-panel{display:none!important}
+.v5-tabs.v5-on .v5-panel.v5-active{display:block!important}
+.v5-tabbtn{background:#fff;border:1px solid #e2e8f0;color:#4a5568;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;cursor:pointer;font-family:inherit}
+.v5-tabbtn.v5-active{background:#ff6b00!important;border-color:#ff6b00!important;color:#fff!important}
+.v5-reveal{transition:opacity .6s ease-out,transform .6s ease-out}
+.v5-chips>p,.v5-chips>br,.v5-tabbar>p,.v5-tabbar>br,.v5-tabs>p,.v5-tabs>br,.v5-trust>p,.v5-trust>br,.v5-sticky-cta>p,.v5-sticky-cta>br,.v5-hero-conv>p,.v5-hero-conv>br{display:none!important}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+var els=document.querySelectorAll('.destaque-laranja-suave');
+if(!els.length)return;
+els.forEach(function(el){el.style.backgroundSize='0% 100%';});
+var ob=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting){
+e.target.style.backgroundSize='100% 100%';
+ob.unobserve(e.target);
+}
+});
+},{threshold:0.5});
+els.forEach(function(el){ob.observe(el);});
+function fixCotacao(){
+document.querySelectorAll('.titulo-cotacao,.subtitulo-cotacao,.titulo-cotacao .elementor-heading-title,.subtitulo-cotacao .elementor-heading-title').forEach(function(el){el.style.setProperty('text-align','center','important');});
+}
+fixCotacao();
+setTimeout(fixCotacao,500);
+setTimeout(fixCotacao,1500);
+setTimeout(fixCotacao,3000);
+var mo=new MutationObserver(fixCotacao);
+mo.observe(document.body,{childList:true,subtree:true});
+setTimeout(function(){mo.disconnect();},10000);
+});
+</script>
