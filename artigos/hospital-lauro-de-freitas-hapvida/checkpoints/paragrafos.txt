@@ -2,25 +2,23 @@
 ===========================================================================
 CHECKPOINT — TAMANHO DE PARÁGRAFO (artigo.html)
 ===========================================================================
-Total <p> de corpo: 23
-  ✅ Aprovados (≤380 chars):     16
-  ⚠️  No limite (381-480 chars): 7
+Total <p> de corpo: 24
+  ✅ Aprovados (≤380 chars):     18
+  ⚠️  No limite (381-480 chars): 6
   ❌ Reprovados (>480 chars):     0
 
-⚠️  PARÁGRAFOS NO LIMITE (7) — aceitar só se a divisão prejudicar o sentido:
+⚠️  PARÁGRAFOS NO LIMITE (6) — aceitar só se a divisão prejudicar o sentido:
    P5: 387 chars (~5.2 linhas)
         Ser classificado como hospital geral, e não como pronto atendimento, é o que muda a rotina de quem m...
-   P7: 450 chars (~6.0 linhas)
-        A unidade não nasceu hospital. Abriu como pronto atendimento e virou hospital numa segunda etapa, in...
-   P9: 403 chars (~5.4 linhas)
+   P10: 403 chars (~5.4 linhas)
         A pergunta mais útil, na prática, não é essa. É a outra: este caso é de hospital? Consulta marcada, ...
-   P12: 420 chars (~5.6 linhas)
-        Sobre a estrutura interna, vale uma nota de honestidade que os concorrentes não fazem: a ficha públi...
-   P15: 391 chars (~5.2 linhas)
+   P13: 388 chars (~5.2 linhas)
+        Sobre a estrutura interna, vale uma nota que os concorrentes não fazem: a ficha pública da unidade n...
+   P16: 391 chars (~5.2 linhas)
         O segundo problema é mais sério, e vale conhecer antes de precisar. O registro do hospital no CNES t...
-   P16: 396 chars (~5.3 linhas)
+   P17: 396 chars (~5.3 linhas)
         Quem pesquisa hoje pelo hospital no Google recebe, na resposta automática do topo da página, o númer...
-   P17: 418 chars (~5.6 linhas)
+   P18: 418 chars (~5.6 linhas)
         Para quem vem de Salvador, o acesso é pela Estrada do Coco no sentido litoral norte, depois da saída...
 
 ✅ CHECKPOINT APROVADO — bloco pode ser apresentado ao usuário.

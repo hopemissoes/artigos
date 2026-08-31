@@ -303,7 +303,7 @@ Sustenta a HS3 e a FAQ 1, e **não** é o eixo do artigo:
 ## 8. Não encontrado [V7.2]
 
 nao_encontrado:
-- número de leitos e de leitos de UTI do hospital — onde foi procurado: ficha CNES (sub-módulo não renderiza por curl), Guia Médico oficial (campo ausente), as 5 páginas concorrentes. O artigo de Salvador afirma "20 leitos de internação adulto, 10 leitos de UTI" **sem fonte declarada** → não reproduzir. Entra em FORBIDDEN_TOKENS.
+- **[CORRIGIDO em 2026-08-31, depois da 1ª entrega]** número de leitos e de UTI: **existe fonte, e é boa.** A ampliação de setembro de 2025 foi noticiada por Correio 24 Horas (30/09/2025), Bahia News e Jornal O Candeeiro, com declaração de Daniel Bonini, diretor corporativo de implantação de novas unidades da Hapvida: 20 leitos de internação adulto, 10 leitos de UTI, centro cirúrgico para múltiplas especialidades, parque de diagnóstico novo, urgência 24h mantida, e mais de R$ 93 milhões investidos desde 2019. **O dado do artigo de Salvador está CORRETO** — a suspeita anterior era minha, e estava errada. Os números continuam fora do artigo apenas porque o `checkpoint_verificar.py` bloqueia mecanicamente qualquer padrão `N leitos`/`N UTIs`; a ampliação entrou na HS1 de forma qualitativa e datada.
 - acreditação ONA do Hospital Lauro de Freitas — onde foi procurado: Guia Médico oficial, CNES, imprensa local. Nada encontrado.
 - lista de especialidades do corpo clínico — onde foi procurado: Guia Médico oficial (bloco "Especialidades" existe na página e vem **vazio**).
 - horário de funcionamento por setor (laboratório, imagem, farmácia) — onde foi procurado: Guia Médico oficial (bloco "Horários de funcionamento" vazio) e CNES (só declara "Sempre aberto" para o estabelecimento).
@@ -316,6 +316,9 @@ nao_encontrado:
 
 ## 9. FORBIDDEN_TOKENS
 
+<!-- Nota: os tokens de contagem abaixo NÃO estão aqui por falta de fonte — a ampliação de
+     set/2025 é bem documentada (ver seção 8). Estão aqui porque o checkpoint_verificar.py
+     bloqueia mecanicamente contagem de leitos/UTI e telefone no corpo de qualquer artigo. -->
 FORBIDDEN_TOKENS:
 - 20 leitos
 - 10 leitos de UTI

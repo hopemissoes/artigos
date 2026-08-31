@@ -2,7 +2,7 @@ Checkpoint COMPLETUDE (hospital) — artigo.html
 --------------------------------------------------------
   [OK   ] Secoes (<h2>): 6 (min. 5)
   [OK   ] Perguntas de FAQ: 8 (min. 6)
-  [OK   ] Palavras de corpo: 2387 (min. 800)
+  [OK   ] Palavras de corpo: 2416 (min. 800)
   [OK   ] Dica DRV (E-E-A-T): sim
   [OK   ] Secao de rede: sim
 --------------------------------------------------------

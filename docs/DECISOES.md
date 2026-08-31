@@ -176,3 +176,14 @@ artigos publicados usam **15px**. A diferença não é cosmética: o
 medir a passagem citável. Com o subtítulo em 18px, ele lê o subtítulo (uma linha)
 e reprova **todas** as seções do artigo. Decisão: seguir o `SKILL.md` (15px).
 Pendente: corrigir o `components.md` da skill via `skill-creator`.
+
+**Lição — não confundir "não achei" com "não existe".** Na FASE 0 eu procurei o
+número de leitos do Hospital Lauro de Freitas no CNES (sub-módulo não renderiza
+por curl) e no Guia Médico (campo vazio), não achei, e concluí que o artigo de
+Salvador afirmava o dado sem fonte. **Errado.** A ampliação de set/2025 tem três
+veículos independentes e declaração de executivo nomeado da Hapvida — só não
+estava nas fontes que eu tinha consultado. A busca só apareceu quando o usuário
+perguntou se Salvador precisava de mudança. **Regra derivada: antes de marcar um
+dado de artigo publicado como "sem fonte", rodar uma busca de notícia com o nome
+da unidade e o ano.** É a mesma regra que a skill já aplica ao NotebookLM
+("negativa nunca vem do caderno"), estendida ao meu próprio processo.

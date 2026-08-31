@@ -37,7 +37,7 @@
 | Completude (`checkpoint_completude.py`) | ✅ aprovado | `checkpoints/completude.txt` — 6 H2, 8 FAQ, 2.373 palavras |
 | `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ✅ aprovado | `checkpoints/verificar.txt` — 11 tokens armados, nenhum no texto |
 | Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ✅ aprovado | `checkpoints/doorway_final.txt` — **0,0% de sobreposição com Salvador** |
-| Registro no banco Supabase | ⬜ pendente | |
+| Registro no banco Supabase | ✅ feito | id 194 · 3 hospitais · 4 links · 8 FAQs |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
 
@@ -63,7 +63,15 @@ Detalhe e onde foi procurado: seção 8 do state file.
 ## Pendências a propor ao usuário (não gravadas no banco)
 
 1. **Catálogo incompleto:** `consultar_rede` não tem a *Clínica Lauro de Freitas II* nem a *Unidade de Autorização Lauro de Freitas*, que existem no Guia Médico oficial. Sugerir `adicionar_unidade_rede`.
-2. **Possível erro no artigo de Salvador:** a S4 afirma "20 leitos de internação adulto, 10 leitos de UTI" sem fonte declarada. Nenhuma fonte primária confirma. Sugerir revisão.
+2. ~~Possível erro no artigo de Salvador sobre leitos~~ — **RETIRADA em 2026-08-31. Eu estava errado.**
+   A ampliação de set/2025 é bem documentada (Correio 24 Horas 30/09, Bahia News, Jornal O Candeeiro,
+   com fala de Daniel Bonini, da Hapvida). O dado de Salvador está correto.
+2b. **`urgencia-e-emergencia-hapvida` merece nuance:** o box "Importante" afirma que Salvador tem
+   "apenas uma unidade hospitalar própria com emergência 24h". É verdade para o município, mas o
+   Hospital Lauro de Freitas atende urgência 24h na RMS — para o leitor da região metropolitana a
+   frase induz a erro.
+2c. **Grafia inconsistente de Teresa/Tereza de Lisieux** entre o catálogo de rede (Tereza), o artigo
+   de Salvador (Teresa), a pillar de urgência (Tereza) e a de Feira de Santana (Teresa).
 3. **Pauta candidata:** `urgência e emergência hapvida salvador` — existe spoke para Recife, Fortaleza e Goiânia, não para Salvador.
 4. Registrar **1031776** na tabela de `location_code` da skill `dataforseo-tabelaplanos`.
 
@@ -79,6 +87,14 @@ Detalhe e onde foi procurado: seção 8 do state file.
 - **Sem telefone e sem contagem de leitos no corpo** — trava `checkpoint_verificar.py`. O card da
   HS3 encaminha aos canais oficiais e o artigo diz, com todas as letras, por que não publica esses
   números (os campos estão vazios na ficha pública). Isso virou ponto de E-E-A-T, não limitação.
+
+## Correção de rota (2026-08-31, após a 1ª entrega)
+
+Na primeira entrega eu disse que o artigo de Salvador afirmava "20 leitos, 10 de UTI" sem fonte.
+**Estava errado.** A ampliação de setembro de 2025 é bem documentada. A HS1 do artigo foi reescrita
+para incluí-la (qualitativa e datada, sem contagens, que a trava bloqueia) e a HS2 perdeu a frase
+falsa "nenhuma fonte primária confirma esses dados hoje". Travas rerodadas, todas verdes; o
+anti-doorway contra Salvador seguiu em **0,0%** mesmo com o fato novo.
 
 ## Fio condutor
 
