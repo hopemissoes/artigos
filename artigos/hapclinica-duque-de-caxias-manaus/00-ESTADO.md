@@ -15,11 +15,11 @@
 
 ## Fase atual
 
-- **Fase:** Estágio 2 encerrado. Duas rodadas de juízes (o máximo que a skill
-  permite) — **aguardando decisão do usuário** para abrir o Estágio 3.
-- **Próximo passo concreto:** o usuário decide se aceita o valor comercial
-  INDIRETO desta página como preço do cluster. Aceitando, disparar os redatores.
-- **Bloqueios:** nenhum técnico. Zero 🔴 aberto. O que trava é decisão de negócio.
+- **Fase:** Estágio 3 fechado (artigo escrito e costurado). **Estágio 4 em curso**
+  — auditorias 12, 13, 14, 15 e a voz humana 19, em paralelo.
+- **Próximo passo concreto:** revisar as cinco saídas, aplicar o procedente e
+  disparar o Estágio 5 (painel 16a/16b/16c e varredura final 21).
+- **Bloqueios:** nenhum. O usuário aprovou o valor comercial indireto em 2026-08-31.
 
 ## Portões
 
@@ -33,12 +33,15 @@
 | Conferência de fatos (agente 6) | ✅ corrigido | derrubou os booleanos do CNES |
 | Conferência DataForSeo (agente 7) | ✅ corrigido | 3 divergências de keyword |
 | Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` — reprovou na 1ª e passou após correção |
-| Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
-| Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | |
-| Voz humana (`checkpoint_voz.py`) | ⬜ pendente | |
-| Completude (`checkpoint_completude.py`) | ⬜ pendente | |
-| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ⬜ pendente | |
-| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ pendente | |
+| Kit on-page (`checkpoint_onpage.py`) | 🟡 no Agente 14 | |
+| Preço-primeiro (`checkpoint_preco_primeiro.py`) | ✅ aprovado | hospital: regra 1 dispensada |
+| Voz humana (`checkpoint_voz.py`) | ✅ aprovado | 0 tique, 0 aviso de densidade |
+| Parágrafos (`checkpoint_paragrafos.py`) | ✅ aprovado | 0 acima de 480 chars |
+| Ritmo visual (`checkpoint_ritmo_visual.py`) | ✅ aprovado | 7 seções, 0 reprovada |
+| Citabilidade (`checkpoint_citabilidade.py`) | ✅ aprovado | 5 reprovadas → 0 |
+| Completude (`checkpoint_completude.py`) | ✅ aprovado | 6 H2, 12 FAQ, 2.346 palavras |
+| `[VERIFICAR]` / tokens (`checkpoint_verificar.py`) | ✅ aprovado | lista de tokens corrigida antes |
+| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ Estágio 5 | |
 | Registro no banco Supabase | ⬜ pendente | |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
@@ -62,6 +65,18 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
 - 2026-08-31 — `checkpoint_suficiencia` reprovou na 1ª rodada (FAQ sem âncora local,
   2 secundárias de intenção de quem já é cliente, ganho sem nível, diferenciais
   genéricos). Corrigido de verdade e aprovado na 2ª.
+- 2026-08-31 — **os campos booleanos do CNES não provam nada** (medido em 3
+  unidades, inclusive um PA 24h: todos zerados). Tese refeita sobre
+  `codigo_tipo_unidade` 4 e o turno de três turnos. Seção 3.1 do state file.
+- 2026-08-31 — **a lista de FORBIDDEN_TOKENS foi corrigida**: proibia as palavras
+  "internação", "parto", "UTI", que são o próprio encaminhamento — o ganho do
+  artigo. E "UTI" dava falso positivo casando dentro do comentário
+  `/* === UTILITY CLASSES === */` do CSS padrão. Tokens passaram a nomear a
+  unidade ("internação na Hapclínica").
+- 2026-08-31 — o artigo NÃO leva o `<script>` aditivo [V5]: não usa componente V5,
+  e carregar JS morto é perda.
+- 2026-08-31 — links de coparticipação e carência seguem fora por saturação; a
+  ponte de coparticipação é o pillar do plano ambulatorial.
 
 ## Dados que faltam
 
