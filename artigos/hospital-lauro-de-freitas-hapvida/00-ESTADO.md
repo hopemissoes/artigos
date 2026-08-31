@@ -12,6 +12,7 @@
 - **Aberto em:** 2026-08-31
 - **URL de destino:** https://tabelaplanos.com.br/hospital-lauro-de-freitas-hapvida/
 - **Keyword principal:** hospital lauro de freitas hapvida — 2.900/mês, KD 0, competição LOW
+- **H1 / Title / Meta:** fechados e validados — ver `kit-onpage.md`
 - **Hub (artigo de cidade):** plano-hapvida-salvador2
 
 ## Fase atual
