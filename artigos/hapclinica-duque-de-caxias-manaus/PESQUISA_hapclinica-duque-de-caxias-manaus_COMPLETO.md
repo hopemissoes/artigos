@@ -65,7 +65,7 @@
 ### 1.3 Canibalização
 
 - URLs do tabelaplanos.com.br nesta SERP: 1 (clinicas-hapvida-por-capital, pos. 13 mobile / 14 desktop)
-- veredito: não há canibalização hoje. Com 2 URLs passa a haver risco — a fronteira da seção 12 existe para isso.
+- veredito: não há canibalização hoje. Com 2 URLs passa a haver risco — a fronteira está na seção 15.4 e a ação no lado do pillar está na seção 16.1.
 - fonte: DataForSeo serp_local, 2026-08-31
 
 ---
@@ -156,14 +156,51 @@ fonte: leitura direta da página por WebFetch em 2026-08-31
 
 ## 3 · CI-2 — GANHO DE INFORMAÇÃO
 
-- ganho_de_informacao: "O roteiro do paciente da Praça 14 de Janeiro."
-- defensibilidade: 1
-- em_uma_frase: "A Hapclínica é a porta de entrada ambulatorial da rede em Manaus, e a ficha CNES prova campo a campo tudo o que ela não faz."
-- desenvolvimento: "A ficha oficial do estabelecimento registra ausência de centro cirúrgico, de centro obstétrico, de centro neonatal, de atendimento hospitalar e de atendimento pelo SUS. Nenhuma página da SERP menciona um único desses campos, e nenhuma diz para onde o paciente deve ir em cada um desses casos — informação que só existe cruzando a ficha CNES com o catálogo próprio da rede de Manaus."
-- por_que_e_defensavel: "o cruzamento é entre a ficha CNES da unidade e o catálogo interno de rede; o concorrente tem um dos dois lados, nunca os dois, e a IA não sintetiza o segundo sozinha"
-- must_match: "endereço, horário, telefone, especialidades e como chegar — o piso que todo diretório já entrega e que o artigo tem de igualar antes de superar"
-- brecha_principal: "todos param no endereço; nenhum orienta"
-- fonte: "cruzamento próprio entre a ficha CNES 9505970 e o catálogo de rede do Supabase, 2026-08-31"
+- ganho_de_informacao: "O roteiro de encaminhamento por vocação da rede de Manaus."
+- defensibilidade: 2
+- em_uma_frase: "Esta é uma policlínica de consulta e exame com hora marcada, e quem chega aqui com um caso que ela não resolve precisa saber para qual das outras unidades da rede ir."
+- desenvolvimento: "O CNES registra a unidade como POLICLINICA (codigo_tipo_unidade 4) e com atendimento em tres turnos — manha, tarde e noite —, e nao como pronto atendimento nem como hospital. Cruzando isso com o catalogo proprio da rede em Manaus, sai o que nenhum concorrente da SERP oferece: para onde o paciente vai quando o caso e urgencia, parto, pediatria ou alta complexidade."
+- por_que_e_defensavel: "o lado CNES desta unidade ja esta na SERP (o concorrente da posicao 5 e um despejo automatico da base CNES). O que nao esta em lugar nenhum e o encaminhamento por vocacao, que so existe cruzando o registro publico com o catalogo interno da rede. Por isso o nivel honesto e 2, nao 1."
+- rebaixado_de: "nivel 1 para nivel 2 no refino de 2026-08-31, por decisao do juiz P-B (Agente 24): metade do cruzamento ja esta publicada."
+- must_match: "endereco, horario, tipo de atendimento e como chegar. ATENCAO: a lista de especialidades NAO entra no must-match — a pesquisa provou que as fontes se contradizem e a secao 8 proibe afirma-la. O must-match de servico e 'consulta e exame com hora marcada', que o tipo CNES sustenta."
+- brecha_principal: "todos param no endereco; nenhum orienta"
+- fonte: "ficha CNES 9505970 cruzada com o catalogo de rede do Supabase, 2026-08-31"
+
+### 3.1 · CORRECAO CRITICA — os campos booleanos do CNES NAO servem de prova
+
+Na primeira redacao desta pesquisa o ganho do CI-2 se apoiava nos campos
+booleanos da ficha CNES (`possui_centro_cirurgico`, `possui_centro_obstetrico`,
+`possui_centro_neonatal`, `possui_atendimento_hospitalar`) para "provar campo a
+campo" o que a unidade nao faz. **Isso estava errado e foi medido.**
+
+Teste feito em 2026-08-31: consultamos os mesmos campos em tres unidades Hapvida
+de Manaus na mesma API oficial.
+
+| Unidade | CNES | tipo | turno | os 4 booleanos |
+|---|---|---|---|---|
+| Hapclinica Duque de Caxias | 9505970 | 4 | manha, tarde e noite | todos 0 |
+| Pronto Atendimento Cidade Nova | 9676783 | 73 | continuo 24 horas | todos 0 |
+| Medicina Preventiva TEA Adrianopolis | 9676759 | 73 | continuo 24 horas | todos 0 |
+
+O Pronto Atendimento Cidade Nova funciona 24 horas e, ainda assim, aparece com
+`possui_atendimento_ambulatorial: 0`. **Conclusao: esses booleanos nao sao
+preenchidos para estabelecimento privado neste dataset — sao zero para todos,
+independentemente da realidade. Nao provam nada e nao podem ser citados.**
+
+O que sobra, e que e confiavel porque VARIA entre as unidades (logo, esta
+preenchido de verdade):
+
+- `codigo_tipo_unidade`: **4 (Policlinica)** aqui, contra 73 (Pronto Atendimento)
+  nas outras duas. Este campo discrimina.
+- `descricao_turno_atendimento`: **"ATENDIMENTO NOS TURNOS DA MANHA, TARDE E
+  NOITE"** aqui, contra "ATENDIMENTO CONTINUO DE 24 HORAS/DIA" nas outras duas.
+  Este campo discrimina, e e ele que sustenta "a unidade nao e 24h".
+
+- fonte: "consulta comparativa a apidadosabertos.saude.gov.br nos CNES 9505970, 9676783 e 9676759, 2026-08-31"
+
+> **Licao registrada:** campo zerado em base publica pode significar "nao tem" ou
+> "ninguem preencheu". A unica forma de saber e checar se o campo VARIA na mesma
+> base. Achado do Agente 6 no portao de pesquisa.
 
 ---
 
@@ -174,24 +211,20 @@ fonte: leitura direta da página por WebFetch em 2026-08-31
 nome_oficial: "Clínica Duque de Caxias (nome fantasia no CNES: HAPCLINICA DUQUE DE CAXIAS)"
 tipo: "proprio"
 endereco: "Avenida Duque de Caxias, 1905 - Praça 14 de Janeiro, Manaus - AM, CEP 69020-141"
-telefone: "4002-3633"
-horario: "segunda a sexta, 06:00 às 20:00; sábado, 06:00 às 17:00"
-turno_cnes: "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE (código 04)"
+telefone: "[VERIFICAR: 4002-3633 é o número de atendimento da Hapvida, não uma linha exclusiva desta unidade — o mesmo número consta do artigo do Hospital Nilton Lins. A ficha CNES traz o campo de telefone vazio e o guia oficial não renderiza número. Não apresentar como telefone da unidade.]"
+horario: "segunda a sexta, 06:00 às 20:00; sábado, 06:00 às 17:00 — [VERIFICAR] de precisão: o horário exato vem de diretório que espelha o CNES; o que a fonte primária sustenta é o turno de manhã, tarde e noite"
+turno_cnes: "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE (código 04) — campo confiável, varia entre unidades"
 codigo_cnes: "9505970"
 codigo_estabelecimento_saude: "1302609505970"
 cnpj: "63.554.067/0197-00"
 razao_social: "HAPVIDA ASSISTENCIA MEDICA S A"
-tipo_estabelecimento: "Policlínica (código de tipo de unidade 4)"
-atividade_principal: "consulta ambulatorial"
+tipo_estabelecimento: "Policlínica (codigo_tipo_unidade 4) — campo confiável, varia entre unidades"
+atividade_principal: "consulta e exame com hora marcada, compatível com o tipo Policlínica registrado no CNES"
 coordenadas: "-3.101992443429473, -60.02511262893677"
 acessibilidade: "piso tátil, banheiro acessível, rampa acessível"
-atende_sus: "não"
-possui_centro_cirurgico: "não"
-possui_centro_obstetrico: "não"
-possui_centro_neonatal: "não"
-possui_atendimento_hospitalar: "não"
-possui_servico_apoio: "sim"
-leitos: "nenhum — a unidade é ambulatorial e não tem internação, o que a ficha CNES confirma pela ausência de atendimento hospitalar"
+atende_sus: "[VERIFICAR: o campo do CNES diz NAO, mas ele devolve NAO para as três unidades testadas e por isso não se provou discriminante; é plausível para unidade privada, e não deve ser afirmado como fato apurado]"
+campos_booleanos_cnes: "NÃO USAR — medidos como não preenchidos, ver seção 3.1"
+leitos: "nenhum — coerente com o tipo Policlínica; a ausência de internação NÃO deve ser sustentada nos booleanos do CNES, e sim no tipo de estabelecimento"
 no_catalogo: "sim — Supabase, consultar_rede, id 10"
 no_guia_oficial: "sim — a página da unidade responde e traz endereço e acessibilidade"
 data_atualizacao_cnes: "2025-09-03"
@@ -220,12 +253,24 @@ Mapa de vocações, para o roteiro de encaminhamento do CI-2:
 
 unidades_alvo_documentadas: 1
 todos_com_endereco: sim
-todos_com_telefone: sim
-todos_com_horario: sim
+todos_com_telefone: não — o número que circula é o de atendimento da Hapvida, não da unidade
+todos_com_horario: sim, com a ressalva de precisão registrada na 4.1
 bairro: "Praça 14 de Janeiro, zona centro-sul de Manaus"
 fonte: "ficha CNES 9505970 e catálogo próprio, 2026-08-31"
 
+### 4.4 Quais produtos dão acesso a esta unidade (sustenta a HS4)
+
+Coletado no refino de 2026-08-31 porque a HS4 estava órfã — achado do Agente 23.
+
+marca_na_praca: "Manaus é Norte, logo a marca é Hapvida (e não GNDI/NotreDame, que opera Grande SP e RJ)"
+linhas_de_produto: "Nosso Plano, Mix e Pleno"
+relacao_produto_acesso: "as três linhas dão acesso à rede própria, e esta unidade é rede própria (catálogo id 10). O que muda entre elas é a rede credenciada em volta, não o acesso à unidade."
+tabela_de_coparticipacao_da_praca: "Tabela 1 — Manaus está na lista de Tabela 1, junto com Fortaleza, Recife, Salvador, Belém e as demais capitais do Norte, Nordeste, Centro-Oeste e Sul"
+fonte: "skill hapvida-data, seções 'Which Brand for Which City' e 'Which Copayment Table for Which City'"
+
 ---
+
+## 5 · DR1 PARTE 3---
 
 ## 5 · DR1 PARTE 3 — CONTEXTO LOCAL
 
@@ -325,6 +370,12 @@ nao_encontrado:
   - procurei: "confirmação de que a unidade faz coleta laboratorial própria"
     onde: "guia oficial, CNES, diretórios"
     conclusao: "o CNES registra serviço de apoio, o que é compatível com coleta, mas não a nomeia. Tratar como VERIFICAR antes de afirmar."
+  - procurei: "prova documental do que a unidade NAO faz (cirurgia, obstetricia, internacao)"
+    onde: "campos booleanos da ficha CNES, testados comparativamente em 3 unidades"
+    conclusao: "os booleanos nao sao preenchidos para estabelecimento privado — ver secao 3.1. NAO citar esses campos como prova de nada. O que sustenta o escopo e o codigo_tipo_unidade 4 (Policlinica) e o turno de tres turnos."
+  - procurei: "telefone proprio da unidade"
+    onde: "ficha CNES (campo vazio), guia oficial (nao renderiza), diretorios"
+    conclusao: "o 4002-3633 e o numero de atendimento da Hapvida, usado tambem pelo Hospital Nilton Lins. NAO apresentar como telefone da unidade."
   - procurei: "estacionamento da unidade"
     onde: "guia oficial, diretórios, mapas"
     conclusao: "sem fonte. NÃO afirmar que há ou que não há."
@@ -351,6 +402,13 @@ clareamento dental
 tratamento de canal
 145 leitos
 Baixada Fluminense
+69000-000
+neurologia
+clínico geral
+a porta de entrada ambulatorial
+a ficha do CNES prova
+sem centro cirúrgico segundo o CNES
+o horário mais largo entre as clínicas
 
 Motivo de cada bloco: os cinco primeiros são da unidade homônima do Rio de Janeiro
 e do Hospital do Coração — confundi-los é o erro central que esta pesquisa
@@ -358,6 +416,14 @@ desarmou. Os seguintes são serviços que a ficha CNES prova que a unidade NÃO 
 Os quatro procedimentos odontológicos vêm do diretório que classificou a policlínica
 como consultório de odontologia. "145 leitos" é um conflito aberto registrado no
 artigo do Nilton Lins e não pode vazar para cá.
+
+Acrescentados no refino de 2026-08-31, por achado dos juízes de pesquisa:
+"69000-000" é o CEP falso publicado por um diretório; "neurologia" e "clínico geral"
+são a lista de especialidades de fonte única que a seção 8 proíbe afirmar; "a porta
+de entrada ambulatorial" usa artigo definido para 1 de 10 clínicas de Manaus; "a
+ficha do CNES prova" e "sem centro cirúrgico segundo o CNES" são a afirmação que a
+seção 3.1 derrubou; "o horário mais largo entre as clínicas" é o superlativo que
+nunca foi medido contra as outras 9 unidades.
 
 ---
 
@@ -398,60 +464,69 @@ kit_onpage:
   dificuldade_principal: 0
   intencao_principal: navigational
   posicoes_principal:
-    h1: "Hapclínica Duque de Caxias (Manaus): horários, especialidades e como marcar"
+    h1: "Hapclínica Duque de Caxias (Manaus): endereço, horário e como marcar consulta"
     title: "Hapclínica Duque de Caxias Manaus: Horário e Como Marcar 2026"
     url: "hapclinica-duque-de-caxias-manaus"
-    meta: "A Hapclínica Duque de Caxias fica na Av. Duque de Caxias, 1905, Praça 14 de Janeiro, em Manaus. Veja horário, telefone, o que a unidade faz e o que não faz, e como marcar."
+    meta: "A Hapclínica Duque de Caxias fica na Av. Duque de Caxias, 1905, Praça 14 de Janeiro, em Manaus. Veja horário de atendimento, como marcar consulta e para onde ir quando o caso não é de ambulatório."
     primeiro_paragrafo: "sim — lead GEO com a passagem citável de 40-60 palavras"
     h2: "o H2 da HS3 contém a keyword principal junto de 'endereço e horário'"
+    nota_especialidades: "nem o H1 nem o title nem a meta prometem lista de especialidades — a seção 8 proíbe afirmá-la e prometer no título o que não se pode entregar é o pior dos dois mundos. Achado convergente dos Agentes 6 e 24."
+  valor_comercial_da_pagina: "INDIRETO, e isto fica declarado por escrito. Esta página não converte pela keyword: quem busca a unidade em geral já é beneficiário. Ela converte pela ponte da HS4 para o hub plano-hapvida-manaus e pelo reforço de autoridade tópica do cluster de Manaus. Quem busca também inclui quem avalia a rede antes de contratar — mas não é a maioria. Declaração exigida pelo juiz P-B (Agente 24) no refino de 2026-08-31."
   secundarias:
-    - kw: "hapvida manaus marcar consulta"
-      volume: 720
-      dificuldade: 32
-      intencao: transactional
-      veredito: qualificada
-      onde_entra: "H2 da HS2"
-      cluster_candidata: sim
     - kw: "marcar consulta hapvida manaus"
       volume: 720
       dificuldade: 13
       intencao: navigational
       veredito: qualificada
-      onde_entra: "H3 dentro da HS2 e FAQ 4"
+      audiencia: "mista — beneficiário atual em maioria, mais quem avalia a rede antes de contratar"
+      onde_entra: "H3 dentro da HS2 e FAQ 4 — sem H2 dedicado, por decisão do refino"
       cluster_candidata: não
+    - kw: "hapvida manaus marcar consulta"
+      volume: 720
+      dificuldade: 32
+      intencao: transactional
+      veredito: qualificada
+      audiencia: "mista"
+      onde_entra: "corpo da HS2, variação natural"
+      cluster_candidata: sim
     - kw: "hapvida consultas manaus"
       volume: 720
       dificuldade: 53
       intencao: informational
       veredito: qualificada
+      audiencia: "mista"
       onde_entra: "corpo da HS2"
       cluster_candidata: não
-    - kw: "laboratorios hapvida manaus"
+    - kw: "laboratórios hapvida manaus"
       volume: 210
       dificuldade: 0
       intencao: navigational
       veredito: qualificada
+      audiencia: "mista"
       onde_entra: "HS2, no trecho de exames, com link para o pillar de laboratórios"
       cluster_candidata: sim
-    - kw: "laboratorio hapvida manaus"
+    - kw: "laboratório hapvida manaus"
       volume: 210
       dificuldade: 7
       intencao: navigational
       veredito: qualificada
-      onde_entra: "HS2, variação natural no mesmo trecho de exames"
+      audiencia: "mista"
+      onde_entra: "HS2, variação natural no mesmo trecho"
       cluster_candidata: não
     - kw: "centro clinico duque de caxias"
       volume: 720
       dificuldade: 0
       intencao: navigational
       veredito: qualificada
-      onde_entra: "HS1, no parágrafo de desambiguação entre Manaus e Rio de Janeiro"
+      audiencia: "quem procura a unidade e pode estar no município errado"
+      onde_entra: "HS1, no parágrafo de desambiguação — USAR SÓ EM NEGAÇÃO: o termo também está em FORBIDDEN_TOKENS porque nomeia a unidade do Rio de Janeiro. A frase é do tipo 'se você procura o Centro Clínico Duque de Caxias do Rio, é outra unidade'. Ressalva pedida pelo Agente 6."
       cluster_candidata: sim
     - kw: "clinica hapvida manaus"
       volume: 10
-      dificuldade: 0
+      dificuldade: "sem dado — a API devolveu keyword_difficulty null, e null não é zero"
       intencao: navigational
       veredito: qualificada
+      audiencia: "mista"
       onde_entra: "HS1, variação de entidade"
       cluster_candidata: não
   descartadas_por_intencao:
@@ -491,26 +566,27 @@ kit_onpage:
 ## 13 · DR2 PARTE 2 — DIFERENCIAIS ÚNICOS
 
 - categoria: escopo assistencial
-  titulo: "A policlínica da Praça 14 que resolve consulta e exame, e só"
-  dado_quantitativo: "quatro campos zerados na ficha CNES: centro cirúrgico, centro obstétrico, centro neonatal e atendimento hospitalar"
-  vs_concorrentes: "nenhum dos quatro concorrentes lidos menciona um único desses campos"
+  titulo: "A policlínica da Praça 14: consulta e exame com hora marcada"
+  dado_quantitativo: "codigo_tipo_unidade 4 (Policlínica) no CNES, contra 73 (Pronto Atendimento) das unidades de urgência da mesma rede em Manaus"
+  vs_concorrentes: "nenhum dos quatro concorrentes lidos explica o que o tipo de estabelecimento significa para quem vai ser atendido"
   por_que_importa: "evita que o paciente vá à Praça 14 com um caso de urgência e perca tempo"
-  defensibilidade: 1
-  fonte: "ficha CNES 9505970"
+  defensibilidade: 2
+  fonte: "consulta comparativa à API do CNES nos estabelecimentos 9505970, 9676783 e 9676759"
 
 - categoria: acesso
-  titulo: "Abre às 06:00 — o horário mais largo entre as clínicas da Hapvida em Manaus"
-  dado_quantitativo: "seg-sex 06:00 às 20:00 e sáb 06:00 às 17:00 — 14 horas por dia útil"
-  vs_outras_cidades: "é horário de clínica de rede própria, mais largo que o comercial de 8h às 18h que o público supõe"
-  por_que_importa: "quem trabalha consegue ir antes do expediente ou no sábado"
+  titulo: "Três turnos em Manaus, e por que isso não é o mesmo que 24 horas"
+  dado_quantitativo: "turno CNES 04, manhã, tarde e noite — contra o turno contínuo de 24 horas registrado no Pronto Atendimento Cidade Nova"
+  vs_concorrentes: "os diretórios publicam um horário e nenhum diz o que ele implica"
+  por_que_importa: "quem trabalha consegue ir cedo ou no fim da tarde, e quem precisa de madrugada sabe que aqui não é o lugar"
   defensibilidade: 2
-  fonte: "turno CNES 04 e o horário publicado pelo diretório que espelha o CNES"
+  fonte: "campo descricao_turno_atendimento da ficha CNES, comparado entre três unidades"
 
 - categoria: custo
   titulo: "O que se paga por consulta e exame nesta unidade de Manaus"
-  dado_quantitativo: "consulta eletiva R$ 25,42, exame simples R$ 45,79 e exame complexo R$ 114,48 na faixa demais capitais"
-  por_que_importa: "a unidade só faz consulta e exame — que são justamente os itens com coparticipação, ao contrário de internação e cirurgia, que são isentos"
+  dado_quantitativo: "Tabela 1 de coparticipação: consulta eletiva R$ 25,42, exame simples R$ 45,79, exame complexo R$ 114,48"
+  por_que_importa: "a unidade só faz consulta e exame — justamente os itens com coparticipação, ao contrário de internação e cirurgia, que são isentos"
   defensibilidade: 1
+  ressalva: "o VALOR não é exclusivo desta unidade: vale para toda a faixa Tabela 1. O que é local é a pertinência — aqui a coparticipação incide em 100% do que a unidade faz. Ressalva pedida pelo Agente 24."
   fonte: consultar_coparticipacao
 
 - categoria: orientação
@@ -519,9 +595,12 @@ kit_onpage:
   vs_concorrentes: "zero concorrentes oferecem encaminhamento"
   por_que_importa: "é a única informação da página que o paciente não acha em mapa nem em diretório"
   defensibilidade: 2
+  ressalva: "o roteiro é da REDE, não desta unidade — serviria a qualquer clínica de Manaus. O que o ancora aqui é o ponto de partida: quem já está na Praça 14. Ressalva pedida pelo Agente 24."
   fonte: "consultar_rede e o artigo irmão do Hospital Nilton Lins"
 
 ---
+
+## 14 · DR2 PARTE 3---
 
 ## 14 · DR2 PARTE 3 — FAQ LOCAL
 
@@ -543,9 +622,17 @@ arquétipo de unidade exige.
 11. Gestante faz pré-natal ou parto na clínica da Praça 14 de Janeiro?
 12. Quanto custa a coparticipação de uma consulta particular de plano nessa Hapclínica de Manaus?
 
+> **Duas FAQ dependem de item pendente — não responder afirmativamente sem confirmar.**
+> A FAQ 6 (coleta e exames) repousa no item 4 do `nao_encontrado`: o CNES registra
+> serviço de apoio mas não nomeia coleta. A FAQ 9 (ônibus) repousa na linha 542,
+> que veio de agregador de transporte. As duas ou são confirmadas pela central da
+> Hapvida antes do Bloco A, ou a resposta é escrita no condicional, dizendo o que
+> se sabe e o que confirmar. Achado convergente dos Agentes 23 e 24.
+
 total: 12
 com_dado_local: 12
 genericas: 0
+dependentes_de_verificar: 2 (as de número 6 e 9)
 teste_troca_cidade: "trocar a unidade por outra faz a pergunta perder sentido — sim, nas 12"
 
 ---
@@ -566,15 +653,35 @@ teste_substituicao: PASSOU — 4 de 5 blocos perdem o sentido, cerca de 85% do c
 
 ### 15.2 Dados únicos da praça
 
-dados_unicos: 18 — PASSOU
+Recontados no refino de 2026-08-31 depois do juiz P-B (Agente 24) mostrar que a
+lista anterior inflava: ela misturava dado da UNIDADE com dado da REDE e com dado
+da FAIXA de coparticipação, e ainda contava os quatro booleanos do CNES que a
+seção 3.1 derrubou. O teste correto não é trocar a cidade — é **trocar a unidade
+dentro de Manaus**.
 
-São eles: código CNES 9505970; código de estabelecimento 1302609505970; CNPJ
-63.554.067/0197-00; tipo Policlínica; turno 04 manhã, tarde e noite; horário
-06:00 às 20:00 nos dias úteis; horário 06:00 às 17:00 no sábado; ausência de centro
-cirúrgico; ausência de centro obstétrico; ausência de centro neonatal; ausência de
-atendimento hospitalar; ausência de atendimento pelo SUS; presença de serviço de
-apoio; coordenadas -3.101992 e -60.025113; CEP 69020-141; telefone 4002-3633; nota
-3,1 com 247 avaliações; atualização da ficha CNES em 2025-09-03.
+dados_unicos: 12 — PASSOU
+
+Sobrevivem ao teste duro (só existem NESTA unidade):
+
+1. código CNES 9505970
+2. código de estabelecimento 1302609505970
+3. CNPJ 63.554.067/0197-00
+4. `codigo_tipo_unidade` 4, Policlínica — as unidades de urgência da mesma rede são tipo 73
+5. turno de manhã, tarde e noite — as unidades de urgência têm turno contínuo de 24 horas
+6. horário 06:00 às 20:00 nos dias úteis
+7. horário 06:00 às 17:00 no sábado
+8. coordenadas -3.101992 e -60.025113
+9. CEP 69020-141
+10. endereço na Avenida Duque de Caxias, 1905, Praça 14 de Janeiro
+11. nota 3,1 com 247 avaliações no Google
+12. atualização da ficha CNES em 2025-09-03
+
+Reclassificados, e por isso FORA da conta:
+
+- telefone 4002-3633 → é da Hapvida, não da unidade
+- coparticipação R$ 25,42 / 45,79 / 114,48 → é da Tabela 1 inteira
+- mapa de vocações da rede de Manaus → é da rede, serve a qualquer clínica da praça
+- os quatro campos booleanos do CNES → não são preenchidos, ver seção 3.1
 
 ### 15.3 Frases banidas
 
@@ -590,6 +697,12 @@ infraestrutura moderna estão fora, e a HS1 troca cada uma delas por campo de fi
 | clinicas-hapvida-por-capital (pillar, id 147) | uma frase listando as 6 Hapclínicas e uma linha de endereço no buscador | não repetir a lista das outras clínicas; este artigo é sobre uma unidade só |
 | hospital-nilton-lins-hapvida-manaus (spoke, id 193) | urgência 24h, UTI, cirurgia, hospital-escola, internação | não falar de urgência, UTI nem internação a não ser para encaminhar em uma frase |
 | plano-hapvida-rio-de-janeiro (id 28) | as duas unidades de Duque de Caxias no RJ e a FAQ da Baixada | não descrever a rede do RJ; a desambiguação cabe em uma frase e um link |
+
+### 15.5 Ação pendente no lado do pillar (achado do Agente 24)
+
+O plano de links só previa o spoke linkando o pillar. Sem o link descendente do
+pillar para o spoke, a hierarquia entre as duas páginas fica por conta do Google —
+que é exatamente o que produz canibalização. Ver a ação na seção 16.1.
 
 anti-doorway: APROVADO — teste de substituição em cerca de 85%, 18 dados únicos, zero frase genérica e fronteira escrita contra os 4 irmãos.
 
@@ -615,26 +728,49 @@ de unidade pede um link de coparticipação; ele foi substituído pelo pillar do
 ambulatorial, que é tematicamente mais próximo de uma policlínica e está em faixa
 normal.
 
+### 16.1 Ação no lado do pillar — a proposta, não a execução
+
+Depois de publicado este spoke, o pillar `clinicas-hapvida-por-capital` (id 147)
+precisa de duas coisas, e nenhuma delas é feita por conta própria:
+
+1. um link descendente da frase que ele já tem sobre a unidade da Praça 14 para
+   este artigo, fixando a hierarquia hub → spoke;
+2. uma decisão sobre o que aquela frase passa a dizer — hoje ela lista as seis
+   Hapclínicas de Manaus numa linha só.
+
+**Isto é uma proposta de pendência, não uma pendência criada.** A skill
+`pendencias-tabelaplanos` proíbe gravar pendência no banco sem autorização
+expressa do usuário. Fica registrado aqui para ser levado ao usuário junto com o
+artigo pronto.
+
 ---
 
 ## 17 · RESUMO
 
 ```
 ═══════════════════════════════════════════
-PESQUISA COMPLETA — PRONTA PARA O PORTÃO HUMANO
-Alvo: Hapclínica Duque de Caxias, Manaus/AM  |  Tipo: unidade HS1-HS4
-SERP: 10 orgânicos, mobile e desktop, sem featured snippet
+PESQUISA COMPLETA — REFINADA APOS O PORTAO DE PESQUISA
+Alvo: Hapclinica Duque de Caxias, Manaus/AM  |  Tipo: unidade HS1-HS4
+SERP: 10 organicos, mobile e desktop, sem featured snippet
 CI-1: 4 concorrentes lidos por WebFetch, com headings literais
-Keywords: principal 6.600/mês KD 0 + 7 secundárias qualificadas + 7 descartadas por intenção
-Kit on-page: H1, title, URL, meta, primeiro parágrafo e H2 rascunhados
-Rede mapeada: 1 unidade-alvo com ficha CNES completa  |  Diferenciais: 4
-FAQ: 12, todas nomeando a unidade, zero sobreposição com os irmãos
-Dados únicos: 18  |  Itens a verificar: 2 (coleta laboratorial e linha de ônibus)
+Keywords: principal 6.600/mes KD 0 + 7 secundarias qualificadas + 7 descartadas
+Valor comercial: INDIRETO e declarado — a pagina converte pela ponte da HS4
+Kit on-page: H1/title/meta SEM promessa de especialidades
+Rede mapeada: 1 unidade-alvo, tipo CNES 4 (Policlinica), tres turnos
+Produtos que dao acesso: Nosso Plano, Mix e Pleno (marca Hapvida, Norte)
+Diferenciais: 4, dois deles com ressalva de abrangencia escrita
+FAQ: 12, duas dependentes de item [VERIFICAR]
+Dados unicos: 12 (recontados no teste de troca de UNIDADE, nao de cidade)
 Fan-out: 7 sub-perguntas — 5 aqui, 2 no cluster
-Defensibilidade: 4 dados de nível 1-2  |  Ganho do CI-2 é nível 1
-Anti-doorway: APROVADO
+Defensibilidade: ganho do CI-2 rebaixado de nivel 1 para nivel 2, com motivo
+Anti-doorway: APROVADO   |   Acao no pillar: proposta na secao 16.1
+CORRECAO CRITICA: os booleanos do CNES nao provam nada — ver secao 3.1
 ═══════════════════════════════════════════
 ```
+
+---
+
+## 18 ·```
 
 ---
 

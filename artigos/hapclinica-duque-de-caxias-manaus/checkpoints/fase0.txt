@@ -26,7 +26,7 @@ CHECKPOINT FASE 0 [V7.2] — PESQUISA_hapclinica-duque-de-caxias-manaus_COMPLETO
    secundárias qualificadas: 7 (mín. 6)
    dados de defensibilidade nível 1-2: 9 (mín. 3)
    sub-perguntas de fan-out: 7 (mín. 5)
-   dados únicos declarados: 18 (mín. 10)
+   dados únicos declarados: 12 (mín. 10)
 
 4 · RECÊNCIA DA COLETA
    2026-08-31  -                         0 dias
@@ -42,9 +42,11 @@ CHECKPOINT FASE 0 [V7.2] — PESQUISA_hapclinica-duque-de-caxias-manaus_COMPLETO
    aprovação explícita na linha do rótulo: sim
 
 6 · SEÇÃO 9 — FORBIDDEN_TOKENS
-   17 token(s) proibido(s): Duque de Caxias/RJ como sede da unidade, Hospital do Coração, Centro Clínico Duque de Caxias, pronto-socorro 24h, urgência 24 horas
+   24 token(s) proibido(s): Duque de Caxias/RJ como sede da unidade, Hospital do Coração, Centro Clínico Duque de Caxias, pronto-socorro 24h, urgência 24 horas
 
 --------------------------------------------------------------------
+🟡 AVISOS (1)
+   - 4 item(ns) [VERIFICAR] — NÃO podem entrar no artigo
 
 ✅ APROVADO — state file completo e preenchido.
    Atenção: APROVADO aqui = dado coletado e com fonte. NÃO é juízo de
