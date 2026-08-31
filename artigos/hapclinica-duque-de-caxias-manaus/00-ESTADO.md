@@ -15,11 +15,11 @@
 
 ## Fase atual
 
-- **Fase:** portão humano APROVADO em 2026-08-31. Linha multiagente da v7.2
-  autorizada e disparada. **Estágio 2 em curso** (agentes 6, 7, 23 e 24).
-- **Próximo passo concreto:** revisar as quatro saídas do Estágio 2. Liberado o
-  portão de pesquisa, disparar o Estágio 3 (redatores 8, 9 e 10).
-- **Bloqueios:** nenhum. Nenhum HTML pode ser escrito até 23 e 24 liberarem.
+- **Fase:** Estágio 2 encerrado. Duas rodadas de juízes (o máximo que a skill
+  permite) — **aguardando decisão do usuário** para abrir o Estágio 3.
+- **Próximo passo concreto:** o usuário decide se aceita o valor comercial
+  INDIRETO desta página como preço do cluster. Aceitando, disparar os redatores.
+- **Bloqueios:** nenhum técnico. Zero 🔴 aberto. O que trava é decisão de negócio.
 
 ## Portões
 
@@ -29,7 +29,9 @@
 | FASE 0 (`checkpoint_fase0.py`) | ✅ aprovado | `checkpoints/fase0.txt` |
 | Aprovação humana do state file | ✅ aprovado | usuário, 2026-08-31 |
 | Roteamento de modelos (`checkpoint_modelos.py`) | ✅ aprovado | `checkpoints/modelos.txt` — 4 modelos distintos |
-| Portão de pesquisa (agentes 23 e 24) | 🟡 em curso | |
+| Portão de pesquisa (agentes 23 e 24) | 🟡 2 rodadas, zero 🔴 | 23: 7/6 · 24: 8/7 — teto estrutural, não defeito |
+| Conferência de fatos (agente 6) | ✅ corrigido | derrubou os booleanos do CNES |
+| Conferência DataForSeo (agente 7) | ✅ corrigido | 3 divergências de keyword |
 | Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` — reprovou na 1ª e passou após correção |
 | Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
 | Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | |
@@ -63,19 +65,30 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
 
 ## Dados que faltam
 
-Dois itens a confirmar antes de publicar (estão em `nao_encontrado`/VERIFICAR):
+Quatro itens `[VERIFICAR]` que NÃO podem entrar no artigo como fato:
 
-1. **Coleta laboratorial própria** — o CNES registra serviço de apoio, o que é
-   compatível, mas não nomeia coleta. Confirmar pelo 4002-3633.
-2. **Linha de ônibus 542** — veio de agregador de transporte, não de fonte primária.
+1. **Telefone próprio da unidade** — o 4002-3633 é a central da Hapvida (o mesmo
+   número consta do artigo do Nilton Lins). A FAQ 5 se responde em negação.
+2. **Coleta laboratorial própria** — o CNES registra serviço de apoio, mas não
+   nomeia coleta.
+3. **Linha de ônibus 542** — veio de agregador de transporte.
+4. **Atendimento pelo SUS** — o campo do CNES diz NAO, mas devolve NAO para as
+   três unidades testadas e não se provou discriminante.
+
+E a precisão do horário (06:00-20:00) vem de diretório; o que a fonte primária
+sustenta é o turno de manhã, tarde e noite.
 
 Não citar, em nenhuma hipótese: lista de especialidades (os diretórios se
 contradizem), ano de inauguração, nome de médico e estacionamento — todos sem fonte.
 
 ## Fio condutor
 
-O roteiro do paciente da Praça 14. Esta é a porta de entrada ambulatorial da rede
-Hapvida em Manaus — e a ficha oficial do CNES prova, campo a campo, tudo o que ela
-**não** faz: sem centro cirúrgico, sem centro obstétrico, sem centro neonatal, sem
-internação e sem SUS. Toda a SERP para no endereço; este artigo é o único que diz
-para onde ir quando o caso não é de ambulatório.
+O roteiro do paciente da Praça 14. Esta é uma policlínica de consulta e exame com
+hora marcada — registrada no CNES como tipo 4 e operando em três turnos, não em
+regime contínuo como os prontos atendimentos da mesma rede (tipo 73). Quem chega
+aqui com um caso que ela não resolve precisa saber para qual unidade de Manaus ir.
+Toda a SERP para no endereço; este artigo é o único que orienta.
+
+⚠️ **Não escrever a negativa categórica** ("não faz cirurgia, não interna") como
+fato apurado — ver seção 3.1 do state file. Afirmar a classificação e substituir a
+negativa pelo encaminhamento nominal.

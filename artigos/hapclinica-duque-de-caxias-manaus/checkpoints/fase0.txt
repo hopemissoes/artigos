@@ -42,7 +42,7 @@ CHECKPOINT FASE 0 [V7.2] — PESQUISA_hapclinica-duque-de-caxias-manaus_COMPLETO
    aprovação explícita na linha do rótulo: sim
 
 6 · SEÇÃO 9 — FORBIDDEN_TOKENS
-   24 token(s) proibido(s): Duque de Caxias/RJ como sede da unidade, Hospital do Coração, Centro Clínico Duque de Caxias, pronto-socorro 24h, urgência 24 horas
+   24 token(s) proibido(s): Duque de Caxias/RJ como sede da unidade, Hospital do Coração, Centro Clínico Duque de Caxias  # EXCEÇÃO ÚNICA: permitido apenas na frase de negação da HS1, do tipo "se você procura o Centro Clínico Duque de Caxias do Rio de Janeiro, é outra unidade". Em qualquer outra posição, reprova., pronto-socorro 24h, urgência 24 horas
 
 --------------------------------------------------------------------
 🟡 AVISOS (1)

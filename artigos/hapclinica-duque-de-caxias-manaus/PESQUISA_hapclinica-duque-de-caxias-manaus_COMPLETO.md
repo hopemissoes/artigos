@@ -219,6 +219,8 @@ codigo_estabelecimento_saude: "1302609505970"
 cnpj: "63.554.067/0197-00"
 razao_social: "HAPVIDA ASSISTENCIA MEDICA S A"
 tipo_estabelecimento: "Policlínica (codigo_tipo_unidade 4) — campo confiável, varia entre unidades"
+tipo_confirmado_em_2a_fonte: "sim — o catálogo próprio (consultar_rede, id 10) tipa a unidade como Clínica, e o guia oficial da operadora a nomeia Clínica Duque de Caxias. São duas fontes independentes do CNES concordando com a classificação, o que fecha a regra das duas fontes para dado estrutural. Ressalva pedida pelo Agente 23."
+como_escrever_o_escopo: "AFIRMAR a classificação, NÃO a negativa categórica. Certo: 'está registrada como policlínica no CNES e opera em três turnos, não em regime contínuo'. Errado: 'não faz cirurgia nem internação' apresentado como fato apurado — nenhuma fonte lida sustenta a negativa direta, e os booleanos que pareciam sustentá-la caíram na seção 3.1. O que substitui a negativa é o encaminhamento: dizer onde a rede faz urgência, parto, pediatria e alta complexidade, nomeando as unidades."
 atividade_principal: "consulta e exame com hora marcada, compatível com o tipo Policlínica registrado no CNES"
 coordenadas: "-3.101992443429473, -60.02511262893677"
 acessibilidade: "piso tátil, banheiro acessível, rampa acessível"
@@ -259,6 +261,10 @@ bairro: "Praça 14 de Janeiro, zona centro-sul de Manaus"
 fonte: "ficha CNES 9505970 e catálogo próprio, 2026-08-31"
 
 ### 4.4 Quais produtos dão acesso a esta unidade (sustenta a HS4)
+
+> ⚠️ **Isto é dado de PRAÇA, não de unidade.** Vale para Manaus inteira e para
+> qualquer unidade própria da cidade. Entra na HS4 como ponte, e **não** pode ser
+> escrito como diferencial desta clínica. Ressalva pedida pelo Agente 23.
 
 Coletado no refino de 2026-08-31 porque a HS4 estava órfã — achado do Agente 23.
 
@@ -387,7 +393,7 @@ nao_encontrado:
 FORBIDDEN_TOKENS:
 Duque de Caxias/RJ como sede da unidade
 Hospital do Coração
-Centro Clínico Duque de Caxias
+Centro Clínico Duque de Caxias  # EXCEÇÃO ÚNICA: permitido apenas na frase de negação da HS1, do tipo "se você procura o Centro Clínico Duque de Caxias do Rio de Janeiro, é outra unidade". Em qualquer outra posição, reprova.
 pronto-socorro 24h
 urgência 24 horas
 internação
@@ -633,6 +639,13 @@ total: 12
 com_dado_local: 12
 genericas: 0
 dependentes_de_verificar: 2 (as de número 6 e 9)
+
+> **A FAQ 5 se responde em NEGAÇÃO ORIENTADA.** A pergunta é pelo número de
+> contato da unidade, e a seção 8 prova que essa linha própria não existe. A
+> resposta certa é dizer que o 4002-3633 é a central da Hapvida, não o telefone
+> da unidade, e indicar o caminho que funciona (app e canais da operadora).
+> Escrever o número como se fosse da unidade é o buraco que a própria pesquisa
+> cavou. Achado do Agente 24.
 teste_troca_cidade: "trocar a unidade por outra faz a pergunta perder sentido — sim, nas 12"
 
 ---
@@ -676,6 +689,13 @@ Sobrevivem ao teste duro (só existem NESTA unidade):
 11. nota 3,1 com 247 avaliações no Google
 12. atualização da ficha CNES em 2025-09-03
 
+> **O peso não está distribuído igualmente.** Sete dos doze (CNES, código de
+> estabelecimento, CNPJ, CEP, coordenadas, endereço e data de atualização) são
+> identidade de registro, que qualquer diretório da SERP também publica. Os que
+> discriminam de verdade são cinco: o tipo 4 contra o 73, o turno contra o
+> contínuo, os dois horários e a nota 3,1 com 247 avaliações. É neles que a
+> originalidade do artigo se apoia. Ressalva pedida pelo Agente 24.
+
 Reclassificados, e por isso FORA da conta:
 
 - telefone 4002-3633 → é da Hapvida, não da unidade
@@ -704,7 +724,7 @@ O plano de links só previa o spoke linkando o pillar. Sem o link descendente do
 pillar para o spoke, a hierarquia entre as duas páginas fica por conta do Google —
 que é exatamente o que produz canibalização. Ver a ação na seção 16.1.
 
-anti-doorway: APROVADO — teste de substituição em cerca de 85%, 18 dados únicos, zero frase genérica e fronteira escrita contra os 4 irmãos.
+anti-doorway: APROVADO — teste de substituição em cerca de 85%, 12 dados únicos, zero frase genérica e fronteira escrita contra os 4 irmãos.
 
 ---
 
