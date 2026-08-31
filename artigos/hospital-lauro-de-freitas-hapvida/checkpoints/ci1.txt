@@ -1,0 +1,67 @@
+==========================================================================
+CHECKPOINT CI-1 [V7.3] — o concorrente foi LIDO? — artigos/hospital-lauro-de-freitas-hapvida/PESQUISA_hospital-lauro-de-freitas-hapvida_COMPLETO.md
+==========================================================================
+
+CONCORRENTES LIDOS DE VERDADE: 5 (min. 3)
+
+  [OK] https://www.intermedicanotredameplanos.com.br/hapvida/hapvida-em-lauro-de-freitas/
+       11 headings literais (H2/H3) | rota: curl
+  [OK] http://hapvidavendassalvador.com.br/locais-de-atendimento/
+       4 headings literais (H2/H3) | rota: curl
+  [OK] https://planosaudefortaleza.com.br/artigos/hapvida-inaugura-pronto-atendimento-lauro-de-freitas-na-bahia/
+       3 headings literais (H2/H3) | rota: curl
+  [OK] https://saudece.com/hapvida-inaugura-pronto-atendimento-lauro-de-freitas-na-bahia/
+       3 headings literais (H2/H3) | rota: curl
+  [OK] https://vilasmagazine.com.br/sistema-hapvida-inaugura-hospital-em-lauro-de-freitas/
+       4 headings literais (H2/H3) | rota: curl
+
+NAO CONTAM (11):
+
+  [X] https://servicodados.ibge.gov.br/api/v3/agregados/6579
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://servicodados.ibge.gov.br/api/v1/localidades/municipios/2919207
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=2919200106534
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+  [X] https://www2.hapvida.com.br/unidades/hospital-lauro-de-freitas
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www2.hapvida.com.br/unidades/clinica-lauro-de-freitas-ii
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www2.hapvida.com.br/unidades/unidade-de-autorizacao-lauro-de-freitas
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] intermedicanotredameplanos.com.br
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] hapvidavendassalvador.com.br
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] planosaudefortaleza.com.br
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] saudece.com
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] vilasmagazine.com.br
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+
+--------------------------------------------------------------------------
+APROVADO — 5 concorrentes lidos na pagina.
+   (Piso de EXECUCAO. Se a leitura sustenta o artigo continua
+    sendo CI-2, Agentes 23/24 e o painel do Estagio 5.)

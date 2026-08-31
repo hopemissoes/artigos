@@ -1,0 +1,29 @@
+======================================================================
+SUFICIÊNCIA DA PESQUISA [V7.2] — PESQUISA_hospital-lauro-de-freitas-hapvida_COMPLETO.md
+tipo: hospital | cidade/eixo: Lauro de Freitas | âncoras: 18
+======================================================================
+
+A · MATRIZ DE SUFICIÊNCIA POR SEÇÃO (itens da pesquisa que a sustentam)
+   HS1 o hospital                          92 item(ns)
+   HS2 estrutura e serviços                19 item(ns)
+   HS3 como usar                           26 item(ns)
+   HS4 rede em volta                       52 item(ns)
+
+B · FAQ — LOCAL DE VERDADE?
+   perguntas: 14 | sem âncora local: 0 (0.0%, limite 20%)
+
+C · VETO DE INTENÇÃO NAS SECUNDÁRIAS
+   secundárias qualificadas com intenção de quem JÁ é cliente: 0
+
+D · GANHO DE INFORMAÇÃO (CI-2) — nível de defensibilidade
+   nível declarado: 1
+
+E · DIFERENCIAIS COM ÂNCORA LOCAL
+   diferenciais: 5 | sem âncora local: 1 (20%)
+   - acessibilidade declarada pela operadora nesta unidade — piso tátil, banheiro acessível e
+
+----------------------------------------------------------------------
+
+✅ APROVADO — a pesquisa cobre todas as seções previstas.
+   Isto NÃO é juízo de qualidade: os juízes 23 e 24 ainda decidem se o
+   que foi coletado presta (references/juiz-pesquisa.md).

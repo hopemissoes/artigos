@@ -136,3 +136,35 @@ salva em `fontes/` e detecta desafio de bot. Medido: lê `tabelaplanos`, `hapvid
 e o script reprova. Para concorrente — que é o que a CI-1 pede — funciona.
 
 ---
+
+---
+
+## 2026-08-31 — hospital-lauro-de-freitas-hapvida (FASE 0)
+
+**Conflito entre a referência e a trava mecânica, resolvido a favor da trava.**
+`references/artigo-hospital.md` manda a HS3 trazer um card com telefone e a HS1
+trazer contagens (leitos, salas, UTIs). O `checkpoint_verificar.py` REPROVA
+mecanicamente qualquer telefone e qualquer padrão `N leitos` / `N salas` /
+`N UTIs` no HTML. Decisão: **a trava vence**. O artigo de hospital passa a
+encaminhar contato aos canais oficiais sem dígitos, e descreve estrutura
+qualitativamente ("UTI adulto", "centro cirúrgico"), nunca por contagem.
+Vale para todos os artigos de hospital daqui para frente.
+
+**`consultar_saturacao_destinos` vence a lista de links da referência.**
+`artigo-hospital.md` sugere linkar coparticipação e carências. Os dois estão
+SATURADOS (58 e 53 backlinks). Decisão: não linkar destino saturado, mesmo
+quando a referência do arquétipo sugere; escolher destino NORMAL/SUBUTILIZADO
+com o mesmo valor contextual.
+
+**location_code de Lauro de Freitas/BA = 1031776** (Salvador/BA = 1001533),
+confirmado no CSV de geotargets do Google Ads de 2026-08-12. Pendente:
+registrar na tabela da skill `dataforseo-tabelaplanos`.
+**Labs do DataForSeo não aceita código municipal** — `related_keywords`,
+`keyword_data` e afins só com 2076. Só `serp_local` aceita cidade.
+
+**O `checkpoint_suficiencia.py` fez o serviço dele.** A primeira versão da
+FASE 0 elegeu como ganho de informação a divergência de endereço entre CNES e
+Guia Médico. A trava reprovou: defensibilidade 4 não é ganho. O eixo foi
+trocado por um dado de nível 1 (o catálogo `consultar_rede`), e a divergência
+virou achado de apoio. Registro para não repetir o padrão: **ganho construído
+sobre cruzamento de fonte pública é sempre nível 4 — apoia, não lidera.**
