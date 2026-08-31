@@ -1,0 +1,34 @@
+==========================================================================
+CHECKPOINT CI-1 [V7.3] — o concorrente foi LIDO? — artigos/hapclinica-duque-de-caxias-manaus/PESQUISA_hapclinica-duque-de-caxias-manaus_COMPLETO.md
+==========================================================================
+
+CONCORRENTES LIDOS DE VERDADE: 4 (min. 3)
+
+  [OK] https://guia.agendarconsulta.com/amazonas/manaus/hapclinica-duque-de-caxias-9505970
+       10 headings literais (H2/H3) | rota: webfetch
+  [OK] https://dentmap.com.br/dentistas/manaus/hapclinica-duque-de-caxias-6b0c5add
+       5 headings literais (H2/H3) | rota: webfetch
+  [OK] https://www.doctoralia.com.br/clinicas/hapclinica-duque-de-caxias-manaus-am
+       4 headings literais (H2/H3) | rota: webfetch
+  [OK] https://www2.hapvida.com.br/unidades/clinica-duque-de-caxias
+       5 headings literais (H2/H3) | rota: webfetch
+
+NAO CONTAM (3):
+
+  [X] https://apidadosabertos.saude.gov.br/cnes/estabelecimentos/9505970
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://cidades.ibge.gov.br/brasil/am/manaus/panorama
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www2.hapvida.com.br/unidades
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+
+--------------------------------------------------------------------------
+APROVADO — 4 concorrentes lidos na pagina.
+   (Piso de EXECUCAO. Se a leitura sustenta o artigo continua
+    sendo CI-2, Agentes 23/24 e o painel do Estagio 5.)

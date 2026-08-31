@@ -1,0 +1,51 @@
+====================================================================
+CHECKPOINT FASE 0 [V7.2] — PESQUISA_hapclinica-duque-de-caxias-manaus_COMPLETO.md (tipo: hospital)
+====================================================================
+
+0 · SEÇÕES DO ROTEIRO
+   [OK   ] SERP real (serp_local)
+   [OK   ] Contexto local (IBGE/CNES)
+   [OK   ] [V4] Desmontagem de concorrentes
+   [OK   ] [V4] Ganho de informação / brechas
+   [OK   ] [V5] Kit on-page (matriz de posicionamento)
+   [OK   ] [V5] Formato de snippet registrado
+   [OK   ] [V6] Defensibilidade do dado
+   [OK   ] [V7.2] Dado proprietário (Parte 7)
+   [OK   ] [V7.2] Não encontrado (Parte 8)
+
+1 · GABARITO PREENCHIDO
+   marcadores de molde ainda no arquivo: 0 (limite 3)
+
+2 · FONTE POR DADO
+   campos 'fonte:' vazios ou em molde: 0
+   URLs distintas: 10 | domínios: 7 | primários: 3 (apidadosabertos.saude.gov.br, cidades.ibge.gov.br, www2.hapvida.com.br)
+
+3 · VOLUME DE COLETA (contado, não procurado)
+   unidades com endereço preenchido: 1 (mín. 1)
+   perguntas de FAQ: 12 (mín. 10)
+   secundárias qualificadas: 7 (mín. 6)
+   dados de defensibilidade nível 1-2: 9 (mín. 3)
+   sub-perguntas de fan-out: 7 (mín. 5)
+   dados únicos declarados: 18 (mín. 10)
+
+4 · RECÊNCIA DA COLETA
+   2026-08-31  -                         0 dias
+   2026-08-31  -                         0 dias
+   2026-08-31  -                         0 dias
+   2026-08-31  -                         0 dias
+   2026-08-31  concorrentes              0 dias
+   2026-08-31  contexto local            0 dias
+   2026-08-31  rede                      0 dias
+   2026-08-31  serp e keywords           0 dias
+
+5 · ANTI-DOORWAY
+   aprovação explícita na linha do rótulo: sim
+
+6 · SEÇÃO 9 — FORBIDDEN_TOKENS
+   17 token(s) proibido(s): Duque de Caxias/RJ como sede da unidade, Hospital do Coração, Centro Clínico Duque de Caxias, pronto-socorro 24h, urgência 24 horas
+
+--------------------------------------------------------------------
+
+✅ APROVADO — state file completo e preenchido.
+   Atenção: APROVADO aqui = dado coletado e com fonte. NÃO é juízo de
+   qualidade. O HTML ainda exige o 'ok' EXPLÍCITO do usuário.
