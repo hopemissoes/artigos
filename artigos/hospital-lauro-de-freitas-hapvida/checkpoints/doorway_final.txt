@@ -1,0 +1,35 @@
+======================================================================
+VARREDURA FINAL ANTI-DOORWAY [V7.2] — artigos/hospital-lauro-de-freitas-hapvida/artigo.html
+tipo: hospital | cidade: Lauro de Freitas | ancoras carregadas: 18 | irmaos: 1
+======================================================================
+
+D1 · TESTE DE SUBSTITUICAO
+   texto visivel julgado: 1995 palavras
+   em paragrafos SEM ancora local: 28.6%
+   - <p> o papel da unidade dentro da rede propria da operadora na bahia...
+   - <p> ser classificado como hospital geral e nao como pronto atendimento e o que muda a rotina de quem...
+   - <p> quando vir para ca quando resolver na clinica e o que muda de madrugada...
+   - <p> urgencia e emergencia tem regra propria de acesso diferente da de consultas e exames eletivos e valem para...
+   - <p> sobre a estrutura interna vale uma nota de honestidade que os concorrentes nao fazem a ficha publica da...
+   - <p> uma via com tres nomes dois numeros e tres unidades como nao errar a porta...
+   - <p> o que a rede propria significa na hora de escolher a modalidade...
+   - <p> vale a distincao que decide a escolha da modalidade internacoes e cirurgias na rede propria sao isentas de...
+   (+5 paragrafos genericos)
+
+D2 · SECAO SEM ANCORA LOCAL
+   nenhuma — toda secao tem ancora local
+
+D3 · CLICHE DE OPERADORA / REGULATORIO
+   nenhum da lista
+
+D4 · SOBREPOSICAO COM ARTIGOS IRMAOS
+   - irmao-salvador.html                      0.0% de shingles | maior trecho identico: 0 palavras
+
+D5 · TITULO E META NO TESTE DE SUBSTITUICAO
+   title e meta citam a cidade
+
+----------------------------------------------------------------------
+
+✅ APROVADO — nenhuma medida de doorway estourou o limite.
+   Lembrete: o script mede repeticao e ausencia de ancora. A consulta
+   ao banco (overlaps, FAQs, saturacao) continua sendo do Agente 21.

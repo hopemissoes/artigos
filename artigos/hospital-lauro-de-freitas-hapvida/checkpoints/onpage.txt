@@ -1,0 +1,15 @@
+==============================================================
+CHECKPOINT ON-PAGE [V5] — matriz de posicionamento de keywords
+==============================================================
+Principal: hospital lauro de freitas hapvida
+Secundárias (8): hospital hapvida lauro de freitas; hapvida emergência 24 horas; hapvida lauro de freitas emergência; hospital hapvida lauro de freitas endereço; hapvida lauro de freitas av santos dumont; laboratório hapvida lauro de freitas horário de funcionamento; emergência pediátrica hapvida lauro de freitas; novo hospital hapvida lauro de freitas
+--------------------------------------------------------------
+  ✅ Principal no 1º parágrafo do corpo ✔
+  ✅ Principal em 3 H2 ✔ (ex.: "O Que o Hospital Lauro de Freitas Hapvida Resolve no Corredor da Estra")
+  ✅ Secundárias em 3 H2 ✔ (mín. 2)
+  ✅ Principal no H1 ✔
+  ✅ Principal no Title SEO ✔
+  ✅ Principal no URL/slug ✔
+  ✅ Principal no Meta description ✔
+--------------------------------------------------------------
+✅ APROVADO

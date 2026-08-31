@@ -1,0 +1,26 @@
+========================================================================
+CHECKPOINT PRECO-PRIMEIRO [V7.4] — artigos/hospital-lauro-de-freitas-hapvida/artigo.html (tipo: hospital)
+========================================================================
+
+[H2 encontrados: 6 | de preco: 0 | de outros assuntos: 6]
+           15%  o que o hospital lauro de freitas hapvida resolve no corredor da
+           36%  emergencia 24 horas da hapvida no hospital lauro de freitas
+           47%  endereco do hospital hapvida lauro de freitas e como chegar pela
+           59%  quais planos dao acesso ao hospital lauro de freitas
+           64%  perguntas frequentes sobre o hospital lauro de freitas
+           84%  a porta que vale a pena conhecer antes de precisar
+
+[Regra 1 — tabela primeiro]
+   - sem tabela de preco; tipo hospital: regra 1 dispensada
+
+[Regra 2 — H2 de preco na frente]
+   - sem H2 de preco; tipo hospital: ok
+
+[Formulario — v7.1: depois do sumario]
+   - ok: id="cotacao-1" depois do sumario, a 47% do arquivo
+
+------------------------------------------------------------------------
+   NOTA: Artigo de hospital sem tabela de preco — regra 1 nao se aplica (ok).
+------------------------------------------------------------------------
+
+✅ APROVADO — ordem preco-primeiro respeitada (0 aviso(s)).

@@ -16,9 +16,11 @@
 
 ## Fase atual
 
-- **Fase:** FASE 0 concluída — **aguardando o portão humano**
-- **Próximo passo concreto:** usuário aprovar (ou corrigir) o state file. Só depois começa o HTML — entrega única, HS1-HS4.
-- **Bloqueios:** nenhum técnico. Falta apenas a aprovação humana.
+- **Fase:** ARTIGO ESCRITO — todas as travas mecânicas verdes. Aguardando o portão humano final.
+- **Próximo passo concreto:** (1) usuário fornecer a URL da imagem de abertura (`[URL_DA_IMAGEM]` no HTML);
+  (2) confirmar se o shortcode `[cidade_menorvalor]` resolve nesta URL, que não é página de cidade;
+  (3) aprovar o artigo. Só depois: schema (execução separada, sob pedido) e registro no banco.
+- **Bloqueios:** 1 placeholder de imagem em aberto. Nada mais.
 
 ## Portões
 
@@ -27,14 +29,14 @@
 | CI-1 — concorrente lido (`checkpoint_ci1.py`) | ✅ aprovado | `checkpoints/ci1.txt` — 5 concorrentes lidos por curl (HTTP 200) |
 | FASE 0 (`checkpoint_fase0.py`) | ✅ aprovado | `checkpoints/fase0.txt` — 1 aviso ([VERIFICAR] fora do artigo) |
 | Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` — ganho em defensibilidade 1 |
-| Aprovação humana do state file | ⬜ pendente | |
-| Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
-| Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | modo `hospital` — só confere H2 de preço órfão |
-| Parágrafos / ritmo / citabilidade | ⬜ pendente | |
-| Voz humana (`checkpoint_voz.py`) | ⬜ pendente | |
-| Completude (`checkpoint_completude.py`) | ⬜ pendente | |
-| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ⬜ pendente | 11 tokens armados na seção 9 |
-| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ pendente | comparar contra `plano-hapvida-salvador2` |
+| Aprovação humana do state file | ✅ aprovado | usuário aprovou em 2026-08-31 |
+| Kit on-page (`checkpoint_onpage.py`) | ✅ aprovado | `checkpoints/onpage.txt` — principal em H1/title/URL/meta/1º§/3 H2 |
+| Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ✅ aprovado | `checkpoints/preco_primeiro.txt` — sem H2 de preço, regra 1 não se aplica |
+| Parágrafos / ritmo / citabilidade | ✅ aprovado | `paragrafos.txt`, `ritmo_visual.txt`, `citabilidade.txt` |
+| Voz humana (`checkpoint_voz.py`) | ✅ aprovado | `checkpoints/voz.txt` — zero 🔴 e zero 🟡 |
+| Completude (`checkpoint_completude.py`) | ✅ aprovado | `checkpoints/completude.txt` — 6 H2, 8 FAQ, 2.373 palavras |
+| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ✅ aprovado | `checkpoints/verificar.txt` — 11 tokens armados, nenhum no texto |
+| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ✅ aprovado | `checkpoints/doorway_final.txt` — **0,0% de sobreposição com Salvador** |
 | Registro no banco Supabase | ⬜ pendente | |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
@@ -64,6 +66,19 @@ Detalhe e onde foi procurado: seção 8 do state file.
 2. **Possível erro no artigo de Salvador:** a S4 afirma "20 leitos de internação adulto, 10 leitos de UTI" sem fonte declarada. Nenhuma fonte primária confirma. Sugerir revisão.
 3. **Pauta candidata:** `urgência e emergência hapvida salvador` — existe spoke para Recife, Fortaleza e Goiânia, não para Salvador.
 4. Registrar **1031776** na tabela de `location_code` da skill `dataforseo-tabelaplanos`.
+
+## Decisões da redação (2026-08-31)
+
+- **Subtítulo de seção é 15px, não 18px.** O `components.md` traz 18px; o `SKILL.md` e os artigos
+  publicados usam 15px. Com 18px o `checkpoint_citabilidade.py` lê o subtítulo como se fosse a
+  abertura da seção e reprova todas. Seguido o `SKILL.md`. Registrado em `docs/DECISOES.md`.
+- **Travessões reduzidos de 21 para 2.** Era tique de escrita, não estilo. `checkpoint_voz.py`
+  fechou com zero avisos.
+- **Sumário reancorado.** A primeira varredura anti-doorway reprovou por seção sem âncora local:
+  era o sumário, cujos itens não citavam nem o hospital nem a via. Corrigido nos 5 itens.
+- **Sem telefone e sem contagem de leitos no corpo** — trava `checkpoint_verificar.py`. O card da
+  HS3 encaminha aos canais oficiais e o artigo diz, com todas as letras, por que não publica esses
+  números (os campos estão vazios na ficha pública). Isso virou ponto de E-E-A-T, não limitação.
 
 ## Fio condutor
 

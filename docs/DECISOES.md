@@ -168,3 +168,11 @@ Guia Médico. A trava reprovou: defensibilidade 4 não é ganho. O eixo foi
 trocado por um dado de nível 1 (o catálogo `consultar_rede`), e a divergência
 virou achado de apoio. Registro para não repetir o padrão: **ganho construído
 sobre cruzamento de fonte pública é sempre nível 4 — apoia, não lidera.**
+
+**Subtítulo de seção: 15px, não 18px.** O `references/components.md` da v7 traz o
+subtítulo do "Standard Section Header" com `font-size:18px`. O `SKILL.md` e os
+artigos publicados usam **15px**. A diferença não é cosmética: o
+`checkpoint_citabilidade.py` procura o primeiro `<p>` de 18px depois do H2 para
+medir a passagem citável. Com o subtítulo em 18px, ele lê o subtítulo (uma linha)
+e reprova **todas** as seções do artigo. Decisão: seguir o `SKILL.md` (15px).
+Pendente: corrigir o `components.md` da skill via `skill-creator`.
