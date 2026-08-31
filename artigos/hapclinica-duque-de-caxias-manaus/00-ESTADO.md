@@ -15,10 +15,11 @@
 
 ## Fase atual
 
-- **Fase:** FASE 0 concluída — **aguardando o portão humano**
-- **Próximo passo concreto:** o usuário aprova (ou corrige) o state file. Só depois
-  começa o Bloco A. Perguntar também se dispara a linha multiagente da v7.2.
-- **Bloqueios:** nenhum. As três travas mecânicas passaram.
+- **Fase:** portão humano APROVADO em 2026-08-31. Linha multiagente da v7.2
+  autorizada e disparada. **Estágio 2 em curso** (agentes 6, 7, 23 e 24).
+- **Próximo passo concreto:** revisar as quatro saídas do Estágio 2. Liberado o
+  portão de pesquisa, disparar o Estágio 3 (redatores 8, 9 e 10).
+- **Bloqueios:** nenhum. Nenhum HTML pode ser escrito até 23 e 24 liberarem.
 
 ## Portões
 
@@ -26,7 +27,9 @@
 |---|---|---|
 | CI-1 — concorrente lido (`checkpoint_ci1.py`) | ✅ aprovado | `checkpoints/ci1.txt` — 4 lidos por WebFetch |
 | FASE 0 (`checkpoint_fase0.py`) | ✅ aprovado | `checkpoints/fase0.txt` |
-| Aprovação humana do state file | ⬜ pendente | |
+| Aprovação humana do state file | ✅ aprovado | usuário, 2026-08-31 |
+| Roteamento de modelos (`checkpoint_modelos.py`) | ✅ aprovado | `checkpoints/modelos.txt` — 4 modelos distintos |
+| Portão de pesquisa (agentes 23 e 24) | 🟡 em curso | |
 | Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` — reprovou na 1ª e passou após correção |
 | Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
 | Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | |

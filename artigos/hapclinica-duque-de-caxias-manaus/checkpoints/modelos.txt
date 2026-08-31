@@ -1,0 +1,35 @@
+====================================================================
+CHECKPOINT DE MODELOS [V7.2] — artigos/hapclinica-duque-de-caxias-manaus/PLANO_MODELOS_hapclinica-duque-de-caxias-manaus.md (tipo: hospital)
+====================================================================
+
+Agentes no plano: 28
+  1     serp-tipo-pagina       medio   opus      
+  2     rede-assistencial      medio   opus      
+  3     contexto-local         barato  opus      
+  4     keywords-fanout        medio   opus      
+  5     sintese-fio-condutor   forte   opus       🔒
+  6     conferente-fatos       forte   sonnet     🔒
+  7     conferente-dataforseo  barato  haiku     
+  8     redator-bloco-a        forte   sonnet    
+  9     redator-bloco-b        medio   sonnet    
+  10    redator-bloco-c        medio   sonnet    
+  11    editor-chefe           forte   opus       🔒
+  12    veracidade             forte   opus       🔒
+  13    anti-doorway           forte   sonnet     🔒
+  14    requisitos             medio   sonnet    
+  15    citabilidade-geo       forte   opus       🔒
+  17    schema                 medio   sonnet    
+  18    registro-banco         barato  haiku     
+  19    voz-humana             medio   sonnet    
+  20    imagem-abertura        barato  haiku     
+  21    varredura-doorway      forte   opus       🔒
+  22    roteador-modelos       barato  haiku     
+  23    juiz-pesquisa-a        forte   sonnet     🔒
+  24    juiz-pesquisa-b        forte   fable      🔒
+  16a   juiz-factual           forte   opus       🔒
+  16b   juiz-doorway           forte   sonnet     🔒
+  16c   juiz-leitor            forte   fable      🔒
+  ci-1  desmontagem            forte   opus       🔒
+  ci-2  ganho-informacao       forte   opus       🔒
+
+✅ APROVADO — roteamento coerente com as travas T1/T2/T3/T7.
