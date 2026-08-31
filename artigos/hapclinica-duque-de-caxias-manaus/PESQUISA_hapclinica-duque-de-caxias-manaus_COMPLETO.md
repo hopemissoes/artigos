@@ -178,9 +178,15 @@ de Manaus na mesma API oficial.
 
 | Unidade | CNES | tipo | turno | os 4 booleanos |
 |---|---|---|---|---|
-| Hapclinica Duque de Caxias | 9505970 | 4 | manha, tarde e noite | todos 0 |
-| Pronto Atendimento Cidade Nova | 9676783 | 73 | continuo 24 horas | todos 0 |
-| Medicina Preventiva TEA Adrianopolis | 9676759 | 73 | continuo 24 horas | todos 0 |
+| Hapclinica Duque de Caxias | 9505970 | 4 | manha, tarde e noite | os 4 de capacidade em 0; servico_apoio em 1 |
+| Pronto Atendimento Cidade Nova | 9676783 | 73 | continuo 24 horas | idem |
+| Medicina Preventiva TEA Adrianopolis | 9676759 | 73 | continuo 24 horas | idem |
+
+> **Correção do Juiz A (2026-08-31):** a redação anterior dizia "todos 0", o que
+> era impreciso. Os quatro campos de CAPACIDADE (centro cirúrgico, obstétrico,
+> neonatal, atendimento hospitalar) estão em 0 nas três; `possui_servico_apoio`
+> está em **1** nas três. A lição não muda — nenhum dos cinco varia, logo nenhum
+> discrimina —, mas o dado estava escrito errado.
 
 O Pronto Atendimento Cidade Nova funciona 24 horas e, ainda assim, aparece com
 `possui_atendimento_ambulatorial: 0`. **Conclusao: esses booleanos nao sao
@@ -210,9 +216,10 @@ preenchido de verdade):
 
 nome_oficial: "Clínica Duque de Caxias (nome fantasia no CNES: HAPCLINICA DUQUE DE CAXIAS)"
 tipo: "proprio"
-endereco: "Avenida Duque de Caxias, 1905 - Praça 14 de Janeiro, Manaus - AM, CEP 69020-141"
+endereco: "Duque de Caxias, 1905 - Praça 14 de Janeiro, Manaus - AM, CEP 69020-141"
+logradouro_em_conflito: "[VERIFICAR: o número 1905, o bairro Praça 14 de Janeiro e o CEP 69020-141 são consensuais em todas as fontes. O TIPO DE LOGRADOURO não é: o CNES registra AVENIDA; a própria página da Hapvida, o catálogo do banco, o hub e o pillar escrevem RUA. Achado do Juiz A. Enquanto não se resolve, escrever sem o prefixo — 'Duque de Caxias, 1905' — que é verdadeiro nas duas versões.]"
 telefone: "[VERIFICAR: 4002-3633 é o número de atendimento da Hapvida, não uma linha exclusiva desta unidade — o mesmo número consta do artigo do Hospital Nilton Lins. A ficha CNES traz o campo de telefone vazio e o guia oficial não renderiza número. Não apresentar como telefone da unidade.]"
-horario: "segunda a sexta, 06:00 às 20:00; sábado, 06:00 às 17:00 — [VERIFICAR] de precisão: o horário exato vem de diretório que espelha o CNES; o que a fonte primária sustenta é o turno de manhã, tarde e noite"
+horario: "[VERIFICAR — CONFLITO TRIPLO, achado do Juiz B e confirmado pelo orquestrador. (a) CNES, única fonte primária: apenas manhã, tarde e noite, sem horas. (b) UM diretório que espelha o CNES: 06:00-20:00 e sábado 06:00-17:00. (c) O NOSSO PRÓPRIO HUB plano-hapvida-manaus, no ar: 7h-19h e sábado 7h-17h. Não sabemos o horário. PROIBIDO publicar faixa de horas como fato; publicar 06:00-20:00 ainda contradiz o nosso próprio site.]"
 turno_cnes: "ATENDIMENTO NOS TURNOS DA MANHA, TARDE E NOITE (código 04) — campo confiável, varia entre unidades"
 codigo_cnes: "9505970"
 codigo_estabelecimento_saude: "1302609505970"
@@ -222,7 +229,7 @@ tipo_estabelecimento: "Policlínica (codigo_tipo_unidade 4) — campo confiável
 tipo_confirmado_em_2a_fonte: "sim — o catálogo próprio (consultar_rede, id 10) tipa a unidade como Clínica, e o guia oficial da operadora a nomeia Clínica Duque de Caxias. São duas fontes independentes do CNES concordando com a classificação, o que fecha a regra das duas fontes para dado estrutural. Ressalva pedida pelo Agente 23."
 como_escrever_o_escopo: "AFIRMAR a classificação, NÃO a negativa categórica. Certo: 'está registrada como policlínica no CNES e opera em três turnos, não em regime contínuo'. Errado: 'não faz cirurgia nem internação' apresentado como fato apurado — nenhuma fonte lida sustenta a negativa direta, e os booleanos que pareciam sustentá-la caíram na seção 3.1. O que substitui a negativa é o encaminhamento: dizer onde a rede faz urgência, parto, pediatria e alta complexidade, nomeando as unidades."
 atividade_principal: "consulta e exame com hora marcada, compatível com o tipo Policlínica registrado no CNES"
-coordenadas: "-3.101992443429473, -60.02511262893677"
+coordenadas: "[VERIFICAR: CONFLITO DE 2,43 km. O CNES traz -3.101992, -60.025113; a página oficial da Hapvida traz -3.119259. Medido pelo orquestrador em 2026-08-31. NÃO usar nenhuma das duas no schema.json até resolver — pin errado manda o paciente para o lugar errado.]"
 acessibilidade: "piso tátil, banheiro acessível, rampa acessível"
 atende_sus: "[VERIFICAR: o campo do CNES diz NAO, mas ele devolve NAO para as três unidades testadas e por isso não se provou discriminante; é plausível para unidade privada, e não deve ser afirmado como fato apurado]"
 campos_booleanos_cnes: "NÃO USAR — medidos como não preenchidos, ver seção 3.1"
@@ -249,6 +256,11 @@ Mapa de vocações, para o roteiro de encaminhamento do CI-2:
 - Hospital São Lucas e Hospital Rio Amazonas — obstetrícia e parto
 - Hospital Rio Solimões — pediátrico exclusivo
 - Hospital Rio Negro — primeira unidade própria da rede, Centro
+- **Pronto Atendimento Cidade Nova** (CNES 9676783) e **Pronto Atendimento Distrito** —
+  as duas unidades de regime contínuo da rede em Manaus. **Faltavam no artigo e são
+  a porta de urgência real**; achado do Juiz A, que classificou a omissão como o
+  maior risco de dano da página. Endereços no catálogo: Av. Camapuã, 695, Cidade
+  Nova; e Av. Buriti, 3727, Distrito Industrial.
 - fonte: consultar_rede (Supabase) e consultar_artigo do hospital-nilton-lins-hapvida-manaus, 2026-08-31
 
 ### 4.3 Checklist de validação da rede
@@ -257,7 +269,7 @@ unidades_alvo_documentadas: 1
 todos_com_endereco: sim
 todos_com_telefone: não — o número que circula é o de atendimento da Hapvida, não da unidade
 todos_com_horario: sim, com a ressalva de precisão registrada na 4.1
-bairro: "Praça 14 de Janeiro, zona centro-sul de Manaus"
+bairro: "Praça 14 de Janeiro. NÃO escrever a zona da cidade: a versão anterior desta pesquisa dizia zona centro-sul citando a ficha CNES como fonte, e a ficha NÃO TEM campo de zona. Foi invenção do orquestrador, apontada pelo Juiz A."
 fonte: "ficha CNES 9505970 e catálogo próprio, 2026-08-31"
 
 ### 4.4 Quais produtos dão acesso a esta unidade (sustenta a HS4)
@@ -289,6 +301,12 @@ o_que_isso_NAO_resolve: "não há data de publicação em lugar nenhum da págin
 distincao_importante: "isto é lista de SERVIÇO vinda da operadora, não lista de ESPECIALIDADE MÉDICA vinda de diretório. A proibição da seção 8 e os tokens neurologia e clínico geral continuam valendo — o que caiu foi só o item de coleta."
 confirma_tambem: "a frase da própria operadora diz em Manaus, o que reforça a desambiguação central do artigo."
 fonte: "leitura do HTML da página oficial por curl e WebFetch, 2026-08-31"
+ressalva_do_juiz_A: "o texto existe APENAS na meta description. O corpo visível da
+  página renderiza só título e menu — quem clicar NÃO verá a lista. E é página de
+  NOTÍCIA, não a página da unidade. Atribuir como comunicado da operadora sobre a
+  unidade, e nunca prometer ao leitor que ele verá a lista ao clicar."
+palavra_literal: "a operadora escreve LABORATÓRIO. 'Coleta' é dedução nossa e não
+  pode ser apresentada como palavra da operadora."
 
 ---
 
