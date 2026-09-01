@@ -130,3 +130,48 @@ Toda a SERP para no endereço; este artigo é o único que orienta.
 ⚠️ **Não escrever a negativa categórica** ("não faz cirurgia, não interna") como
 fato apurado — ver seção 3.1 do state file. Afirmar a classificação e substituir a
 negativa pelo encaminhamento nominal.
+
+---
+
+## Registro no banco — 2026-09-01
+
+Executado o fluxo pós-produção da skill `banco-tabelaplanos`, nesta ordem:
+
+| Chamada | Resultado |
+|---|---|
+| `registrar_artigo_novo` | ✅ **id 195** — status `producao` (o HTML ainda não está no ar no WordPress) |
+| `registrar_hospitais_artigo` | ✅ 7 unidades (1 `proprio` = a unidade-alvo; 6 `retaguarda`) |
+| `registrar_links_artigo` | ✅ 7 links de saída, com seção e contexto |
+| `registrar_faqs_artigo` | ✅ 12 FAQs locais |
+| `registrar_uso_faq` | ⏸️ **não executado** — os templates 95, 64 e 11 não foram usados neste artigo |
+
+Verificação de armadilha #6 (slug gêmeo) antes do registro: `listar_artigos` não
+retornou `hapclinica-duque-de-caxias-manaus`. O mais próximo é o id 130
+`hospital-duque-de-caxias-hapvida` (RJ, HSCOR) — unidade diferente, cluster
+diferente, sem colisão de slug.
+
+As pendências abertas (horário real, coordenada em conflito, logradouro
+Rua × Avenida, imagem, schema, link descendente do pillar) ficaram gravadas em
+`p_observacoes` do artigo 195 e nas `observacoes` da unidade-alvo. O erro de
+endereço em página no ar (`Av. Camapuã, 8` → `695`, no hub `plano-hapvida-manaus`)
+também foi registrado ali.
+
+**Nenhuma pendência foi criada na tabela de pendências** — depende de autorização
+expressa do usuário (regra da skill `pendencias-tabelaplanos`).
+
+## Links de entrada — diagnóstico 2026-09-01
+
+`consultar_links_para_destino` para o slug novo: **`[]` — zero backlinks internos.**
+Lista de candidatos e recomendação: ver resposta da sessão / seção abaixo.
+
+| Prioridade | Origem | Recíproco? | Seção sugerida |
+|---|---|---|---|
+| 1 | `clinicas-hapvida-por-capital` (147, pillar) | sim (HS1 aponta pra ele) | bloco Manaus |
+| 2 | `plano-hapvida-manaus` (47, hub) | sim (HS3) | S4 `#rede` |
+| 3 | `hospital-nilton-lins-hapvida-manaus` (193, irmão) | sim (HS1) | HS1 / FAQ de vocação |
+| 4 | `laboratorios-hapvida-capitais` (182, pillar) | sim (FAQ) | bloco Manaus |
+| 5 | `urgencia-e-emergencia-hapvida` (146) | **não** | onde-não-ir |
+| 6 | `hapvida-cidades` (190) | **não** | bloco Manaus |
+| 7 | `hospital-duque-de-caxias-hapvida` (130, RJ) | **não** | FAQ 7 (desambiguação) |
+| 8 | `mamografia-preco-popular` | **não** | onde fazer em Manaus |
+| — | `plano-hapvida-rio-de-janeiro` (28) | seria recíproco | ⛔ **não fazer** — par RJ↔Manaus recíproco em keyword de colisão de nome é sinal de doorway |
