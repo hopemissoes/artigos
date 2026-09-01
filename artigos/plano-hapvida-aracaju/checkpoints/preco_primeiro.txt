@@ -1,5 +1,5 @@
 ========================================================================
-CHECKPOINT PRECO-PRIMEIRO [V7.4] — artigos/plano-hapvida-aracaju/artigo.html (tipo: city)
+CHECKPOINT PRECO-PRIMEIRO [V7.5] — artigos/plano-hapvida-aracaju/artigo.html (tipo: city)
 ========================================================================
 
 [H2 encontrados: 12 | de preco: 2 | de outros assuntos: 10]
@@ -24,14 +24,14 @@ CHECKPOINT PRECO-PRIMEIRO [V7.4] — artigos/plano-hapvida-aracaju/artigo.html (
    - texto visivel antes dela: 1357 caracteres (a 4% do arquivo)
    - sumario (toc-list) a 4% do arquivo
 
-[Regra 1b — sumario colado na tabela (v7.1)]
-   - texto visivel entre a tabela e o sumario: 26 caracteres (limite: 600)
+[Regra 1b — formulario colado na tabela, sumario depois dele (v7.5)]
+   - texto visivel entre a tabela e o sumario: 58 caracteres (limite: 600)
 
 [Regra 2 — H2 de preco na frente]
    - ok: o primeiro H2 de conteudo e de preco ("tabela de precos hapvida aracaju [ano_atual]")
 
-[Formulario — v7.1: depois do sumario]
-   - ok: id="cotacao-1" depois do sumario, a 12% do arquivo
+[Formulario — v7.5: colado na tabela, antes do sumario]
+   - ok: id="cotacao-1" colado na tabela, a 4% do arquivo
 
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------

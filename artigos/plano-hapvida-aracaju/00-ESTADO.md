@@ -8,7 +8,7 @@
 
 - **Slug:** plano-hapvida-aracaju
 - **Tipo:** city  <!-- city | hospital | tr | pillar | cobertura -->
-- **Skill em uso:** hapvida-article-builder-v7 (camada de ORDEM: v7.1 + v7.4)
+- **Skill em uso:** hapvida-article-builder-v7 (camada de ORDEM: **v7.5** + v7.4)
 - **Aberto em:** 2026-09-01
 - **URL de destino:** `/plano-hapvida-aracaju/` (a confirmar com o usuário)
 - **Keyword principal:** "plano hapvida aracaju" (inferida do texto — **não** veio de FASE 0)
@@ -55,8 +55,9 @@ Legenda: ✅ aprovado (saída em `checkpoints/`) · 🟡 rodado, com ressalva ·
 - 2026-09-01 — pasta criada, tipo city.
 - 2026-09-01 — original preservado em `fontes/artigo-original-v6.html`; a reformatação
   é reprodutível por `build_v7.py` (recorta os blocos do original e remonta).
-- 2026-09-01 — **ordem v7.4 aplicada:** lead-herói navy (1º elemento) → S2↑a (H2 de preço
-  + contexto + `[aracaju_menortabela]`, `id="precos"`) → sumário → `id="cotacao-1"` →
+- 2026-09-01 — **ordem v7.5 aplicada** (a v7.4 valia até a tarde): lead-herói navy
+  (1º elemento) → S2↑a (H2 de preço + contexto + `[aracaju_menortabela]`, `id="precos"`)
+  → **`id="cotacao-1"` colado na tabela** → sumário →
   S2↑b (box Importante + análise) → Coparticipação (2º H2 de preço, agrupado no topo) →
   S1 → Tipos → Rede → Hospital → Cobertura → Comparativo → CTA inter → Carências →
   Tecnologia → Contratação → FAQ → CTA final → Conclusão.
@@ -165,3 +166,10 @@ Legenda: ✅ aprovado (saída em `checkpoints/`) · 🟡 rodado, com ressalva ·
 <!-- Não definido por FASE 0. O ângulo que o texto herdado carrega, e que o lead-herói
      preserva: Aracaju é mercado de três operadoras, com a Hapvida ganhando pelo preço e
      por uma rede própria concentrada no eixo Centro–São José, em expansão para o Grageru. -->
+
+### v7.5 — mudança de regra na skill (2026-09-01, decisão do usuário)
+
+O formulário de cotação passou a vir **colado na tabela**, antes do sumário. A regra
+foi alterada na skill original e a trava `checkpoint_preco_primeiro.py` inverteu junto
+— testada nos dois sentidos. Motivo, contraponto e arquivos tocados: `docs/DECISOES.md`,
+entrada de 2026-09-01.

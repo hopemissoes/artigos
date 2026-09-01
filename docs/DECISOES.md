@@ -136,3 +136,43 @@ salva em `fontes/` e detecta desafio de bot. Medido: lê `tabelaplanos`, `hapvid
 e o script reprova. Para concorrente — que é o que a CI-1 pede — funciona.
 
 ---
+## 2026-09-01 — v7.5: o formulário de cotação volta para colado na tabela
+
+**Pedido do usuário**, aplicado na skill original (`hapvida-article-builder-v7`),
+não numa cópia. Backup da v7.4 em `scratchpad/skill-backup-v74` desta sessão.
+
+**O que muda:** a ordem do topo passa de `tabela → sumário → formulário` para
+**`tabela → formulário → sumário`**. Só o formulário sobe — faixa navy, selos,
+análise de preço e imagem da tabela continuam depois do sumário.
+
+**Por que:** a v7.1 nasceu de um problema real (quatro blocos de preço empilhados
+antes do índice, medido em Recife). A correção certa era tirar dali a faixa navy,
+os selos, a análise e a imagem; o formulário foi junto por arrasto. Mas formulário
+não é "mais um bloco de preço" — é a conversão, e quem acabou de ler o número está
+no pico da intenção. Pedir um scroll nesse instante é a fricção que a própria
+ordem preço-primeiro existe para eliminar.
+
+**Contraponto registrado (era meu, e o usuário decidiu contra):** havia o risco de
+recriar o defeito da v7.0. Ele fica contido porque **apenas** o formulário subiu, e
+porque o orçamento de 600 caracteres entre tabela e sumário continua medido pela
+trava — o `[elementor-template]` é shortcode e quase não gasta dele.
+
+**Arquivos tocados na skill:** `SKILL.md` (bloco v7.5 novo, frontmatter, regra 1b,
+tabela de posicionamento de formulário, arquitetura city e TR, limites, componentes
+de landing), `references/preco-primeiro.md`, `references/sections.md`,
+`references/components.md`, `references/tabela-regional-subpages.md` e
+`checkpoint_preco_primeiro.py`.
+
+**A trava inverteu, e foi testada nos dois sentidos:**
+
+| Artigo | Veredito |
+|---|---|
+| Aracaju v7.5 (tabela → formulário → sumário) | ✅ APROVADO, 0 avisos |
+| Aracaju v7.1 (tabela → sumário → formulário) | ❌ REPROVADO, 2 erros |
+
+**Erro meu no mesmo dia, corrigido:** eu havia feito o item "Faça uma Cotação" do
+sumário como texto laranja. O template de `components.md` define **botão** — badge
+`$` e link com fundo laranja em gradiente, texto branco, padding, radius e sombra.
+Quem for montar sumário: copie o template, não reescreva de memória.
+
+---

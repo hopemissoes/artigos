@@ -79,7 +79,7 @@ PRECO_B = ('<section style="background: #fff; padding: 20px 10px; border-radius:
            'margin-bottom: 4px;">\n' + resto.lstrip('\n') + '\n</section>\n')
 
 # --------------------------------------- 3. formulario id="cotacao-1" pós-sumário
-FORM1 = ('<!-- 1º Formulário — [v7.1] logo APÓS o sumário, abrindo a S2↑b -->\n'
+FORM1 = ('<!-- 1º Formulário — [v7.5] colado na TABELA, antes do sumário -->\n'
          '<div id="cotacao-1" style="margin-bottom: 4px;">[elementor-template id="11215"]</div>\n')
 
 # ------------------------------------------------ 4. SUMÁRIO reordenado + CTA
@@ -489,7 +489,7 @@ FAQ = troca(FAQ, 'em dezembro de 2025, anunciou um novo hospital de 130 leitos n
                  'em dezembro de 2025, anunciou um novo hospital no Grageru. São quase duas décadas')
 
 # ------------------------------------------------------------------ montagem
-partes = [ART_OPEN, HEROI, PRECO_A, TOC, FORM1, PRECO_B, COPART, S1, TIPOS,
+partes = [ART_OPEN, HEROI, PRECO_A, FORM1, TOC, PRECO_B, COPART, S1, TIPOS,
           REDE, HOSP, COBERT, COMPAR, CARENC, TECNO, CONTRAT, FAQ, CONCL, TAIL]
 out = ''.join(partes)
 open(OUT, 'w', encoding='utf-8').write(out)
