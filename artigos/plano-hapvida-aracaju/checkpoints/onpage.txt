@@ -6,10 +6,10 @@ Secundárias (8): plano de saude aracaju; hospital hapvida aracaju; urgência ha
 --------------------------------------------------------------
   ✅ Principal no 1º parágrafo do corpo ✔
   ✅ Principal em 2 H2 ✔ (ex.: "Tipos de Plano Hapvida Disponíveis em Aracaju")
+  ✅ Secundárias em 2 H2 ✔ (mín. 2)
+  ✅ Principal no H1 ✔
   ✅ Principal no Title SEO ✔
   ✅ Principal no URL/slug ✔
-  ❌ Apenas 0 H2 contém secundária (mín. 2). Secundárias: ['plano de saude aracaju', 'hospital hapvida aracaju', 'urgência hapvida aracaju', 'laboratório hapvida aracaju', 'clínica hapvida aracaju', 'novo hospital hapvida aracaju', 'clínicas que aceitam hapvida em aracaju', 'maternidade hapvida aracaju']
-  ❌ Principal AUSENTE do H1: "Hapvida Aracaju: Preços, Rede e Hospital | Guia 2026"
-  ❌ Principal AUSENTE do Meta description: "Hapvida Aracaju 2026: Hospital Gabriel Soares 24h, 10 unidades próprias, novo hospital 130"
+  ✅ Principal no Meta description ✔
 --------------------------------------------------------------
-❌ REPROVADO — corrigir os itens acima e rodar de novo.
+✅ APROVADO

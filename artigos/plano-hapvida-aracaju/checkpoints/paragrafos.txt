@@ -2,12 +2,12 @@
 ===========================================================================
 CHECKPOINT — TAMANHO DE PARÁGRAFO (artigo.html)
 ===========================================================================
-Total <p> de corpo: 37
-  ✅ Aprovados (≤380 chars):     17
-  ⚠️  No limite (381-480 chars): 20
+Total <p> de corpo: 41
+  ✅ Aprovados (≤380 chars):     25
+  ⚠️  No limite (381-480 chars): 16
   ❌ Reprovados (>480 chars):     0
 
-⚠️  PARÁGRAFOS NO LIMITE (20) — aceitar só se a divisão prejudicar o sentido:
+⚠️  PARÁGRAFOS NO LIMITE (16) — aceitar só se a divisão prejudicar o sentido:
    P4: 421 chars (~5.6 linhas)
         Para beneficiários a partir de 59 anos, os valores são proporcionalmente maiores, conforme regra da ...
    P5: 389 chars (~5.2 linhas)
@@ -22,31 +22,23 @@ Total <p> de corpo: 37
         O cenário fica ainda mais interessante quando se olha para a região metropolitana. Somando Nossa Sen...
    P10: 464 chars (~6.2 linhas)
         Com um PIB per capita de R$ 36.983 e economia baseada em serviços (65% do PIB municipal), Aracaju ap...
-   P15: 444 chars (~5.9 linhas)
+   P16: 444 chars (~5.9 linhas)
         Diferente de operadoras como Bradesco e SulAmérica — que em Aracaju funcionam 100% via rede credenci...
-   P23: 465 chars (~6.2 linhas)
+   P21: 390 chars (~5.2 linhas)
+        Desde então, o Gabriel Soares é a única referência hospitalar própria da Hapvida em todo o estado de...
+   P25: 465 chars (~6.2 linhas)
         O anúncio do novo hospital no Grageru, em dezembro de 2025, representa o maior investimento da Hapvi...
-   P24: 436 chars (~5.8 linhas)
+   P26: 411 chars (~5.5 linhas)
         O contexto dessa expansão se insere no plano nacional da Hapvida de investir R$ 2 bilhões até 2026, ...
-   P25: 395 chars (~5.3 linhas)
-        A rede própria da Hapvida em Aracaju está concentrada no eixo Centro–São José, cobrindo uma faixa de...
-   P27: 410 chars (~5.5 linhas)
+   P30: 410 chars (~5.5 linhas)
         Já na região metropolitana, o crescimento acelerado de Barra dos Coqueiros (+66,2% em 12 anos) e a m...
-   P28: 400 chars (~5.3 linhas)
+   P31: 467 chars (~6.2 linhas)
         Em Aracaju, quem busca plano de saúde pessoa física tem basicamente três opções com rede local: Hapv...
-   P29: 422 chars (~5.6 linhas)
+   P32: 422 chars (~5.6 linhas)
         Na prática,   o que importa para quem contrata em Aracaju não é decorar cada prazo— o pillar de carê...
-   P30: 384 chars (~5.1 linhas)
-        Consultas e exames simples nas Hapclínicas do São José e Suíssa liberam em poucas semanas. Os prazos...
-   P31: 448 chars (~6.0 linhas)
-        A portabilidade é especialmente relevante no contexto de Aracaju por uma razão prática: como são ape...
-   P32: 444 chars (~5.9 linhas)
-        Em uma cidade onde a rede própria está concentrada no eixo Centro–São José, os canais digitais da Ha...
-   P33: 420 chars (~5.6 linhas)
-        Além da teleconsulta e do prontuário digital, o app Hapvida permite agendamento de consultas nas Hap...
-   P34: 435 chars (~5.8 linhas)
-        A contratação do plano Hapvida em Aracaju pode ser feita para qualquer modalidade — individual, fami...
-   P37: 439 chars (~5.9 linhas)
+   P38: 417 chars (~5.6 linhas)
+        Para quem mora na Zona de Expansão, na zona norte ou nos municípios da região metropolitana, os cana...
+   P41: 439 chars (~5.9 linhas)
         Se você busca o melhor custo-benefício em Aracaju, a Hapvida é a escolha natural — com planos a part...
 
 ✅ CHECKPOINT APROVADO — bloco pode ser apresentado ao usuário.

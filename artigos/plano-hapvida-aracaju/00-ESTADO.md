@@ -15,16 +15,15 @@
 
 ## Fase atual
 
-- **Fase:** LAYOUT v7.4 concluído + FASE 0 retroativa APROVADA. Falta a revisão
-  de conteúdo, dirigida por `RELATORIO-MELHORIAS.md`.
+- **Fase:** LAYOUT v7.4 + FASE 0 + CORREÇÕES DO RELATÓRIO aplicadas. Artigo pronto
+  para publicação, pendente dos itens que dependem de material do usuário.
 - **Natureza do trabalho:** o usuário entregou um artigo **já escrito** (ordem v6) e
   pediu a reformatação do layout para a v7. **Não houve FASE 0** — nenhum dado novo
   foi pesquisado nem afirmado. Todo número do lead-herói já existia no texto original.
-- **Próximo passo concreto:** aplicar a ordem sugerida no fim de `RELATORIO-MELHORIAS.md`,
-  começando pela contagem da rede (7 unidades, não 10) e pela Clínica São José, que falta.
-- **Bloqueios:** `checkpoint_verificar.py` REPROVADO — 7 tokens proibidos no artigo
-  ("10 pontos de atendimento" e derivados) + telefones e contagens de leitos sem fonte.
-  **Nenhum HTML novo até isso ser resolvido.** Ver item 1 do relatório.
+- **Próximo passo concreto:** publicar. `ENTREGA-WORDPRESS.md` traz o corpo, o H1, o
+  title e a meta novos. Depois: imagem de abertura, imagem da tabela e sincronizar o banco.
+- **Bloqueios:** nenhum bloqueio de dado. O `checkpoint_verificar.py` segue acusando 5
+  ocorrências, todas de "130 leitos" — decisão editorial documentada abaixo, não erro.
 - **Nota histórica:** a FASE 0 foi aberta a pedido do usuário DEPOIS da reformatação de
   layout. Ela não era pré-requisito do layout (o HTML já vinha escrito) e não é —
   mas foi ela que revelou o erro de contagem da rede, que estava no ar.
@@ -37,14 +36,14 @@
 | FASE 0 (`checkpoint_fase0.py`) | ✅ aprovado | `checkpoints/fase0.txt` — 7 unidades, 21 FAQ, 8 secundárias, 16 dados nível 1-2 |
 | Aprovação humana do state file | ⬜ pendente | portão do usuário |
 | Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` |
-| Kit on-page (`checkpoint_onpage.py`) | ❌ REPROVADO | `checkpoints/onpage.txt` — H1 e meta sem a keyword; 0 H2 com secundária |
+| Kit on-page (`checkpoint_onpage.py`) | ✅ aprovado | `checkpoints/onpage.txt` — com o H1/title/meta de `ENTREGA-WORDPRESS.md` |
 | Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ✅ aprovado | `checkpoints/preco_primeiro.txt` — 0 avisos |
 | Tamanho de parágrafo (`checkpoint_paragrafos.py`) | ✅ aprovado | `checkpoints/paragrafos.txt` — 0 reprovados, 20 no limite |
 | Ritmo visual (`checkpoint_ritmo_visual.py`) | ✅ aprovado | `checkpoints/ritmo_visual.txt` — 1 seção em aviso (4 P) |
 | Citabilidade (`checkpoint_citabilidade.py`) | 🟡 1 reprovação | `checkpoints/citabilidade.txt` — é a seção de FAQ; ver Decisões |
 | Voz humana (`checkpoint_voz.py`) | ✅ aprovado | `checkpoints/voz.txt` — 0 🔴; 🟡 densidade de travessão (herdada) |
-| Completude (`checkpoint_completude.py`) | ✅ aprovado | `checkpoints/completude.txt` — 13 H2, 18 FAQ, 5.5k palavras |
-| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ❌ REPROVADO | `checkpoints/verificar.txt` — 26 ocorrências |
+| Completude (`checkpoint_completude.py`) | ✅ aprovado | `checkpoints/completude.txt` — 12 H2, 14 FAQ |
+| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | 🟡 5 ocorrências | `checkpoints/verificar.txt` — só "130 leitos"; ver decisão de 01/09 |
 | Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ rodável | precisa das âncoras + HTML dos artigos irmãos, não do state file |
 | Registro no banco Supabase | ⬜ pendente | só depois do artigo aprovado |
 
@@ -96,6 +95,40 @@ Legenda: ✅ aprovado (saída em `checkpoints/`) · 🟡 rodado, com ressalva ·
 - 2026-09-01 — **ritmo visual: o aviso de 4 `<p>` na seção do Gabriel Soares fica.** Há uma
   linha do tempo entre o 2º e o 3º parágrafo — quebra visual legítima pela tabela da skill —,
   mas o tokenizador do script não reconhece aquele `<div>` como break.
+
+### Correções aplicadas em 2026-09-01 (depois do relatório)
+
+- **Rede: 10 → 7 unidades.** Corrigido no herói, na métrica, no H2, no subtítulo, no sumário,
+  no Resumo Rápido da S1, na cobertura por bairro e na conclusão. Os cards "Diagnóstico
+  Aracaju" e "Diagnóstico Gabriel Soares" saíram: duplicavam o endereço da Hapclínica e do
+  hospital, e o que descreviam já está no texto das duas unidades.
+- **Clínica São José (Tv. Juca Barreto, 177) incluída** como 7ª unidade. O card afirma só o
+  que o catálogo traz — existe, é própria, fica no São José — e manda conferir as
+  especialidades no Guia Médico.
+- **H1, title e meta reescritos** (em `ENTREGA-WORDPRESS.md`): passam a conter a keyword
+  principal e perdem o preço e o ano congelados. `checkpoint_onpage.py` ✅.
+- **Links: 2 → 9 destinos internos**, priorizando os SUBUTILIZADOS do
+  `consultar_saturacao_destinos`: teleconsulta (4 backlinks), laboratórios por capital (4),
+  clínicas por capital (10), rede pediátrica (10), urgência e emergência (12), e os
+  cross-links de Maceió (1) e Salvador (6). A URL de carências deixou de aparecer 2×.
+- **Link externo nº 2 (ANS)** acrescentado na seção de carências. Agora são 2, o mínimo.
+- **Seção "Tecnologia e Atendimento Digital" eliminada** e transformada em bridge de um
+  parágrafo dentro da S7, preservando o único trecho local (o Qualivida operado na unidade
+  da Gentil Tavares). É a ação que a tabela de migração da skill e o banco recomendavam.
+- **2 H2 passaram a carregar keyword secundária** ("Hospital Hapvida Gabriel Soares…" e
+  "…Onde Ficam as Clínicas Hapvida em Aracaju").
+- **Menções à DRV: 13 → 3.** Duas das três caixas "DICA DRV" viraram callout (o conteúdo
+  ficou); as menções em texto corrido saíram.
+- **FAQ: 18 → 14.** Saíram 3 nacionais (Nosso Plano × Mix, mecânica da coparticipação,
+  mínimo de vidas do empresarial — as duas primeiras catalogadas como overlap de risco alto)
+  e a do telefone, que era tráfego de quem já é cliente e carregava 2 telefones.
+- **Dado YMYL:** os 3 telefones saíram; as contagens de leitos sem fonte (56, 74, 145, 186)
+  saíram. **"130 leitos" ficou** — é anúncio público datado (dez/2025), com fonte no state
+  file, e é o dado prospectivo central do artigo. A repetição caiu de 10 para 5 ocorrências.
+  Esta é a única razão de o `checkpoint_verificar.py` seguir vermelho.
+- **Tipografia, parágrafos e ritmo** reajustados depois das edições: 3 parágrafos que
+  passaram de 480 chars foram quebrados em fronteira de frase e entrou um H3
+  ("Estrutura e especialidades") na seção do Gabriel Soares.
 
 ## Dados que faltam
 
