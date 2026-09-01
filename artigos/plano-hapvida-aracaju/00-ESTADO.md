@@ -66,8 +66,10 @@ Legenda: ✅ aprovado (saída em `checkpoints/`) · 🟡 rodado, com ressalva ·
   autorreferência (proibida no herói pela v7.4) e molde de IA (`voz-humana.md`).
 - 2026-09-01 — **link externo do IBGE preservado**: migrou do lead extinto para o fim da S1,
   como nota de fonte demográfica.
-- 2026-09-01 — **sumário reordenado** para bater com a nova ordem e ganhou o item laranja
-  "Faça uma Cotação" → `#cotacao-1`, que não existia. Ficou com 14 itens (13 seções + CTA);
+- 2026-09-01 — **sumário reordenado** para bater com a nova ordem e ganhou o item
+  "Faça uma Cotação" → `#cotacao-1`, que não existia. **Correção do usuário no mesmo dia:**
+  eu havia feito só texto laranja; o template de `components.md` define o item como BOTÃO —
+  badge `$` + fundo laranja em gradiente, texto branco, padding, radius e sombra. Corrigido. Ficou com 14 itens (13 seções + CTA);
   o limite da skill é 10-11 porque pressupõe 7 seções — este artigo tem 13 H2.
 - 2026-09-01 — **ano fixo → shortcode:** "Tabela de Preços Hapvida Aracaju 2026" virou
   `[ano_atual]` (H2 e sumário) e a nota de rodapé virou "Dados de preços atualizados em

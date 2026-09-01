@@ -100,11 +100,16 @@ ORDEM = ['#precos', 'CTA', '#coparticipacao', '#por-que-aracaju', '#tipos-planos
 BADGE = ('<span class="toc-badge" style="min-width: 28px; height: 28px; flex-shrink: 0!important; '
          'background: %s; border-radius: 8px; display: flex!important; align-items: center!important; '
          'justify-content: center!important; color: #fff; font-size: 13px; font-weight: bold;">%s</span>')
+# Item de cotacao = BOTAO, conforme o template de `components.md` (TOC):
+# badge "$" + link com fundo laranja em gradiente, texto branco, padding,
+# border-radius e sombra. Texto laranja sozinho nao cumpre a regra 9.
 CTA_ITEM = ('<div class="toc-item" style="display: flex!important; align-items: center!important; '
             'gap: 10px!important; padding: 0!important; margin: 0!important;">'
-            + (BADGE % ('#ff6b00', '→')) +
-            '<a style="color: #ff6b00; font-weight: 800; font-size: 15px; text-decoration: none;" '
-            'href="#cotacao-1">Faça uma Cotação</a></div>')
+            + (BADGE % ('#ff6b00', '$')) +
+            '<a href="#cotacao-1" style="display:inline-block;color:#fff!important;font-weight:800;'
+            'font-size:15px;text-decoration:none;padding:6px 14px;'
+            'background:linear-gradient(135deg,#ff6b00,#e85d00);border-radius:6px;'
+            'box-shadow:0 4px 14px rgba(255,107,0,0.35);">Faça uma Cotação</a></div>')
 
 novos, n = [], 0
 for chave in ORDEM:
