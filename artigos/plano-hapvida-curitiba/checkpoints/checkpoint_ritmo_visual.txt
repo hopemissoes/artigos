@@ -2,19 +2,21 @@
 ===========================================================================
 CHECKPOINT — RITMO VISUAL (artigo.html)
 ===========================================================================
-Total de seções analisadas: 14
-  ✅ Aprovadas (≤3 P consecutivos):       10
-  ⚠️  Em aviso (4 P consecutivos):         4
+Total de seções analisadas: 13
+  ✅ Aprovadas (≤3 P consecutivos):       8
+  ⚠️  Em aviso (4 P consecutivos):         5
   ❌ Reprovadas (≥5 P consecutivos):      0
 
-⚠️  SEÇÕES NO LIMITE (4) — considerar inserir break:
+⚠️  SEÇÕES NO LIMITE (5) — considerar inserir break:
    S2: Tabela de Preços Hapvida Curitiba [ano_atual]
         Sequências: [4] | Pior bloco: 4 P
    S4: Por Que Hapvida em Curitiba é Diferente?
         Sequências: [2, 4, 1] | Pior bloco: 4 P
    S6: Rede Própria Hapvida em Curitiba: 3 Hospitais e 19 Unidades 
         Sequências: [1, 1, 1, 4, 1] | Pior bloco: 4 P
-   S14: Hapvida Curitiba: Rede Própria, Preço Competitivo, Mais de 4
+   S10: Carências em Curitiba: como mais de 40 anos de rede própria 
+        Sequências: [4, 1] | Pior bloco: 4 P
+   S13: Hapvida Curitiba: Rede Própria, Preço Competitivo, Mais de 4
         Sequências: [4] | Pior bloco: 4 P
 
 ✅ CHECKPOINT APROVADO — ritmo visual OK em todas as seções.

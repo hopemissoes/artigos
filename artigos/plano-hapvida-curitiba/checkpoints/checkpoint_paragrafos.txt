@@ -2,13 +2,13 @@
 ===========================================================================
 CHECKPOINT — TAMANHO DE PARÁGRAFO (artigo.html)
 ===========================================================================
-Total <p> de corpo: 47
-  ✅ Aprovados (≤380 chars):     43
-  ⚠️  No limite (381-480 chars): 4
+Total <p> de corpo: 46
+  ✅ Aprovados (≤380 chars):     41
+  ⚠️  No limite (381-480 chars): 5
   ❌ Reprovados (>480 chars):     0
 
-⚠️  PARÁGRAFOS NO LIMITE (4) — aceitar só se a divisão prejudicar o sentido:
-   P6: 467 chars (~6.2 linhas)
+⚠️  PARÁGRAFOS NO LIMITE (5) — aceitar só se a divisão prejudicar o sentido:
+   P6: 387 chars (~5.2 linhas)
         Curitiba segue a Tabela 1 de coparticipação da Hapvida (demais capitais), com os menores valores do ...
    P24: 387 chars (~5.2 linhas)
         Na Região Metropolitana, a Hapvida possui centros clínicos em Araucária (Av. Dr. Vítor do Amaral, 66...
@@ -16,5 +16,7 @@ Total <p> de corpo: 47
         O Centro de Medicina Diagnóstica (CMD), na Av. Nossa Senhora da Luz, 2.169, funciona de segunda a sá...
    P26: 450 chars (~6.0 linhas)
         Três unidades da rede própria operam como pronto atendimento na cidade, e são elas que respondem qua...
+   P39: 381 chars (~5.1 linhas)
+        Quem migra de outra operadora em Curitiba costuma entrar por portabilidade: com dois anos de plano a...
 
 ✅ CHECKPOINT APROVADO — bloco pode ser apresentado ao usuário.

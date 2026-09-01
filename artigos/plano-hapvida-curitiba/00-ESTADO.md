@@ -256,3 +256,42 @@ dois artigos de Curitiba. FAQ: 20 no de Curitiba, 13 no do Clinipam, **0 idênti
    Fortaleza e Londrina, nas mesmas quatro seções que Curitiba também tem: Coparticipação,
    Carências, Tipos de Planos e Tecnologia. Curitiba ainda não está catalogada, mas tem a
    mesma estrutura.
+
+---
+
+## Correção anti-doorway aplicada (2026-09-01)
+
+Autorizada pelo usuário. As quatro seções de conteúdo NACIONAL viraram bridge + link,
+seguindo a `acao_recomendada` que o banco já registra para BH, São Paulo, Fortaleza e
+Londrina nas mesmas seções.
+
+| Seção | Risco no banco | O que foi feito |
+|---|---|---|
+| **Tecnologia e Teleconsulta** | médio | **Seção eliminada.** Era 100% nacional — 3 cards sobre app, prontuário e autorização digital que serviriam para qualquer cidade. Virou 1 parágrafo ancorado (o exame do NotreLabs do Jardim Social chega ao médico do Ônix Batel) + link para `/teleconsulta-hapvida/`. Saiu do sumário; H2 de 13 para 12. |
+| **Carências** | **alto** | Saíram os 5 cards de prazo ANS (24h/30d/180d/300d/24m) — é a "tabela idêntica" que o banco marca como risco alto —, o box genérico de portabilidade e a lista de programas Qualivida. Ficou o ângulo local (40 anos de rede, acesso imediato aos 3 hospitais durante a carência) + bridge para o pillar. |
+| **Tipos de Planos** | médio | Os 3 cards eram **modalidades ANS puras** (Amb+Hosp+Obst / Amb+Hosp / Amb) — sobreviviam à troca da cidade. Reescritos para as **formas de contratação reais de Curitiba**: Empresarial CNPJ/MEI sob a marca GNDISul, Adesão via CAEEPP/Mais Comerciários/ASPROFI, e Individual. |
+| **Coparticipação** | alto (padrão) | Era majoritariamente local e ficou. Saiu só a mecânica nacional ("internações e cirurgias são sempre isentas", que é do pillar), o **preço fixo R$ 160 da Unimed** — a skill proíbe valor em reais hardcoded — e o market share de 33%, que está em `nao_encontrado`. |
+
+**FAQ.** Quatro perguntas eram a mesma do artigo do Clinipam com outras palavras. Reancoradas
+no que só esta página tem, o endereço: "Curitiba tem pronto-socorro Hapvida?" virou "Onde ficam
+os prontos atendimentos da Hapvida em Curitiba?"; "Atende em São José dos Pinhais, Araucária e
+Colombo?" virou "Em quais cidades da Região Metropolitana existe unidade própria?"; "Como
+agendar consulta?" (que era FAQ estrutural genérica) virou "Como agendo consulta nas unidades
+de Curitiba?". **Nenhuma resposta foi alterada.** Sobreposição máxima de termos com o irmão caiu
+de 43% para 29% — abaixo do limiar de atenção (40%).
+
+### Resultado medido
+
+| Medida | Antes | Depois |
+|---|---|---|
+| D1 — texto sem âncora local | 31,3% 🟡 | **20,5%** ✅ |
+| D4 — shingles vs. Clinipam | 0,1% | 0,1% |
+| D4 — vs. Londrina / Fortaleza | 0,0% | 0,0% |
+| Avisos do `checkpoint_doorway_final` | 1 | **0** |
+| Sobreposição máxima de FAQ com o irmão | 43% | **29%** |
+| H2 | 13 | 12 |
+| Palavras de corpo | 4.386 | 4.259 |
+
+Todas as travas aplicáveis fecham em ✅, exceto `checkpoint_voz`, que segue reprovando pelas
+**3 ocorrências do nome próprio "Centro de Qualidade de Vida"** — decisão já registrada acima:
+o tique fica porque renomear a unidade seria adulterar fato.

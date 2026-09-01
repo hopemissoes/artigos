@@ -2,20 +2,18 @@
 ===========================================================================
 CHECKPOINT — CITABILIDADE GEO/AEO (artigo.html)
 ===========================================================================
-Seções (<h2>) analisadas: 13
-  ✅ Abertura citável (faixa ideal):  7
-  ⚠️  Aceitável / atenção:            6
+Seções (<h2>) analisadas: 12
+  ✅ Abertura citável (faixa ideal):  8
+  ⚠️  Aceitável / atenção:            4
   ❌ Reprovadas:                      0
 Links externos de fonte (rel=nofollow): 3
-Seções com abertura SEM número-âncora: 3 (considere ancorar com um dado da cidade/hospital)
+Seções com abertura SEM número-âncora: 1 (considere ancorar com um dado da cidade/hospital)
 
-⚠️  ATENÇÃO (6):
+⚠️  ATENÇÃO (4):
    • Tabela de Preços Hapvida Curitiba XXX — 32 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
-   • Coparticipação em Curitiba: Tabela 1 como vantagem competiti — 78 palavras na abertura — abertura longa — não é resposta direta
-   • Tipos de Planos Disponíveis em Curitiba — 29 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • Coparticipação em Curitiba: Tabela 1 como vantagem competiti — 64 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
    • Cobertura na Região Metropolitana: Onde o Plano Hapvida Aten — 31 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
    • Hapvida vs Unimed vs Paraná Clínicas — 31 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
-   • Tecnologia e Teleconsulta — 25 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
 
 ✅ CHECKPOINT DE CITABILIDADE APROVADO (heurístico/direcional).
    Confirme manualmente que cada abertura é específica da cidade — o script
