@@ -1,0 +1,11 @@
+Checkpoint COMPLETUDE (city) — artigo.html
+--------------------------------------------------------
+  [OK   ] Secoes (<h2>): 13 (min. 8)
+  [OK   ] Perguntas de FAQ: 18 (min. 12)
+  [OK   ] Palavras de corpo: 5751 (min. 1200)
+  [OK   ] Dica DRV (E-E-A-T): sim
+  [OK   ] Secao de rede: sim
+--------------------------------------------------------
+✅ APROVADO — piso de completude/profundidade atingido.
+   (Lembrete: piso de TAMANHO/ESTRUTURA. Rede COMPLETA vs catalogo do banco
+    e qualidade do conteudo continuam sendo Agente 2 / editor-chefe / juizes.)

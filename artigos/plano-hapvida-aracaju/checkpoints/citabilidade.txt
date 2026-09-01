@@ -1,0 +1,28 @@
+
+===========================================================================
+CHECKPOINT — CITABILIDADE GEO/AEO (artigo.html)
+===========================================================================
+Seções (<h2>) analisadas: 13
+  ✅ Abertura citável (faixa ideal):  3
+  ⚠️  Aceitável / atenção:            9
+  ❌ Reprovadas:                      1
+Links externos de fonte (rel=nofollow): 1
+Seções com abertura SEM número-âncora: 5 (considere ancorar com um dado da cidade/hospital)
+
+⚠️  ATENÇÃO (9):
+   • Coparticipação — Como Impacta Seu Bolso em Aracaju — 65 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • Por Que Aracaju É um Caso À Parte na Saúde Suplementar — 75 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • Rede Própria Hapvida em Aracaju — 10 Pontos de Atendimento — 69 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • Hospital Gabriel Soares — 18 Anos de Operação no Centro de A — 62 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • Cobertura por Região — Onde a Hapvida Atende em Aracaju — 66 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • Comparativo — Hapvida vs Unimed Sergipe vs Plamed — 64 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • Carências e Portabilidade em Aracaju — 75 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • Tecnologia e Atendimento Digital — 73 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • Como Contratar Hapvida em Aracaju — 76 palavras na abertura — abertura longa — não é resposta direta
+
+❌ REPROVADAS (1) — abrir a seção com resposta direta:
+   • Tudo Sobre o Plano Hapvida em Aracaju — sem <p> de corpo logo após o H2
+
+AÇÃO: logo após o H2, escrever 1 frase-resposta de ~40-60 palavras,
+específica da cidade/hospital, com 1 número-âncora (ver geo-aeo.md §1.1).
+Lembre: a resposta tem de ser ÚNICA da cidade (não passar no teste de substituição).

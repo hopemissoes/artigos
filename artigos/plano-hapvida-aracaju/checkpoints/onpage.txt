@@ -1,0 +1,14 @@
+==============================================================
+CHECKPOINT ON-PAGE [V5] — matriz de posicionamento de keywords
+==============================================================
+Principal: plano hapvida aracaju
+--------------------------------------------------------------
+  ✅ Principal no 1º parágrafo do corpo ✔
+  ✅ Principal em 2 H2 ✔ (ex.: "Tipos de Plano Hapvida Disponíveis em Aracaju")
+  ⚠️  Nenhuma secundária informada via --sec — item ≥2 H2 com secundária NÃO conferido.
+  ⚠️  H1: não informado (--h1) — conferir manualmente.
+  ⚠️  Title SEO: não informado (--title) — conferir manualmente.
+  ⚠️  URL/slug: não informado (--url) — conferir manualmente.
+  ⚠️  Meta description: não informado (--meta) — conferir manualmente.
+--------------------------------------------------------------
+✅ APROVADO (com avisos — resolver os ⚠️ antes de publicar)
