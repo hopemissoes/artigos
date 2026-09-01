@@ -218,3 +218,41 @@ Duas coisas que apontei como erro do artigo **não eram erro**, e conferi antes 
 
 Os dois saíram do `FORBIDDEN_TOKENS` na prática (não aparecem mais como afirmação sem fonte);
 o bloco no state file foi mantido como registro do que se investigou.
+
+---
+
+## Varredura anti-doorway contra os artigos irmãos (2026-09-01)
+
+Rodada porque o usuário perguntou se este artigo é doorway do `/plano-clinipam-curitiba/`.
+Trava: `checkpoint_doorway_final.py` com 53 âncoras locais (`ancoras.txt`) e 3 irmãos.
+
+| Irmão | sobreposição de shingles | maior trecho idêntico |
+|---|---|---|
+| plano-clinipam-curitiba | **0,1%** | 10 palavras |
+| plano-hapvida-londrina | 0,0% | 0 palavras |
+| plano-hapvida-fortaleza | 0,0% | 8 palavras |
+
+Limiares da skill: 🟡 a partir de 8%, 🔴 a partir de 15% (ou trecho literal ≥ 40 palavras).
+**Nenhum chega perto.** D2 (seção sem âncora local) e D3 (clichê de operadora): zero.
+D5 (title e meta no teste de substituição): passa. Veredito do script: ✅ APROVADO.
+
+`consultar_overlaps_doorway`: os 13 overlaps catalogados no banco **não envolvem** nenhum dos
+dois artigos de Curitiba. FAQ: 20 no de Curitiba, 13 no do Clinipam, **0 idênticas**.
+
+### O que a trava NÃO pega, e que existe
+
+1. **Sobreposição de tema, não de texto.** Três H2 tratam do mesmo assunto nos dois artigos:
+   "Rede Própria em Curitiba" (os dois têm), "Como Contratar" e a FAQ. E ~4 FAQs são a mesma
+   pergunta com outras palavras — "Curitiba tem pronto-socorro Hapvida?" × "Curitiba tem pronto
+   atendimento Clinipam 24h?"; "Atende em São José dos Pinhais, Araucária e Colombo?" ×
+   "O Hapvida Clinipam atende em São José dos Pinhais e região metropolitana?". Texto diferente,
+   intenção igual. Isso é **canibalização** (achado 2), não doorway — e resolve-se dividindo
+   território, não reescrevendo.
+2. **🟡 D1: 31,3% do texto em parágrafos sem âncora local** (alerta a partir de 30%, reprova a
+   partir de 45%). São os parágrafos de conteúdo nacional: mecânica de coparticipação,
+   modalidades de plano, "a rede própria garante prontuário eletrônico integrado", benefícios
+   digitais. **Esse é o doorway real do artigo — e não é contra o Clinipam, é contra as outras
+   cidades.** O banco já cataloga esse padrão exato como risco ALTO para BH, São Paulo,
+   Fortaleza e Londrina, nas mesmas quatro seções que Curitiba também tem: Coparticipação,
+   Carências, Tipos de Planos e Tecnologia. Curitiba ainda não está catalogada, mas tem a
+   mesma estrutura.
