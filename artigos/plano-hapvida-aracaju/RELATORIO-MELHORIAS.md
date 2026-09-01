@@ -54,15 +54,21 @@ dito se o catálogo confirmar. Aqui o catálogo diz o contrário.
 A skill antecipa exatamente este caso: o molde antigo "Hapvida [Cidade]: …" reprova porque
 não contém "plano". **Correção:** abrir os dois com "Plano Hapvida Aracaju".
 
-### 4. Title e meta com preço e ano congelados
+### 4. ~~Title e meta com preço e ano congelados~~ — ACHADO RETIRADO (falso)
 
-Title no ar: `Plano Hapvida Aracaju 2026: promoções de R$ 144,77`.
+**Este achado estava errado e foi retirado em 2026-09-01.** Eu li o HTML renderizado da
+página (`2026`, `R$ 144,77`) e concluí que eram valores fixos. Eram a saída dos shortcodes
+`[ano_atual]` e `[aracaju_menorvalor]`, que o site já usa no título e na meta — o
+renderizado não distingue as duas coisas, e eu não conferi a origem antes de afirmar.
 
-Duas violações de regra dura: preço fixo em conteúdo evergreen e ano fixo. Quando a tabela
-for reajustada, o título mente **na SERP**, que é onde mais dói. A meta repete "2026".
+Consequência: a pauta de "tirar o preço fixo dos 40+ artigos de cidade" **não existe**.
+Belo Horizonte, Recife e a pillar de tabela também já são dinâmicos.
 
-**Correção:** `%currentyear%` do Rank Math no título; tirar o valor fixo ou substituí-lo por
-uma promessa que não envelhece.
+O que **permanece** verdadeiro no title e na meta está nos itens 3 e 4b.
+
+### 4b. A meta afirma "10 unidades próprias"
+
+Mesmo erro de contagem do item 1, mas na SERP — que é onde mais custa. O catálogo tem 7.
 
 ### 5. Canibalização confirmada na SERP
 

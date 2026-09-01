@@ -17,49 +17,51 @@ Os dois blocos foram remontados limpos; se forem colados no visual de novo, o de
 
 ---
 
-## 2. Título do post (H1) — 58 caracteres
+## 2. Título do post (H1)
 
 ```
-Plano Hapvida Aracaju: Preços, Rede Própria e Hospital 24h
+Plano Hapvida Aracaju: Preços, Promoção e Rede | Guia [ano_atual]
 ```
 
-**O que muda:** o H1 no ar é `Hapvida Aracaju: Preços, Rede e Hospital | Guia 2026`, que não
-contém a palavra "plano" e por isso reprovava no `checkpoint_onpage.py`. Também sai o ano fixo.
+**O que muda em relação ao seu de hoje** (`Hapvida Aracaju: Preços, Rede e Hospital | Guia
+[ano_atual]`): entra a palavra **"plano"**, sem a qual o H1 não contém a keyword principal e
+reprova no `checkpoint_onpage.py`. E "Promoção" entra no lugar de "Hospital", para o H1
+refletir a mesma prioridade do título.
 
 ---
 
-## 3. Título SEO (Rank Math) — 58 caracteres renderizados
+## 3. Título SEO (Rank Math)
 
 ```
-Plano Hapvida Aracaju: Rede e Preços a Partir de [aracaju_menorvalor]
+Plano Hapvida Aracaju [ano_atual]: promoção a partir de [aracaju_menorvalor]
 ```
 
-Renderiza hoje como **"Plano Hapvida Aracaju: Rede e Preços a Partir de R$ 144,77"** — 58
-caracteres, dentro do limite de 60. O valor sai do mesmo shortcode que alimenta o corpo do
-artigo, então título e tabela nunca divergem: quando a tabela é reajustada, a SERP acompanha
-sozinha.
+**O seu de hoje já passa em tudo** — keyword à esquerda, shortcode de preço, 50 caracteres
+renderizados. A única mudança que proponho é de clareza: `promoções de R$ 144,77` pode ser
+lido como um desconto **de** R$ 144,77, não como o preço **a partir de** R$ 144,77. Trocar
+por "promoção a partir de" tira a ambiguidade e mantém a promoção em destaque. Custa 8
+caracteres (vai a 58 de 60).
 
-**O que muda:** o title no ar é `Plano Hapvida Aracaju 2026: promoções de R$ 144,77` — preço
-e ano congelados na mão, que passam a mentir no primeiro reajuste. O novo abre com a keyword
-principal e carrega o ganho de informação da pesquisa (a rede endereçada, que nenhum
-concorrente da SERP tem).
-
-> Se um dia o `[aracaju_menorvalor]` passar de 4 dígitos, o título encosta no limite de 60.
-> Nesse caso, encurtar para `Plano Hapvida Aracaju a Partir de [aracaju_menorvalor]`.
+Se preferir manter o seu, não há perda de SEO — é escolha de redação.
 
 ---
 
-## 4. Meta description — 145 caracteres renderizados
+## 4. Meta description
 
 ```
-Plano Hapvida Aracaju a partir de [aracaju_menorvalor]: tabela por faixa etária, as 7 unidades próprias com endereço e o único pronto-socorro 24h do estado.
+Plano Hapvida Aracaju [ano_atual] em promoção a partir de [aracaju_menorvalor]: tabela por faixa etária, 7 unidades próprias e o Hospital Gabriel Soares 24h.
 ```
 
-Renderiza como: *"Plano Hapvida Aracaju a partir de R$ 144,77: tabela por faixa etária, as 7
-unidades próprias com endereço e o único pronto-socorro 24h do estado."*
+139 caracteres renderizados (limite 160).
 
-**O que muda:** a meta no ar abre em "Hapvida Aracaju 2026:" — sem a keyword principal, com
-ano fixo e repetindo o número errado de unidades ("10 unidades próprias").
+**O que muda em relação à sua de hoje**, em ordem de importância:
+
+1. **"10 unidades próprias" → "7 unidades próprias".** O catálogo (`consultar_rede`) tem 7. É
+   o mesmo erro do corpo do artigo, mas na SERP.
+2. **Entra "Plano"** — a sua abre em "Hapvida Aracaju" e não contém a keyword principal.
+3. **A promoção sobe para a frente**, no lugar de "Menor preço de Sergipe" no fim.
+4. Saiu "Guia completo DRV" — é autopromoção ocupando ~20 caracteres que rendem mais como
+   dado. A autoria é carregada pelo widget de autor e pelo nó `Person` do schema.
 
 ---
 
@@ -84,18 +86,12 @@ Tem que aparecer o valor em reais, não o shortcode entre colchetes.
 
 ---
 
-## 6. Fica como pauta: o resto do site tem o mesmo problema
+## 6. Correção de um achado meu que estava errado
 
-Os títulos que conferi no ar têm preço e ano cravados na mão:
-
-| Página | Título no ar |
-|---|---|
-| `/plano-hapvida-belo-horizonte/` | Plano Hapvida Belo Horizonte 2026: Promoção por R$ 71,98 |
-| `/plano-hapvida-recife/` | Plano Hapvida Recife 2026: PROMOÇÃO por R$ 131,32 |
-| `/tabela-de-preco-hapvida/` | Tabela de Preços Hapvida 2026 \| PROMOÇÃO por R$ 71,98 |
-
-Se o Aracaju confirmar que o shortcode renderiza no título, dá para virar padrão nos 40+
-artigos de cidade de uma vez — e o ano também sai da mão, com o `%currentyear%` do Rank Math.
+Eu havia registrado que os títulos do site estavam com preço e ano cravados na mão, e
+sugerido uma força-tarefa para trocá-los por shortcode. **Estava errado** — li o HTML
+renderizado e tomei a saída dos shortcodes por texto fixo. Belo Horizonte, Recife e a pillar
+de tabela já são dinâmicos como este. Não há essa pauta.
 
 ---
 

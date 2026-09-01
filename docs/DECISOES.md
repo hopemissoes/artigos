@@ -176,3 +176,26 @@ sumário como texto laranja. O template de `components.md` define **botão** —
 Quem for montar sumário: copie o template, não reescreva de memória.
 
 ---
+## 2026-09-01 (fim do dia) — Correção: os títulos do site NÃO estavam hardcoded
+
+**Erro meu, e mudou uma recomendação.** Li o `<title>` renderizado de quatro páginas
+(`Plano Hapvida Aracaju 2026: promoções de R$ 144,77`) e concluí que o preço e o ano
+estavam fixos no campo do Rank Math. Eram a saída dos shortcodes `[ano_atual]` e
+`[aracaju_menorvalor]`, que o site já usa — **o HTML renderizado não distingue as duas
+coisas**, e eu não conferi a origem antes de afirmar.
+
+Cheguei a montar uma pauta de "tirar o preço fixo dos 40+ artigos de cidade". **Ela não
+existe.** Também levantei o risco de o shortcode não renderizar no `<title>` e sugeri um
+filtro no `functions.php` — desnecessário: o usuário já tem plugin que faz isso, e a
+prova estava na própria página que eu tinha lido.
+
+**Regra que fica:** para saber se um campo de SEO é dinâmico, o HTML renderizado não
+serve de prova. Ou se olha o campo no admin, ou se pergunta. Renderizado e hardcoded são
+indistinguíveis por fora — é exatamente o tipo de inferência que a skill proíbe no
+conteúdo YMYL, e que eu apliquei a um dado operacional.
+
+**O que permaneceu verdadeiro no title/meta:** o H1 e a meta não contêm a keyword
+principal (`checkpoint_onpage.py` reprova), e a meta afirma "10 unidades próprias" quando
+o catálogo tem 7.
+
+---
