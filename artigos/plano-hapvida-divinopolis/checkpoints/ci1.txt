@@ -1,0 +1,66 @@
+==========================================================================
+CHECKPOINT CI-1 [V7.3] — o concorrente foi LIDO? — artigos/plano-hapvida-divinopolis/PESQUISA_plano-hapvida-divinopolis_COMPLETO.md
+==========================================================================
+
+CONCORRENTES LIDOS DE VERDADE: 5 (min. 3)
+
+  [OK] https://www.rotaseguros.com.br/divinopolis/intermedica/index.html
+       5 headings literais (H2/H3) | rota: curl
+  [OK] https://www.rotaseguros.com.br/divinopolis/intermedica/tabela-de-precos.html
+       4 headings literais (H2/H3) | rota: curl
+  [OK] https://www.meuplanohap.com.br/guia-medico/mg/divinopolis/
+       6 headings literais (H2/H3) | rota: curl
+  [OK] https://www.hapvidaconvenio.com.br/plano-de-saude/hapvida-na-cidade-de-divinopolis-mg/
+       3 headings literais (H2/H3) | rota: curl
+  [OK] https://planosdesaudeintermedica.net.br/divinopolis/
+       8 headings literais (H2/H3) | rota: curl
+
+NAO CONTAM (11):
+
+  [X] https://www.rotaseguros.com.br/divinopolis/intermedica/index.html
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www.meuplanohap.com.br/guia-medico/mg/divinopolis/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www.hapvidaconvenio.com.br/plano-de-saude/hapvida-na-cidade-de-divinopolis-mg/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://planosdesaudeintermedica.net.br/divinopolis/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://servicodados.ibge.gov.br/api/v3/agregados/4714/periodos/2022/variaveis/93
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://servicodados.ibge.gov.br/api/v1/localidades/municipios/3122306
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://apidadosabertos.saude.gov.br/cnes/estabelecimentos
+      - headings literais H2/H3 (achei 0, min. 3)
+      - rota nao declarada
+  [X] https://www.gov.br/ans/pt-br
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www2.hapvida.com.br/unidades/hospital-e-maternidade-santa-monica
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www.gndiminas.com.br/unidades/qualivida-santa-monica
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www.gndiminas.com.br/unidades/hospital-santa-monica-divinopolis
+      - headings literais H2/H3 (achei 0, min. 3)
+      - rota nao declarada
+
+--------------------------------------------------------------------------
+APROVADO — 5 concorrentes lidos na pagina.
+   (Piso de EXECUCAO. Se a leitura sustenta o artigo continua
+    sendo CI-2, Agentes 23/24 e o painel do Estagio 5.)
