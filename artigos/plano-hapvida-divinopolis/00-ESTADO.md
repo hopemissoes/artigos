@@ -17,12 +17,14 @@
 ## Fase atual
 
 - **Fase:** ESTÁGIO 2.5 — portão de pesquisa; state file aprovado pelo usuário em 2026-09-01
-- **Próximo passo concreto:** aguardar o veredito dos juízes 23 e 24; depois
-  escrever o Bloco A (lead-herói → S2↑a preços + tabela → sumário → S2↑b → S1 → S3).
-- **Bloqueios:** (1) prefixo do shortcode da cidade no plugin de preços não
-  confirmado — trava a tabela do Bloco A; (2) Divinópolis não está na fila do
-  cotador, então os 10 valores da imagem da tabela não existem — a imagem vira
-  pendência declarada (regra: nunca inventar valor para imagem).
+- **Próximo passo concreto:** o usuário responder os 3 itens da seção 15 do
+  state file (produtos da praça, prefixo/valor do shortcode, abrangência
+  contratual). Sem eles a S3 e o lead-herói não podem ser escritos.
+- **Bloqueios:** (1) produtos comerciais vendidos em Divinópolis — nenhuma
+  fonte pública nomeia; a S3 fica órfã; (2) prefixo do shortcode e valor de
+  entrada — sem eles não há lead-herói nem tabela; (3) abrangência contratual
+  por produto — decide 3 FAQs e a S5; (4) rede assistencial própria tem 4
+  unidades, abaixo do piso de 5 — decisão de arquétipo pendente.
 
 ## Portões
 
@@ -33,7 +35,7 @@
 | Aprovação humana do state file | ✅ aprovado | usuário, 2026-09-01 |
 | Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` |
 | Juiz 24 (P-B, originalidade/valor) | 🟡 BLOQUEOU; 2 🔴 corrigidos | notas 6 e 7 |
-| Juiz 23 (P-A, suficiência/verdade) | 🟡 rodando | modelo distinto do 24 |
+| Juiz 23 (P-A, suficiência/verdade) | 🔴 BLOQUEOU; 11 🔴, 8 corrigidos | notas 4 e 5 — 3 dependem do usuário |
 | Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
 | Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | |
 | Voz humana (`checkpoint_voz.py`) | ⬜ pendente | |
@@ -82,6 +84,31 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
   está SATURADO (44 backlinks) e a tabela já é renderizada na página pelo
   shortcode. O bridge de coparticipação mantém o link para o pillar de
   coparticipação, que é obrigatório para o anti-doorway funcionar.
+
+## Achados do juiz P-A que mudaram fato (2026-09-01)
+
+- **Parto:** o CNES 2159376 registra **centro obstétrico 0 e centro neonatal 0**
+  para o Hospital e Maternidade Santa Mônica, e a lista oficial de
+  especialidades do bloco cirúrgico não traz obstetrícia. O nome diz
+  "Maternidade"; o registro público não confirma. Proibido afirmar cobertura de
+  parto na cidade.
+- **Rua Rio de Janeiro, 101:** o CNES 146250 registrado nesse endereço está
+  **desabilitado (motivo 04)**. Saiu da rede assistencial, entrou nos tokens
+  proibidos e passa a ser tratado apenas como endereço administrativo (S7).
+  Isso resolve a contradição que eu mesmo tinha criado entre a seção 4 e o
+  diferencial "única unidade fora do complexo".
+- **Páginas oficiais:** respondem HTTP 200; o bloco "esta página não faz mais
+  parte do nosso site" é fallback da SPA no mesmo HTML que traz os dados. A
+  redação fica travada em atribuição datada — nunca "opera hoje".
+- **Divergência do portal nacional:** a alegação foi reduzida à Bioimagem
+  (filtro "MG - Uberlândia"). O Centro Clínico traz os dois rótulos na mesma
+  página, então dele não se pode dizer que some do filtro.
+- **Endereços de BH no guia do líder:** são **pelo menos cinco**, não três — e
+  um deles (Centro de Oftalmologia Brasil) está no nosso próprio banco como
+  retaguarda do artigo de Belo Horizonte.
+- **FORBIDDEN_TOKENS:** de 16 para 65 tokens, incluindo os credenciados não
+  confirmados, os 16 valores da tabela do concorrente, os números corporativos
+  dele que conflitam com os canônicos e as variantes de endereço sem pontuação.
 
 ## Dados que faltam
 

@@ -4,13 +4,13 @@ tipo: city | cidade/eixo: Divinópolis | âncoras: 0
 ======================================================================
 
 A · MATRIZ DE SUFICIÊNCIA POR SEÇÃO (itens da pesquisa que a sustentam)
-   S1 por que a cidade é diferente          6 item(ns)
-   S2 preços e coparticipação              36 item(ns)
-   S3 planos disponíveis                    7 item(ns)
-   S4 rede assistencial                   115 item(ns)
-   S5 cobertura por bairro                 22 item(ns)
-   S6 cenário de saúde local               40 item(ns)
-   S7 como contratar                       12 item(ns)
+   S1 por que a cidade é diferente          8 item(ns)
+   S2 preços e coparticipação              46 item(ns)
+   S3 planos disponíveis                   12 item(ns)
+   S4 rede assistencial                   148 item(ns)
+   S5 cobertura por bairro                 32 item(ns)
+   S6 cenário de saúde local               71 item(ns)
+   S7 como contratar                       17 item(ns)
 
 B · FAQ — LOCAL DE VERDADE?
    perguntas: 18 | sem âncora local: 1 (5.6%, limite 20%)
@@ -20,7 +20,7 @@ C · VETO DE INTENÇÃO NAS SECUNDÁRIAS
    secundárias qualificadas com intenção de quem JÁ é cliente: 0
 
 D · GANHO DE INFORMAÇÃO (CI-2) — nível de defensibilidade
-   nível declarado: 1
+   nível declarado: 2
 
 E · DIFERENCIAIS COM ÂNCORA LOCAL
    diferenciais: 5 | sem âncora local: 0 (0%)
