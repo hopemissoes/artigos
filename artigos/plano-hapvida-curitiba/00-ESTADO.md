@@ -16,8 +16,9 @@
 
 - **Fase:** **FASE 0 concluída (DR1 + DR2)** — rodada em 2026-09-01 a pedido do usuário, sobre
   um artigo **já publicado**. Antes dela, a reformatação de layout para a v7.4 (também concluída).
-- **Próximo passo concreto:** 🚦 **portão humano** — o usuário aprovar o state file
-  `PESQUISA_plano-hapvida-curitiba_COMPLETO.md`. Só depois se reescreve HTML.
+- **Próximo passo concreto:** publicar. Colar `TITULO-META.md` no Rank Math, colar o
+  `artigo.html` e atualizar o `dateModified` (revisão real, regra 5c). Depois: imagem de
+  abertura, imagem da tabela, schema e o registro no banco.
 - **Bloqueios:** nenhum mecânico. `checkpoint_ci1` e `checkpoint_fase0` fecham em ✅ APROVADO.
 - **Ressalva de método:** ⚠️ **MODO agente único** — a linha de 25 agentes da v7.2 NÃO rodou
   (subagentes não autorizados nesta sessão). Coleta, síntese e conferência saíram da mesma
@@ -38,15 +39,15 @@ continuariam pendentes se um dia este artigo for tratado como produção nova.
 |---|---|---|
 | **CI-1 — concorrente lido (`checkpoint_ci1.py`)** | ✅ **APROVADO** — 4 lidos | `checkpoints/checkpoint_ci1.txt` |
 | **FASE 0 (`checkpoint_fase0.py`)** | ✅ **APROVADO** | `checkpoints/checkpoint_fase0.txt` |
-| **Aprovação humana do state file** | ⬜ **pendente — é o próximo passo** | — |
+| **Aprovação humana do state file** | ✅ aprovado pelo usuário em 2026-09-01 | — |
+| **Kit on-page (`checkpoint_onpage.py`)** | ✅ **APROVADO** | `checkpoints/checkpoint_onpage.txt` |
+| **`[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`)** | ✅ **APROVADO** | `checkpoints/checkpoint_verificar.txt` |
+| **Citabilidade (`checkpoint_citabilidade.py`)** | ✅ **APROVADO** — 0 reprovadas (eram 13) | `checkpoints/checkpoint_citabilidade.txt` |
 | Suficiência (`checkpoint_suficiencia.py`) + juízes 23/24 | ⬜ pendente | exige arquivo de âncoras |
-| Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | kit rascunhado na seção 12 do state file |
 | **Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`)** | ✅ **APROVADO** | `checkpoints/checkpoint_preco_primeiro.txt` |
-| Voz humana (`checkpoint_voz.py`) | 🟡 reprovado **antes e depois, igual** | `checkpoints/checkpoint_voz.txt` — herdado, não introduzido |
+| Voz humana (`checkpoint_voz.py`) | 🟡 **reprova por NOME PRÓPRIO — decisão registrada** | `checkpoints/checkpoint_voz.txt` |
 | Completude (`checkpoint_completude.py`) | ✅ aprovado | `checkpoints/checkpoint_completude.txt` |
-| Parágrafo / ritmo visual | ✅ aprovados | `checkpoints/` |
-| Citabilidade (`checkpoint_citabilidade.py`) | 🟡 13 reprovadas **antes e depois, igual** | `checkpoints/checkpoint_citabilidade.txt` |
-| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ⬜ pendente | exige state file da FASE 0 |
+| Parágrafo / ritmo visual | ✅ aprovados (0 reprovados; eram 5 e 2 depois que a trava passou a enxergar o corpo) | `checkpoints/` |
 | Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ pendente | exige lista de âncoras + artigos irmãos |
 | Registro no banco Supabase | ⬜ pendente | só depois de publicado |
 
@@ -159,3 +160,61 @@ Clinipam (1983), uma rede 100% própria com 40+ anos — 3 hospitais 24h, 19+ ce
 única maternidade de operadora da cidade — e ainda pratica a Tabela 1 de coparticipação, a de
 menores valores do país. É esse cruzamento (rede própria antiga + tabela mais barata) que
 nenhum concorrente local reúne.
+
+
+---
+
+## Otimizações aplicadas em 2026-09-01 (achados 1 a 10)
+
+- **Título, meta e H1 reescritos** (achados 1 e 3) → entregues em `TITULO-META.md`, para colar
+  no Rank Math. A principal passou a ser **"hapvida curitiba"** (1.000/mês) no lugar de
+  "plano hapvida curitiba" (volume ZERO), e a parte variável virou o ganho de informação:
+  as 19 unidades com endereço. `checkpoint_onpage` ✅.
+- **As 3 unidades do catálogo que faltavam entraram** (achado 4): Clínica São Lourenço,
+  Clínica Barão do Serro Azul e Centro Clínico Colombo, cada uma com endereço, em cards.
+  São Lourenço já ranqueava em 4,67 num artigo que não a citava.
+- **Bloco novo de pronto atendimento** (achado 6), nomeando as 3 unidades de PA com endereço
+  e separando PA de pronto-socorro hospitalar. A busca está em posição 2,29.
+- **A tabela da RMC parou de mandar Colombo à capital** (achado 5): existe Centro Clínico
+  Colombo na própria cidade. Entraram também os links para São José dos Pinhais e Londrina.
+- **Links consertados** (achado 8): `/coparticipacao-hapvida/` era um 301 e virou a URL
+  direta; Qualivida caiu de 3× para 1×; 11 links internos, **nenhuma URL repetida**.
+- **Dado YMYL sem fonte removido** (achado 7): contagem de leitos e salas cirúrgicas, dois
+  telefones 0800, o superlativo "única maternidade de operadora" e os números da Unimed
+  (4.700 médicos / 54 hospitais) vindos de concorrente. `checkpoint_verificar` ✅.
+- **Corpo do texto de 17px para 18px** — o artigo estava fora da especificação da skill
+  ("Body text #4a5568, font-size: 18px"). Foi um conserto de CSS com efeito grande: as travas
+  de citabilidade, parágrafo e ritmo **não enxergavam o corpo do artigo**. Citabilidade saiu
+  de 13 reprovadas para 0; parágrafo e ritmo revelaram 5 parágrafos longos e 2 sequências sem
+  quebra, todos corrigidos.
+- **Passagem citável na FAQ** (54 palavras), que abria direto no acordeão.
+
+## Decisões registradas sobre avisos que NÃO bloqueiam
+
+- **`checkpoint_voz` segue REPROVADO por 4 ocorrências de "qualidade de vida"** — e as quatro
+  são o **nome próprio da unidade** "Centro de Qualidade de Vida (Rua XV de Novembro, 556)".
+  Renomear seria adulterar fato, o que a regra-mãe da camada de voz proíbe: *"se limpar o
+  tique custar precisão, o tique fica e o editor anota o porquê"*. **Fica.** As outras duas
+  famílias de tique (uso genérico de "qualidade de vida" e "cobertura total", que contraria a
+  ANS) foram corrigidas — esta última virou "atendimento eletivo completo", que é mais preciso.
+- **Travessão em 25 ocorrências (alvo ≤ 2 por 1.000 palavras)** — 🟡 de densidade. Em pt-BR o
+  travessão é pontuação padrão de aposto; forçar o alvo deixaria o texto artificial. Reduzi os
+  que eu mesmo introduzi e mantive os do texto original.
+- **Aviso do `checkpoint_preco_primeiro`: "H2 de preço fora do bloco do topo"** — é a
+  **conclusão**, que tem a palavra "preço" no título. Falso positivo do vocabulário. Fica.
+
+## Correções ao que eu havia afirmado na FASE 0
+
+Duas coisas que apontei como erro do artigo **não eram erro**, e conferi antes de editar:
+
+1. **"Hospital Ônix Mateus Leme" não é fusão de dois hospitais.** O artigo tem os três cards
+   separados, com os endereços exatos do catálogo. "Ônix" é prefixo de marca usado nos dois
+   (Ônix Mateus Leme e Ônix Batel), e o GSC confirma a busca real por "hospital onix mateus
+   leme" na posição 2,43. **Mantido.**
+2. **"19+ centros clínicos" não estava refutado.** O catálogo tem 14 unidades, mas o artigo
+   nomeia ~16 com endereço e CEP, e a regra da skill é que ausência no banco não prova ausência
+   na rede. Com as 3 unidades do catálogo que faltavam, o artigo passou a nomear **19 unidades
+   com endereço** — o número virou literalmente contável no próprio texto.
+
+Os dois saíram do `FORBIDDEN_TOKENS` na prática (não aparecem mais como afirmação sem fonte);
+o bloco no state file foi mantido como registro do que se investigou.

@@ -4,25 +4,25 @@ CHECKPOINT PRECO-PRIMEIRO [V7.4] — artigo.html (tipo: city)
 
 [H2 encontrados: 13 | de preco: 3 | de outros assuntos: 10]
    PRECO    2%  tabela de precos hapvida curitiba [ano_atual]
-   PRECO   17%  coparticipacao em curitiba: tabela 1 como vantagem competitiva n
-           21%  por que hapvida em curitiba e diferente?
-           28%  tipos de planos disponiveis em curitiba
-           33%  rede propria: hospitais e clinicas em curitiba
-           44%  hospital onix mateus leme: o flagship da rede
-           49%  cobertura por regional: onde funciona o plano?
-           55%  hapvida vs unimed vs parana clinicas
-           59%  carencias em curitiba: como mais de 40 anos de rede propria muda
-           67%  tecnologia e teleconsulta
-           70%  como contratar o plano em curitiba
-           76%  duvidas sobre hapvida em curitiba
-   PRECO   93%  hapvida curitiba: rede propria, preco competitivo, mais de 40 an
+   PRECO   16%  coparticipacao em curitiba: tabela 1 como vantagem competitiva n
+           20%  por que hapvida em curitiba e diferente?
+           27%  tipos de planos disponiveis em curitiba
+           31%  rede propria hapvida em curitiba: 3 hospitais e 19 unidades com 
+           47%  hospital onix mateus leme: o pronto-socorro 24h da hapvida em cu
+           51%  cobertura na regiao metropolitana: onde o plano hapvida atende
+           58%  hapvida vs unimed vs parana clinicas
+           62%  carencias em curitiba: como mais de 40 anos de rede propria muda
+           69%  tecnologia e teleconsulta
+           72%  como contratar o plano em curitiba
+           77%  duvidas sobre hapvida em curitiba
+   PRECO   94%  hapvida curitiba: rede propria, preco competitivo, mais de 40 an
 
 [Regra 0 — lead-heroi (v7.4)]
-   - lead-heroi na posicao 0; maior <p> dentro dele: 52 palavras
+   - lead-heroi na posicao 0; maior <p> dentro dele: 56 palavras
 
 [Regra 1 — tabela primeiro]
    - primeira tabela: shortcode [curitiba_menortabela]
-   - texto visivel antes dela: 1109 caracteres (a 3% do arquivo)
+   - texto visivel antes dela: 1133 caracteres (a 3% do arquivo)
    - sumario (toc-list) a 4% do arquivo
 
 [Regra 1b — sumario colado na tabela (v7.1)]
@@ -32,7 +32,7 @@ CHECKPOINT PRECO-PRIMEIRO [V7.4] — artigo.html (tipo: city)
    - ok: o primeiro H2 de conteudo e de preco ("tabela de precos hapvida curitiba [ano_atual]")
 
 [Formulario — v7.1: depois do sumario]
-   - ok: id="cotacao-1" depois do sumario, a 12% do arquivo
+   - ok: id="cotacao-1" depois do sumario, a 11% do arquivo
 
 ------------------------------------------------------------------------
    AVISO (nao bloqueia, mas explique a decisao): H2 de preco fora do bloco do topo: "hapvida curitiba: rede propria, preco competitivo, mais de 40 anos de "
