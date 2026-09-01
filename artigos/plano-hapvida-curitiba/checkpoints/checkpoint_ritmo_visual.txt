@@ -1,0 +1,10 @@
+
+===========================================================================
+CHECKPOINT — RITMO VISUAL (artigo.html)
+===========================================================================
+Total de seções analisadas: 14
+  ✅ Aprovadas (≤3 P consecutivos):       14
+  ⚠️  Em aviso (4 P consecutivos):         0
+  ❌ Reprovadas (≥5 P consecutivos):      0
+
+✅ CHECKPOINT APROVADO — ritmo visual OK em todas as seções.

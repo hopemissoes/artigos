@@ -1,0 +1,10 @@
+
+===========================================================================
+CHECKPOINT — TAMANHO DE PARÁGRAFO (artigo.html)
+===========================================================================
+Total <p> de corpo: 1
+  ✅ Aprovados (≤380 chars):     1
+  ⚠️  No limite (381-480 chars): 0
+  ❌ Reprovados (>480 chars):     0
+
+✅ CHECKPOINT APROVADO — bloco pode ser apresentado ao usuário.
