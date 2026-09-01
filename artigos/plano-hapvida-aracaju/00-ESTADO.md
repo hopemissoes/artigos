@@ -106,7 +106,13 @@ Legenda: ✅ aprovado (saída em `checkpoints/`) · 🟡 rodado, com ressalva ·
   que o catálogo traz — existe, é própria, fica no São José — e manda conferir as
   especialidades no Guia Médico.
 - **H1, title e meta reescritos** (em `ENTREGA-WORDPRESS.md`): passam a conter a keyword
-  principal e perdem o preço e o ano congelados. `checkpoint_onpage.py` ✅.
+  principal e perdem o ano congelado. `checkpoint_onpage.py` ✅.
+- **O preço no título passa a ser shortcode, não número fixo** — decisão do usuário em
+  01/09. Title: `Plano Hapvida Aracaju: Rede e Preços a Partir de [aracaju_menorvalor]`
+  (58 caracteres renderizados); a meta idem. Levantei que o WordPress não roda
+  `do_shortcode()` no `<title>` por padrão; o usuário confirmou ter plugin que renderiza.
+  Conferir o `<title>` no ar depois de publicar (comando no `ENTREGA-WORDPRESS.md` §5).
+  Ganho: título e tabela nunca divergem — no reajuste, a SERP acompanha sozinha.
 - **Links: 2 → 9 destinos internos**, priorizando os SUBUTILIZADOS do
   `consultar_saturacao_destinos`: teleconsulta (4 backlinks), laboratórios por capital (4),
   clínicas por capital (10), rede pediátrica (10), urgência e emergência (12), e os

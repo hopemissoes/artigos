@@ -17,55 +17,89 @@ Os dois blocos foram remontados limpos; se forem colados no visual de novo, o de
 
 ---
 
-## 2. Título do post (H1)
+## 2. Título do post (H1) — 58 caracteres
 
 ```
 Plano Hapvida Aracaju: Preços, Rede Própria e Hospital 24h
 ```
 
-**O que muda:** o H1 no ar é `Hapvida Aracaju: Preços, Rede e Hospital | Guia 2026`, que
-não contém a palavra "plano" e por isso reprovava no `checkpoint_onpage.py`. Também sai o
-ano fixo.
+**O que muda:** o H1 no ar é `Hapvida Aracaju: Preços, Rede e Hospital | Guia 2026`, que não
+contém a palavra "plano" e por isso reprovava no `checkpoint_onpage.py`. Também sai o ano fixo.
 
 ---
 
-## 3. Título SEO (Rank Math) — 54 caracteres
+## 3. Título SEO (Rank Math) — 58 caracteres renderizados
 
 ```
-Plano Hapvida Aracaju: Preços e as 7 Unidades da Rede
+Plano Hapvida Aracaju: Rede e Preços a Partir de [aracaju_menorvalor]
 ```
+
+Renderiza hoje como **"Plano Hapvida Aracaju: Rede e Preços a Partir de R$ 144,77"** — 58
+caracteres, dentro do limite de 60. O valor sai do mesmo shortcode que alimenta o corpo do
+artigo, então título e tabela nunca divergem: quando a tabela é reajustada, a SERP acompanha
+sozinha.
 
 **O que muda:** o title no ar é `Plano Hapvida Aracaju 2026: promoções de R$ 144,77` — preço
-e ano congelados, que passam a mentir na SERP no primeiro reajuste. O novo abre com a keyword
-e carrega o ganho de informação da pesquisa (a rede endereçada, que nenhum concorrente tem).
+e ano congelados na mão, que passam a mentir no primeiro reajuste. O novo abre com a keyword
+principal e carrega o ganho de informação da pesquisa (a rede endereçada, que nenhum
+concorrente da SERP tem).
 
-Se você preferir manter o ano no título, use o shortcode do Rank Math, nunca o número:
-`Plano Hapvida Aracaju %currentyear%: Preços e Rede` (50 caracteres).
+> Se um dia o `[aracaju_menorvalor]` passar de 4 dígitos, o título encosta no limite de 60.
+> Nesse caso, encurtar para `Plano Hapvida Aracaju a Partir de [aracaju_menorvalor]`.
 
 ---
 
-## 4. Meta description — 149 caracteres
+## 4. Meta description — 145 caracteres renderizados
 
 ```
-Plano Hapvida Aracaju: tabela de preços por faixa etária, as 7 unidades próprias com endereço e o único pronto-socorro 24h do estado, no Centro.
+Plano Hapvida Aracaju a partir de [aracaju_menorvalor]: tabela por faixa etária, as 7 unidades próprias com endereço e o único pronto-socorro 24h do estado.
 ```
 
-**O que muda:** a meta no ar abre em "Hapvida Aracaju 2026:" — sem a keyword principal e com
-ano fixo. E repetia o número errado de unidades ("10 unidades próprias").
+Renderiza como: *"Plano Hapvida Aracaju a partir de R$ 144,77: tabela por faixa etária, as 7
+unidades próprias com endereço e o único pronto-socorro 24h do estado."*
+
+**O que muda:** a meta no ar abre em "Hapvida Aracaju 2026:" — sem a keyword principal, com
+ano fixo e repetindo o número errado de unidades ("10 unidades próprias").
 
 ---
 
 ## 5. Conferência depois de publicar
 
+Rodar o kit on-page com os valores **renderizados** (não com o shortcode cru):
+
 ```bash
 scripts/cp.sh hapvida-article-builder-v7 checkpoint_onpage.py artigos/plano-hapvida-aracaju/artigo.html \
-  --kw "plano hapvida aracaju" --h1 "<H1 real>" --title "<title real>" \
-  --url "plano-hapvida-aracaju" --meta "<meta real>"
+  --kw "plano hapvida aracaju" --h1 "<H1 real>" --title "<title renderizado>" \
+  --url "plano-hapvida-aracaju" --meta "<meta renderizada>"
 ```
+
+E conferir o `<title>` que foi realmente ao ar:
+
+```bash
+curl -sSL -A "Mozilla/5.0" https://tabelaplanos.com.br/plano-hapvida-aracaju/ \
+  | grep -o '<title>[^<]*</title>'
+```
+
+Tem que aparecer o valor em reais, não o shortcode entre colchetes.
 
 ---
 
-## 6. O que NÃO foi feito e depende de você
+## 6. Fica como pauta: o resto do site tem o mesmo problema
+
+Os títulos que conferi no ar têm preço e ano cravados na mão:
+
+| Página | Título no ar |
+|---|---|
+| `/plano-hapvida-belo-horizonte/` | Plano Hapvida Belo Horizonte 2026: Promoção por R$ 71,98 |
+| `/plano-hapvida-recife/` | Plano Hapvida Recife 2026: PROMOÇÃO por R$ 131,32 |
+| `/tabela-de-preco-hapvida/` | Tabela de Preços Hapvida 2026 \| PROMOÇÃO por R$ 71,98 |
+
+Se o Aracaju confirmar que o shortcode renderiza no título, dá para virar padrão nos 40+
+artigos de cidade de uma vez — e o ano também sai da mão, com o `%currentyear%` do Rank Math.
+
+---
+
+## 7. O que NÃO foi feito e depende de você
 
 - **`<figure>` de abertura** — obrigatória em artigo de cidade. A v7.4 a coloca dentro da
   primeira seção CORE (a S1, "Por Que Aracaju É um Caso À Parte"). Falta a URL da imagem.
