@@ -2,43 +2,39 @@
 ===========================================================================
 CHECKPOINT — TAMANHO DE PARÁGRAFO (artigo.html)
 ===========================================================================
-Total <p> de corpo: 41
-  ✅ Aprovados (≤380 chars):     25
-  ⚠️  No limite (381-480 chars): 16
+Total <p> de corpo: 42
+  ✅ Aprovados (≤380 chars):     28
+  ⚠️  No limite (381-480 chars): 14
   ❌ Reprovados (>480 chars):     0
 
-⚠️  PARÁGRAFOS NO LIMITE (16) — aceitar só se a divisão prejudicar o sentido:
+⚠️  PARÁGRAFOS NO LIMITE (14) — aceitar só se a divisão prejudicar o sentido:
    P4: 421 chars (~5.6 linhas)
         Para beneficiários a partir de 59 anos, os valores são proporcionalmente maiores, conforme regra da ...
-   P5: 389 chars (~5.2 linhas)
-        Em Aracaju, a escolha entre coparticipação total e parcial é o fator que mais influencia o valor fin...
-   P6: 424 chars (~5.7 linhas)
-        Isso é particularmente relevante no contexto aracajuano, onde concorrentes como a Plamed e a Unimed ...
-   P7: 472 chars (~6.3 linhas)
+   P8: 472 chars (~6.3 linhas)
         Diferente de capitais como Recife ou Salvador, onde dezenas de operadoras disputam cada bairro, o me...
-   P8: 456 chars (~6.1 linhas)
+   P9: 456 chars (~6.1 linhas)
         Essa concentração tem um efeito prático direto: o aracajuano que quer plano de saúde acessível preci...
-   P9: 449 chars (~6.0 linhas)
+   P10: 449 chars (~6.0 linhas)
         O cenário fica ainda mais interessante quando se olha para a região metropolitana. Somando Nossa Sen...
-   P10: 464 chars (~6.2 linhas)
+   P11: 464 chars (~6.2 linhas)
         Com um PIB per capita de R$ 36.983 e economia baseada em serviços (65% do PIB municipal), Aracaju ap...
-   P16: 444 chars (~5.9 linhas)
+   P17: 444 chars (~5.9 linhas)
         Diferente de operadoras como Bradesco e SulAmérica — que em Aracaju funcionam 100% via rede credenci...
-   P21: 390 chars (~5.2 linhas)
+   P22: 390 chars (~5.2 linhas)
         Desde então, o Gabriel Soares é a única referência hospitalar própria da Hapvida em todo o estado de...
-   P25: 465 chars (~6.2 linhas)
+   P26: 465 chars (~6.2 linhas)
         O anúncio do novo hospital no Grageru, em dezembro de 2025, representa o maior investimento da Hapvi...
-   P26: 411 chars (~5.5 linhas)
+   P27: 411 chars (~5.5 linhas)
         O contexto dessa expansão se insere no plano nacional da Hapvida de investir R$ 2 bilhões até 2026, ...
-   P30: 410 chars (~5.5 linhas)
+   P31: 410 chars (~5.5 linhas)
         Já na região metropolitana, o crescimento acelerado de Barra dos Coqueiros (+66,2% em 12 anos) e a m...
-   P31: 467 chars (~6.2 linhas)
+   P32: 467 chars (~6.2 linhas)
         Em Aracaju, quem busca plano de saúde pessoa física tem basicamente três opções com rede local: Hapv...
-   P32: 422 chars (~5.6 linhas)
+   P33: 422 chars (~5.6 linhas)
         Na prática,   o que importa para quem contrata em Aracaju não é decorar cada prazo— o pillar de carê...
-   P38: 417 chars (~5.6 linhas)
+   P39: 417 chars (~5.6 linhas)
         Para quem mora na Zona de Expansão, na zona norte ou nos municípios da região metropolitana, os cana...
-   P41: 439 chars (~5.9 linhas)
+   P42: 439 chars (~5.9 linhas)
         Se você busca o melhor custo-benefício em Aracaju, a Hapvida é a escolha natural — com planos a part...
 
 ✅ CHECKPOINT APROVADO — bloco pode ser apresentado ao usuário.

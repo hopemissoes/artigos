@@ -5,15 +5,15 @@ CHECKPOINT PRECO-PRIMEIRO [V7.5] — artigos/plano-hapvida-aracaju/artigo.html (
 [H2 encontrados: 12 | de preco: 2 | de outros assuntos: 10]
    PRECO    2%  tabela de precos hapvida aracaju [ano_atual]
    PRECO   14%  coparticipacao — como impacta seu bolso em aracaju
-           19%  por que aracaju e um caso a parte na saude suplementar
-           25%  tipos de plano hapvida disponiveis em aracaju
-           32%  rede propria hapvida em aracaju — 7 unidades por bairro
-           44%  hospital hapvida gabriel soares — 18 anos no centro de aracaju
-           52%  cobertura por regiao — onde ficam as clinicas hapvida em aracaju
-           60%  comparativo — hapvida vs unimed sergipe vs plamed
-           67%  carencias e portabilidade em aracaju
-           72%  como contratar hapvida em aracaju
-           78%  tudo sobre o plano hapvida em aracaju
+           21%  por que aracaju e um caso a parte na saude suplementar
+           27%  tipos de plano hapvida disponiveis em aracaju
+           34%  rede propria hapvida em aracaju — 7 unidades por bairro
+           45%  hospital hapvida gabriel soares — 18 anos no centro de aracaju
+           53%  cobertura por regiao — onde ficam as clinicas hapvida em aracaju
+           61%  comparativo — hapvida vs unimed sergipe vs plamed
+           68%  carencias e portabilidade em aracaju
+           73%  como contratar hapvida em aracaju
+           79%  tudo sobre o plano hapvida em aracaju
            93%  hapvida em aracaju — rede em expansao e cobertura nacional
 
 [Regra 0 — lead-heroi (v7.4)]
@@ -21,7 +21,7 @@ CHECKPOINT PRECO-PRIMEIRO [V7.5] — artigos/plano-hapvida-aracaju/artigo.html (
 
 [Regra 1 — tabela primeiro]
    - primeira tabela: shortcode [aracaju_menortabela]
-   - texto visivel antes dela: 1357 caracteres (a 4% do arquivo)
+   - texto visivel antes dela: 1357 caracteres (a 3% do arquivo)
    - sumario (toc-list) a 4% do arquivo
 
 [Regra 1b — formulario colado na tabela, sumario depois dele (v7.5)]

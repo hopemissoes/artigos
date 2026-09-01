@@ -173,3 +173,30 @@ O formulário de cotação passou a vir **colado na tabela**, antes do sumário.
 foi alterada na skill original e a trava `checkpoint_preco_primeiro.py` inverteu junto
 — testada nos dois sentidos. Motivo, contraponto e arquivos tocados: `docs/DECISOES.md`,
 entrada de 2026-09-01.
+
+### Seção de coparticipação reescrita (2026-09-01, pedido do usuário)
+
+**Diagnóstico:** 5 `<p>` de corpo seguidos (~2.400 caracteres) e só então uma caixa —
+parede de texto. Pior: **três deles vinham com classes órfãs do chat**
+(`font-claude-response-body break-words whitespace-normal leading-[1.7]`) e **sem estilo
+inline** — não herdavam justificado, nem 18px, nem `line-height`. Destoavam visualmente do
+resto do artigo, e por não terem `font-size:18px` os `checkpoint_paragrafos.py` e
+`ritmo_visual.py` não os enxergavam. Dois deles passavam de 480 caracteres.
+
+**O que entrou de quebra visual:** dois cards (coparticipação total × parcial), uma faixa
+de três valores por uso via shortcode, um H3 e uma lista de decisão por bairro. A seção
+passou a alternar — nunca mais de 1 parágrafo de corpo seguido.
+
+**Anti-doorway:** a MECÂNICA nacional da coparticipação continua fora (território do pillar;
+o banco a cataloga como overlap de risco alto). Ficaram só o VALOR e o critério local, que
+a v7 permite no artigo de cidade. Os nomes dos municípios da RM (Socorro, Barra dos
+Coqueiros, São Cristóvão) foram repostos na lista — saíram na primeira versão e são âncora
+local.
+
+**Fidelidade:** 477 → 383 palavras. Todos os fatos nomeados sobreviveram (Tabela 1, isenção
+de internação/cirurgia/parto, maternidade e UTI neonatal, Grageru, Unimed, Plamed, os 2 km,
+as terapias). O que saiu foi conectivo e repetição. O grifo animado que morava no parágrafo
+antigo foi reposto na abertura — o total segue em 10.
+
+**Nenhum link novo aqui:** o pillar de coparticipação é o destino mais SATURADO do site
+(58 backlinks). A menção ao guia completo ficou sem link, de propósito.

@@ -3,14 +3,13 @@
 CHECKPOINT — CITABILIDADE GEO/AEO (artigo.html)
 ===========================================================================
 Seções (<h2>) analisadas: 12
-  ✅ Abertura citável (faixa ideal):  6
-  ⚠️  Aceitável / atenção:            5
+  ✅ Abertura citável (faixa ideal):  7
+  ⚠️  Aceitável / atenção:            4
   ❌ Reprovadas:                      1
 Links externos de fonte (rel=nofollow): 2
 Seções com abertura SEM número-âncora: 4 (considere ancorar com um dado da cidade/hospital)
 
-⚠️  ATENÇÃO (5):
-   • Coparticipação — Como Impacta Seu Bolso em Aracaju — 65 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+⚠️  ATENÇÃO (4):
    • Por Que Aracaju É um Caso À Parte na Saúde Suplementar — 75 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
    • Rede Própria Hapvida em Aracaju — 7 Unidades por Bairro — 69 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
    • Comparativo — Hapvida vs Unimed Sergipe vs Plamed — 77 palavras na abertura — abertura longa — não é resposta direta

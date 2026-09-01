@@ -488,6 +488,116 @@ CONCL = troca(CONCL, 'mas o anúncio do novo hospital de 130 leitos no Grageru s
 FAQ = troca(FAQ, 'em dezembro de 2025, anunciou um novo hospital de 130 leitos no Grageru. São quase duas décadas',
                  'em dezembro de 2025, anunciou um novo hospital no Grageru. São quase duas décadas')
 
+# ---- 19. seção de coparticipação: parede de texto -> leitura escaneável -------
+# Diagnostico: 5 <p> de corpo seguidos (~2.400 caracteres) e so entao uma caixa.
+# Pior: tres deles (P4-P6) vieram com classes orfas do chat
+# ("font-claude-response-body break-words ...") e SEM estilo inline — nao herdavam
+# nem o justificado, nem o 18px, nem o line-height, e por isso os checkpoints de
+# paragrafo e ritmo nao os enxergavam.
+#
+# O que entra de quebra visual: dois cards (total x parcial), uma faixa de tres
+# valores por uso, um H3 e uma lista de decisao por bairro. Nenhum fato novo — o
+# texto e o mesmo, reorganizado e encurtado. A MECANICA nacional da coparticipacao
+# continua fora (territorio do pillar; o banco a cataloga como overlap de risco
+# alto); aqui fica so o VALOR e o criterio local, que a v7 permite na city.
+
+P_CORPO = ('<p style="text-align: justify!important; font-size: 18px; line-height: 1.7; '
+           'margin-bottom: 16px;">')
+GRIFO = ('<span class="destaque-laranja-suave" style="background-image: '
+         'linear-gradient(120deg,rgba(255,107,0,0.22) 0%,rgba(255,133,51,0.22) 100%); '
+         'background-repeat: no-repeat; background-position: 0 50%; background-size: 100% 100%; '
+         'padding: 2px 6px; transition: background-size 1.2s ease-out;">')
+
+def card_modalidade(sigla, titulo, texto, rodape):
+    return ('<div style="flex: 1 1 300px!important; box-sizing: border-box!important; background: #fff; '
+            'border: 1px solid #e2e8f0; border-radius: 20px; padding: 20px 18px; '
+            'box-shadow: 0 2px 8px rgba(0,0,0,0.04);">'
+            '<div style="display: flex!important; align-items: center!important; gap: 10px!important; '
+            'margin-bottom: 10px;">'
+            '<div style="width: 28px; height: 28px; flex-shrink: 0!important; background: #2563eb; '
+            'border-radius: 8px; display: flex!important; align-items: center!important; '
+            'justify-content: center!important; color: #fff; font-size: 11px; font-weight: 800;">'
+            + sigla + '</div>'
+            '<h3 style="font-size: 16px; font-weight: 800; color: #1a202c; margin: 0;">' + titulo + '</h3>'
+            '</div>'
+            '<p style="text-align: justify!important; font-size: 14px; line-height: 1.7; color: #4a5568; '
+            'margin-bottom: 10px;">' + texto + '</p>'
+            '<div style="font-size: 13px; font-weight: 700; color: #ff6b00;">' + rodape + '</div>'
+            '</div>')
+
+def valor(rotulo, shortcode):
+    return ('<div style="flex: 1 1 160px!important; box-sizing: border-box!important; '
+            'background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 16px;">'
+            '<div style="font-size: 20px; font-weight: 900; color: #ff6b00;">' + shortcode + '</div>'
+            '<div style="font-size: 13px; color: #718096;">' + rotulo + '</div></div>')
+
+def item(texto):
+    return ('<li style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:18px;'
+            'color:#4a5568;line-height:1.7;">'
+            '<span style="color:#ff6b00;font-weight:800;flex-shrink:0;">▸</span>'
+            '<span>' + texto + '</span></li>')
+
+MIOLO_COPART = (
+ # abertura citável (leva o grifo que estava no parágrafo antigo)
+ P_CORPO + 'Em Aracaju, escolher entre coparticipação total e parcial pesa mais no valor final do '
+ 'que a faixa etária nas faixas jovens. A total tem ' + GRIFO +
+ 'a menor mensalidade do mercado sergipano</span> e cobra por uso; a parcial inverte — '
+ 'mensalidade um pouco maior e copay menor a cada consulta ou exame.</p>\n'
+
+ # cards: total × parcial
+ '<div class="grid2" style="display: flex!important; flex-wrap: wrap!important; gap: 16px!important; '
+ 'margin-bottom: 20px;">'
+ + card_modalidade('CT', 'Coparticipação total',
+     'A menor mensalidade da praça. Em troca, você paga uma taxa a cada consulta, exame ou '
+     'procedimento realizado.',
+     'Compensa para quem usa pouco')
+ + card_modalidade('CP', 'Coparticipação parcial',
+     'Mensalidade um pouco maior, com o valor por uso reduzido. O gasto fica mais previsível '
+     'mês a mês.',
+     'Compensa para quem usa com frequência')
+ + '</div>\n'
+
+ # o dado forte e local: a isenção
+ + P_CORPO + 'Nas duas modalidades, internações, cirurgias e partos no Hospital Gabriel Soares são '
+ 'isentos de coparticipação — maternidade e UTI neonatal incluídas. Com o hospital do Grageru, '
+ 'a isenção passa a valer para uma rede com o dobro da capacidade própria atual.</p>\n'
+
+ # faixa de valores por uso
+ '<p style="text-align: justify!important; font-size: 15px; font-weight: 700; color: #1a202c; '
+ 'margin-bottom: 10px;">O que se paga por uso na coparticipação total, em Aracaju:</p>\n'
+ '<div class="grid3" style="display: flex!important; flex-wrap: wrap!important; gap: 12px!important; '
+ 'margin-bottom: 20px;">'
+ + valor('Consulta eletiva', '[demais_capitais_consultas_eletivas]')
+ + valor('Exame simples', '[demais_capitais_exames_simples]')
+ + valor('Demais terapias', '[demais_capitais_demais_terapias]')
+ + '</div>\n'
+ '<p style="text-align: justify!important; font-size: 14px; line-height: 1.7; color: #64748b; '
+ 'margin-bottom: 20px;">Aracaju segue a Tabela 1 da Hapvida (demais capitais), com valores '
+ 'inferiores aos de São Paulo e Belo Horizonte. A lista completa de procedimentos está no guia '
+ 'de coparticipação.</p>\n'
+
+ # decisão por bairro
+ '<h3 style="font-size:19px;font-weight:800;color:#1a202c;margin:14px 0 8px 0;">'
+ 'Qual escolher, pelo seu bairro</h3>\n'
+ '<ul style="list-style:none;padding:0;margin:0 0 20px 0;">'
+ + item('<strong>Centro, São José ou Suíssa</strong> — a menos de 2 km de 6 das 7 unidades '
+        'próprias. Uso frequente, a parcial tende a compensar.')
+ + item('<strong>Zona Norte, Zona de Expansão ou região metropolitana</strong> — Nossa Senhora '
+        'do Socorro, Barra dos Coqueiros e São Cristóvão dependem do Centro para quase tudo. '
+        'Uso esporádico, a total sai melhor.')
+ + '</ul>\n'
+
+ # comparação local
+ + P_CORPO.replace('margin-bottom: 16px;', 'margin-bottom: 20px;')
+ + 'Comparar com as concorrentes exige atenção: a Unimed Sergipe vende linhas sem coparticipação, '
+ 'com mensalidade mais alta — parece mais caro de saída, mas dispensa o pagamento por uso. '
+ 'A Plamed trabalha com modelos mistos, conforme a linha.</p>\n'
+)
+
+_i = COPART.index('margin-bottom: 28px;"></div>') + len('margin-bottom: 28px;"></div>')
+_j = COPART.index('<div style="background: linear-gradient(135deg,#eff6ff')
+COPART = COPART[:_i] + '\n' + MIOLO_COPART + COPART[_j:]
+
 # ------------------------------------------------------------------ montagem
 partes = [ART_OPEN, HEROI, PRECO_A, FORM1, TOC, PRECO_B, COPART, S1, TIPOS,
           REDE, HOSP, COBERT, COMPAR, CARENC, TECNO, CONTRAT, FAQ, CONCL, TAIL]
