@@ -19,19 +19,25 @@
 - **Natureza do trabalho:** o usuário entregou um artigo **já escrito** (ordem v6) e
   pediu a reformatação do layout para a v7. **Não houve FASE 0** — nenhum dado novo
   foi pesquisado nem afirmado. Todo número do lead-herói já existia no texto original.
-- **Próximo passo concreto:** decidir com o usuário se o artigo segue para publicação
-  como está (layout v7 ok, conteúdo herdado) ou se entra a FASE 0 retroativa para
-  fechar os portões de pesquisa (CI-1, suficiência, `[VERIFICAR]`, doorway final).
-- **Bloqueios:** sem state file de pesquisa → 4 portões não podem ser rodados.
+- **Próximo passo concreto:** nenhum, do ponto de vista de layout. O que sobrou são
+  itens que dependem de material do usuário (URL da imagem de abertura, imagem da
+  tabela, title/meta/H1 reais) — ver "Dados que faltam".
+- **Bloqueios:** nenhum. **Não abrir FASE 0 por causa deste artigo.** A FASE 0 é o
+  portão que antecede a escrita de HTML; aqui o HTML já veio escrito e o pedido era
+  de layout. As travas `ci1`, `suficiencia`, `verificar` e `doorway_final` não rodam
+  porque leem o state file de pesquisa — é limitação de ferramenta em artigo herdado,
+  não pendência de trabalho. Se um dia surgir dúvida sobre um dado do texto, o
+  caminho é a auditoria MODO 1 (veracidade) sobre o dado específico, não refazer
+  pesquisa inteira.
 
 ## Portões
 
 | Portão | Status | Evidência |
 |---|---|---|
-| CI-1 — concorrente lido (`checkpoint_ci1.py`) | ⬜ não aplicável nesta tarefa | exige state file da FASE 0 |
-| FASE 0 (`checkpoint_fase0.py`) | ⬜ não rodado | artigo herdado, sem pesquisa própria |
-| Aprovação humana do state file | ⬜ não aplicável | idem |
-| Suficiência (`checkpoint_suficiencia.py`) | ⬜ não rodado | exige state file |
+| CI-1 — concorrente lido (`checkpoint_ci1.py`) | ➖ não se aplica | artigo herdado; trava lê o state file |
+| FASE 0 (`checkpoint_fase0.py`) | ➖ não se aplica | o pedido foi de layout, não de artigo novo |
+| Aprovação humana do state file | ➖ não se aplica | idem |
+| Suficiência (`checkpoint_suficiencia.py`) | ➖ não se aplica | trava lê o state file |
 | Kit on-page (`checkpoint_onpage.py`) | 🟡 parcial | `checkpoints/onpage.txt` — principal ok; secundárias/H1/title/URL/meta não informados |
 | Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ✅ aprovado | `checkpoints/preco_primeiro.txt` — 0 avisos |
 | Tamanho de parágrafo (`checkpoint_paragrafos.py`) | ✅ aprovado | `checkpoints/paragrafos.txt` — 0 reprovados, 20 no limite |
@@ -39,11 +45,12 @@
 | Citabilidade (`checkpoint_citabilidade.py`) | 🟡 1 reprovação | `checkpoints/citabilidade.txt` — é a seção de FAQ; ver Decisões |
 | Voz humana (`checkpoint_voz.py`) | ✅ aprovado | `checkpoints/voz.txt` — 0 🔴; 🟡 densidade de travessão (herdada) |
 | Completude (`checkpoint_completude.py`) | ✅ aprovado | `checkpoints/completude.txt` — 13 H2, 18 FAQ, 5.5k palavras |
-| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ⬜ não rodado | exige `FORBIDDEN_TOKENS` do state file |
-| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ não rodado | exige âncoras + HTML dos artigos irmãos |
+| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ➖ não se aplica | exige `FORBIDDEN_TOKENS` do state file |
+| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ rodável | precisa das âncoras + HTML dos artigos irmãos, não do state file |
 | Registro no banco Supabase | ⬜ pendente | só depois do artigo aprovado |
 
-Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
+Legenda: ✅ aprovado (saída em `checkpoints/`) · 🟡 rodado, com ressalva · ⬜ pendente ·
+➖ não se aplica a artigo herdado (a trava lê o state file da FASE 0)
 
 ## Decisões tomadas
 
@@ -93,9 +100,10 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
 
 ## Dados que faltam
 
-- **Nenhuma FASE 0.** O artigo não tem `PESQUISA_*_COMPLETO.md`: rede, hospitais, números
-  de mercado e comparativo com Unimed/Plamed **não foram conferidos** contra `consultar_rede`,
-  `consultar_dados_canonicos` nem fonte primária. Antes de publicar, rodar a FASE 0 retroativa.
+- **Conteúdo herdado, não conferido por mim.** Rede, hospitais, números de mercado e o
+  comparativo com Unimed/Plamed vieram prontos no arquivo enviado. Eu não os alterei nem
+  os verifiquei. Isso **não** é motivo para abrir FASE 0: se algum dado específico levantar
+  dúvida, o caminho é a auditoria MODO 1 (veracidade) naquele dado.
 - **`<figure>` de abertura ausente** — a v7.4 manda a imagem descer para dentro da S1;
   aqui não há imagem nenhuma no artigo. Falta a URL (o usuário fornece; nunca inventar).
 - **Imagem da tabela de preço ausente** (`gerar_imagem_artigo.py`) — o artigo tem seção de
