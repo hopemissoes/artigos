@@ -14,11 +14,15 @@
 
 ## Fase atual
 
-- **Fase:** **reformatação de layout para a v7.4** (não é artigo novo — o texto chegou pronto,
-  enviado pelo usuário, e foi **reordenado sem alteração de conteúdo**)
-- **Próximo passo concreto:** revisão humana do HTML e, se aprovado, publicação. Depois:
-  imagem de abertura, imagem da tabela e schema (execução separada, sob pedido).
-- **Bloqueios:** nenhum. A trava da v7 fecha em ✅ APROVADO.
+- **Fase:** **FASE 0 concluída (DR1 + DR2)** — rodada em 2026-09-01 a pedido do usuário, sobre
+  um artigo **já publicado**. Antes dela, a reformatação de layout para a v7.4 (também concluída).
+- **Próximo passo concreto:** 🚦 **portão humano** — o usuário aprovar o state file
+  `PESQUISA_plano-hapvida-curitiba_COMPLETO.md`. Só depois se reescreve HTML.
+- **Bloqueios:** nenhum mecânico. `checkpoint_ci1` e `checkpoint_fase0` fecham em ✅ APROVADO.
+- **Ressalva de método:** ⚠️ **MODO agente único** — a linha de 25 agentes da v7.2 NÃO rodou
+  (subagentes não autorizados nesta sessão). Coleta, síntese e conferência saíram da mesma
+  cabeça, então a trava "quem produz nunca confere" não existe aqui e o portão humano vale mais.
+  `checkpoint_suficiencia.py` e os juízes de pesquisa (Agentes 23/24) seguem pendentes.
 
 ## Escopo desta sessão (o que NÃO foi feito)
 
@@ -32,11 +36,11 @@ continuariam pendentes se um dia este artigo for tratado como produção nova.
 
 | Portão | Status | Evidência |
 |---|---|---|
-| CI-1 — concorrente lido (`checkpoint_ci1.py`) | ⬛ n/a nesta entrega | artigo não produzido aqui |
-| FASE 0 (`checkpoint_fase0.py`) | ⬛ n/a nesta entrega | idem |
-| Aprovação humana do state file | ⬛ n/a nesta entrega | idem |
-| Suficiência (`checkpoint_suficiencia.py`) | ⬛ n/a nesta entrega | idem |
-| Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | precisa das secundárias do kit; não existem |
+| **CI-1 — concorrente lido (`checkpoint_ci1.py`)** | ✅ **APROVADO** — 4 lidos | `checkpoints/checkpoint_ci1.txt` |
+| **FASE 0 (`checkpoint_fase0.py`)** | ✅ **APROVADO** | `checkpoints/checkpoint_fase0.txt` |
+| **Aprovação humana do state file** | ⬜ **pendente — é o próximo passo** | — |
+| Suficiência (`checkpoint_suficiencia.py`) + juízes 23/24 | ⬜ pendente | exige arquivo de âncoras |
+| Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | kit rascunhado na seção 12 do state file |
 | **Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`)** | ✅ **APROVADO** | `checkpoints/checkpoint_preco_primeiro.txt` |
 | Voz humana (`checkpoint_voz.py`) | 🟡 reprovado **antes e depois, igual** | `checkpoints/checkpoint_voz.txt` — herdado, não introduzido |
 | Completude (`checkpoint_completude.py`) | ✅ aprovado | `checkpoints/checkpoint_completude.txt` |
@@ -48,8 +52,45 @@ continuariam pendentes se um dia este artigo for tratado como produção nova.
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado · ⬛ não se aplica
 
+## Achados da FASE 0 (2026-09-01) — ordenados por impacto
+
+1. 🔴 **CTR quebrado.** 151 impressões/28d em "hapvida curitiba" na posição 6,28 → **1 clique**
+   (CTR 0,66%; a posição comportaria 5-8%). É o maior retorno disponível e se resolve em
+   title + meta, não em conteúdo.
+2. 🔴 **Canibalização em 9 URLs.** Para "hapvida curitiba", nove páginas nossas recebem
+   impressão. `/plano-clinipam-curitiba/` aparece em **posição 1,0** enquanto a página de
+   cidade fica em 6,28. Na SERP real de "plano hapvida curitiba", quem aparece é a **home**
+   (absoluto 20) — a página de cidade não aparece no orgânico.
+3. 🔴 **A keyword-alvo tem volume zero.** "plano hapvida curitiba" → `items_count: 0`.
+   "hapvida curitiba" → 1.000/mês, mas navegacional (8 dos 18 orgânicos são da própria Hapvida)
+   e caindo 28% ao ano. A demanda capturável é a cauda longa do GSC.
+4. 🟢 **A brecha, e ela é grande:** nenhum dos 4 concorrentes lidos publica o endereço de uma
+   única unidade. Nós temos as **14** no catálogo do banco. E o GSC mostra gente buscando por
+   **nome de rua** (Nossa Senhora da Luz 30 impressões, Monsenhor Celso 16, São Lourenço 6) —
+   as três são endereços de unidades nossas.
+5. 🟢 **RMC ignorada.** ~37 impressões/28d vêm de Campo Largo, Quatro Barras, Pinhais,
+   Almirante Tamandaré, Fazenda Rio Grande, São José dos Pinhais e Araucária. O artigo não
+   nomeia nenhuma. E 2 das 14 unidades ficam **fora** do município (Colombo e Pinhais).
+6. 🟡 **Pronto atendimento subaproveitado.** "pronto atendimento hapvida curitiba" está em
+   posição **2,29** com 21 impressões e zero clique. O artigo não tem bloco de PA 24h.
+7. 🔴 **Dois números do artigo não têm fonte:** "19+ centros clínicos" (o catálogo tem 11
+   unidades não-hospitalares) e o nome "Hospital Ônix Mateus Leme" (o catálogo tem **dois**
+   hospitais distintos: Mateus Leme/São Francisco e Onix Batel/Seminário). Ambos em
+   FORBIDDEN_TOKENS até serem batidos no Guia Médico.
+8. 🟡 **Links saturados.** O artigo aponta para 4 destinos SATURADOS (carência 53 backlinks,
+   tabela-de-preço 44, Qualivida 17 — este 3× no mesmo artigo, empresarial 17) e para
+   `/coparticipacao-hapvida/`, que **redireciona** para o destino mais saturado do site (58).
+   Destinos subutilizados e relevantes ignorados: `/plano-hapvida-sao-jose-dos-pinhais/` (4),
+   `/plano-hapvida-londrina/` (5), `/urgencia-e-emergencia-hapvida/` (12).
+9. 🟡 **Curitiba não está na fila do cotador** — sem dado de nível 2 de cotação nesta praça.
+10. ✅ **Confere:** a população "1,83 milhão (IBGE 2025)" bate com a estimativa IBGE de 2025
+    (1.830.795), e Curitiba é mesmo do grupo `demais_capitais` da coparticipação.
+
 ## Decisões tomadas
 
+- 2026-09-01 — **FASE 0 rodada e aprovada nas duas travas.** `location_code` de Curitiba
+  descoberto e confirmado em duas versões do CSV de geotargets: **1001634** (não estava na
+  tabela da skill `dataforseo-tabelaplanos` — vale acrescentar lá).
 - 2026-09-01 — pasta criada; original preservado em `artigo-ORIGINAL.html`, reformatado em `artigo.html`.
 - 2026-09-01 — **lead virou LEAD-HERÓI (v7.4).** A faixa navy é o 1º elemento do `<article>`;
   dentro dela, o `<p>` citável de 52 palavras, montado **só** com fatos que já estavam no lead

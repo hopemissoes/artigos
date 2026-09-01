@@ -1,0 +1,45 @@
+==========================================================================
+CHECKPOINT CI-1 [V7.3] — o concorrente foi LIDO? — PESQUISA_plano-hapvida-curitiba_COMPLETO.md
+==========================================================================
+
+CONCORRENTES LIDOS DE VERDADE: 4 (min. 3)
+
+  [OK] https://www.healthcorr.com.br/plano-de-saude-curitiba/clinipam-hapvida-curitiba/
+       10 headings literais (H2/H3) | rota: webfetch
+  [OK] https://www.rotaseguros.com.br/curitiba/clinipam/rede-credenciada.html
+       4 headings literais (H2/H3) | rota: curl
+  [OK] https://www.meuplanohap.com.br/tabela-precos/hapvida/pr/curitiba/
+       10 headings literais (H2/H3) | rota: curl
+  [OK] https://corretorabravence.com/operadora/clinipam-hapvida/cidade/curitiba
+       20 headings literais (H2/H3) | rota: curl
+
+NAO CONTAM (6):
+
+  [X] https://developers.google.com/static/google-ads/api/data/geo/geotargets-2026-08-12.csv
+      - headings literais H2/H3 (achei 0, min. 3)
+      - rota nao declarada
+  [X] https://www2.hapvida.com.br/unidades
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://servicodados.ibge.gov.br/api/v3/agregados/4709/periodos/2022/variaveis/93
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://servicodados.ibge.gov.br/api/v3/agregados/6579/variaveis/9324
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://servicodados.ibge.gov.br/api/v1/localidades/municipios/4106902
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://apidadosabertos.saude.gov.br/cnes/estabelecimentos
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+
+--------------------------------------------------------------------------
+APROVADO — 4 concorrentes lidos na pagina.
+   (Piso de EXECUCAO. Se a leitura sustenta o artigo continua
+    sendo CI-2, Agentes 23/24 e o painel do Estagio 5.)
