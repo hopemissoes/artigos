@@ -15,37 +15,36 @@
 
 ## Fase atual
 
-- **Fase:** REFORMATAÇÃO DE LAYOUT concluída — artigo em `artigo.html`
+- **Fase:** LAYOUT v7.4 concluído + FASE 0 retroativa APROVADA. Falta a revisão
+  de conteúdo, dirigida por `RELATORIO-MELHORIAS.md`.
 - **Natureza do trabalho:** o usuário entregou um artigo **já escrito** (ordem v6) e
   pediu a reformatação do layout para a v7. **Não houve FASE 0** — nenhum dado novo
   foi pesquisado nem afirmado. Todo número do lead-herói já existia no texto original.
-- **Próximo passo concreto:** nenhum, do ponto de vista de layout. O que sobrou são
-  itens que dependem de material do usuário (URL da imagem de abertura, imagem da
-  tabela, title/meta/H1 reais) — ver "Dados que faltam".
-- **Bloqueios:** nenhum. **Não abrir FASE 0 por causa deste artigo.** A FASE 0 é o
-  portão que antecede a escrita de HTML; aqui o HTML já veio escrito e o pedido era
-  de layout. As travas `ci1`, `suficiencia`, `verificar` e `doorway_final` não rodam
-  porque leem o state file de pesquisa — é limitação de ferramenta em artigo herdado,
-  não pendência de trabalho. Se um dia surgir dúvida sobre um dado do texto, o
-  caminho é a auditoria MODO 1 (veracidade) sobre o dado específico, não refazer
-  pesquisa inteira.
+- **Próximo passo concreto:** aplicar a ordem sugerida no fim de `RELATORIO-MELHORIAS.md`,
+  começando pela contagem da rede (7 unidades, não 10) e pela Clínica São José, que falta.
+- **Bloqueios:** `checkpoint_verificar.py` REPROVADO — 7 tokens proibidos no artigo
+  ("10 pontos de atendimento" e derivados) + telefones e contagens de leitos sem fonte.
+  **Nenhum HTML novo até isso ser resolvido.** Ver item 1 do relatório.
+- **Nota histórica:** a FASE 0 foi aberta a pedido do usuário DEPOIS da reformatação de
+  layout. Ela não era pré-requisito do layout (o HTML já vinha escrito) e não é —
+  mas foi ela que revelou o erro de contagem da rede, que estava no ar.
 
 ## Portões
 
 | Portão | Status | Evidência |
 |---|---|---|
-| CI-1 — concorrente lido (`checkpoint_ci1.py`) | ➖ não se aplica | artigo herdado; trava lê o state file |
-| FASE 0 (`checkpoint_fase0.py`) | ➖ não se aplica | o pedido foi de layout, não de artigo novo |
-| Aprovação humana do state file | ➖ não se aplica | idem |
-| Suficiência (`checkpoint_suficiencia.py`) | ➖ não se aplica | trava lê o state file |
-| Kit on-page (`checkpoint_onpage.py`) | 🟡 parcial | `checkpoints/onpage.txt` — principal ok; secundárias/H1/title/URL/meta não informados |
+| CI-1 — concorrente lido (`checkpoint_ci1.py`) | ✅ aprovado | `checkpoints/ci1.txt` — 4 concorrentes lidos por curl |
+| FASE 0 (`checkpoint_fase0.py`) | ✅ aprovado | `checkpoints/fase0.txt` — 7 unidades, 21 FAQ, 8 secundárias, 16 dados nível 1-2 |
+| Aprovação humana do state file | ⬜ pendente | portão do usuário |
+| Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` |
+| Kit on-page (`checkpoint_onpage.py`) | ❌ REPROVADO | `checkpoints/onpage.txt` — H1 e meta sem a keyword; 0 H2 com secundária |
 | Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ✅ aprovado | `checkpoints/preco_primeiro.txt` — 0 avisos |
 | Tamanho de parágrafo (`checkpoint_paragrafos.py`) | ✅ aprovado | `checkpoints/paragrafos.txt` — 0 reprovados, 20 no limite |
 | Ritmo visual (`checkpoint_ritmo_visual.py`) | ✅ aprovado | `checkpoints/ritmo_visual.txt` — 1 seção em aviso (4 P) |
 | Citabilidade (`checkpoint_citabilidade.py`) | 🟡 1 reprovação | `checkpoints/citabilidade.txt` — é a seção de FAQ; ver Decisões |
 | Voz humana (`checkpoint_voz.py`) | ✅ aprovado | `checkpoints/voz.txt` — 0 🔴; 🟡 densidade de travessão (herdada) |
 | Completude (`checkpoint_completude.py`) | ✅ aprovado | `checkpoints/completude.txt` — 13 H2, 18 FAQ, 5.5k palavras |
-| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ➖ não se aplica | exige `FORBIDDEN_TOKENS` do state file |
+| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ❌ REPROVADO | `checkpoints/verificar.txt` — 26 ocorrências |
 | Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ rodável | precisa das âncoras + HTML dos artigos irmãos, não do state file |
 | Registro no banco Supabase | ⬜ pendente | só depois do artigo aprovado |
 
@@ -100,10 +99,16 @@ Legenda: ✅ aprovado (saída em `checkpoints/`) · 🟡 rodado, com ressalva ·
 
 ## Dados que faltam
 
-- **Conteúdo herdado, não conferido por mim.** Rede, hospitais, números de mercado e o
-  comparativo com Unimed/Plamed vieram prontos no arquivo enviado. Eu não os alterei nem
-  os verifiquei. Isso **não** é motivo para abrir FASE 0: se algum dado específico levantar
-  dúvida, o caminho é a auditoria MODO 1 (veracidade) naquele dado.
+- **Rede: o artigo afirma 10 pontos; o catálogo tem 7.** Ver item 1 do relatório.
+- **IBGE não reconferido** — WebFetch devolveu HTTP 403 nesta sessão. População, IDH e PIB
+  seguem os do texto publicado.
+- **Beneficiários da Hapvida em SE**: não há número com fonte. Não usar a faixa "~60-84 mil"
+  que está no campo `concorrentes` do banco.
+- **location_code de Aracaju = 1001715** (confirmado no CSV de geotargets do Google Ads).
+  A tabela da skill `dataforseo-tabelaplanos` só tem Brasil e BH — vale acrescentar.
+- **Armadilha nova do DataForSeo:** o Labs (`keyword_data`, `keyword_suggestions`) rejeita
+  `location_code` de cidade que a SERP aceita (erro 40501 `Invalid Field: 'location_code'`).
+  Para Labs, usar 2076.
 - **`<figure>` de abertura ausente** — a v7.4 manda a imagem descer para dentro da S1;
   aqui não há imagem nenhuma no artigo. Falta a URL (o usuário fornece; nunca inventar).
 - **Imagem da tabela de preço ausente** (`gerar_imagem_artigo.py`) — o artigo tem seção de

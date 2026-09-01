@@ -187,6 +187,25 @@ assert CONCL.count('Dados de preços atualizados em 2026.') == 1
 CONCL = CONCL.replace('Dados de preços atualizados em 2026.',
                       'Dados de preços atualizados em [mes_atual] de [ano_atual].')
 
+# ---- 12. grifos animados: repor o que saiu do lead e subir para o minimo ----
+# A v7.4 manda compensar no corpo o grifo que sai do heroi (sobre navy o grifo
+# suave some). O original tinha 6 e o minimo da skill e 10. Aqui so se envolve
+# texto que JA existe — nenhuma palavra e alterada.
+GRIFO_INI = ('<span class="destaque-laranja-suave" style="background-image: '
+             'linear-gradient(120deg,rgba(255,107,0,0.22) 0%,rgba(255,133,51,0.22) 100%); '
+             'background-repeat: no-repeat; background-position: 0 50%; background-size: 100% 100%; '
+             'padding: 2px 6px; transition: background-size 1.2s ease-out;">')
+
+def grifar(bloco, trecho):
+    assert bloco.count(trecho) == 1, trecho[:60]
+    return bloco.replace(trecho, GRIFO_INI + trecho + '</span>')
+
+S1     = grifar(S1, 'o mercado aracajuano é essencialmente um jogo de três players')
+TIPOS  = grifar(TIPOS, 'o Hospital Primavera (referência no bairro Jardins) aparece como credenciado para planos Mix')
+COBERT = grifar(COBERT, 'A rede própria da Hapvida em Aracaju está concentrada no eixo Centro–São José')
+COMPAR = grifar(COMPAR, 'três opções com rede local: Hapvida, Unimed Sergipe e Plamed')
+CONCL  = grifar(CONCL, 'menor mensalidade entre as operadoras que vendem plano individual')
+
 # ------------------------------------------------------------------ montagem
 partes = [ART_OPEN, HEROI, PRECO_A, TOC, FORM1, PRECO_B, COPART, S1, TIPOS,
           REDE, HOSP, COBERT, COMPAR, CARENC, TECNO, CONTRAT, FAQ, CONCL, TAIL]

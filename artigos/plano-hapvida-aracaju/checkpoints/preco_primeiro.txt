@@ -15,7 +15,7 @@ CHECKPOINT PRECO-PRIMEIRO [V7.4] — artigos/plano-hapvida-aracaju/artigo.html (
            67%  tecnologia e atendimento digital
            71%  como contratar hapvida em aracaju
            76%  tudo sobre o plano hapvida em aracaju
-           94%  hapvida em aracaju — rede em expansao e cobertura nacional
+           93%  hapvida em aracaju — rede em expansao e cobertura nacional
 
 [Regra 0 — lead-heroi (v7.4)]
    - lead-heroi na posicao 0; maior <p> dentro dele: 62 palavras

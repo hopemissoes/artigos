@@ -1,0 +1,64 @@
+==========================================================================
+CHECKPOINT CI-1 [V7.3] — o concorrente foi LIDO? — artigos/plano-hapvida-aracaju/PESQUISA_plano-hapvida-aracaju_COMPLETO.md
+==========================================================================
+
+CONCORRENTES LIDOS DE VERDADE: 4 (min. 3)
+
+  [OK] https://www.meuplanohap.com.br/tabela-precos/hapvida/se/aracaju/
+       9 headings literais (H2/H3) | rota: curl
+  [OK] https://blog.facaseuplanodesaude.com.br/tabela-de-preco-hapvida-sergipe/
+       15 headings literais (H2/H3) | rota: curl
+  [OK] https://compareplanodesaude.com.br/hapvida/hapvida-sergipe/
+       8 headings literais (H2/H3) | rota: curl
+  [OK] https://www.intermedicanotredameplanos.com.br/hapvida/hospitais-hapvida-sergipe/
+       5 headings literais (H2/H3) | rota: curl
+
+NAO CONTAM (11):
+
+  [X] https://gazetadasemana.com.br/noticia/270627/hapvida-aracaju-2026-guia-completo-da-rede-credenciada-planos-e-como-aderir/amp
+      - headings literais H2/H3 (achei 0, min. 3)
+  [X] https://www.ibge.gov.br/cidades-e-estados/se/aracaju.html
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www.meuplanohap.com.br/tabela-precos/hapvida/se/aracaju/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://blog.facaseuplanodesaude.com.br/tabela-de-preco-hapvida-sergipe/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://compareplanodesaude.com.br/hapvida/hapvida-sergipe/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www.intermedicanotredameplanos.com.br/hapvida/hospitais-hapvida-sergipe/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://gazetadasemana.com.br/noticia/270627/hapvida-aracaju-2026-guia-completo-da-rede-credenciada-planos-e-como-aderir/amp
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www.ibge.gov.br/cidades-e-estados/se/aracaju.html
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www.gov.br/ans/pt-br
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://cnes.datasus.gov.br/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www2.hapvida.com.br/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+
+--------------------------------------------------------------------------
+APROVADO — 4 concorrentes lidos na pagina.
+   (Piso de EXECUCAO. Se a leitura sustenta o artigo continua
+    sendo CI-2, Agentes 23/24 e o painel do Estagio 5.)

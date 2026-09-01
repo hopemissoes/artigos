@@ -1,0 +1,35 @@
+======================================================================
+SUFICIÊNCIA DA PESQUISA [V7.2] — PESQUISA_plano-hapvida-aracaju_COMPLETO.md
+tipo: city | cidade/eixo: Aracaju | âncoras: 0
+======================================================================
+
+A · MATRIZ DE SUFICIÊNCIA POR SEÇÃO (itens da pesquisa que a sustentam)
+   S1 por que a cidade é diferente          5 item(ns)
+   S2 preços e coparticipação              44 item(ns)
+   S3 planos disponíveis                   19 item(ns)
+   S4 rede assistencial                    85 item(ns)
+   S5 cobertura por bairro                 14 item(ns)
+   S6 cenário de saúde local               63 item(ns)
+   S7 como contratar                       19 item(ns)
+
+B · FAQ — LOCAL DE VERDADE?
+   perguntas: 21 | sem âncora local: 3 (14.3%, limite 20%)
+   - Quanto custa o plano individual da Hapvida?
+   - faq [âncora: Plamed, operadora sergipana]: A Hapvida comprou a Plamed?
+   - faq [âncora: Plamed]: Posso migrar da Plamed para a Hapvida sem carência?
+
+C · VETO DE INTENÇÃO NAS SECUNDÁRIAS
+   secundárias qualificadas com intenção de quem JÁ é cliente: 0
+
+D · GANHO DE INFORMAÇÃO (CI-2) — nível de defensibilidade
+   nível declarado: 1
+
+E · DIFERENCIAIS COM ÂNCORA LOCAL
+   diferenciais: 6 | sem âncora local: 1 (17%)
+   - Rede própria concentrada no eixo Centro–São José, dentro de ~3 km
+
+----------------------------------------------------------------------
+
+✅ APROVADO — a pesquisa cobre todas as seções previstas.
+   Isto NÃO é juízo de qualidade: os juízes 23 e 24 ainda decidem se o
+   que foi coletado presta (references/juiz-pesquisa.md).

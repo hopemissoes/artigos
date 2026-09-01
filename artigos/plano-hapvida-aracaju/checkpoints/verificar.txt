@@ -1,0 +1,31 @@
+Checkpoint VERIFICAR — artigo.html
+--------------------------------------------------------
+--------------------------------------------------------
+❌ REPROVADO — 26 ocorrencia(s):
+   - Telefone (DDD): "(79) 4002-3633" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Telefone (DDD): "(79) 4002-3633" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Telefone (DDD): "(79) 3205-6200" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "130 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "130 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "56 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "56 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "56 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "130 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "186 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "130 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "74 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "145 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "130 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "56 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "130 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "130 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "130 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Contagem de leitos: "130 leitos" — dado nao confirmavel em fonte secundaria; remover ou usar shortcode.
+   - Token proibido [VERIFICAR] afirmado no texto: "10 pontos de atendimento".
+   - Token proibido [VERIFICAR] afirmado no texto: "~10 unidades próprias".
+   - Token proibido [VERIFICAR] afirmado no texto: "10 Pontos de Atendimento".
+   - Token proibido [VERIFICAR] afirmado no texto: "As 10 unidades".
+   - Token proibido [VERIFICAR] afirmado no texto: "Diagnóstico Aracaju".
+   - Token proibido [VERIFICAR] afirmado no texto: "Diagnóstico Gabriel Soares".
+   - Token proibido [VERIFICAR] afirmado no texto: "4 centros de diagnóstico".
+   PROIBIDO publicar/seguir ate remover.

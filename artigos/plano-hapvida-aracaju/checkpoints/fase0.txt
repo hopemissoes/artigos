@@ -1,0 +1,59 @@
+====================================================================
+CHECKPOINT FASE 0 [V7.2] — PESQUISA_plano-hapvida-aracaju_COMPLETO.md (tipo: city)
+====================================================================
+
+0 · SEÇÕES DO ROTEIRO
+   [OK   ] SERP real (serp_local)
+   [OK   ] Contexto local (IBGE/CNES)
+   [OK   ] [V4] Desmontagem de concorrentes
+   [OK   ] [V4] Ganho de informação / brechas
+   [OK   ] [V5] Kit on-page (matriz de posicionamento)
+   [OK   ] [V5] Formato de snippet registrado
+   [OK   ] [V6] Defensibilidade do dado
+   [OK   ] [V7.2] Dado proprietário (Parte 7)
+   [OK   ] [V7.2] Não encontrado (Parte 8)
+
+1 · GABARITO PREENCHIDO
+   marcadores de molde ainda no arquivo: 1 (limite 3)
+   - [cidade]       … padrão   `urgencia-e-emergencia-hapvida-[cidade]` publicad
+
+2 · FONTE POR DADO
+   campos 'fonte:' vazios ou em molde: 0
+   URLs distintas: 13 | domínios: 10 | primários: 4 (cnes.datasus.gov.br, gov.br, ibge.gov.br, www2.hapvida.com.br)
+
+3 · VOLUME DE COLETA (contado, não procurado)
+   unidades com endereço preenchido: 7 (mín. 5)
+   perguntas de FAQ: 21 (mín. 15)
+   secundárias qualificadas: 8 (mín. 6)
+   dados de defensibilidade nível 1-2: 16 (mín. 3)
+   sub-perguntas de fan-out: 8 (mín. 5)
+   dados únicos declarados: 14 (mín. 10)
+
+4 · RECÊNCIA DA COLETA
+   2026-09-01  -                         0 dias
+   2026-09-01  -                         0 dias
+   2026-09-01  -                         0 dias
+   2026-09-01  -                         0 dias
+   2026-09-01  -                         0 dias
+   2026-09-01  ci-                       0 dias
+   2026-09-01  concorrentes              0 dias
+   2026-09-01  dados can                 0 dias
+   2026-09-01  keyword_data e keyword_suggestions    0 dias
+   2026-09-01  keywords                  0 dias
+   2026-09-01  rede                      0 dias
+   2026-09-01  rede e unidades           0 dias
+   2026-09-01  serp                      0 dias
+   2026-09-01  serp_local mobile depth     0 dias
+   2026-09-01  unidades com endereco     0 dias
+
+5 · ANTI-DOORWAY
+   aprovação explícita na linha do rótulo: sim
+
+6 · SEÇÃO 9 — FORBIDDEN_TOKENS
+   7 token(s) proibido(s): 10 pontos de atendimento, ~10 unidades próprias, 10 Pontos de Atendimento, As 10 unidades, Diagnóstico Aracaju
+
+--------------------------------------------------------------------
+
+✅ APROVADO — state file completo e preenchido.
+   Atenção: APROVADO aqui = dado coletado e com fonte. NÃO é juízo de
+   qualidade. O HTML ainda exige o 'ok' EXPLÍCITO do usuário.

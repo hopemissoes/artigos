@@ -2,13 +2,14 @@
 CHECKPOINT ON-PAGE [V5] — matriz de posicionamento de keywords
 ==============================================================
 Principal: plano hapvida aracaju
+Secundárias (8): plano de saude aracaju; hospital hapvida aracaju; urgência hapvida aracaju; laboratório hapvida aracaju; clínica hapvida aracaju; novo hospital hapvida aracaju; clínicas que aceitam hapvida em aracaju; maternidade hapvida aracaju
 --------------------------------------------------------------
   ✅ Principal no 1º parágrafo do corpo ✔
   ✅ Principal em 2 H2 ✔ (ex.: "Tipos de Plano Hapvida Disponíveis em Aracaju")
-  ⚠️  Nenhuma secundária informada via --sec — item ≥2 H2 com secundária NÃO conferido.
-  ⚠️  H1: não informado (--h1) — conferir manualmente.
-  ⚠️  Title SEO: não informado (--title) — conferir manualmente.
-  ⚠️  URL/slug: não informado (--url) — conferir manualmente.
-  ⚠️  Meta description: não informado (--meta) — conferir manualmente.
+  ✅ Principal no Title SEO ✔
+  ✅ Principal no URL/slug ✔
+  ❌ Apenas 0 H2 contém secundária (mín. 2). Secundárias: ['plano de saude aracaju', 'hospital hapvida aracaju', 'urgência hapvida aracaju', 'laboratório hapvida aracaju', 'clínica hapvida aracaju', 'novo hospital hapvida aracaju', 'clínicas que aceitam hapvida em aracaju', 'maternidade hapvida aracaju']
+  ❌ Principal AUSENTE do H1: "Hapvida Aracaju: Preços, Rede e Hospital | Guia 2026"
+  ❌ Principal AUSENTE do Meta description: "Hapvida Aracaju 2026: Hospital Gabriel Soares 24h, 10 unidades próprias, novo hospital 130"
 --------------------------------------------------------------
-✅ APROVADO (com avisos — resolver os ⚠️ antes de publicar)
+❌ REPROVADO — corrigir os itens acima e rodar de novo.
