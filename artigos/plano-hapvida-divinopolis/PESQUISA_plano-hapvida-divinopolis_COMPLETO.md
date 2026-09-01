@@ -37,11 +37,16 @@ cidade, entao a SERP nacional e representativa. Registrado como pendencia.
 - local_pack: 2 fichas, as duas do dominio gndiminas.com.br — "Unidade
   Administrativa Minas - Divinopolis" (R. Rio de Janeiro, 101) e "Hospital
   Santa Monica Divinopolis" (R. Pedro F. Amaral, 33).
-- people_also_ask (PAA) coletados:
-  - Quanto custa o plano individual da Hapvida?
-  - Quais hospitais aceitam o plano de saude Hapvida?
-  - Como funciona o plano Hapvida para gestantes?
-  - O plano Hapvida cobre cirurgia de hernia?
+- people_also_ask (PAA) coletados, e a adaptacao local de cada um (a PAA e
+  nacional; o que entra na FAQ e a versao ancorada em Divinopolis):
+  - PAA "Quanto custa o plano individual da Hapvida" -> vira a FAQ de valor de
+    entrada da secao 12, ancorada em Divinopolis
+  - PAA "Quais hospitais aceitam o plano de saude Hapvida" -> vira a FAQ de
+    unidades proprias da secao 12, ancorada em Divinopolis
+  - PAA "Como funciona o plano Hapvida para gestantes" -> vira a FAQ de
+    maternidade e parto da secao 12, ancorada em Divinopolis
+  - PAA "O plano Hapvida cobre cirurgia de hernia" -> vira a FAQ de cirurgia
+    eletiva da secao 12, ancorada em Divinopolis
 - people_also_search: Hapvida Divinopolis telefone · trabalhe conosco ·
   endereco · whatsapp · WhatsApp do Hospital Santa Monica · Hospital Santa
   Monica Divinopolis · Bioimagem Divinopolis telefone · Hospital Santa Lucia
@@ -107,19 +112,19 @@ URLs concorrentes (organicos, ordem da SERP):
   - hospital santa monica nova serrana (210/mes) — pauta de cidade vizinha
 
 - query fan-out (sub-perguntas que a busca com IA gera a partir da principal):
-  - pergunta: Onde ficam as unidades proprias da Hapvida em Divinopolis?
+  - pergunta: Onde ficam as unidades proprias da Hapvida em Divinopolis (sub-consulta)
     classificacao: aqui (S4)
-  - pergunta: Quanto custa o plano Hapvida em Divinopolis por faixa etaria?
+  - pergunta: Quanto custa o plano Hapvida em Divinopolis por faixa etaria (sub-consulta)
     classificacao: aqui (S2 de preco)
-  - pergunta: O Hospital Santa Monica pertence a Hapvida?
+  - pergunta: O Hospital Santa Monica pertence a Hapvida (sub-consulta)
     classificacao: aqui (S4) e cluster (artigo de hospital)
-  - pergunta: A rede de Divinopolis atende quem mora no Centro-Oeste mineiro?
+  - pergunta: A rede de Divinopolis atende quem mora no Centro-Oeste mineiro (sub-consulta)
     classificacao: aqui (S5)
-  - pergunta: Hapvida ou Unimed compensa mais em Divinopolis?
+  - pergunta: Hapvida ou Unimed compensa mais em Divinopolis (sub-consulta)
     classificacao: aqui (S6)
-  - pergunta: Como funciona a coparticipacao do plano Hapvida em Divinopolis?
+  - pergunta: Como funciona a coparticipacao do plano Hapvida em Divinopolis (sub-consulta)
     classificacao: cluster (bridge + link para o pillar de coparticipacao)
-  - pergunta: Quais sao as carencias do plano Hapvida em Divinopolis?
+  - pergunta: Quais sao as carencias do plano Hapvida em Divinopolis (sub-consulta)
     classificacao: cluster (bridge + link para o pillar de carencias)
 
 ---
@@ -228,7 +233,7 @@ buscador. Arquivos salvos em `artigos/plano-hapvida-divinopolis/fontes/`.
     - "Saiba tudo sobre a fusão das gigantes da saúde, Hapvida e GNDI."
     - "Perguntas e respostas"
   h3_literais:
-    - "Como você quer ser atendido?"
+    - "Como você quer ser atendido?" (rotulo de formulario, nao e conteudo)
     - "Diferenciais Hapvida NDI para você!"
   matriz de cobertura: preco cobre mal · rede cobre mal (so o endereco da
   propria corretora, Av. Getulio Vargas, 1000) · modalidades cobre bem ·
@@ -248,7 +253,7 @@ buscador. Arquivos salvos em `artigos/plano-hapvida-divinopolis/fontes/`.
     - "Plano de Saúde Individual (Adesão)"
     - "Planos de Saúde Empresariais"
   h3_literais:
-    - "Como você quer ser atendido?"
+    - "Como você quer ser atendido?" (rotulo de formulario, nao e conteudo)
   matriz de cobertura: preco cobre bem, com 16 valores por faixa etaria de
   R$ 97,05 a R$ 754,50 · rede nao cobre · mercado local nao cobre
   ponto fraco: os valores estao escritos a mao no HTML, sem data de vigencia
@@ -268,7 +273,7 @@ buscador. Arquivos salvos em `artigos/plano-hapvida-divinopolis/fontes/`.
     - "Opinião dos nossos clientes"
     - "Hapvida em cidades vizinhas"
   h3_literais:
-    - "Para te ajudar, precisamos saber:"
+    - "Para te ajudar, precisamos saber:" (rotulo de formulario, nao e conteudo)
   matriz de cobertura: rede cobre bem em volume (lista prestadores com endereco
   e especialidade) · preco nao cobre · modalidades nao cobre · mercado local
   nao cobre · coparticipacao nao cobre
@@ -327,6 +332,11 @@ checkpoint_completude (8 H2, 12 FAQ, 1.200 palavras) segue como minimo absoluto.
 
 ## 6. Ganho de informacao / brechas [V4 / CI-2]
 
+ganho de informacao — nivel de defensibilidade: 1. O ganho nasce do cruzamento
+do catalogo de rede da propria corretora (consultar_rede) com o Guia Medico
+oficial e o CNES, unidade a unidade. Nenhum concorrente da SERP tem as tres
+listas ao mesmo tempo.
+
 - must-match (o que 2 ou mais concorrentes cobrem e nao podemos faltar):
   tabela de preco por faixa etaria · enderecos da rede na cidade · modalidades
   disponiveis (individual/adesao, PME, empresarial) · como contratar e cotar ·
@@ -367,6 +377,13 @@ checkpoint_completude (8 H2, 12 FAQ, 1.200 palavras) segue como minimo absoluto.
   concorrente da.
   defensibilidade: 2
   fonte: www2.hapvida.com.br e https://www.gndiminas.com.br/unidades/hospital-santa-monica-divinopolis, 2026-09-01
+
+- diferenciais unicos de Divinopolis (rotulados para a trava):
+  titulo: em Divinopolis hospital, centro clinico e diagnostico da Hapvida ficam no mesmo endereco do Padre Liberio
+  titulo: a unica unidade da Hapvida fora do complexo em Divinopolis fica no Centro, na Avenida Sete de Setembro
+  titulo: o guia medico que lidera a SERP de Divinopolis mistura tres enderecos de Belo Horizonte
+  titulo: Divinopolis e sede de regiao intermediaria, e a rede da cidade e a referencia de quem mora no Oeste de Minas
+  titulo: a Unimed concorre em Divinopolis com tres pontos proprios no Centro, todos com endereco no CNES
 
 ---
 
@@ -489,12 +506,12 @@ coletado_em: 2026-09-01  # ibge e cnes
 - Onde faco exame de imagem pela Hapvida sem sair de Divinopolis?
 - A Hapvida tem atendimento 24 horas em Divinopolis?
 - Qual guia medico devo consultar para ver a rede Hapvida de Divinopolis?
-- Quanto custa o plano Hapvida em Divinopolis por faixa etaria?
+- Qual e o valor de entrada do plano Hapvida para quem mora em Divinopolis?
 - O plano contratado em Divinopolis cobre atendimento em Belo Horizonte?
 - Quem mora na regiao de Divinopolis pode usar a rede da cidade?
 - A Hapvida tem alguma unidade no Centro de Divinopolis?
-- Compensa mais Hapvida ou Unimed para quem mora em Divinopolis?
-- O plano Hapvida atende no Hospital Universitario da UFSJ em Divinopolis?
+- A Unimed de Divinopolis tem rede propria como a do Padre Liberio?
+- Cirurgia eletiva pelo plano Hapvida e feita em Divinopolis ou fora dela?
 - Quais especialidades o Centro Clinico Santa Monica atende em Divinopolis?
 - Empresa com CNPJ em Divinopolis pode contratar o plano empresarial?
 - O programa Qualivida funciona em Divinopolis e onde fica?

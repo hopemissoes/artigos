@@ -16,10 +16,13 @@
 
 ## Fase atual
 
-- **Fase:** FASE 0 — pesquisa CONCLUÍDA, aguardando aprovação humana
-- **Próximo passo concreto:** o usuário aprovar o state file. Só então:
-  Estágio 2.5 (`checkpoint_suficiencia.py` + juízes 23/24) e Bloco A.
-- **Bloqueios:** portão humano do state file (obrigatório, YMYL)
+- **Fase:** ESTÁGIO 2.5 — portão de pesquisa; state file aprovado pelo usuário em 2026-09-01
+- **Próximo passo concreto:** aguardar o veredito dos juízes 23 e 24; depois
+  escrever o Bloco A (lead-herói → S2↑a preços + tabela → sumário → S2↑b → S1 → S3).
+- **Bloqueios:** (1) prefixo do shortcode da cidade no plugin de preços não
+  confirmado — trava a tabela do Bloco A; (2) Divinópolis não está na fila do
+  cotador, então os 10 valores da imagem da tabela não existem — a imagem vira
+  pendência declarada (regra: nunca inventar valor para imagem).
 
 ## Portões
 
@@ -27,8 +30,9 @@
 |---|---|---|
 | CI-1 — concorrente lido (`checkpoint_ci1.py`) | ✅ aprovado | `checkpoints/ci1.txt` — 5 concorrentes lidos, rota curl |
 | FASE 0 (`checkpoint_fase0.py`) | ✅ aprovado | `checkpoints/fase0.txt` — APROVADO, 1 aviso |
-| Aprovação humana do state file | ⬜ pendente | |
-| Suficiência (`checkpoint_suficiencia.py`) | ⬜ pendente | |
+| Aprovação humana do state file | ✅ aprovado | usuário, 2026-09-01 |
+| Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` |
+| Juízes de pesquisa 23 e 24 | 🟡 rodando | modelos distintos |
 | Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
 | Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | |
 | Voz humana (`checkpoint_voz.py`) | ⬜ pendente | |
@@ -55,6 +59,15 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
   página: vira artigo de hospital (HS1-HS4) no cluster.
 - 2026-09-01 — rede credenciada do guia do concorrente fica FORA do artigo até
   confirmação em fonte primária.
+- 2026-09-01 — `checkpoint_suficiencia.py` reprovou 2×; correções feitas no
+  state file: PAA agora aponta para a FAQ adaptada em vez de repeti-la; fan-out
+  deixou de ser escrito como pergunta de FAQ; H3 de formulário do concorrente
+  marcado como CTA, não conteúdo; nível de defensibilidade do ganho declarado
+  junto ao ganho; 5 diferenciais rotulados com `titulo:` e ancorados na praça.
+- 2026-09-01 — link para o pillar de tabela de preços NÃO será usado: o destino
+  está SATURADO (44 backlinks) e a tabela já é renderizada na página pelo
+  shortcode. O bridge de coparticipação mantém o link para o pillar de
+  coparticipação, que é obrigatório para o anti-doorway funcionar.
 
 ## Dados que faltam
 
@@ -67,6 +80,9 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
 - Abrangência formal para Nova Serrana e demais cidades da região imediata —
   sem confirmação; tratar regionalidade sem cravar município.
 - Geotarget do Google Ads de Divinópolis — pendência para a Fase 5.
+- Prefixo da cidade no plugin de shortcodes de preço — perguntado ao usuário.
+- Os 10 valores por faixa etária para a imagem da tabela — Divinópolis não
+  está na fila do cotador. Sem eles a imagem não é gerada (falha barulhenta).
 
 ## Fio condutor
 

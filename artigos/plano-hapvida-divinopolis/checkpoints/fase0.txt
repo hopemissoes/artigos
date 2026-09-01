@@ -22,9 +22,9 @@ CHECKPOINT FASE 0 [V7.2] — PESQUISA_plano-hapvida-divinopolis_COMPLETO.md (tip
 
 3 · VOLUME DE COLETA (contado, não procurado)
    unidades com endereço preenchido: 5 (mín. 5)
-   perguntas de FAQ: 30 (mín. 15)
+   perguntas de FAQ: 18 (mín. 15)
    secundárias qualificadas: 8 (mín. 6)
-   dados de defensibilidade nível 1-2: 11 (mín. 3)
+   dados de defensibilidade nível 1-2: 12 (mín. 3)
    sub-perguntas de fan-out: 7 (mín. 5)
    dados únicos declarados: 14 (mín. 10)
 
