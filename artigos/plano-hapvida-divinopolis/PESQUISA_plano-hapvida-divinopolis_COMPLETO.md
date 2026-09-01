@@ -256,9 +256,13 @@ buscador. Arquivos salvos em `artigos/plano-hapvida-divinopolis/fontes/`.
     - "Como você quer ser atendido?" (rotulo de formulario, nao e conteudo)
   matriz de cobertura: preco cobre bem, com 16 valores por faixa etaria de
   R$ 97,05 a R$ 754,50 · rede nao cobre · mercado local nao cobre
-  ponto fraco: os valores estao escritos a mao no HTML, sem data de vigencia
-  visivel — desatualizam em silencio a cada reajuste. E o unico concorrente que
-  entrega numero, e e justamente onde ele fica vulneravel
+  ponto fraco: os valores estao escritos a mao no HTML e a pagina declara
+  "AS TABELAS DE PRECOS PODEM SOFRER ALTERACAO SEM AVISO PREVIO. ALTERADO EM
+  31/03/25" — ou seja, a data existe e e de marco de 2025, mais de um ano antes
+  desta coleta. E o unico concorrente que entrega numero, e a fragilidade e a
+  idade da tabela, nao a ausencia de data. Nao afirmar que ele "nao diz quando
+  atualizou": e falso e o leitor confere com um Ctrl+F.
+  fonte: leitura direta da pagina, trecho literal em fontes/rota-tabela.txt
   fonte: leitura direta da pagina, arquivo fontes/rota-tabela.html
 
 ### Concorrente 3 — Meu Plano Hap, guia medico de Divinopolis
@@ -332,10 +336,26 @@ checkpoint_completude (8 H2, 12 FAQ, 1.200 palavras) segue como minimo absoluto.
 
 ## 6. Ganho de informacao / brechas [V4 / CI-2]
 
-ganho de informacao — nivel de defensibilidade: 1. O ganho nasce do cruzamento
-do catalogo de rede da propria corretora (consultar_rede) com o Guia Medico
-oficial e o CNES, unidade a unidade. Nenhum concorrente da SERP tem as tres
-listas ao mesmo tempo.
+ganho de informacao — nivel de defensibilidade: 2. Rebaixado de 1 para 2 pelo
+juiz P-B, com razao: a materia-prima do "campus unico" (tres unidades no mesmo
+numero da Rua Pedro Ferreira do Amaral) ja esta publicada no guia do
+meuplanohap, que esta na SERP. Descobrir o endereco compartilhado nao e o
+ganho. O ganho e o CRUZAMENTO — catalogo proprio da corretora (consultar_rede)
+x Guia Medico oficial x CNES — que produz duas coisas que nenhum concorrente
+tem: a CORRECAO do erro do lider (ele mistura tres enderecos de Belo Horizonte
+dentro de "Enderecos em Divinopolis") e a divergencia de filtro dentro do
+proprio site oficial da Hapvida. E dai que sai a frase de venda, nao do
+endereco em si.
+
+- LACUNA ACEITA DE PROPOSITO (decisao declarada, nao esquecimento): o lider da
+  SERP nomeia cerca de 30 prestadores credenciados de Divinopolis com endereco.
+  A nossa pesquisa deixa TODOS de fora porque nenhum foi confirmado em fonte
+  primaria — e o guia dele mistura enderecos de Belo Horizonte, o que mostra o
+  custo de publicar volume sem conferir. A troca e consciente: menos volume de
+  rede credenciada, mais precisao na rede propria. O artigo diz ao leitor que a
+  rede credenciada existe e manda ele ao Guia Medico oficial, em vez de listar
+  o que nao conferiu. Fica pendencia de verificacao da rede credenciada para a
+  proxima atualizacao.
 
 - must-match (o que 2 ou mais concorrentes cobrem e nao podemos faltar):
   tabela de preco por faixa etaria · enderecos da rede na cidade · modalidades
@@ -349,9 +369,21 @@ listas ao mesmo tempo.
 - brecha: nenhum descreve o mercado de saude de Divinopolis. A cidade e polo
   macrorregional com hospital filantropico de referencia e Unimed com tres
   pontos proprios no Centro; nenhum concorrente cita isso.
-- brecha: nenhum trata a abrangencia regional — quem mora em Nova Serrana,
-  Claudio, Carmo do Cajuru ou Santo Antonio do Monte e usa Divinopolis como
-  polo de saude nao encontra resposta em nenhuma das cinco paginas.
+- brecha: nenhum trata a abrangencia regional. A regiao imediata de Divinopolis
+  (codigo IBGE 310065) tem 20 municipios: Araujos, Camacho, Carmo da Mata,
+  Carmo do Cajuru, Claudio, Conceicao do Para, Divinopolis, Itapecerica,
+  Itatiaiuca, Itauna, Japaraiba, Lagoa da Prata, Leandro Ferreira, Nova
+  Serrana, Pedra do Indaia, Perdigao, Pitangui, Santo Antonio do Monte, Sao
+  Goncalo do Para e Sao Sebastiao do Oeste. Nenhuma das cinco paginas responde
+  a quem mora neles e usa Divinopolis como polo de saude. O unico que chega
+  perto e o meuplanohap, que lista "Hapvida em cidades vizinhas" comecando por
+  Nova Serrana.
+  fonte: IBGE, API de localidades, regiao imediata 310065
+  https://servicodados.ibge.gov.br/api/v1/localidades/regioes-imediatas/310065/municipios
+  ATENCAO AO REDATOR: citar municipio da regiao imediata e citar geografia, NAO
+  cobertura. A pesquisa NAO confirmou que a rede de Divinopolis atende
+  formalmente nenhum deles (ver secao 8). Escrever "polo regional de saude",
+  nunca "atende Nova Serrana".
 - brecha: o unico que da preco escreve o numero no HTML, sem vigencia. Nossa
   tabela por shortcode e sempre a vigente, e isso pode ser dito.
 - brecha: nenhum explica em qual guia medico o cliente de Divinopolis deve
@@ -505,18 +537,28 @@ coletado_em: 2026-09-01  # ibge e cnes
 - O plano Hapvida de Divinopolis tem maternidade e parto na propria cidade?
 - Onde faco exame de imagem pela Hapvida sem sair de Divinopolis?
 - A Hapvida tem atendimento 24 horas em Divinopolis?
+  (RESPOSTA LIMITADA AO CONFIRMADO: 24h so no Hospital e Maternidade Santa
+  Monica. NAO generalizar para "a rede atende 24h" — nao ha pronto atendimento
+  autonomo confirmado, ver secao 8)
 - Qual guia medico devo consultar para ver a rede Hapvida de Divinopolis?
 - Qual e o valor de entrada do plano Hapvida para quem mora em Divinopolis?
 - O plano contratado em Divinopolis cobre atendimento em Belo Horizonte?
+  (BRIDGE: 1-2 frases + link, o mecanismo de abrangencia e do pillar)
 - Quem mora na regiao de Divinopolis pode usar a rede da cidade?
 - A Hapvida tem alguma unidade no Centro de Divinopolis?
 - A Unimed de Divinopolis tem rede propria como a do Padre Liberio?
 - Cirurgia eletiva pelo plano Hapvida e feita em Divinopolis ou fora dela?
 - Quais especialidades o Centro Clinico Santa Monica atende em Divinopolis?
 - Empresa com CNPJ em Divinopolis pode contratar o plano empresarial?
+  (BRIDGE: 1-2 frases + link. Ancorar no perfil economico da cidade — polo
+  industrial e comercial do Oeste de Minas — ou nao entra)
 - O programa Qualivida funciona em Divinopolis e onde fica?
 - Quanto se paga de coparticipacao por consulta em Divinopolis?
+  (o valor e do grupo tarifario demais_capitais, que Divinopolis divide com
+  outros municipios — nao apresentar como preco exclusivo da cidade)
 - A Hapvida cobre psiquiatria e saude mental em Divinopolis?
+  (BRIDGE: 1-2 frases + link. NAO nomear hospital psiquiatrico: o unico
+  candidato da cidade esta em FORBIDDEN_TOKENS por nao ter confirmacao de rede)
 - Preciso ir ate o Padre Liberio para tudo ou resolvo consulta no Centro?
 
 ## 13. Anti-doorway

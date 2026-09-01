@@ -32,7 +32,8 @@
 | FASE 0 (`checkpoint_fase0.py`) | ✅ aprovado | `checkpoints/fase0.txt` — APROVADO, 1 aviso |
 | Aprovação humana do state file | ✅ aprovado | usuário, 2026-09-01 |
 | Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` |
-| Juízes de pesquisa 23 e 24 | 🟡 rodando | modelos distintos |
+| Juiz 24 (P-B, originalidade/valor) | 🟡 BLOQUEOU; 2 🔴 corrigidos | notas 6 e 7 |
+| Juiz 23 (P-A, suficiência/verdade) | 🟡 rodando | modelo distinto do 24 |
 | Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
 | Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | |
 | Voz humana (`checkpoint_voz.py`) | ⬜ pendente | |
@@ -64,6 +65,19 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
   deixou de ser escrito como pergunta de FAQ; H3 de formulário do concorrente
   marcado como CTA, não conteúdo; nível de defensibilidade do ganho declarado
   junto ao ganho; 5 diferenciais rotulados com `titulo:` e ancorados na praça.
+- 2026-09-01 — juiz P-B bloqueou com 2 🔴, ambos confirmados e corrigidos:
+  (a) a CI-1 afirmava que a tabela do rotaseguros não tem data de vigência —
+  FALSO, a página diz "ALTERADO EM 31/03/25"; o ponto real é a IDADE da tabela,
+  não a ausência de data; (b) a lista de municípios vizinhos estava sem fonte —
+  os nomes sobreviveram à verificação, mas agora vêm do IBGE (região imediata
+  310065, 20 municípios) com aviso ao redator: citar geografia, nunca cobertura.
+- 2026-09-01 — defensibilidade do ganho do CI-2 rebaixada de 1 para 2: o
+  endereço compartilhado do campus já está publicado pelo concorrente líder. O
+  ganho é o cruzamento (catálogo × guia oficial × CNES) e a correção do erro
+  dele, não a descoberta do endereço.
+- 2026-09-01 — lacuna de MUST-MATCH aceita de propósito e declarada: o líder
+  nomeia ~30 credenciados; nós não listamos nenhum sem confirmação primária.
+  Troca consciente de volume por precisão. Pendência de verificação aberta.
 - 2026-09-01 — link para o pillar de tabela de preços NÃO será usado: o destino
   está SATURADO (44 backlinks) e a tabela já é renderizada na página pelo
   shortcode. O bridge de coparticipação mantém o link para o pillar de
