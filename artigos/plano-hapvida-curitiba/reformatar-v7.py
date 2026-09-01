@@ -162,6 +162,23 @@ assert 'v5-hero-metricas>p' in TAIL_NEW
 out = ''.join([ART_OPEN, HERO, S2A, '\n', TOC_NEW, FORM1_NEW, S2B, '\n',
                S4COPART, S1_NEW, S3, S5REDE, S6HOSP, S7COB, S8COMP, CTAINT,
                S9CAR, S10TEC, S11CON, FAQ, CTAFIN, CONCL, TAIL_NEW])
+# --- correcao de shortcode confirmada pelo usuario (2026-09-01) -----------
+# A tabela e renderizada por [curitiba_menortabela] (utilitario documentado em
+# references/shortcodes.md). Os usos INLINE, que estavam com shortcode de TABELA
+# INTEIRA dentro de celula de tabela e de resposta de FAQ, passam para o chamariz
+# [cidade_menorvalor] — o mesmo que o /plano-clinipam-curitiba/ publicado usa.
+# Aplicado no fim, para nao deslocar as posicoes do fatiamento acima.
+assert out.count('[curitiba_empresarial_total]') == 1
+out = out.replace('[curitiba_empresarial_total]', '[curitiba_menortabela]', 1)
+for antigo, novo, n in [('[curitiba_emp_ambulatorialtotal]', '[curitiba_menorvalor]', 3),
+                        ('[belo-horizonte_emp_ambulatorialtotal]', '[belo-horizonte_menorvalor]', 2),
+                        ('[recife_ind_ambulatorialtotal]', '[recife_menorvalor]', 1)]:
+    assert out.count(antigo) == n, (antigo, out.count(antigo))
+    out = out.replace(antigo, novo)
+# [sao-paulo_pme_enfermariatotal] fica como estava: e outro produto (enfermaria,
+# nao ambulatorial) e o usuario nao foi consultado sobre ele.
+# o [..._0] do lead-heroi nao e afetado (sufixo de faixa preservado)
+
 open('artigo.html', 'w', encoding='utf-8').write(out)
 
 # ------------------------------------------- 8. conferência de não-perda

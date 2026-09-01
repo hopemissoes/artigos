@@ -21,9 +21,12 @@ CHECKPOINT PRECO-PRIMEIRO [V7.4] — artigo.html (tipo: city)
    - lead-heroi na posicao 0; maior <p> dentro dele: 52 palavras
 
 [Regra 1 — tabela primeiro]
-   - primeira tabela: shortcode [belo-horizonte_emp_ambulatorialtotal]
-   - texto visivel antes dela: 2682 caracteres (a 16% do arquivo)
+   - primeira tabela: shortcode [curitiba_menortabela]
+   - texto visivel antes dela: 1109 caracteres (a 3% do arquivo)
    - sumario (toc-list) a 4% do arquivo
+
+[Regra 1b — sumario colado na tabela (v7.1)]
+   - texto visivel entre a tabela e o sumario: 27 caracteres (limite: 600)
 
 [Regra 2 — H2 de preco na frente]
    - ok: o primeiro H2 de conteudo e de preco ("tabela de precos hapvida curitiba [ano_atual]")
@@ -33,10 +36,6 @@ CHECKPOINT PRECO-PRIMEIRO [V7.4] — artigo.html (tipo: city)
 
 ------------------------------------------------------------------------
    AVISO (nao bloqueia, mas explique a decisao): H2 de preco fora do bloco do topo: "hapvida curitiba: rede propria, preco competitivo, mais de 40 anos de "
-   ERRO: Ha 2682 caracteres de texto antes da tabela (limite: 1800 ~= imagem + lead GEO + os paragrafos de contexto da propria secao de preco).
-   ERRO: Sumario aparece ANTES da tabela de preco. Na v7 o sumario vem depois.
-   ERRO: Shortcode de tabela duplicado (2x): [belo-horizonte_emp_ambulatorialtotal]
-   ERRO: Shortcode de tabela duplicado (3x): [curitiba_emp_ambulatorialtotal]
 ------------------------------------------------------------------------
 
-❌ REPROVADO — 4 erro(s), 1 aviso(s).
+✅ APROVADO — ordem preco-primeiro respeitada (1 aviso(s)).
