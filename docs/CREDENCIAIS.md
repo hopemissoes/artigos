@@ -70,8 +70,50 @@ Travas já escritas e testadas em `scripts/wp.py` (ver `docs/EDICAO-WORDPRESS.md
 a portar para os nós novos: dry-run por padrão, guarda de contagem, máscara de
 texto seguro, recusa de `<a>` aninhado, um link por destino.
 
+## Estado em 02-09-2026
+
+**Feito:**
+
+- Credencial `WordPress tabelaplanos` (`dibu11U52rFkfBly`, tipo `httpBasicAuth`)
+  criada no cofre do n8n. O valor **nunca passou pelo assistente** — ele só
+  descobriu o nome e o ID via `list_credentials`.
+- Criado o sub-workflow **`WP - Motor de Edicao Pontual`** (`825rmKAVo3wmelMi`),
+  com nós `httpRequest` — os únicos que aceitam credencial do cofre. Toda a
+  lógica das travas mora nele; ele é o único lugar que fala com o WordPress.
+- Acrescentadas duas ferramentas ao `MCP - WordPress DRV (Tabela Planos) v3`,
+  como `toolWorkflow` (não `toolCode`), apontando para o motor:
+  `substituir_no_artigo` e `inserir_link_interno`. **Sem segredo nelas.**
+- Workflow MCP publicado.
+
+**Falta:**
+
+- Confirmar que a credencial ficou anexada nos nós `Buscar Post` e `Salvar Post`.
+  A API do MCP recusa fazer isso (`node type 'n8n-nodes-base.httpRequest' does
+  not accept credential 'httpBasicAuth'` — limitação da ferramenta, não do n8n),
+  então foi feito pela interface. A leitura via API não mostra o campo
+  `credentials`, o que pode ser redação na leitura ou ausência real. **Só o
+  primeiro teste diz.** Se a credencial não estiver lá, o motor devolve
+  exatamente: *"a resposta nao trouxe content.raw; context=edit exige credencial
+  valida e a credencial nao autenticou"*.
+- Recarregar a lista de ferramentas do conector no cliente — as duas novas ainda
+  não aparecem para o assistente (cache do lado do cliente, não do n8n).
+- Migrar os 7 `toolCode` antigos, que **continuam com a senha em texto puro**.
+- **Só depois disso** revogar a Application Password antiga no WordPress.
+
+### Ordem para a migração dos 7
+
+O motor já aceita `operacao`; basta acrescentar os casos (`buscar`, `listar`,
+`criar`, `meta_title`, `meta_description`, `auditar_links`) e trocar cada
+`toolCode` por um `toolWorkflow`. Um nó por vez, testando, para não derrubar o
+que funciona hoje.
+
 ## Regra que fica
 
 Segredo **nunca** dentro de `jsCode`, de arquivo do repositório ou de conversa.
 Sempre no cofre de credenciais do n8n, ou como variável de ambiente — referenciado,
 nunca copiado.
+
+Corolário aprendido aqui: `@n8n/n8n-nodes-langchain.toolCode` **não tem campo de
+credenciais**. Ferramenta de MCP que precise de autenticação tem que ser
+`toolWorkflow` chamando um sub-workflow com nós `httpRequest`. Não é preferência
+de estilo — é o que separa segredo referenciado de segredo copiado.
