@@ -119,16 +119,17 @@ texto seguro, recusa de `<a>` aninhado, um link por destino.
   O `publish_workflow` do assistente foi recusado pelo classificador nas duas
   tentativas — publicar é sempre passo manual.
 - ~~Rodar os 7 testes de ponta a ponta.~~ ✅ **Feito em 02-09-2026, em sessão
-  nova** — o cache de esquema caiu sozinho, como esperado. **6 dos 7 passaram.**
+  nova** — o cache de esquema caiu sozinho, como esperado. **Os 7 passaram**
+  (o `auditar_links` só depois do conserto abaixo).
   Nenhum teste gravou. Saídas coladas em `docs/MIGRACAO-MCP-WORDPRESS.md`,
   seção 2.
-- **Publicar o conserto do `auditar_links`** — único teste que falhou, já
-  corrigido **no draft** dos dois workflows em 02-09-2026: a rota do site é
-  `/drv/v1/links-audit` (não `audit-links`) e o `orderby` de lá é
-  `incoming_links | internal_links | external_links | date`, com `order` em
-  maiúsculo. Validado no harness e na execução `28914`, sem tocar no site.
-  **Falta publicar pela interface** e re-rodar o teste 3. Nunca foi credencial —
-  o 404 vinha antes da autenticação.
+- ~~Corrigir o `auditar_links`.~~ ✅ **Feito, publicado e reconferido em
+  02-09-2026.** A rota do site é `/drv/v1/links-audit` (não `audit-links`) e o
+  `orderby` de lá é `incoming_links | internal_links | external_links | date`,
+  com `order` em maiúsculo. Depois de o usuário publicar
+  (`activeVersionId 47b1c6f9-…`), o teste 3 passou: 169 artigos, 5 por página,
+  com as três contagens. Nunca foi credencial — o 404 vinha antes da
+  autenticação. **Os 7 testes passaram.**
 - **Ajuste menor no schema.** O nó `inserir_link_interno` do workflow MCP marca
   `ocorrencia` como obrigatório, embora a descrição diga que só é necessário quando
   a frase aparece mais de uma vez.

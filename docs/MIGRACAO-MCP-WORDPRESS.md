@@ -4,12 +4,12 @@
 
 ## Veredito em uma linha
 
-**Publicado, testado e no ar em 02-09-2026.** Os 7 nós viraram `toolWorkflow` e a
-versão ativa dos dois workflows não tem mais nenhuma senha em texto puro. Os 7
-testes de ponta a ponta pelo conector foram rodados: **6 passaram; só o
-`auditar_links` falhou**, por URL e enum errados no nó `Rota` — defeito de rota,
-não de credencial. **A Application Password antiga já pode ser revogada**; o
-`auditar_links` está quebrado do mesmo jeito antes e depois disso.
+**Publicado, testado e no ar em 02-09-2026 — os 7 testes passaram.** Os 7 nós
+viraram `toolWorkflow`, a versão ativa dos dois workflows não tem mais nenhuma
+senha em texto puro, e as 7 ferramentas foram exercitadas de ponta a ponta pelo
+conector. O `auditar_links` falhou na primeira rodada (URL e enum errados no nó
+`Rota`), foi corrigido, publicado e passou. **A Application Password antiga pode
+ser revogada.**
 
 ## Estado das versões (conferido às 19:16 de 02-09-2026)
 
@@ -188,7 +188,7 @@ ponta a ponta, porque isso exige a publicação. O mapeamento `$fromAI → Param
 Reverter, se preciso: histórico de versões do n8n, voltar para
 `6326fb3b-…` (motor) e `1e50dc0d-…` (MCP).
 
-### 2. Testar as 7, uma a uma — ✅ RODADO em 02-09-2026, sessão nova — **6 de 7 passaram**
+### 2. Testar as 7, uma a uma — ✅ **7 de 7 passaram** (02-09-2026)
 
 O cache de esquema caiu sozinho, como previsto: em conversa nova as 7 ferramentas
 chegaram na forma nova (campos soltos e tipados, `slug` no `listar_artigos`,
@@ -199,7 +199,7 @@ envelope `ok`/`gravado`/`aviso`). Nenhum teste gravou — todos leitura ou
 |---|---|---|---|
 | 1 | `listar_artigos` | ✅ passou | 3 itens **com `slug`**, `total: 3`, `aviso` de leitura |
 | 2 | `buscar_artigo` | ✅ passou | `tamanhoConteudo: 115185`, metas do Rank Math preenchidas |
-| 3 | `auditar_links` | ❌ **falhou** | HTTP 404 `rest_no_route` — o motor monta a URL errada (ver diagnóstico) |
+| 3 | `auditar_links` | ❌ falhou → ✅ **passou** após o conserto | rota e enum de ordenação corrigidos (ver diagnóstico) |
 | 4 | `editar_meta_title` | ✅ passou | recusou por valor idêntico, lendo o valor real do site |
 | 5 | `editar_meta_description` | ✅ passou | idem |
 | 6 | `criar_artigo` | ✅ passou | trava de duplicata de slug; nada criado |
@@ -256,7 +256,9 @@ Envelope (o `conteudo`, de 115.185 caracteres, foi omitido aqui):
 `content.raw` com `context=edit` só volta autenticado — **a credencial do cofre
 está funcionando pelo caminho do conector.**
 
-#### Teste 3 — `auditar_links` `{"orderby":"internal_in","order":"asc","per_page":5}` — ❌ FALHOU
+#### Teste 3 — `auditar_links` `{"orderby":"internal_in","order":"asc","per_page":5}` — ❌ falhou, consertado, ✅ passou
+
+**Primeira rodada, antes do conserto:**
 
 ```json
 {
@@ -282,7 +284,7 @@ O site aceita ainda `post_type`, `page`, `category`, `internal_links_max` e
 teste não diz nada sobre credencial — e os outros seis já provaram que ela
 autentica.
 
-**Conserto — feito no draft em 02-09-2026, falta publicar.**
+**Conserto — feito e publicado em 02-09-2026.**
 
 - Nó `Rota` do motor `825rmKAVo3wmelMi`: a URL passou a ser
   `/wp-json/drv/v1/links-audit`; `order` sai em maiúsculo; e entrou um mapa que
@@ -302,13 +304,53 @@ Validado em duas camadas, sem tocar no site:
   `urlBusca: https://tabelaplanos.com.br/wp-json/drv/v1/links-audit?orderby=incoming_links&order=ASC&per_page=5`,
   envelope de leitura correto, `aviso: "Leitura: nada foi alterado no site."`
 
-**Falta o passo manual:** publicar os dois workflows pela interface do n8n
-(`update_workflow` só grava draft; `publish_workflow` é recusado pelo
-classificador). Depois disso, re-rodar o teste 3.
+O passo manual (publicar pela interface, porque `update_workflow` só grava draft
+e `publish_workflow` é recusado pelo classificador) foi feito pelo usuário, e o
+teste 3 foi re-rodado logo depois — saída abaixo.
 
-Os campos de saída passam a ser os do site — `incoming_links`, `internal_links`
-e `external_links` —, não os `internal_in`/`internal_out`/`external_out` que esta
+Os campos de saída são os do site — `incoming_links`, `internal_links` e
+`external_links` —, não os `internal_in`/`internal_out`/`external_out` que esta
 página previa; a expectativa do roteiro é que estava errada, não o site.
+
+**Segunda rodada, depois de o usuário publicar os dois workflows — ✅ PASSOU.**
+Motor publicado: `versionId == activeVersionId == 47b1c6f9-2ef8-4503-8408-e3511f1d2554`.
+
+```json
+{
+  "gravado": false, "ok": true, "erro": null, "operacao": "auditar_links",
+  "dados": {
+    "total": 169, "page": 1, "per_page": 5, "pages": 34,
+    "results": [
+      {"id": 11031, "title": "Tontura e enxaqueca: entenda a relação e tratamentos",
+       "slug": "tontura-e-enxaqueca-entenda-a-relacao-e-tratamentos",
+       "modified": "2026-01-22 15:41:57",
+       "internal_links": 0, "external_links": 0, "incoming_links": 0},
+      {"id": 19944, "title": "Clínica Popular Belém: Saúde para Todos com Economia",
+       "slug": "clinica-popular-belem", "modified": "2025-07-14 10:04:19",
+       "internal_links": 2, "external_links": 5, "incoming_links": 0},
+      {"id": 19951, "title": "Clínica Popular Belo Horizonte: A Solução em Saúde com Preços Baixos",
+       "slug": "clinica-popular-belo-horizonte", "modified": "2025-07-14 09:52:02",
+       "internal_links": 2, "external_links": 2, "incoming_links": 0},
+      {"id": 22578, "title": "Como Saber se o Plano Hapvida Está Ativo | Guia [ano_atual]",
+       "slug": "como-saber-se-o-plano-de-saude-esta-ativo-hapvida",
+       "modified": "2026-04-12 08:14:11",
+       "internal_links": 6, "external_links": 2, "incoming_links": 0},
+      {"id": 22580, "title": "Guia Completo da Carteira Plano de Saúde Hapvida: Opções e Benefícios",
+       "slug": "carteira-plano-saude-hapvida-guia-completo-beneficios",
+       "modified": "2025-06-04 10:24:04",
+       "internal_links": 1, "external_links": 1, "incoming_links": 0}
+    ]
+  },
+  "total": null,
+  "aviso": "Leitura: nada foi alterado no site."
+}
+```
+
+**Detalhe cosmético que sobrou:** esta rota devolve um objeto paginado
+(`{total, page, per_page, pages, results}`), não um array. Como o
+`Conferir e Montar` só preenche o `total` do envelope quando o corpo é array, o
+`total` de fora vem `null` — a contagem real (169) está em `dados.total`. Não
+atrapalha o uso; se incomodar, é uma linha no `Conferir e Montar`.
 
 #### Teste 4 — `editar_meta_title` com o valor atual, `apply: false`
 
@@ -379,13 +421,9 @@ Depois de revogar, a versão antiga do workflow ainda guarda a string no histór
 de versões do n8n. Vale conferir se o n8n permite limpar versões antigas; se não
 permitir, a string fica no histórico mesmo revogada — inofensiva, mas presente.
 
-## Pendências menores que continuam abertas
+## Pendência menor que continua aberta
 
-**1. `auditar_links` chama uma rota que não existe.** Detalhe e correção no
-diagnóstico do teste 3, acima. É a única das 9 operações do motor que não
-funciona.
-
-**2.** O nó `inserir_link_interno` marca `ocorrencia` como obrigatório no schema, embora
+O nó `inserir_link_interno` marca `ocorrencia` como obrigatório no schema, embora
 a descrição diga que só é necessário quando a frase aparece mais de uma vez. O
 n8n deriva o `required` de quais parâmetros usam `$fromAI`, então tirar a
 obrigatoriedade exige mudar o desenho do nó. Não foi mexido nesta sessão.
