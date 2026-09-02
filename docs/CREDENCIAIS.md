@@ -87,29 +87,33 @@ texto seguro, recusa de `<a>` aninhado, um link por destino.
 
 **Confirmado no teste de 02-09-2026 (sessão seguinte):**
 
-- ✅ **A credencial ficou anexada.** As duas ferramentas novas apareceram na lista
-  do conector (o cache do cliente era mesmo do lado do cliente). Na execução
-  `28711` do motor, o nó `Buscar Post` devolveu `content.raw` do post 33477
-  (slug `plano-hapvida-manaus`, 115.183 caracteres em `raw`) — ou seja,
-  `context=edit` autenticou. A mensagem *"a resposta nao trouxe content.raw"*
-  **não** apareceu. A dúvida que restava do dia anterior está encerrada.
-- ✅ **A lógica das travas roda.** O nó `Conferir e Montar` devolveu
-  `ok: true`, `ocorrencias: 1`, contexto no bloco "PA Cidade Nova".
+- ✅ **A credencial ficou anexada.** O motor leu `content.raw` do post 33477 com
+  `context=edit` — o que só a credencial válida permite. A leitura via API não
+  mostrar o campo `credentials` era redação, não ausência. A mensagem *"a resposta
+  nao trouxe content.raw"* nunca apareceu.
+- ✅ **As duas ferramentas apareceram** na lista do conector. O cache era mesmo do
+  lado do cliente.
+- ✅ **Três das travas foram exercitadas contra dados reais e passaram**: dry-run
+  por padrão, guarda de contagem e um-link-por-destino. Saídas coladas em
+  `docs/EDICAO-WORDPRESS.md`.
+- ✅ **Bug encontrado e corrigido.** O nó IF `Gravar de Verdade?` usava operadores
+  booleanos unários sem `singleValue: true`, então o n8n validava o `rightValue`
+  vazio contra tipo boolean em modo `strict` e abortava **toda** chamada — dry-run
+  inclusive. As duas ferramentas estavam inoperantes. Corrigido via
+  `setNodeParameter`, sem tocar nas credenciais dos outros nós; o `update_workflow`
+  já publicou (`versionId == activeVersionId == 6326fb3b-f118-4d8b-9fff-9ab8c0189d71`).
 
 **Falta:**
 
-- **Publicar a versão corrigida do motor.** Foi encontrado um bug no nó IF
-  `Gravar de Verdade?` que abortava **toda** chamada, antes de decidir gravar ou
-  não (detalhe e saída em `docs/EDICAO-WORDPRESS.md`). A correção já foi **salva**
-  no workflow via `update_workflow`; o `publish_workflow` foi **recusado** pelo
-  classificador de permissões desta sessão. Enquanto não for publicado pela
-  interface do n8n, o motor continua abortando.
-- **Rodar os 4 testes de ponta a ponta.** Depois do primeiro dry-run, as chamadas
-  ao conector passaram a ser recusadas pelo classificador desta sessão, então as
-  travas de contagem, de idempotência de link e a gravação de verdade **não foram
-  exercitadas**. Precisam ser rodadas numa sessão com um humano presente.
+- **Gravar de verdade.** O único teste que não rodou foi o `apply: true` — recusado
+  pelo classificador de permissões da sessão, não pelo motor. Precisa de uma sessão
+  com autorização de escrita em página no ar.
 - **A correção do endereço não foi aplicada.** O post 33477 continua publicando
   `Av. Camapuã, 8` para o PA Cidade Nova (conferido com `scripts/wp.py grep`).
+  Nada foi registrado no banco, porque não houve alteração a registrar.
+- **Ajuste menor no schema.** O nó `inserir_link_interno` do workflow MCP marca
+  `ocorrencia` como obrigatório, embora a descrição diga que só é necessário quando
+  a frase aparece mais de uma vez.
 - Migrar os 7 `toolCode` antigos, que **continuam com a senha em texto puro**.
 - **Só depois disso** revogar a Application Password antiga no WordPress.
 

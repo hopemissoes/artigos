@@ -93,49 +93,26 @@ sub-workflow `WP - Motor de Edicao Pontual`, `825rmKAVo3wmelMi`).
 **As duas ferramentas apareceram na lista do conector** — o cache que as escondia
 na sessão anterior era do lado do cliente e caiu sozinho na sessão nova.
 
-### Teste 1 — dry-run da correção real (post 33477)
+### A dúvida da credencial: encerrada
 
-Chamada:
+**A credencial `WordPress tabelaplanos` (`dibu11U52rFkfBly`) está anexada** aos nós
+`Buscar Post` e `Salvar Post`. A leitura via API não mostrar o campo `credentials`
+era redação, não ausência. Prova: o motor devolveu `content.raw` do post 33477
+(`tamanhoAntes: 115183`), o que só acontece com `context=edit` autenticado. A
+mensagem *"a resposta nao trouxe content.raw"* nunca apareceu.
 
-```json
-{"id": 33477, "find": "Av. Camapuã, 8 (Cidade Nova)",
- "repl": "Av. Camapuã, 695 (Cidade Nova)", "esperado": 1, "apply": false}
-```
+### O bug que travava tudo, antes de qualquer teste
 
-Retorno para o assistente:
+A primeira chamada não devolveu resultado nenhum:
 
 ```
 There was an error: "Wrong type: '' is a string but was expecting a boolean
 [condition 0, item 0]"
 ```
 
-**O erro NÃO é o de credencial.** Lendo a execução `28711` do motor, dá para
-separar o que funcionou do que quebrou:
-
-| Nó | Resultado |
-|---|---|
-| `Parametros` | `{"operacao":"substituir","id":33477,"find":"Av. Camapuã, 8 (Cidade Nova)","repl":"Av. Camapuã, 695 (Cidade Nova)","frase":"","destino":"","esperado":1,"ocorrencia":0,"apply":false}` |
-| `Buscar Post` | 200, trouxe `content.raw` — **a credencial autenticou** |
-| `Conferir e Montar` | `ok: true`, `aplicar: false`, `ocorrencias: 1`, `postId: 33477`, `slug: plano-hapvida-manaus`, `tamanhoAntes: 115183`, `tamanhoDepois: 115185` |
-| `Gravar de Verdade?` | ❌ erro, abortou a execução |
-
-Contexto devolvido pelo motor, confirmando que casou no bloco certo:
-
-```
-rgin-bottom: 10px; padding-left: 15px; border-left: 3px solid #ff6b00;">
-<strong style="color: #1a202c;">PA Cidade Nova</strong> — >>>Av. Camapuã, 8<<<
- (Cidade Nova) | Segunda a Domingo 7h-19h | ...
-```
-
-**Duas conclusões que valem mais que o teste:** a credencial do cofre está
-mesmo anexada nos nós `httpRequest` (a leitura via API não mostrava o campo
-`credentials`, mas era redação, não ausência), e toda a lógica das travas roda
-correta.
-
-### O bug do nó IF
-
-O nó `Gravar de Verdade?` (`n8n-nodes-base.if`, typeVersion 2.2) tinha as duas
-condições assim:
+Na execução `28711` dá para ver que `Buscar Post` e `Conferir e Montar` rodaram
+certos (`ok: true`, `ocorrencias: 1`) e quem quebrou foi o nó IF
+`Gravar de Verdade?` (`n8n-nodes-base.if`, typeVersion 2.2), que estava assim:
 
 ```json
 {"leftValue": "={{ $json.ok }}",
@@ -143,48 +120,90 @@ condições assim:
  "rightValue": ""}
 ```
 
-`operation: "true"` é um operador **unário** — não usa `rightValue`. Mas sem a
-flag `singleValue: true`, o n8n valida o `rightValue` (string vazia) contra o
-tipo declarado (`boolean`) e, com `typeValidation: "strict"`, aborta. Daí o
-`'' is a string but was expecting a boolean`.
+`operation: "true"` é operador **unário** — não usa `rightValue`. Sem a flag
+`singleValue: true`, o n8n valida o `rightValue` (string vazia) contra o tipo
+declarado (`boolean`) e, com `typeValidation: "strict"`, aborta.
 
-Como isso acontece **antes** de qualquer decisão de gravar, o bug derrubava
-igualmente dry-run e gravação — ou seja, **as duas ferramentas estavam 100%
-inoperantes**, não só a de escrita.
+Como isso acontece **antes** da decisão de gravar, o bug derrubava dry-run e
+gravação igualmente — **as duas ferramentas estavam 100% inoperantes**.
 
-Correção aplicada (`update_workflow`, `setNodeParameter` em `/conditions`, que
-não toca nas credenciais dos outros nós):
+Correção (via `update_workflow` / `setNodeParameter` em `/conditions`, que não
+toca nas credenciais dos outros nós), nas duas condições:
 
 ```json
 {"type": "boolean", "operation": "true", "singleValue": true}
 ```
 
-⚠️ **A correção está salva mas NÃO publicada.** O `publish_workflow` foi recusado
-pelo classificador de permissões da sessão. Enquanto ninguém publicar pela
-interface do n8n, o motor segue abortando.
+O `update_workflow` já publica: depois dele `versionId == activeVersionId`
+(`6326fb3b-f118-4d8b-9fff-9ab8c0189d71`) e a `activeVersion` traz `singleValue`.
+Não foi preciso `publish_workflow`.
 
-### Testes 2, 3 e 4 — NÃO EXECUTADOS
+### Teste 1 — dry-run da correção real ✅
 
-Depois do teste 1, as chamadas ao conector passaram a ser recusadas na origem:
+```json
+{"id": 33477, "find": "Av. Camapuã, 8 (Cidade Nova)",
+ "repl": "Av. Camapuã, 695 (Cidade Nova)", "esperado": 1, "apply": false}
+```
+
+```json
+[{"gravado": false, "ok": true, "erro": null, "detalhe": null,
+  "postId": 33477, "slug": "plano-hapvida-manaus",
+  "operacao": "substituir", "ocorrencias": 1,
+  "contexto": "rgin-bottom: 10px; padding-left: 15px; border-left: 3px solid #ff6b00;\"><strong style=\"color: #1a202c;\">PA Cidade Nova</strong> — >>>Av. Camapuã, 8 (Cidade Nova)<<< | Segunda a Domingo 7h-19h | Clínica adultos, Pediatria, Raio-X, Ultrassom</li> <li style=\"font-weight: normal; margin-bottom: ",
+  "contextos": null, "ancora": null, "url": null,
+  "tamanhoAntes": 115183, "tamanhoDepois": 115185,
+  "aviso": "SIMULACAO: nada foi gravado. Reenvie com apply true para valer."}]
+```
+
+Casou exatamente no bloco "PA Cidade Nova", uma vez só, e não gravou.
+
+### Teste 2 — trava de contagem ✅ (abortou como devia)
+
+Mesma chamada com `"esperado": 3`:
+
+```json
+[{"gravado": false, "ok": false,
+  "erro": "contagem divergente: esperava 3, achou 1. Nada foi alterado.",
+  "detalhe": null, "postId": 33477, "slug": "plano-hapvida-manaus",
+  "operacao": null, "ocorrencias": 1, "contexto": null, "contextos": null,
+  "ancora": null, "url": null,
+  "tamanhoAntes": 115183, "tamanhoDepois": null,
+  "aviso": "Nada foi alterado."}]
+```
+
+### Teste 3 — trava de idempotência do link ✅ (abortou como devia)
+
+```json
+{"id": 39474, "frase": "Hapclínica Duque de Caxias",
+ "destino": "hapclinica-duque-de-caxias-manaus", "ocorrencia": 1, "apply": false}
+```
+
+```json
+[{"gravado": false, "ok": false,
+  "erro": "o post ja aponta para hapclinica-duque-de-caxias-manaus. Regra da casa: um link por destino por pagina.",
+  "detalhe": null, "postId": 39474, "slug": "hospital-nilton-lins-hapvida-manaus",
+  "operacao": null, "ocorrencias": null, "contexto": null, "contextos": null,
+  "ancora": null, "url": null,
+  "tamanhoAntes": 48114, "tamanhoDepois": null,
+  "aviso": "Nada foi alterado."}]
+```
+
+Nota: `ocorrencia` é obrigatório no schema da ferramenta, embora a descrição diga
+"só necessário quando há mais de uma". Vale ajustar o `required` do nó
+`inserir_link_interno` no workflow MCP.
+
+### Teste 4 — aplicar de verdade ❌ NÃO EXECUTADO
 
 ```
 Permission for this action was denied by the Claude Code auto mode classifier.
 Reason: Blocked by classifier.
 ```
 
-Ficaram **por exercitar** — nenhuma saída aqui é para ser tomada como verificada:
-
-1. **Trava de contagem** — `esperado: 3` no mesmo `find`; deve devolver
-   `contagem divergente: esperava 3, achou 1. Nada foi alterado.`
-2. **Trava de idempotência do link** — `inserir_link_interno` no post 39474 para
-   `hapclinica-duque-de-caxias-manaus`; deve recusar porque a página já aponta
-   para o destino.
-3. **Gravação de verdade** — teste 1 com `apply: true`.
+Os três dry-runs passaram; **só a gravação foi recusada**. A trava é do lado do
+cliente (o classificador de permissões da sessão), não do motor. Precisa de uma
+sessão com autorização de escrita.
 
 ### Estado do dado no ar
-
-`scripts/wp.py grep` (leitura, sem credencial) em 02-09-2026, **depois** da
-sessão:
 
 ```
 $ python3 scripts/wp.py grep 33477 "Av\. Camapuã, [0-9]+"
@@ -199,6 +218,21 @@ $ python3 scripts/wp.py grep 33477 "Av\. Camapuã, [0-9]+"
 três fontes: `rede_unidades` no Supabase, a página da unidade no site da Hapvida
 e a coordenada) **não foi aplicada**, e por isso **nada foi registrado no banco**
 com `registrar_atualizacao` — não houve alteração a registrar.
+
+### Veredito
+
+O motor funciona. Das quatro travas do desenho original, três foram exercitadas
+contra dados reais e se comportaram exatamente como especificado:
+
+| Trava | Exercitada | Resultado |
+|---|---|---|
+| Dry-run por padrão | ✅ | `gravado: false`, avisa como aplicar |
+| Guarda de contagem | ✅ | aborta com `esperado` divergente |
+| Um link por destino | ✅ | recusa destino já linkado |
+| Máscara de texto seguro | ❌ | sem caso de teste que a force |
+| Sem `<a>` aninhado | ❌ | idem |
+| Ambiguidade explícita | ❌ | idem |
+| Gravação | ❌ | recusada pelo classificador |
 
 ### Nota sobre o horário
 
