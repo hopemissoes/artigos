@@ -4,19 +4,30 @@
 
 ## Veredito em uma linha
 
-Os 7 nós estão migrados e testados **na versão salva (draft)** dos dois workflows,
-mas **nada disso está no ar**: `publish_workflow` foi recusado pelo classificador
-de permissões da sessão. **O passo que falta é humano: publicar os dois workflows
-no n8n.**
+**Publicado e no ar em 02-09-2026, 19:12.** Os 7 nós viraram `toolWorkflow` e a
+versão ativa dos dois workflows não tem mais nenhuma senha em texto puro. Falta
+rodar os 7 testes de ponta a ponta pelo conector — e só depois revogar a
+Application Password antiga.
 
-## Estado das versões (conferido às 15:26 de 02-09-2026)
+## Estado das versões (conferido às 19:16 de 02-09-2026)
 
-| Workflow | ID | `versionId` (draft) | `activeVersionId` (no ar) | Publicado? |
+| Workflow | ID | `versionId` | `activeVersionId` | Publicado? |
 |---|---|---|---|---|
-| `WP - Motor de Edicao Pontual` | `825rmKAVo3wmelMi` | `baff3834-6519-456c-a303-ce98b4360781` | `6326fb3b-f118-4d8b-9fff-9ab8c0189d71` | ❌ |
-| `MCP - WordPress DRV (Tabela Planos) v3` | `7RwMenlhtJfVvl71` | `860d9c9c-e248-4d15-a5e7-853ba3cd9d03` | `1e50dc0d-12d6-476d-876c-25e397da8579` | ❌ |
+| `WP - Motor de Edicao Pontual` | `825rmKAVo3wmelMi` | `baff3834-6519-456c-a303-ce98b4360781` | igual | ✅ |
+| `MCP - WordPress DRV (Tabela Planos) v3` | `7RwMenlhtJfVvl71` | `860d9c9c-e248-4d15-a5e7-853ba3cd9d03` | igual | ✅ |
 
-### O que está em cada versão do workflow MCP
+Quem publicou foi o usuário, pela interface. O `publish_workflow` do assistente
+foi recusado pelo classificador de permissões nas duas tentativas — **essa
+capacidade não existe pelo caminho do assistente; conte com o passo manual.**
+
+### Armadilha do Save x Publish
+
+Na primeira tentativa o usuário clicou em **Save** e o `activeVersionId` não se
+moveu. Salvar grava o rascunho; publicar é botão separado. Como conferir sem
+depender de ninguém: `get_workflow_details` e comparar `versionId` com
+`activeVersionId`.
+
+### O que estava em cada versão do workflow MCP (histórico do problema)
 
 | Nó | No draft | No ar hoje |
 |---|---|---|
@@ -133,7 +144,31 @@ Exercita o draft de verdade (expressões, roteamento do IF, `$fromAI` não), com
 | `28752` | `criar` com `apply: true` | `urlSalvar` `…/posts` (sem id), corpo com `meta` e `categories:[3,7]`, HTTP 201 tratado, `postId` lido da resposta |
 | `28753` | `auditar_links` | `Rota` montou o endpoint `drv/v1`, envelope de leitura correto |
 
-### 3. Regressão contra o site (na versão que está no ar)
+### 3. Cache de esquema do cliente — o que barrou o teste final
+
+Depois da publicação, a sessão que fez a migração **continuou com o esquema
+antigo das 7 ferramentas em cache** (`input` como texto único). O servidor já
+respondia com o nó novo e recusou a chamada:
+
+```
+Received tool input did not match expected schema
+  Required -> at busca, order, orderby, per_page
+```
+
+Depois, mandando os campos soltos, o cache converteu o numero em texto:
+
+```
+Expected number, received string -> at per_page
+```
+
+**Essa recusa é, em si, a prova de que o nó novo está no ar** — o `toolCode`
+antigo aceitava qualquer coisa dentro de `input` e nunca exigiria quatro campos
+tipados.
+
+Não há contorno pelo lado do cliente: o cache cai sozinho em **conversa nova**.
+Os 7 testes ficam para a primeira sessão nova.
+
+### 4. Regressão contra o site (na versão que estava no ar antes de publicar)
 
 Execução `28745`: `substituir_no_artigo` em dry-run no post 33477 achou 1
 ocorrência de `Av. Camapuã, 695`, `tamanhoAntes: 115185`. A credencial do cofre
@@ -146,19 +181,15 @@ ponta a ponta, porque isso exige a publicação. O mapeamento `$fromAI → Param
 
 ## O que falta — na ordem
 
-### 1. Publicar os dois workflows (usuário, no n8n)
-
-Primeiro o motor, depois o MCP. Se publicar só o MCP, as 7 ferramentas chamam
-operações que a versão ativa do motor ainda não conhece e recebem
-`operacao desconhecida`.
-
-1. Abrir `825rmKAVo3wmelMi` → **Publish**
-2. Abrir `7RwMenlhtJfVvl71` → **Publish**
+### 1. Publicar os dois workflows — ✅ FEITO em 02-09-2026, 19:12
 
 Reverter, se preciso: histórico de versões do n8n, voltar para
-`6326fb3b-…` e `1e50dc0d-…`.
+`6326fb3b-…` (motor) e `1e50dc0d-…` (MCP).
 
-### 2. Testar as 7, uma a uma (a confirmação que ficou faltando)
+### 2. Testar as 7, uma a uma — PENDENTE, exige conversa nova
+
+Por causa do cache de esquema descrito acima. Ordem do menos para o mais
+destrutivo; só passar para a seguinte depois que a anterior devolver `ok: true`.
 
 Ordem do menos para o mais destrutivo. Só passar para a seguinte depois que a
 anterior devolver `ok: true`.

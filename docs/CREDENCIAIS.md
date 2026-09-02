@@ -114,10 +114,13 @@ texto seguro, recusa de `<a>` aninhado, um link por destino.
 
 **Falta:**
 
-- **Publicar os dois workflows.** Está tudo pronto no *draft*, mas o
-  `publish_workflow` foi recusado pelo classificador de permissões da sessão.
-  Enquanto não for publicado à mão no n8n, **a versão no ar continua sendo a
-  antiga, com a senha em texto puro nos 7 nós.**
+- ~~Publicar os dois workflows.~~ ✅ **Feito pelo usuário em 02-09-2026, 19:12.**
+  A versão ativa dos dois já é a nova; **nenhum nó no ar carrega senha.**
+  O `publish_workflow` do assistente foi recusado pelo classificador nas duas
+  tentativas — publicar é sempre passo manual.
+- **Rodar os 7 testes de ponta a ponta.** Ficou pendente: a sessão que fez a
+  migração guardou o esquema antigo das ferramentas em cache e não conseguiu
+  chamá-las. Cai sozinho em conversa nova.
 - **Ajuste menor no schema.** O nó `inserir_link_interno` do workflow MCP marca
   `ocorrencia` como obrigatório, embora a descrição diga que só é necessário quando
   a frase aparece mais de uma vez.
