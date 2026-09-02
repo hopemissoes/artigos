@@ -85,18 +85,31 @@ texto seguro, recusa de `<a>` aninhado, um link por destino.
   `substituir_no_artigo` e `inserir_link_interno`. **Sem segredo nelas.**
 - Workflow MCP publicado.
 
+**Confirmado no teste de 02-09-2026 (sessão seguinte):**
+
+- ✅ **A credencial ficou anexada.** As duas ferramentas novas apareceram na lista
+  do conector (o cache do cliente era mesmo do lado do cliente). Na execução
+  `28711` do motor, o nó `Buscar Post` devolveu `content.raw` do post 33477
+  (slug `plano-hapvida-manaus`, 115.183 caracteres em `raw`) — ou seja,
+  `context=edit` autenticou. A mensagem *"a resposta nao trouxe content.raw"*
+  **não** apareceu. A dúvida que restava do dia anterior está encerrada.
+- ✅ **A lógica das travas roda.** O nó `Conferir e Montar` devolveu
+  `ok: true`, `ocorrencias: 1`, contexto no bloco "PA Cidade Nova".
+
 **Falta:**
 
-- Confirmar que a credencial ficou anexada nos nós `Buscar Post` e `Salvar Post`.
-  A API do MCP recusa fazer isso (`node type 'n8n-nodes-base.httpRequest' does
-  not accept credential 'httpBasicAuth'` — limitação da ferramenta, não do n8n),
-  então foi feito pela interface. A leitura via API não mostra o campo
-  `credentials`, o que pode ser redação na leitura ou ausência real. **Só o
-  primeiro teste diz.** Se a credencial não estiver lá, o motor devolve
-  exatamente: *"a resposta nao trouxe content.raw; context=edit exige credencial
-  valida e a credencial nao autenticou"*.
-- Recarregar a lista de ferramentas do conector no cliente — as duas novas ainda
-  não aparecem para o assistente (cache do lado do cliente, não do n8n).
+- **Publicar a versão corrigida do motor.** Foi encontrado um bug no nó IF
+  `Gravar de Verdade?` que abortava **toda** chamada, antes de decidir gravar ou
+  não (detalhe e saída em `docs/EDICAO-WORDPRESS.md`). A correção já foi **salva**
+  no workflow via `update_workflow`; o `publish_workflow` foi **recusado** pelo
+  classificador de permissões desta sessão. Enquanto não for publicado pela
+  interface do n8n, o motor continua abortando.
+- **Rodar os 4 testes de ponta a ponta.** Depois do primeiro dry-run, as chamadas
+  ao conector passaram a ser recusadas pelo classificador desta sessão, então as
+  travas de contagem, de idempotência de link e a gravação de verdade **não foram
+  exercitadas**. Precisam ser rodadas numa sessão com um humano presente.
+- **A correção do endereço não foi aplicada.** O post 33477 continua publicando
+  `Av. Camapuã, 8` para o PA Cidade Nova (conferido com `scripts/wp.py grep`).
 - Migrar os 7 `toolCode` antigos, que **continuam com a senha em texto puro**.
 - **Só depois disso** revogar a Application Password antiga no WordPress.
 
