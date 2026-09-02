@@ -100,8 +100,10 @@ texto seguro, recusa de `<a>` aninhado, um link por destino.
   booleanos unários sem `singleValue: true`, então o n8n validava o `rightValue`
   vazio contra tipo boolean em modo `strict` e abortava **toda** chamada — dry-run
   inclusive. As duas ferramentas estavam inoperantes. Corrigido via
-  `setNodeParameter`, sem tocar nas credenciais dos outros nós; o `update_workflow`
-  já publicou (`versionId == activeVersionId == 6326fb3b-f118-4d8b-9fff-9ab8c0189d71`).
+  `setNodeParameter`, sem tocar nas credenciais dos outros nós; depois dele
+  `versionId == activeVersionId == 6326fb3b-f118-4d8b-9fff-9ab8c0189d71`.
+  ⚠️ **A conclusão tirada daqui — "o `update_workflow` já publica" — está errada**;
+  foi coincidência. Ver a correção de premissa na seção da segunda sessão.
 
 - ✅ **Gravação validada.** O `apply: true` pelo conector foi recusado pelo
   classificador de permissões da sessão (trava do cliente, não do motor); o usuário
@@ -112,18 +114,52 @@ texto seguro, recusa de `<a>` aninhado, um link por destino.
 
 **Falta:**
 
+- **Publicar os dois workflows.** Está tudo pronto no *draft*, mas o
+  `publish_workflow` foi recusado pelo classificador de permissões da sessão.
+  Enquanto não for publicado à mão no n8n, **a versão no ar continua sendo a
+  antiga, com a senha em texto puro nos 7 nós.**
 - **Ajuste menor no schema.** O nó `inserir_link_interno` do workflow MCP marca
   `ocorrencia` como obrigatório, embora a descrição diga que só é necessário quando
   a frase aparece mais de uma vez.
-- Migrar os 7 `toolCode` antigos, que **continuam com a senha em texto puro**.
-- **Só depois disso** revogar a Application Password antiga no WordPress.
+- **Só depois de publicar e testar** revogar a Application Password antiga no
+  WordPress.
 
-### Ordem para a migração dos 7
+## Estado em 02-09-2026 (segunda sessão) — migração dos 7
 
-O motor já aceita `operacao`; basta acrescentar os casos (`buscar`, `listar`,
-`criar`, `meta_title`, `meta_description`, `auditar_links`) e trocar cada
-`toolCode` por um `toolWorkflow`. Um nó por vez, testando, para não derrubar o
-que funciona hoje.
+**Feito, no draft dos dois workflows:**
+
+- Motor `WP - Motor de Edicao Pontual` (`825rmKAVo3wmelMi`) estendido de 2 para
+  **9 operações**: as antigas `substituir` e `link` mais `buscar`, `listar`,
+  `criar`, `conteudo`, `meta_title`, `meta_description` e `auditar_links`.
+  Entrou um nó `Rota` que monta a URL do GET; os dois `httpRequest` com a
+  credencial do cofre foram **reaproveitados** (URL e corpo por expressão), então
+  o vínculo de credencial não foi tocado.
+- Os **7 `toolCode` viraram `toolWorkflow`** apontando para o motor. Conferido
+  campo a campo: **nenhum nó do draft carrega `password`.**
+- Todas as escritas ganharam **dry-run por padrão** — inclusive `criar`,
+  `conteudo` e os dois campos de meta, que antes gravavam direto.
+
+**Testado:**
+
+- 23 casos em simulação local (`scripts/motor-wp/harness.js`);
+- 4 execuções `test_workflow` com pin data, dentro do n8n, sem tocar no site
+  (`28750` listar, `28751` meta_title, `28752` criar, `28753` auditar_links);
+- regressão do `substituir` contra o site, na versão ativa (`28745`) — a
+  credencial do cofre segue autenticando.
+
+**Não testado:** as 7 ferramentas chamadas de ponta a ponta pelo conector MCP.
+Isso depende da publicação. Roteiro de teste, uma a uma, em
+`docs/MIGRACAO-MCP-WORDPRESS.md`.
+
+**Correção de premissa importante:** `update_workflow` **não publica sozinho**.
+Ele grava draft; o `activeVersionId` não se move. A execução `28745` provou:
+rodou sem o nó `Rota`, que só existe no draft. A nota anterior desta página
+estava errada — o que houve foi coincidência de `versionId` logo após uma
+publicação manual.
+
+**Detalhe completo, tabela de versões, roteiro de publicação e de teste, e uma
+anomalia registrada (execução `28747`, gravação no post 39602 que não partiu da
+sessão): `docs/MIGRACAO-MCP-WORDPRESS.md`.**
 
 ## Regra que fica
 
