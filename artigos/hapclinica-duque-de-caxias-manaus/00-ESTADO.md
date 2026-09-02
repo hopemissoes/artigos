@@ -175,3 +175,46 @@ Lista de candidatos e recomendação: ver resposta da sessão / seção abaixo.
 | 7 | `hospital-duque-de-caxias-hapvida` (130, RJ) | **não** | FAQ 7 (desambiguação) |
 | 8 | `mamografia-preco-popular` | **não** | onde fazer em Manaus |
 | — | `plano-hapvida-rio-de-janeiro` (28) | seria recíproco | ⛔ **não fazer** — par RJ↔Manaus recíproco em keyword de colisão de nome é sinal de doorway |
+
+---
+
+## Publicação e links de entrada — 2026-09-02
+
+**PUBLICADO.** Post WordPress **39602**, `status: publish`.
+URL: https://tabelaplanos.com.br/hapclinica-duque-de-caxias-manaus/
+
+Banco atualizado (`atualizar_artigo`): id 195 passou de `producao` para
+`publicado`; `titulo` alinhado ao título do post (o H1), com o title SEO do
+Rank Math guardado nas `observacoes`.
+
+Os três links de entrada foram inseridos pelo usuário e **conferidos no HTML
+que está no ar** antes de gravar:
+
+| Origem | Post | Âncora real na página |
+|---|---|---|
+| `clinicas-hapvida-por-capital` | 36272 | "guia completo sobre a Hapclínica Duque de Caxias" |
+| `plano-hapvida-manaus` | 33477 | "Hapclínica Duque de Caxias" |
+| `hospital-nilton-lins-hapvida-manaus` | 39474 | "Hapclínica Duque de Caxias, na Praça 14 de Janeiro" |
+
+`consultar_links_para_destino` confirma os 3. O spoke saiu de **0 → 3**
+backlinks internos. Registrado também em `registrar_atualizacao` (id 45).
+
+**Achado de comportamento do banco:** `registrar_links_artigo` é **aditivo**,
+não substitui os links já gravados da origem. Verificado por sondagem no pillar
+(tinha 1 link, ficou com 2). Vale para as próximas sessões.
+
+## ⚠️ Erro de horário de emergência em DUAS páginas no ar
+
+Descoberto ao conferir os links. O pillar `clinicas-hapvida-por-capital` e o hub
+`plano-hapvida-manaus` publicam, os dois, **"Seg-Sex 7h-19h"** para o PA Cidade
+Nova e o PA Distrito Industrial. O CNES registra **atendimento contínuo 24
+horas** para essas unidades (CNES 9676783 no Cidade Nova, medido na §3.1 da
+pesquisa). As duas páginas estão dizendo ao leitor que uma porta de emergência
+fecha às 19h.
+
+Soma-se ao erro já conhecido: o hub publica **"Av. Camapuã, 8"** para o PA
+Cidade Nova; o número correto é **695**.
+
+Nada disso foi corrigido — são páginas de terceiros neste trabalho. Registrado
+nas `observacoes` do artigo 195 e listado aqui para virar pendência quando o
+usuário autorizar.
