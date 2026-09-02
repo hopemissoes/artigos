@@ -282,11 +282,33 @@ O site aceita ainda `post_type`, `page`, `category`, `internal_links_max` e
 teste não diz nada sobre credencial — e os outros seis já provaram que ela
 autentica.
 
-**Conserto (não feito aqui, de propósito):** ajustar a montagem da URL e o
-mapa de `orderby`/`order` no nó `Rota` do motor `825rmKAVo3wmelMi`, mais os
-rótulos na descrição do nó `auditar_links` do workflow MCP. Depois **publicar à
-mão** — `update_workflow` só grava draft. Vale conferir se o `auditar_links`
-antigo (`toolCode`) chamava a rota certa; se chamava, o erro entrou na migração.
+**Conserto — feito no draft em 02-09-2026, falta publicar.**
+
+- Nó `Rota` do motor `825rmKAVo3wmelMi`: a URL passou a ser
+  `/wp-json/drv/v1/links-audit`; `order` sai em maiúsculo; e entrou um mapa que
+  traduz o vocabulário antigo para o do site, aceitando os dois:
+  `internal_in → incoming_links`, `internal_out → internal_links`,
+  `external_out → external_links`, `date → date`. Valor desconhecido cai em
+  `incoming_links`. Mesmo código em `scripts/motor-wp/rota.js`.
+- Nó `auditar_links` do workflow MCP `7RwMenlhtJfVvl71`: a descrição e o
+  `$fromAI` do `orderby` passaram a nomear os valores do site.
+
+Validado em duas camadas, sem tocar no site:
+
+- `node scripts/motor-wp/harness.js` — o caso `auditar_links` monta
+  `…/drv/v1/links-audit?orderby=incoming_links&order=ASC&per_page=3`;
+- execução **`28914`** (`test_workflow` com pin data, no draft do motor):
+  entrada `orderby: internal_in, order: asc, per_page: 5` →
+  `urlBusca: https://tabelaplanos.com.br/wp-json/drv/v1/links-audit?orderby=incoming_links&order=ASC&per_page=5`,
+  envelope de leitura correto, `aviso: "Leitura: nada foi alterado no site."`
+
+**Falta o passo manual:** publicar os dois workflows pela interface do n8n
+(`update_workflow` só grava draft; `publish_workflow` é recusado pelo
+classificador). Depois disso, re-rodar o teste 3.
+
+Os campos de saída passam a ser os do site — `incoming_links`, `internal_links`
+e `external_links` —, não os `internal_in`/`internal_out`/`external_out` que esta
+página previa; a expectativa do roteiro é que estava errada, não o site.
 
 #### Teste 4 — `editar_meta_title` com o valor atual, `apply: false`
 

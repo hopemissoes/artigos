@@ -122,12 +122,13 @@ texto seguro, recusa de `<a>` aninhado, um link por destino.
   nova** — o cache de esquema caiu sozinho, como esperado. **6 dos 7 passaram.**
   Nenhum teste gravou. Saídas coladas em `docs/MIGRACAO-MCP-WORDPRESS.md`,
   seção 2.
-- **Corrigir o `auditar_links`** — único teste que falhou. O nó `Rota` do motor
-  monta `/drv/v1/audit-links`, mas a rota do site é `/drv/v1/links-audit`, e o
-  enum de `orderby` lá é `internal_links | incoming_links | external_links | date`
-  (com `order` em maiúsculo). Dá HTTP 404 `rest_no_route`. **Não é credencial** —
-  o 404 vem antes da autenticação, e as outras seis ferramentas provaram que a
-  credencial do cofre autentica. Depois de corrigir, publicar à mão.
+- **Publicar o conserto do `auditar_links`** — único teste que falhou, já
+  corrigido **no draft** dos dois workflows em 02-09-2026: a rota do site é
+  `/drv/v1/links-audit` (não `audit-links`) e o `orderby` de lá é
+  `incoming_links | internal_links | external_links | date`, com `order` em
+  maiúsculo. Validado no harness e na execução `28914`, sem tocar no site.
+  **Falta publicar pela interface** e re-rodar o teste 3. Nunca foi credencial —
+  o 404 vinha antes da autenticação.
 - **Ajuste menor no schema.** O nó `inserir_link_interno` do workflow MCP marca
   `ocorrencia` como obrigatório, embora a descrição diga que só é necessário quando
   a frase aparece mais de uma vez.

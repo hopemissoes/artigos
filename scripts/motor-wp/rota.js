@@ -17,10 +17,17 @@ if (op === 'listar') {
   if (s) q.push('search=' + enc(s));
   url = API + '/posts?' + q.join('&');
 } else if (op === 'auditar_links') {
-  const q = ['orderby=' + enc(txt(r.orderby, 'internal_in')),
-             'order=' + enc(txt(r.order, 'asc')),
+  // A rota do site chama-se links-audit (nao audit-links) e usa outro vocabulario
+  // de ordenacao, com order em maiusculo. Os nomes antigos continuam aceitos.
+  const ORDEM = { internal_in: 'incoming_links', internal_out: 'internal_links', external_out: 'external_links',
+                  incoming_links: 'incoming_links', internal_links: 'internal_links',
+                  external_links: 'external_links', date: 'date' };
+  const ob = ORDEM[txt(r.orderby, 'internal_in')] || 'incoming_links';
+  const od = txt(r.order, 'asc').toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
+  const q = ['orderby=' + enc(ob),
+             'order=' + od,
              'per_page=' + faixa(num(r.per_page, 20), 1, 100)];
-  url = SITE + '/wp-json/drv/v1/audit-links?' + q.join('&');
+  url = SITE + '/wp-json/drv/v1/links-audit?' + q.join('&');
 } else if (op === 'criar') {
   const slug = txt(r.slug, '');
   const chave = slug ? ('slug=' + enc(slug)) : ('search=' + enc(txt(r.titulo, 'zzz-sem-titulo')));
