@@ -4,10 +4,12 @@
 
 ## Veredito em uma linha
 
-**Publicado e no ar em 02-09-2026, 19:12.** Os 7 nós viraram `toolWorkflow` e a
-versão ativa dos dois workflows não tem mais nenhuma senha em texto puro. Falta
-rodar os 7 testes de ponta a ponta pelo conector — e só depois revogar a
-Application Password antiga.
+**Publicado, testado e no ar em 02-09-2026.** Os 7 nós viraram `toolWorkflow` e a
+versão ativa dos dois workflows não tem mais nenhuma senha em texto puro. Os 7
+testes de ponta a ponta pelo conector foram rodados: **6 passaram; só o
+`auditar_links` falhou**, por URL e enum errados no nó `Rota` — defeito de rota,
+não de credencial. **A Application Password antiga já pode ser revogada**; o
+`auditar_links` está quebrado do mesmo jeito antes e depois disso.
 
 ## Estado das versões (conferido às 19:16 de 02-09-2026)
 
@@ -186,41 +188,182 @@ ponta a ponta, porque isso exige a publicação. O mapeamento `$fromAI → Param
 Reverter, se preciso: histórico de versões do n8n, voltar para
 `6326fb3b-…` (motor) e `1e50dc0d-…` (MCP).
 
-### 2. Testar as 7, uma a uma — PENDENTE, exige conversa nova
+### 2. Testar as 7, uma a uma — ✅ RODADO em 02-09-2026, sessão nova — **6 de 7 passaram**
 
-Por causa do cache de esquema descrito acima. Ordem do menos para o mais
-destrutivo; só passar para a seguinte depois que a anterior devolver `ok: true`.
+O cache de esquema caiu sozinho, como previsto: em conversa nova as 7 ferramentas
+chegaram na forma nova (campos soltos e tipados, `slug` no `listar_artigos`,
+envelope `ok`/`gravado`/`aviso`). Nenhum teste gravou — todos leitura ou
+`apply: false`.
 
-Ordem do menos para o mais destrutivo. Só passar para a seguinte depois que a
-anterior devolver `ok: true`.
-
-| # | Ferramenta | Chamada de teste | Esperado |
+| # | Ferramenta | Resultado | O que provou |
 |---|---|---|---|
-| 1 | `listar_artigos` | `{"per_page":3,"orderby":"modified","order":"desc","busca":""}` | lista **com campo `slug`** (é o que distingue do nó antigo) e `aviso: "Leitura: nada foi alterado no site."` |
-| 2 | `buscar_artigo` | `{"id":33477}` | `dados.tamanhoConteudo` ≈ 115185, `dados.rank_math_title` preenchido |
-| 3 | `auditar_links` | `{"orderby":"internal_in","order":"asc","per_page":5}` | 5 itens com as três contagens |
-| 4 | `editar_meta_title` | `{"id":33477,"valor":"<o mesmo que já está lá>","apply":false}` | `erro: "o campo rank_math_title ja tem exatamente esse valor…"` — prova que leu o valor real |
-| 5 | `editar_meta_description` | mesma ideia | idem |
-| 6 | `criar_artigo` | `{"titulo":"Teste","conteudo":"<p>x</p>","slug":"plano-hapvida-manaus","apply":false}` | `erro: "ja existe artigo com esse slug: id 33477…"` — prova a trava de duplicata |
-| 7 | `editar_conteudo_artigo` | `{"id":33477,"conteudo":"<p>x</p>","apply":false}` | `resumoAcao: "SOBRESCREVER o corpo inteiro: 115185 -> 8 caracteres…"`, `gravado: false` |
+| 1 | `listar_artigos` | ✅ passou | 3 itens **com `slug`**, `total: 3`, `aviso` de leitura |
+| 2 | `buscar_artigo` | ✅ passou | `tamanhoConteudo: 115185`, metas do Rank Math preenchidas |
+| 3 | `auditar_links` | ❌ **falhou** | HTTP 404 `rest_no_route` — o motor monta a URL errada (ver diagnóstico) |
+| 4 | `editar_meta_title` | ✅ passou | recusou por valor idêntico, lendo o valor real do site |
+| 5 | `editar_meta_description` | ✅ passou | idem |
+| 6 | `criar_artigo` | ✅ passou | trava de duplicata de slug; nada criado |
+| 7 | `editar_conteudo_artigo` | ✅ passou | `gravado: false`, `115185 -> 8 caracteres` |
 
-Nenhum desses sete testes grava. Todos são dry-run ou leitura.
+#### Teste 1 — `listar_artigos` `{"per_page":3,"orderby":"modified","order":"desc","busca":""}`
 
-Se o conector não mostrar os parâmetros novos (`valor`, `busca`, `per_page`…),
-é cache do cliente: fechar e reabrir a sessão. Já aconteceu antes e caiu sozinho.
+```json
+{
+  "gravado": false, "ok": true, "erro": null, "operacao": "listar",
+  "dados": [
+    {"id": 39602, "titulo": "Hapclínica Duque de Caxias (Manaus): endereço, horário e como marcar consulta",
+     "slug": "hapclinica-duque-de-caxias-manaus",
+     "link": "https://tabelaplanos.com.br/hapclinica-duque-de-caxias-manaus/",
+     "status": "publish", "data": "2026-09-02T10:21:08", "modificado": "2026-09-02T12:13:26"},
+    {"id": 33477, "titulo": "Plano Hapvida Manaus [ano_atual]: Preços, Rede Própria e Pediatria 24h",
+     "slug": "plano-hapvida-manaus",
+     "link": "https://tabelaplanos.com.br/plano-hapvida-manaus/",
+     "status": "publish", "data": "2025-12-24T15:39:20", "modificado": "2026-09-02T11:57:27"},
+    {"id": 39474, "titulo": "Hospital Nilton Lins Hapvida Manaus: Guia Completo [ano_atual]",
+     "slug": "hospital-nilton-lins-hapvida-manaus",
+     "link": "https://tabelaplanos.com.br/hospital-nilton-lins-hapvida-manaus/",
+     "status": "publish", "data": "2026-08-26T11:39:00", "modificado": "2026-09-02T10:40:18"}
+  ],
+  "total": 3,
+  "aviso": "Leitura: nada foi alterado no site."
+}
+```
 
-### 3. Só então revogar a Application Password antiga
+#### Teste 2 — `buscar_artigo` `{"id":33477}`
 
-Ela continua válida e continua em texto puro na versão **ativa** do workflow MCP.
+Envelope (o `conteudo`, de 115.185 caracteres, foi omitido aqui):
+
+```json
+{
+  "gravado": false, "ok": true, "erro": null,
+  "postId": 33477, "slug": "plano-hapvida-manaus", "operacao": "buscar",
+  "aviso": "Leitura: nada foi alterado no site.",
+  "dados": {
+    "id": 33477,
+    "titulo": "Plano Hapvida Manaus [ano_atual]: Preços, Rede Própria e Pediatria 24h",
+    "slug": "plano-hapvida-manaus",
+    "link": "https://tabelaplanos.com.br/plano-hapvida-manaus/",
+    "status": "publish",
+    "data": "2025-12-24T15:39:20", "modificado": "2026-09-02T11:57:27",
+    "rank_math_title": "Plano Hapvida Manaus Promoção [ano_atual]: a partir de [manaus_menorvalor]",
+    "rank_math_description": "Plano Hapvida em Manaus a partir de [manaus_menorvalor]. Consulte a tabela de preços [ano_atual], rede credenciada, carências e tipos de planos. Cotação grátis!",
+    "tamanhoConteudo": 115185,
+    "conteudo": "<115185 caracteres>"
+  }
+}
+```
+
+`content.raw` com `context=edit` só volta autenticado — **a credencial do cofre
+está funcionando pelo caminho do conector.**
+
+#### Teste 3 — `auditar_links` `{"orderby":"internal_in","order":"asc","per_page":5}` — ❌ FALHOU
+
+```json
+{
+  "gravado": false, "ok": false,
+  "erro": "HTTP 404 ao consultar https://tabelaplanos.com.br/wp-json/drv/v1/audit-links?orderby=internal_in&order=asc&per_page=5",
+  "detalhe": "{\"code\":\"rest_no_route\",\"message\":\"Nenhuma rota foi encontrada que corresponde com o URL e o método de requisição.\",\"data\":{\"status\":404}}",
+  "aviso": "Nada foi alterado."
+}
+```
+
+**Diagnóstico — é o motor, não o site, e não é a credencial.** O namespace
+`drv/v1` existe e responde. A rota real tem o nome **invertido** e outro enum de
+ordenação. Conferido em `GET https://tabelaplanos.com.br/wp-json/drv/v1`:
+
+| | O que o nó `Rota` monta | O que o site expõe |
+|---|---|---|
+| Rota | `/drv/v1/audit-links` | **`/drv/v1/links-audit`** |
+| `orderby` | `internal_in`, `internal_out`, `external_out` | **`internal_links`, `incoming_links`, `external_links`, `date`** |
+| `order` | `asc` / `desc` | **`ASC` / `DESC`** (enum, maiúsculo) |
+
+O site aceita ainda `post_type`, `page`, `category`, `internal_links_max` e
+`incoming_links_max`. O 404 vem antes da checagem de autenticação, então esse
+teste não diz nada sobre credencial — e os outros seis já provaram que ela
+autentica.
+
+**Conserto (não feito aqui, de propósito):** ajustar a montagem da URL e o
+mapa de `orderby`/`order` no nó `Rota` do motor `825rmKAVo3wmelMi`, mais os
+rótulos na descrição do nó `auditar_links` do workflow MCP. Depois **publicar à
+mão** — `update_workflow` só grava draft. Vale conferir se o `auditar_links`
+antigo (`toolCode`) chamava a rota certa; se chamava, o erro entrou na migração.
+
+#### Teste 4 — `editar_meta_title` com o valor atual, `apply: false`
+
+```json
+{
+  "gravado": false, "ok": false,
+  "erro": "o campo rank_math_title ja tem exatamente esse valor. Nada a fazer.",
+  "postId": 33477, "slug": "plano-hapvida-manaus", "campo": "rank_math_title",
+  "valorAtual": "Plano Hapvida Manaus Promoção [ano_atual]: a partir de [manaus_menorvalor]",
+  "aviso": "Nada foi alterado."
+}
+```
+
+#### Teste 5 — `editar_meta_description` com o valor atual, `apply: false`
+
+```json
+{
+  "gravado": false, "ok": false,
+  "erro": "o campo rank_math_description ja tem exatamente esse valor. Nada a fazer.",
+  "postId": 33477, "slug": "plano-hapvida-manaus", "campo": "rank_math_description",
+  "valorAtual": "Plano Hapvida em Manaus a partir de [manaus_menorvalor]. Consulte a tabela de preços [ano_atual], rede credenciada, carências e tipos de planos. Cotação grátis!",
+  "aviso": "Nada foi alterado."
+}
+```
+
+#### Teste 6 — `criar_artigo` com slug existente, `apply: false`
+
+```json
+{
+  "gravado": false, "ok": false,
+  "erro": "ja existe artigo com esse slug: id 33477 (status publish). Nada foi criado.",
+  "dados": [
+    {"id": 33477, "slug": "plano-hapvida-manaus", "status": "publish",
+     "link": "https://tabelaplanos.com.br/plano-hapvida-manaus/"}
+  ],
+  "aviso": "Nada foi alterado."
+}
+```
+
+#### Teste 7 — `editar_conteudo_artigo` `{"id":33477,"conteudo":"<p>x</p>","apply":false}`
+
+```json
+{
+  "gravado": false, "ok": true, "erro": null,
+  "postId": 33477, "slug": "plano-hapvida-manaus", "operacao": "conteudo",
+  "resumoAcao": "SOBRESCREVER o corpo inteiro: 115185 -> 8 caracteres. Para trocar um trecho, use substituir.",
+  "tamanhoAntes": 115185, "tamanhoDepois": 8,
+  "aviso": "SIMULACAO: nada foi gravado. Reenvie com apply true para valer."
+}
+```
+
+A trava mais importante da migração está de pé: a ferramenta que antes gravava
+direto agora simula por padrão e diz, em caracteres, o tamanho do estrago.
+
+### 3. Revogar a Application Password antiga — LIBERADO em 02-09-2026
+
+Nenhuma das 7 ferramentas usa mais a senha em texto puro: todas passaram a
+`toolWorkflow` e falam com o site pela credencial do cofre
+(`WordPress tabelaplanos`, `dibu11U52rFkfBly`). Os testes 2, 4, 5, 6 e 7 leram
+`content.raw` com `context=edit`, o que só sai autenticado — prova de que a
+credencial do cofre está no caminho. **Pode revogar.** A falha do `auditar_links`
+é de URL, não de autenticação, e independe da revogação.
+
+Contexto de por que a ordem era esta:
 Revogar antes de publicar derruba as 7 ferramentas na hora.
 
 Depois de revogar, a versão antiga do workflow ainda guarda a string no histórico
 de versões do n8n. Vale conferir se o n8n permite limpar versões antigas; se não
 permitir, a string fica no histórico mesmo revogada — inofensiva, mas presente.
 
-## Pendência menor que continua aberta
+## Pendências menores que continuam abertas
 
-O nó `inserir_link_interno` marca `ocorrencia` como obrigatório no schema, embora
+**1. `auditar_links` chama uma rota que não existe.** Detalhe e correção no
+diagnóstico do teste 3, acima. É a única das 9 operações do motor que não
+funciona.
+
+**2.** O nó `inserir_link_interno` marca `ocorrencia` como obrigatório no schema, embora
 a descrição diga que só é necessário quando a frase aparece mais de uma vez. O
 n8n deriva o `required` de quais parâmetros usam `$fromAI`, então tirar a
 obrigatoriedade exige mudar o desenho do nó. Não foi mexido nesta sessão.

@@ -118,14 +118,25 @@ texto seguro, recusa de `<a>` aninhado, um link por destino.
   A versão ativa dos dois já é a nova; **nenhum nó no ar carrega senha.**
   O `publish_workflow` do assistente foi recusado pelo classificador nas duas
   tentativas — publicar é sempre passo manual.
-- **Rodar os 7 testes de ponta a ponta.** Ficou pendente: a sessão que fez a
-  migração guardou o esquema antigo das ferramentas em cache e não conseguiu
-  chamá-las. Cai sozinho em conversa nova.
+- ~~Rodar os 7 testes de ponta a ponta.~~ ✅ **Feito em 02-09-2026, em sessão
+  nova** — o cache de esquema caiu sozinho, como esperado. **6 dos 7 passaram.**
+  Nenhum teste gravou. Saídas coladas em `docs/MIGRACAO-MCP-WORDPRESS.md`,
+  seção 2.
+- **Corrigir o `auditar_links`** — único teste que falhou. O nó `Rota` do motor
+  monta `/drv/v1/audit-links`, mas a rota do site é `/drv/v1/links-audit`, e o
+  enum de `orderby` lá é `internal_links | incoming_links | external_links | date`
+  (com `order` em maiúsculo). Dá HTTP 404 `rest_no_route`. **Não é credencial** —
+  o 404 vem antes da autenticação, e as outras seis ferramentas provaram que a
+  credencial do cofre autentica. Depois de corrigir, publicar à mão.
 - **Ajuste menor no schema.** O nó `inserir_link_interno` do workflow MCP marca
   `ocorrencia` como obrigatório, embora a descrição diga que só é necessário quando
   a frase aparece mais de uma vez.
-- **Só depois de publicar e testar** revogar a Application Password antiga no
-  WordPress.
+- ~~Só depois de publicar e testar revogar a Application Password antiga.~~
+  ✅ **Liberado.** Nenhuma das 7 ferramentas usa mais a senha em texto puro; todas
+  falam com o site pela credencial `WordPress tabelaplanos` (`dibu11U52rFkfBly`).
+  A senha antiga **pode ser revogada** — o `auditar_links` continua quebrado antes
+  e depois, por outro motivo. Lembrando que, mesmo revogada, a string segue no
+  histórico de versões do n8n.
 
 ## Estado em 02-09-2026 (segunda sessão) — migração dos 7
 
