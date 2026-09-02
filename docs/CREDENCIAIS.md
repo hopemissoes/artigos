@@ -103,14 +103,15 @@ texto seguro, recusa de `<a>` aninhado, um link por destino.
   `setNodeParameter`, sem tocar nas credenciais dos outros nós; o `update_workflow`
   já publicou (`versionId == activeVersionId == 6326fb3b-f118-4d8b-9fff-9ab8c0189d71`).
 
+- ✅ **Gravação validada.** O `apply: true` pelo conector foi recusado pelo
+  classificador de permissões da sessão (trava do cliente, não do motor); o usuário
+  executou o sub-workflow direto no n8n e o motor gravou: `statusCode: 200`,
+  `modified: 2026-09-02T11:57:27`, revisão guardada pelo WordPress. O endereço do
+  PA Cidade Nova está correto no ar e a alteração foi registrada no banco
+  (`registrar_atualizacao`, id 46).
+
 **Falta:**
 
-- **Gravar de verdade.** O único teste que não rodou foi o `apply: true` — recusado
-  pelo classificador de permissões da sessão, não pelo motor. Precisa de uma sessão
-  com autorização de escrita em página no ar.
-- **A correção do endereço não foi aplicada.** O post 33477 continua publicando
-  `Av. Camapuã, 8` para o PA Cidade Nova (conferido com `scripts/wp.py grep`).
-  Nada foi registrado no banco, porque não houve alteração a registrar.
 - **Ajuste menor no schema.** O nó `inserir_link_interno` do workflow MCP marca
   `ocorrencia` como obrigatório, embora a descrição diga que só é necessário quando
   a frase aparece mais de uma vez.

@@ -192,47 +192,80 @@ Nota: `ocorrencia` é obrigatório no schema da ferramenta, embora a descrição
 "só necessário quando há mais de uma". Vale ajustar o `required` do nó
 `inserir_link_interno` no workflow MCP.
 
-### Teste 4 — aplicar de verdade ❌ NÃO EXECUTADO
+### Teste 4 — aplicar de verdade ✅
 
+A chamada `apply: true` pelo conector foi **recusada pelo classificador de
+permissões da sessão** (`Permission for this action was denied by the Claude Code
+auto mode classifier`) — trava do lado do cliente, não do motor. A gravação foi
+feita pelo **usuário, direto no n8n**, executando o sub-workflow com o input
+fixado no nó `Parametros`:
+
+```json
+[{"operacao":"substituir","id":33477,
+  "find":"Av. Camapuã, 8 (Cidade Nova)",
+  "repl":"Av. Camapuã, 695 (Cidade Nova)",
+  "frase":"","destino":"","esperado":1,"ocorrencia":0,"apply":true}]
 ```
-Permission for this action was denied by the Claude Code auto mode classifier.
-Reason: Blocked by classifier.
+
+Saída do nó `Resultado Gravado`:
+
+```json
+[{"gravado": true, "statusCode": 200, "erro": null,
+  "postId": 33477, "slug": "plano-hapvida-manaus",
+  "operacao": "substituir", "ocorrencias": 1,
+  "contexto": "... <strong style=\"color: #1a202c;\">PA Cidade Nova</strong> — >>>Av. Camapuã, 8 (Cidade Nova)<<< | Segunda a Domingo 7h-19h | ...",
+  "ancora": null, "url": null,
+  "tamanhoAntes": 115183, "tamanhoDepois": 115185,
+  "modified": "2026-09-02T11:57:27",
+  "aviso": "O WordPress guardou revisao automatica; da para reverter pelo editor."}]
 ```
 
-Os três dry-runs passaram; **só a gravação foi recusada**. A trava é do lado do
-cliente (o classificador de permissões da sessão), não do motor. Precisa de uma
-sessão com autorização de escrita.
+Dois caracteres a mais, uma ocorrência, revisão guardada.
 
-### Estado do dado no ar
+### Como rodar pelo n8n (quando o cliente bloquear a escrita)
+
+1. Abrir o workflow `825rmKAVo3wmelMi`
+2. Duplo clique no nó `Parametros`
+3. No painel OUTPUT, ícone de lápis (*Edit Output*), colar o input como **lista**
+   (`[{...}]`, não objeto solto), com todos os campos do schema preenchidos —
+   os não usados como `""` ou `0`
+4. Fechar o nó (aparece o 📌) e clicar em **Execute workflow**
+5. Ler o nó `Resultado Gravado`
+6. **Remover o pin.** Se ficar, toda execução manual futura repete a gravação.
+
+### Estado do dado no ar — conferido depois de gravar
 
 ```
 $ python3 scripts/wp.py grep 33477 "Av\. Camapuã, [0-9]+"
 [1] pos=182889 TEXTO
-    ... <strong style="color: #1a202c;">PA Cidade Nova</strong> —
-    >>>Av. Camapuã, 8<<<  (Cidade Nova) | Segunda a Domingo 7h-19h | ...
+    adding-left: 15px; border-left: 3px solid #ff6b00;"><strong style="color:
+    #1a202c;">PA Cidade Nova</strong> —  >>>Av. Camapuã, 695<<<  (Cidade Nova) |
+    Segunda a Domingo 7h-19h | Clínica adultos, Pediatria, Raio-X, Ultrassom
 
 1 ocorrencia(s).
 ```
 
-**O endereço errado continua publicado.** A correção para `695` (conferida em
-três fontes: `rede_unidades` no Supabase, a página da unidade no site da Hapvida
-e a coordenada) **não foi aplicada**, e por isso **nada foi registrado no banco**
-com `registrar_atualizacao` — não houve alteração a registrar.
+**Corrigido no ar.** Uma ocorrência, bloco certo, horário intacto.
+
+Registrado no banco com `registrar_atualizacao` (`{"sucesso": true, "id": 46}`).
 
 ### Veredito
 
-O motor funciona. Das quatro travas do desenho original, três foram exercitadas
-contra dados reais e se comportaram exatamente como especificado:
+O motor funciona de ponta a ponta. Quatro das travas foram exercitadas contra
+dados reais e se comportaram exatamente como especificado:
 
 | Trava | Exercitada | Resultado |
 |---|---|---|
 | Dry-run por padrão | ✅ | `gravado: false`, avisa como aplicar |
 | Guarda de contagem | ✅ | aborta com `esperado` divergente |
 | Um link por destino | ✅ | recusa destino já linkado |
+| Gravação + revisão | ✅ | `statusCode: 200`, revisão guardada |
 | Máscara de texto seguro | ❌ | sem caso de teste que a force |
 | Sem `<a>` aninhado | ❌ | idem |
 | Ambiguidade explícita | ❌ | idem |
-| Gravação | ❌ | recusada pelo classificador |
+
+As três não exercitadas são do caminho do `inserir_link_interno` e ficam para a
+primeira linkagem real — a de idempotência abortou antes de chegar nelas.
 
 ### Nota sobre o horário
 
