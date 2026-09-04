@@ -1,0 +1,117 @@
+{
+ "fonte": "ANS - Dados Abertos PDA-008, Caracteristicas dos Produtos de Saude Suplementar",
+ "url": "https://dadosabertos.ans.gov.br/FTP/PDA/caracteristicas_produtos_saude_suplementar-008/",
+ "arquivos": [
+  "pda-008-caracteristicas_produtos_saude_suplementar.csv",
+  "pda-008-tabela_auxiliar_de_detalhamento_de_municipios.csv"
+ ],
+ "last_modified_do_arquivo": "2026-09-04T05:02Z",
+ "coleta": "2026-09-04",
+ "criterio": "produtos SITUACAO_PLANO=Ativo cujo ID_GEO_COBERTURA contem o municipio 312230 (Divinopolis/MG)",
+ "abrangencias_encontradas": [
+  "Estadual",
+  "Grupo de municÃ­pios",
+  "Nacional"
+ ],
+ "abrangencia_municipal_em_divinopolis": 0,
+ "abrangencia_municipal_no_pais": 19452,
+ "total_ativos_grupo_hapvida_que_cobrem_divinopolis": 1153,
+ "medico_hospitalares_por_operadora": {
+  "Hapvida Assistencia Medica S.A.": {
+   "Coletivo empresarial | Nacional": 49,
+   "Coletivo empresarial | Grupo de municÃ­pios": 139,
+   "Coletivo empresarial | Estadual": 32,
+   "Coletivo por adesÃ£o | Grupo de municÃ­pios": 23,
+   "Coletivo por adesÃ£o | Estadual": 1
+  },
+  "Notre Dame Intermedica Minas Gerais Saude S.A.": {
+   "Coletivo empresarial | Grupo de municÃ­pios": 59,
+   "Coletivo empresarial | Estadual": 24,
+   "Coletivo empresarial | Nacional": 32,
+   "Individual ou familiar | Grupo de municÃ­pios": 4,
+   "Coletivo por adesÃ£o | Grupo de municÃ­pios": 17,
+   "Coletivo por adesÃ£o | Estadual": 12
+  },
+  "Notre Dame Intermedica Saude S.A.": {
+   "Coletivo empresarial | Nacional": 208,
+   "Coletivo por adesÃ£o | Nacional": 22,
+   "Coletivo empresarial | Grupo de municÃ­pios": 30,
+   "Coletivo por adesÃ£o | Grupo de municÃ­pios": 7
+  },
+  "Clinipam": {
+   "Coletivo empresarial | Grupo de municÃ­pios": 11,
+   "Coletivo por adesÃ£o | Grupo de municÃ­pios": 3
+  }
+ },
+ "pf_medico_hospitalar_que_cobre_divinopolis": [
+  {
+   "plano": "PERSONAL 200 OESTE MG PF CP S/OBS ENF",
+   "operadora": "Notre Dame Intermedica Minas Gerais Saude S.A.",
+   "registro_operadora": "348520",
+   "cd_plano": "490067217",
+   "abrangencia": "Grupo de municÃ­pios",
+   "segmento": "Ambulatorial + Hospitalar sem obstetrÃ­cia",
+   "acomodacao": "Coletiva",
+   "financiamento": "Preestabelecido",
+   "fator_moderador": "CoparticipaÃ§Ã£o",
+   "dt_registro": "2021-10-06"
+  },
+  {
+   "plano": "PERSONAL 200 OESTE MG PF CP S/OBS APTO",
+   "operadora": "Notre Dame Intermedica Minas Gerais Saude S.A.",
+   "registro_operadora": "348520",
+   "cd_plano": "490072213",
+   "abrangencia": "Grupo de municÃ­pios",
+   "segmento": "Ambulatorial + Hospitalar sem obstetrÃ­cia",
+   "acomodacao": "Individual",
+   "financiamento": "Preestabelecido",
+   "fator_moderador": "CoparticipaÃ§Ã£o",
+   "dt_registro": "2021-10-06"
+  },
+  {
+   "plano": "PERSONAL 200 OESTE MG PF CP ENF",
+   "operadora": "Notre Dame Intermedica Minas Gerais Saude S.A.",
+   "registro_operadora": "348520",
+   "cd_plano": "490073211",
+   "abrangencia": "Grupo de municÃ­pios",
+   "segmento": "Ambulatorial + Hospitalar com obstetrÃ­cia",
+   "acomodacao": "Coletiva",
+   "financiamento": "Preestabelecido",
+   "fator_moderador": "CoparticipaÃ§Ã£o",
+   "dt_registro": "2021-10-06"
+  },
+  {
+   "plano": "PERSONAL 200 OESTE MG PF CP APTO",
+   "operadora": "Notre Dame Intermedica Minas Gerais Saude S.A.",
+   "registro_operadora": "348520",
+   "cd_plano": "490074210",
+   "abrangencia": "Grupo de municÃ­pios",
+   "segmento": "Ambulatorial + Hospitalar com obstetrÃ­cia",
+   "acomodacao": "Individual",
+   "financiamento": "Preestabelecido",
+   "fator_moderador": "CoparticipaÃ§Ã£o",
+   "dt_registro": "2021-10-06"
+  }
+ ],
+ "area_do_produto_pf": {
+  "id": "2275DC96B18495E4BC09361BF1BFD3B9A7A68271",
+  "total_municipios": 19,
+  "da_regiao_imediata_310065": 14,
+  "fora_da_regiao_imediata": [
+   "Bom Despacho",
+   "Formiga",
+   "Igaratinga",
+   "Oliveira",
+   "Para de Minas"
+  ],
+  "da_regiao_imediata_NAO_cobertos": [
+   "Camacho",
+   "Conceicao do Para",
+   "Itatiaiucu",
+   "Japaraiba",
+   "Leandro Ferreira",
+   "Pedra do Indaia"
+  ]
+ },
+ "maior_cobertura_da_regiao_imediata_entre_areas_grupo_de_municipios": "15 de 20"
+}

@@ -19,13 +19,16 @@
 - **Fase:** ESTÁGIO 2.5 — portão de pesquisa; state file aprovado pelo usuário em 2026-09-01
 - **Próximo passo concreto:** o usuário revisar o rascunho no WordPress
   (post 39808) e resolver as 3 pendências abertas: URL da imagem de abertura,
-  imagem da tabela (cotador) e abrangência contratual. Os ajustes pedidos após
-  a varredura anti-doorway já estão aplicados no rascunho.
-- **Bloqueios:** (1) produtos comerciais vendidos em Divinópolis — nenhuma
-  fonte pública nomeia; a S3 fica órfã; (2) prefixo do shortcode e valor de
-  entrada — sem eles não há lead-herói nem tabela; (3) abrangência contratual
-  por produto — decide 3 FAQs e a S5; (4) rede assistencial própria tem 4
-  unidades, abaixo do piso de 5 — decisão de arquétipo pendente.
+  imagem da tabela (cotador). A abrangência contratual foi RESOLVIDA em
+  2026-09-04 com o registro de produtos da ANS. Os ajustes pedidos após a
+  varredura anti-doorway já estão aplicados no rascunho.
+- **Bloqueios:** (1) rede assistencial própria tem 4 unidades, abaixo do piso
+  de 5 — decisão de arquétipo pendente; (2) imagem da tabela — Divinópolis
+  ainda fora do `cotador_fila`; (3) URL da `<figure>` de abertura.
+- **Resolvidos:** shortcodes (usuário, 2026-09-03); abrangência contratual
+  (ANS PDA-008, 2026-09-04). Produtos comerciais: o registro da ANS nomeia o
+  produto PF regional (PERSONAL 200 OESTE MG) — a S3 pode sair de órfã, mas
+  isso não foi pedido e não foi feito.
 
 ## Portões
 
@@ -48,7 +51,7 @@
 | Citabilidade (`checkpoint_citabilidade.py`) | ✅ aprovado | 7 ideais, 2 aceitáveis, 0 reprovadas |
 | Distância entre links internos (≥150 palavras) | ✅ aprovado | 9 links, menor vão 297 palavras |
 | Registro no banco Supabase | ⬜ pendente | só após publicação |
-| Envio ao WordPress (rascunho) | ✅ feito | post 39808, status draft, 88.839 chars no WP (84.584 locais) |
+| Envio ao WordPress (rascunho) | ✅ feito | post 39808, status draft, 89.982 chars no WP (85.442 locais); texto visível e estrutura conferidos idênticos ao arquivo local em 2026-09-04 |
 | Schema JSON-LD | ⬜ pendente | execução separada, só sob pedido |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
@@ -202,3 +205,67 @@ Pedido do usuário: "cheque pra mim doorways" → "faça os ajustes".
 
 Efeito medido no `checkpoint_doorway_final.py`: D1 (texto que sobrevive à troca
 de cidade) caiu de 26,9% para 25,5%; limite 45%.
+
+## Abrangência contratual — verificada (2026-09-04)
+
+Pedido do usuário: "abrangencia contratual preciso que vc verifique, se nao
+achar, exclua essa informação". **Foi achada** — o artigo passou a afirmar em
+vez de mandar o leitor perguntar.
+
+**Fonte:** ANS, Dados Abertos PDA-008 "Características dos Produtos de Saúde
+Suplementar" — `pda-008-caracteristicas_produtos_saude_suplementar.csv` e
+`pda-008-tabela_auxiliar_de_detalhamento_de_municipios.csv`
+(`https://dadosabertos.ans.gov.br/FTP/PDA/caracteristicas_produtos_saude_suplementar-008/`),
+arquivo com Last-Modified 2026-09-04 05:02 UTC, baixado e cruzado em 2026-09-04.
+Evidência salva em `fontes/ans-abrangencia-divinopolis.json` e
+`fontes/ans-area-personal200-oestemg.json`. **Defensibilidade: nível 1** (dado
+público primário, reproduzível).
+
+**Critério:** produtos com `SITUACAO_PLANO = Ativo` cujo `ID_GEO_COBERTURA`
+contém o município 312230 (Divinópolis/MG), das operadoras do grupo Hapvida.
+
+| Achado | Número |
+|---|---|
+| Produtos ativos do grupo que cobrem Divinópolis | 1.153 |
+| Abrangências que aparecem | Grupo de municípios, Estadual, Nacional |
+| Abrangência **Municipal** em Divinópolis | **0** (a categoria existe: 19.452 produtos no país) |
+| PF médico-hospitalar (sem odonto) que cobre Divinópolis | 4 — as variantes do PERSONAL 200 OESTE MG (Notre Dame Intermédica Minas Gerais Saúde S.A., ANS 348520), todas "Grupo de municípios" |
+| Área desse produto | 19 municípios do Oeste de Minas |
+| Da região imediata 310065 (20 municípios) | 14 dentro, 6 fora |
+| Fora da área | Camacho, Conceição do Pará, Itatiaiuçu, Japaraíba, Leandro Ferreira, Pedra do Indaiá |
+| Fora da região imediata mas dentro da área | Bom Despacho, Formiga, Igaratinga, Oliveira, Pará de Minas |
+| Melhor cobertura da região imediata entre TODAS as áreas "grupo de municípios" que incluem Divinópolis | 15 de 20 — nenhuma cobre as 20 |
+
+Onde entrou: selo "Municípios vizinhos" da S5, subtítulo do H2 7, dois
+parágrafos da S7 (com link externo `nofollow` para a ANS), FAQ 9 (Belo
+Horizonte) e FAQ 10 (região). Efeito no `checkpoint_doorway_final`: D1 caiu de
+25,5% para 23,7%.
+
+**Limite do dado:** o registro da ANS diz o que está registrado e ativo, não o
+que a DRV vende hoje nem a que preço. O artigo atribui e data a fonte.
+
+## Dois defeitos anteriores achados na conferência (2026-09-04)
+
+Encontrados ao comparar o rascunho do WordPress com o arquivo local, não pedidos:
+
+1. **Aviso de preço sumido no ar.** O parágrafo "Valores por faixa etária
+   conforme tabela vigente. Sujeitos a alteração por modalidade, acomodação e
+   condições comerciais." existia no arquivo local e **não** no post 39808 —
+   perdido no envio original em 5 partes. Restaurado.
+2. **`<div id="cotacao-1">` removido pelo WordPress.** O editor descarta a
+   `<div>` que só embrulha um shortcode, então o botão fixo "Faça uma Cotação"
+   (`href="#cotacao-1"`) apontava para âncora inexistente. A âncora passou para
+   o parágrafo do aviso de preço, que fica no mesmo ponto e sobrevive ao editor.
+   Corrigido nos dois lados; `checkpoint_preco_primeiro` segue aprovado.
+   **Regra para os próximos artigos: não pendurar id em `<div>` que só contém
+   shortcode.**
+3. **Experiência da DRV desatualizada.** O texto dizia "mais de dez anos" e o
+   selo "mais de 10 anos". A skill `hapvida-data` v1.1 (jul/2026) fixa **11
+   anos** e proíbe os valores antigos. Corrigido para "onze anos" / "11 anos"
+   no arquivo e no rascunho. **Pendente, não feito:** a mesma skill troca a
+   certificação de Diamante para **Safira**, com regra de redação temporal — o
+   artigo não menciona certificação nenhuma, e incluir é decisão sua.
+
+**Nota de ambiente:** os módulos `HDATA_*.md` da skill `hapvida-data` moram em
+`/mnt/project/`, que não existe neste ambiente — só o resumo do `SKILL.md` está
+acessível aqui.

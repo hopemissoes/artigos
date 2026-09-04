@@ -37,11 +37,11 @@ def faq(n,q,a):
       f'<p style="text-align:justify!important;margin:0;">{a}</p></div></details>')
 open('/tmp/helpers_ok','w').write('ok')
 
-FORM = '<div id="cotacao-1" style="margin-bottom:4px;">[elementor-template id="11215"]</div>'
+FORM = '<div style="margin-bottom:4px;">[elementor-template id="11215"]</div>'
 FORM2 = '<div style="margin-bottom:4px;">[elementor-template id="11215"]</div>'
 SELOS = ('<div class="v5-trust" style="display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:10px!important;margin:10px 0 24px 0;">'
  '<span style="font-size:12px;color:#64748b;font-weight:600;border:1px solid #e2e8f0;border-radius:999px;padding:6px 12px;background:#fff;">Hospital registrado no CNES sob o codigo 2159376</span>'
- '<span style="font-size:12px;color:#64748b;font-weight:600;border:1px solid #e2e8f0;border-radius:999px;padding:6px 12px;background:#fff;">DRV Corretora: mais de 10 anos especialista Hapvida</span>'
+ '<span style="font-size:12px;color:#64748b;font-weight:600;border:1px solid #e2e8f0;border-radius:999px;padding:6px 12px;background:#fff;">DRV Corretora: mais de 11 anos especialista Hapvida</span>'
  '<span style="font-size:12px;color:#64748b;font-weight:600;border:1px solid #e2e8f0;border-radius:999px;padding:6px 12px;background:#fff;">Rede conferida no Guia Medico oficial em 01/09/2026</span></div>')
 
 # ---------------------------------------------------------------- LEAD-HEROI
@@ -66,7 +66,7 @@ s2a = SEC('precos','#fff',
  + P('Vale saber o que voce esta comprando aqui: em Divinopolis a estrutura propria e um complexo unico, entao a mensalidade '
      'compra acesso a um endereco que resolve consulta, exame e internacao no mesmo lugar, e nao a uma rede espalhada por bairros.')
  + '[divinopolis_menortabela]'
- + '<p style="text-align:justify!important;font-size:12px;color:#94a3b8;font-style:italic;margin-top:12px;margin-bottom:0;">Valores por faixa etaria conforme tabela vigente. Sujeitos a alteracao por modalidade, acomodacao e condicoes comerciais.</p>')
+ + '<p id="cotacao-1" style="text-align:justify!important;font-size:12px;color:#94a3b8;font-style:italic;margin-top:12px;margin-bottom:0;">Valores por faixa etaria conforme tabela vigente. Sujeitos a alteracao por modalidade, acomodacao e condicoes comerciais.</p>')
 
 # ---------------------------------------------------------------- SUMARIO
 toc = ('<section style="background:linear-gradient(135deg,#fafbfc 0%,#f0f4f8 100%);padding:20px 10px;border-radius:20px;margin-bottom:4px;border:1px solid #e2e8f0;">'
@@ -253,8 +253,8 @@ raiox = ('<div style="margin-bottom:24px;"><div style="font-size:18px;font-weigh
  '<div style="display:flex!important;align-items:flex-start!important;gap:10px!important;margin-bottom:12px;">'
  '<div style="width:14px;height:14px;flex-shrink:0!important;background:#e2e8f0;border-radius:50%;margin-top:3px;"></div>'
  '<div><div style="font-size:14px;font-weight:700;color:#1a202c;">Municipios vizinhos</div>'
- '<p style="text-align:justify!important;font-size:13px;color:#718096;margin:4px 0 0;">Divinopolis e o polo de saude da regiao, mas usar '
- 'a rede daqui morando em outro municipio depende da abrangencia contratada. Confirme isso na cotacao, nao presuma.</p></div></div></div>')
+ '<p style="text-align:justify!important;font-size:13px;color:#718096;margin:4px 0 0;">Divinopolis e o polo de saude da regiao, e a area '
+ 'registrada do plano individual alcanca 14 dos 20 municipios da regiao imediata. Seis ficam de fora. Confira o seu na cotacao.</p></div></div></div>')
 
 s5 = SEC('cobertura-bairros','#f8f9fa',
  H2('De qual bairro voce chega mais rapido','O CNES registra estabelecimentos de saude em 57 bairros de Divinopolis, mas a rede propria do plano tem apenas dois enderecos: o complexo do Padre Liberio e o ponto do Centro. Para quem mora fora desse eixo, o deslocamento entra na decisao de contratar.')
@@ -313,13 +313,17 @@ open('/tmp/part4_ok','w').write('ok')
 
 # ---------------------------------------------------------------- S7
 s7 = SEC('como-contratar','#f8f9fa',
- H2('O que decidir antes de assinar em Divinopolis','Contratar o plano Hapvida em Divinopolis exige duas checagens que a cidade impoe: se a rota ate o complexo do Padre Liberio cabe na sua rotina, e qual abrangencia o contrato cobre para quem mora nos 20 municipios da regiao imediata.')
+ H2('O que decidir antes de assinar em Divinopolis','Contratar o plano Hapvida em Divinopolis exige duas checagens que a cidade impoe: se a rota ate o complexo do Padre Liberio cabe na sua rotina, e qual abrangencia o contrato cobre, ja que no registro da ANS nenhum plano ativo aqui e municipal e a area do plano individual alcanca 14 dos 20 municipios da regiao imediata.')
  + P('Contratar aqui tem uma pergunta a mais do que em capital: ' + G('a rota ate o Padre Liberio cabe na sua rotina?') + ' Se cabe, '
      'a estrutura concentrada joga a favor, porque consulta, exame e internacao saem no mesmo endereco. Se nao cabe, o plano vira '
      'fonte de atrito logo no primeiro agendamento.')
- + P('A segunda pergunta e sobre abrangencia. Divinopolis e sede de uma regiao imediata com 20 municipios, e quem mora em volta '
-     'costuma assumir que o contrato feito na cidade vale para a regiao. Isso depende da abrangencia contratada e precisa ser '
-     'confirmado na cotacao, item por item, antes da assinatura.')
+ + P('A segunda pergunta e sobre abrangencia, e o registro publico responde. No '
+     '<a href="https://dadosabertos.ans.gov.br/FTP/PDA/caracteristicas_produtos_saude_suplementar-008/" rel="nofollow noopener" '
+     'target="_blank" style="color:#ff6b00;font-weight:600;">cadastro de produtos da ANS</a>, consultado em 04/09/2026, nenhum plano '
+     'ativo que cobre Divinopolis tem abrangencia municipal: o piso e grupo de municipios.')
+ + P('No plano individual a area ja vem definida e e sempre a mesma: 19 municipios do Oeste de Minas, entre eles 14 dos 20 da regiao '
+     'imediata. Camacho, Conceicao do Para, Itatiaiucu, Japaraiba, Leandro Ferreira e Pedra do Indaia estao fora dela. No contrato '
+     'empresarial aparecem tambem as faixas estadual e nacional.')
  + BOX('P','Portabilidade','Quem ja tem plano em outra operadora e quer migrar sem recomecar carencia pode ter direito a '
        'portabilidade, dentro das regras da ANS. O prazo minimo no plano de origem, a janela de aniversario do contrato e a '
        'compatibilidade de faixa de preco sao definidos em norma nacional: confirme os tres antes de pedir o cancelamento do plano atual.')
@@ -333,7 +337,7 @@ s7 = SEC('como-contratar','#f8f9fa',
        'carencia e cobertura obrigatoria de urgencia e emergencia apos 24 horas. Nenhuma condicao comercial local pode reduzir esse '
        'piso legal. Consulte a <a href="https://www.gov.br/ans/pt-br" rel="nofollow noopener" target="_blank" '
        'style="color:#1e40af;font-weight:700;text-decoration:underline;">ANS</a> em caso de duvida.')
- + P('A DRV Corretora trabalha com Hapvida ha mais de dez anos e faz a cotacao com a tabela vigente da praca, sem custo para quem '
+ + P('A DRV Corretora trabalha com Hapvida ha onze anos e faz a cotacao com a tabela vigente da praca, sem custo para quem '
      'pede. O papel aqui e conferir se o desenho da rede de Divinopolis serve ao seu caso antes de voce assinar.'))
 
 # ---------------------------------------------------------------- FAQ
@@ -373,12 +377,14 @@ perguntas = [
   "grupo tarifario das demais pracas — o mesmo que vale para varias cidades do interior, nao um preco exclusivo de Divinopolis. A "
   "coparticipacao entra na fatura do mes seguinte ao uso."),
  ("O plano contratado em Divinopolis cobre atendimento em Belo Horizonte?",
-  "Depende da abrangencia contratada, que e definida em contrato e nao pela cidade onde voce assina. Confirme esse item na cotacao "
-  "antes de fechar, principalmente se voce ja sabe que vai precisar de procedimento de alta complexidade fora da cidade."),
+  "Depende do produto, nao da cidade onde voce assina. Os planos individuais registrados na ANS para Divinopolis tem abrangencia de "
+  "grupo de municipios, numa area de 19 cidades do Oeste de Minas que nao inclui Belo Horizonte. No contrato empresarial existem "
+  "produtos de abrangencia estadual e nacional. Confirme a faixa do seu contrato antes de fechar, principalmente se voce ja sabe que "
+  "vai precisar de procedimento de alta complexidade fora da cidade."),
  ("Quem mora na regiao de Divinopolis pode usar a rede da cidade?",
-  "Divinopolis e sede de uma regiao imediata de 20 municipios e funciona como polo de saude para eles. Isso e geografia, nao cobertura "
-  "automatica. O direito de usar a rede daqui morando em outro municipio vem da abrangencia do seu contrato, e precisa ser confirmado "
-  "caso a caso na cotacao. Onde a operadora tem rede propria esta no "
+  "Divinopolis e sede de uma regiao imediata de 20 municipios e funciona como polo de saude para eles, mas isso e geografia, nao "
+  "cobertura automatica. A area registrada do plano individual alcanca 14 desses 20 municipios e deixa de fora Camacho, Conceicao do "
+  "Para, Itatiaiucu, Japaraiba, Leandro Ferreira e Pedra do Indaia. Onde a operadora tem rede propria esta no "
   "<a href=\'https://tabelaplanos.com.br/hapvida-cidades/\' style=\'color:#ff6b00;font-weight:600;\'>mapa de cidades atendidas "
   "pela Hapvida</a>."),
  ("A Hapvida tem alguma unidade no Centro de Divinopolis?",

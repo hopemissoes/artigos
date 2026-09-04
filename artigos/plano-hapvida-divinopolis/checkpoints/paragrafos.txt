@@ -2,13 +2,13 @@
 ===========================================================================
 CHECKPOINT — TAMANHO DE PARÁGRAFO (artigo.html)
 ===========================================================================
-Total <p> de corpo: 46
-  ✅ Aprovados (≤380 chars):     45
+Total <p> de corpo: 47
+  ✅ Aprovados (≤380 chars):     46
   ⚠️  No limite (381-480 chars): 1
   ❌ Reprovados (>480 chars):     0
 
 ⚠️  PARÁGRAFOS NO LIMITE (1) — aceitar só se a divisão prejudicar o sentido:
-   P45: 417 chars (~5.6 linhas)
+   P46: 417 chars (~5.6 linhas)
         O plano compensa mais para quem mora no eixo Centro e Padre Liberio ou circula por ele, para familia...
 
 ✅ CHECKPOINT APROVADO — bloco pode ser apresentado ao usuário.

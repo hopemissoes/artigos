@@ -1,0 +1,15 @@
+==============================================================
+CHECKPOINT ON-PAGE [V5] — matriz de posicionamento de keywords
+==============================================================
+Principal: plano hapvida divinopolis
+Secundárias (7): hapvida divinopolis; plano de saude divinopolis; plano de saude unimed divinopolis; plano de saude hospital santa monica divinopolis; plano de saude notredame divinopolis; plano de saude em divinopolis; hospital santa monica divinopolis atende unimed
+--------------------------------------------------------------
+  ✅ Principal no 1º parágrafo do corpo ✔
+  ✅ Principal em 3 H2 ✔ (ex.: "O preco do plano Hapvida em Divinopolis, faixa a faixa")
+  ✅ Secundárias em 4 H2 ✔ (mín. 2)
+  ✅ Principal no H1 ✔
+  ✅ Principal no Title SEO ✔
+  ✅ Principal no URL/slug ✔
+  ✅ Principal no Meta description ✔
+--------------------------------------------------------------
+✅ APROVADO

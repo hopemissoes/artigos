@@ -6,7 +6,7 @@ Seções (<h2>) analisadas: 9
   ✅ Abertura citável (faixa ideal):  7
   ⚠️  Aceitável / atenção:            2
   ❌ Reprovadas:                      0
-Links externos de fonte (rel=nofollow): 3
+Links externos de fonte (rel=nofollow): 4
 Seções com abertura SEM número-âncora: 4 (considere ancorar com um dado da cidade/hospital)
 
 ⚠️  ATENÇÃO (2):

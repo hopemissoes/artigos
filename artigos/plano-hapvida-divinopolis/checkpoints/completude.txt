@@ -2,7 +2,7 @@ Checkpoint COMPLETUDE (city) — artigo.html
 --------------------------------------------------------
   [OK   ] Secoes (<h2>): 9 (min. 8)
   [OK   ] Perguntas de FAQ: 15 (min. 12)
-  [OK   ] Palavras de corpo: 4059 (min. 1200)
+  [OK   ] Palavras de corpo: 4152 (min. 1200)
   [OK   ] Dica DRV (E-E-A-T): sim
   [OK   ] Secao de rede: sim
 --------------------------------------------------------

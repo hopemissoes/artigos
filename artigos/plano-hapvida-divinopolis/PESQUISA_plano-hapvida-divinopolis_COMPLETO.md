@@ -774,3 +774,66 @@ excecao declarada e a S5 construida sobre o campus unico, ou trocar o
 arquetipo para artigo de hospital (HS1-HS4), que a SERP pede com muito mais
 volume — "hospital santa monica divinopolis" vale 2.400 buscas por mes contra
 260 de "hapvida divinopolis".
+
+---
+
+## 16. ABRANGENCIA CONTRATUAL — RESOLVIDA (2026-09-04)
+
+Fecha o bloqueio 3 da secao 15 e o item "ABRANGENCIA CONTRATUAL por produto"
+da lista de nao_encontrado. **O dado foi encontrado em fonte primaria.**
+
+fonte: ANS, Dados Abertos PDA-008 "Caracteristicas dos Produtos de Saude
+  Suplementar"
+url: https://dadosabertos.ans.gov.br/FTP/PDA/caracteristicas_produtos_saude_suplementar-008/
+arquivos: pda-008-caracteristicas_produtos_saude_suplementar.csv (74.687.147 bytes)
+  e pda-008-tabela_auxiliar_de_detalhamento_de_municipios.csv (71.815.794 bytes)
+last-modified dos arquivos: 2026-09-04 05:02 UTC
+coleta: 2026-09-04, por curl, cruzamento local
+evidencia salva: fontes/ans-abrangencia-divinopolis.json
+  e fontes/ans-area-personal200-oestemg.json
+nivel de defensibilidade: 1 (dado publico primario, reproduzivel por qualquer
+  um com os mesmos dois arquivos)
+
+criterio de recorte: produtos com SITUACAO_PLANO = Ativo cujo ID_GEO_COBERTURA
+  contem o municipio 312230 (Divinopolis/MG), das operadoras do grupo Hapvida
+  (registros ANS 368253 Hapvida Assistencia Medica S.A., 348520 Notre Dame
+  Intermedica Minas Gerais Saude S.A., 359017 Notre Dame Intermedica Saude S.A.,
+  340782 Clinipam, alem de Promed e Vitallis, sem produto ativo aqui)
+
+- produtos ativos do grupo que cobrem Divinopolis: 1.153
+- abrangencias que aparecem: Grupo de municipios, Estadual, Nacional
+- abrangencia MUNICIPAL em Divinopolis: 0
+  (a categoria existe no arquivo: 19.452 produtos no pais)
+  => um contrato assinado em Divinopolis nunca vale so para a cidade
+- PF medico-hospitalar (LG_ODONTOLOGICO = 0) que cobre Divinopolis: 4 produtos,
+  todos variantes do PERSONAL 200 OESTE MG (Notre Dame Intermedica Minas Gerais
+  Saude S.A., ANS 348520), registrados em 2021-10-06, preestabelecido com
+  coparticipacao, enfermaria e apartamento, com e sem obstetricia,
+  abrangencia "Grupo de municipios"
+- area desse produto (ID 2275DC96B184...): 19 municipios do Oeste de Minas
+  dentro da regiao imediata 310065 (14): Araujos, Carmo da Mata, Carmo do Cajuru,
+    Claudio, Divinopolis, Itapecerica, Itauna, Lagoa da Prata, Nova Serrana,
+    Perdigao, Pitangui, Santo Antonio do Monte, Sao Goncalo do Para,
+    Sao Sebastiao do Oeste
+  fora da regiao imediata (5): Bom Despacho, Formiga, Igaratinga, Oliveira,
+    Para de Minas
+  da regiao imediata que ficam DE FORA (6): Camacho, Conceicao do Para,
+    Itatiaiucu, Japaraiba, Leandro Ferreira, Pedra do Indaia
+- nenhuma das 58 areas "grupo de municipios" que incluem Divinopolis cobre os
+  20 municipios da regiao imediata; a melhor cobre 15
+- no contrato empresarial as tres faixas existem: grupo de municipios, estadual
+  e nacional
+
+limite do dado (declarar sempre): o registro da ANS diz o que esta REGISTRADO e
+  ATIVO, nao o que a corretora vende hoje nem a que preco. Toda mencao no artigo
+  atribui a fonte e a data.
+
+reflexo no artigo: selo "Municipios vizinhos" da S5, subtitulo do H2 7, dois
+  paragrafos da S7 (com link externo nofollow para a ANS), FAQ 9 (Belo
+  Horizonte) e FAQ 10 (regiao). A instrucao antiga "SEM ABRANGENCIA CONFIRMADA:
+  responder pela geografia" fica REVOGADA — agora ha numero.
+
+achado lateral NAO aproveitado: o mesmo registro nomeia o produto PF regional
+  (PERSONAL 200 OESTE MG), o que resolveria o bloqueio 1 (produtos comerciais,
+  S3 orfa). Nao foi usado porque nao foi pedido, e porque nomear produto
+  comercial exige checar se a DRV o comercializa hoje.
