@@ -59,7 +59,7 @@ hero = ('<div class="v5-hero-conv" style="background:linear-gradient(135deg,#1a1
 
 # ---------------------------------------------------------------- S2 a (PRECOS + TABELA)
 s2a = SEC('precos','#fff',
- H2('Quanto custa o plano Hapvida em Divinopolis','Os planos comecam a partir de [divinopolis_menorvalor] por mes em Divinopolis, com valores por faixa etaria definidos pela tabela do grupo das demais pracas — a mesma que vale para o interior mineiro, e nao a de Belo Horizonte. A tabela vigente esta logo abaixo.')
+ H2('O preco do plano Hapvida em Divinopolis, faixa a faixa','Os planos comecam a partir de [divinopolis_menorvalor] por mes em Divinopolis, com valores por faixa etaria definidos pela tabela do grupo das demais pracas — a mesma que vale para o interior mineiro, e nao a de Belo Horizonte. A tabela vigente esta logo abaixo.')
  + P('Divinopolis nao esta no grupo tarifario de Sao Paulo e Belo Horizonte, e isso muda o valor. A cidade entra na tabela das '
      'demais pracas, a mesma que vale para o interior mineiro. ' + G('A tabela abaixo e a vigente') + ', renderizada pelo sistema no '
      'momento em que voce abre a pagina.')
@@ -75,7 +75,7 @@ toc = ('<section style="background:linear-gradient(135deg,#fafbfc 0%,#f0f4f8 100
  '<span style="min-width:28px;height:28px;flex-shrink:0!important;background:#ff6b00;border-radius:8px;display:flex!important;align-items:center!important;'
  'justify-content:center!important;color:#fff;font-size:14px;font-weight:700;">&equiv;</span>'
  '<span style="font-size:17px;font-weight:800;color:#1a202c;">Neste Guia Voce Vai Encontrar</span></div>'
- + toc_item(1,'#precos','Quanto custa o plano Hapvida em Divinopolis')
+ + toc_item(1,'#precos','O preco do plano, faixa a faixa')
  + ('<div class="toc-item" style="display:flex!important;align-items:center!important;gap:10px!important;padding:0!important;margin:0!important;">'
     '<span class="toc-badge" style="min-width:28px;height:28px;flex-shrink:0!important;background:#ff6b00;border-radius:8px;display:flex!important;'
     'align-items:center!important;justify-content:center!important;color:#fff;font-size:13px;font-weight:700;">$</span>'
@@ -86,7 +86,7 @@ toc = ('<section style="background:linear-gradient(135deg,#fafbfc 0%,#f0f4f8 100
  + toc_item(4,'#rede-divinopolis','A rede propria da Hapvida em Divinopolis')
  + toc_item(5,'#cobertura-bairros','De qual bairro voce chega mais rapido')
  + toc_item(6,'#cenario-saude','O mercado de saude de Divinopolis')
- + toc_item(7,'#como-contratar','Como contratar em Divinopolis')
+ + toc_item(7,'#como-contratar','O que decidir antes de assinar')
  + toc_item(8,'#faq','Perguntas frequentes de quem mora aqui')
  + toc_item(9,'#conclusao','Conclusao')
  + '</div></section>')
@@ -206,10 +206,9 @@ s4 = SEC('rede-divinopolis','#fff',
  + BOX('!','Importante','Ao procurar as unidades de Divinopolis no site nacional da Hapvida, use o portal de Minas Gerais. O servico '
        'de imagem da cidade aparece, no filtro do portal nacional, sob o rotulo de outra cidade mineira, ainda que o endereco no corpo '
        'da pagina seja o de Divinopolis. Filtrar por cidade la pode fazer voce concluir que a unidade nao existe.')
- + P('Esse cuidado vale principalmente para exame de imagem, que e o servico mais procurado depois da consulta. A rede de laboratorios '
-     'e diagnostico da operadora nas demais pracas esta reunida no '
-     '<a href="https://tabelaplanos.com.br/laboratorios-hapvida-capitais/" style="color:#ff6b00;font-weight:600;">panorama de '
-     'laboratorios da Hapvida</a>. Registro publico das unidades em '
+ + P('Esse cuidado vale principalmente para exame de imagem, que e o servico mais procurado depois da consulta. Em Divinopolis o '
+     'servico funciona dentro do complexo do Padre Liberio, e nao em endereco separado, o que reduz o risco de agendar no lugar '
+     'errado. Registro publico das unidades em '
      '<a href="https://cnes.datasus.gov.br/" rel="nofollow noopener" target="_blank" style="color:#ff6b00;font-weight:600;">CNES/DataSUS</a>.'))
 open('/tmp/part3_ok','w').write('ok')
 
@@ -270,8 +269,7 @@ s5 = SEC('cobertura-bairros','#f8f9fa',
      'cidade, sem depender de deslocamento para outra praca.')
  + P('Procedimento de alta complexidade que a cidade nao comporta costuma seguir para Belo Horizonte, onde a operadora tem rede '
      'propria bem maior — o mapa de la esta no <a href="https://tabelaplanos.com.br/plano-hapvida-belo-horizonte/" '
-     'style="color:#ff6b00;font-weight:600;">guia do plano Hapvida em Belo Horizonte</a>. A lista de pracas atendidas fica em '
-     '<a href="https://tabelaplanos.com.br/hapvida-cidades/" style="color:#ff6b00;font-weight:600;">cidades atendidas pela Hapvida</a>.'))
+     'style="color:#ff6b00;font-weight:600;">guia do plano Hapvida em Belo Horizonte</a>.'))
 
 # ---------------------------------------------------------------- S6
 versus = ('<div class="grid2" style="display:flex!important;flex-wrap:wrap!important;gap:16px!important;margin-bottom:24px;">'
@@ -315,7 +313,7 @@ open('/tmp/part4_ok','w').write('ok')
 
 # ---------------------------------------------------------------- S7
 s7 = SEC('como-contratar','#f8f9fa',
- H2('Como contratar o plano Hapvida em Divinopolis','Contratar o plano Hapvida em Divinopolis exige duas checagens que a cidade impoe: se a rota ate o complexo do Padre Liberio cabe na sua rotina, e qual abrangencia o contrato cobre para quem mora nos 20 municipios da regiao imediata.')
+ H2('O que decidir antes de assinar em Divinopolis','Contratar o plano Hapvida em Divinopolis exige duas checagens que a cidade impoe: se a rota ate o complexo do Padre Liberio cabe na sua rotina, e qual abrangencia o contrato cobre para quem mora nos 20 municipios da regiao imediata.')
  + P('Contratar aqui tem uma pergunta a mais do que em capital: ' + G('a rota ate o Padre Liberio cabe na sua rotina?') + ' Se cabe, '
      'a estrutura concentrada joga a favor, porque consulta, exame e internacao saem no mesmo endereco. Se nao cabe, o plano vira '
      'fonte de atrito logo no primeiro agendamento.')
@@ -323,11 +321,11 @@ s7 = SEC('como-contratar','#f8f9fa',
      'costuma assumir que o contrato feito na cidade vale para a regiao. Isso depende da abrangencia contratada e precisa ser '
      'confirmado na cotacao, item por item, antes da assinatura.')
  + BOX('P','Portabilidade','Quem ja tem plano em outra operadora e quer migrar sem recomecar carencia pode ter direito a '
-       'portabilidade, dentro das regras da ANS. As condicoes, os prazos e a janela de aniversario estao no guia de portabilidade '
-       'do site — vale conferir antes de pedir cancelamento do plano atual.')
- + P('As regras gerais de contratacao, documentacao e prazos sao nacionais e valem igual em qualquer praca. Elas estao reunidas no '
-     '<a href="https://tabelaplanos.com.br/como-contratar-hapvida/" style="color:#ff6b00;font-weight:600;">passo a passo de '
-     'contratacao da Hapvida</a>, e nao se repetem aqui de proposito.')
+       'portabilidade, dentro das regras da ANS. O prazo minimo no plano de origem, a janela de aniversario do contrato e a '
+       'compatibilidade de faixa de preco sao definidos em norma nacional: confirme os tres antes de pedir o cancelamento do plano atual.')
+ + P('As regras gerais de contratacao, documentacao e prazos sao nacionais, valem igual em qualquer praca e por isso nao se repetem '
+     'aqui. O que muda em Divinopolis vem antes delas: a rota ate o Padre Liberio e a abrangencia que o contrato cobre para quem '
+     'mora nos municipios vizinhos.')
  + P('Um recurso que muda a conta em cidade de rede concentrada e o atendimento a distancia: ele resolve parte das consultas de '
      'rotina sem deslocamento ate o Padre Liberio. Como funciona e quando vale a pena esta no '
      '<a href="https://tabelaplanos.com.br/teleconsulta-hapvida/" style="color:#ff6b00;font-weight:600;">guia da teleconsulta</a>.')
@@ -348,18 +346,20 @@ perguntas = [
   "Sim. Ele e o hospital geral proprio da operadora na cidade, registrado no CNES sob o codigo 2159376, com centro cirurgico e turno "
   "de atendimento continuo de 24 horas por dia, inclusive fins de semana e feriados. E a unidade que sustenta a urgencia e a internacao "
   "do plano em Divinopolis."),
- ("A Hapvida tem atendimento 24 horas em Divinopolis?",
-  "O atendimento continuo de 24 horas esta registrado no CNES para o Hospital e Maternidade Santa Monica, no Padre Liberio. Nao ha, na "
-  "pesquisa desta pagina, confirmacao de pronto atendimento proprio autonomo em outro endereco da cidade — as demais unidades proprias "
-  "tem horario comercial. Confirme o plantao vigente no Guia Medico antes de sair de casa."),
+ ("O plantao do Padre Liberio vale em feriado e fim de semana?",
+  "Vale. O CNES registra para o Hospital e Maternidade Santa Monica, codigo 2159376, turno de atendimento continuo de 24 horas por dia, "
+  "inclusive sabado, domingo e feriado. Nao ha, na pesquisa desta pagina, confirmacao de pronto atendimento proprio autonomo em outro "
+  "endereco da cidade: as demais unidades proprias tem horario comercial. Confirme o plantao vigente no Guia Medico antes de sair de casa."),
  ("O Hospital Santa Monica de Divinopolis atende gestante pela Hapvida?",
   "Aqui e preciso separar o nome do registro. A unidade se chama Hospital e Maternidade Santa Monica, mas o cadastro dela no CNES nao "
   "registra centro obstetrico nem centro neonatal, e a lista oficial de especialidades do bloco cirurgico nao traz obstetricia. Antes de "
   "contratar pensando em parto na cidade, confirme a cobertura obstetrica diretamente no Guia Medico e na operadora."),
- ("Onde faco exame de imagem pela Hapvida sem sair de Divinopolis?",
-  "No proprio complexo do Padre Liberio: o servico de imagem e diagnostico funciona dentro do endereco do hospital, na Rua Pedro "
-  "Ferreira do Amaral, 33. Essa e a vantagem pratica da rede concentrada: consulta e exame saem no mesmo lugar, sem segundo "
-  "deslocamento."),
+ ("Da para fazer a consulta e o exame de imagem no mesmo endereco?",
+  "Da. No complexo do Padre Liberio, na Rua Pedro Ferreira do Amaral, 33, o centro clinico e o servico de imagem dividem o endereco do "
+  "hospital, entao consulta e exame saem sem segundo deslocamento. Em boa parte das outras pracas a operadora distribui esses servicos "
+  "por enderecos diferentes, desenho que aparece no "
+  "<a href=\'https://tabelaplanos.com.br/laboratorios-hapvida-capitais/\' style=\'color:#ff6b00;font-weight:600;\'>panorama de "
+  "laboratorios da Hapvida</a>."),
  ("Qual guia medico devo consultar para ver a rede de Divinopolis?",
   "Use o portal da Hapvida de Minas Gerais. No filtro por cidade do portal nacional, o servico de imagem de Divinopolis aparece sob o "
   "rotulo de outra cidade mineira, ainda que o endereco no corpo da pagina seja o daqui. Quem filtra so pelo portal nacional pode "
@@ -378,7 +378,9 @@ perguntas = [
  ("Quem mora na regiao de Divinopolis pode usar a rede da cidade?",
   "Divinopolis e sede de uma regiao imediata de 20 municipios e funciona como polo de saude para eles. Isso e geografia, nao cobertura "
   "automatica. O direito de usar a rede daqui morando em outro municipio vem da abrangencia do seu contrato, e precisa ser confirmado "
-  "caso a caso na cotacao."),
+  "caso a caso na cotacao. Onde a operadora tem rede propria esta no "
+  "<a href=\'https://tabelaplanos.com.br/hapvida-cidades/\' style=\'color:#ff6b00;font-weight:600;\'>mapa de cidades atendidas "
+  "pela Hapvida</a>."),
  ("A Hapvida tem alguma unidade no Centro de Divinopolis?",
   "Tem uma: a unidade de medicina preventiva da Avenida Sete de Setembro, 951. Ela consta tanto no Guia Medico oficial quanto no nosso "
   "catalogo de rede, com nomes diferentes nas duas listas e o mesmo endereco. Consulta, exame e internacao seguem no Padre Liberio."),
@@ -395,8 +397,9 @@ perguntas = [
   "escolha depende de onde voce mora e de como usa o plano."),
  ("Empresa com CNPJ em Divinopolis pode contratar o plano empresarial?",
   "Sim, e numa praca industrial e de confeccao como esta o coletivo empresarial e a via mais usada. As regras de vidas minimas, "
-  "documentacao e carencia do contrato coletivo sao nacionais e mudam em relacao ao contrato de pessoa fisica. Confira no guia de "
-  "contratacao antes de reunir documento."),
+  "documentacao e carencia do contrato coletivo sao nacionais e mudam em relacao ao contrato de pessoa fisica. Confira o "
+  "<a href=\'https://tabelaplanos.com.br/como-contratar-hapvida/\' style=\'color:#ff6b00;font-weight:600;\'>passo a passo de "
+  "contratacao da Hapvida</a> antes de reunir documento."),
 ]
 faq_html = ('<section style="background:#fff;padding:20px 10px;border-radius:20px;margin-bottom:4px;border:1px solid #e2e8f0;" id="faq">'
  '<div style="display:inline-block;background:#ff6b00;color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:6px;'

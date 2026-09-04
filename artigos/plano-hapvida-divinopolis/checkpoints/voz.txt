@@ -1,13 +1,11 @@
 ====================================================================
 CHECKPOINT DE VOZ HUMANA [V6] — artigos/plano-hapvida-divinopolis/artigo.html
-3830 palavras · 92 parágrafos · 186 frases · rigor: medio
+3903 palavras · 91 parágrafos · 186 frases · rigor: medio
 ====================================================================
 
 🔴 nenhum tique bloqueante.
 
-🟡 DENSIDADE — o editor decide
-
-  • travessão: 9 (2.3 por 1.000 palavras; alvo ≤ 2)
+🟡 nenhum aviso de densidade.
 
 --------------------------------------------------------------------
 Lembrete da regra-mãe: mexer em palavra e ritmo, NUNCA em fato.

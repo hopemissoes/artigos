@@ -19,7 +19,8 @@
 - **Fase:** ESTÁGIO 2.5 — portão de pesquisa; state file aprovado pelo usuário em 2026-09-01
 - **Próximo passo concreto:** o usuário revisar o rascunho no WordPress
   (post 39808) e resolver as 3 pendências abertas: URL da imagem de abertura,
-  imagem da tabela (cotador) e abrangência contratual.
+  imagem da tabela (cotador) e abrangência contratual. Os ajustes pedidos após
+  a varredura anti-doorway já estão aplicados no rascunho.
 - **Bloqueios:** (1) produtos comerciais vendidos em Divinópolis — nenhuma
   fonte pública nomeia; a S3 fica órfã; (2) prefixo do shortcode e valor de
   entrada — sem eles não há lead-herói nem tabela; (3) abrangência contratual
@@ -41,9 +42,13 @@
 | Voz humana (`checkpoint_voz.py`) | ✅ aprovado | 0 🔴 |
 | Completude (`checkpoint_completude.py`) | ✅ aprovado | 9 H2 · 15 FAQ · 3.831 palavras |
 | `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ✅ aprovado | 65 tokens armados |
-| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ✅ aprovado | 🟡 sem `--outros` |
+| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ✅ aprovado | `checkpoints/doorway_final.txt` — 12 irmãos, D1 25,5% (limite 45%), maior trecho idêntico 13 palavras |
+| Ritmo visual (`checkpoint_ritmo_visual.py`) | ✅ aprovado | 10/10 seções ≤3 `<p>` |
+| Tamanho de parágrafo (`checkpoint_paragrafos.py`) | ✅ aprovado | 45/46 ≤380 chars, 1 no limite (417) |
+| Citabilidade (`checkpoint_citabilidade.py`) | ✅ aprovado | 7 ideais, 2 aceitáveis, 0 reprovadas |
+| Distância entre links internos (≥150 palavras) | ✅ aprovado | 9 links, menor vão 297 palavras |
 | Registro no banco Supabase | ⬜ pendente | só após publicação |
-| Envio ao WordPress (rascunho) | ✅ feito | post 39808, status draft, 84.246 chars |
+| Envio ao WordPress (rascunho) | ✅ feito | post 39808, status draft, 88.839 chars no WP (84.584 locais) |
 | Schema JSON-LD | ⬜ pendente | execução separada, só sob pedido |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
@@ -183,3 +188,17 @@ Achados que dependem de decisão:
    cidade é a home (9º orgânico). Medir em D+30.
 
 Nada foi alterado no rascunho nem gravado no banco.
+
+## Ajustes da varredura anti-doorway (2026-09-04)
+
+Pedido do usuário: "cheque pra mim doorways" → "faça os ajustes".
+
+| # | Achado | Ajuste aplicado |
+|---|---|---|
+| 1 | H2 de preço e H2 de contratação com fórmula genérica de cidade | H2 1 → "O preço do plano Hapvida em Divinópolis, faixa a faixa"; H2 7 → "O que decidir antes de assinar em Divinópolis" (sumário atualizado nos dois) |
+| 2 | FAQ 3 e FAQ 5 formuladas como pergunta padrão de cidade | FAQ 3 → "O plantão do Padre Libério vale em feriado e fim de semana?" (ancorada na string de turno do CNES); FAQ 5 → "Dá para fazer a consulta e o exame de imagem no mesmo endereço?" |
+| 3 | Parágrafo do S7 prometia guia de portabilidade sem link | reescrito para descrever prazo, janela de aniversário e faixa de preço como norma nacional, sem referência pendurada |
+| 4 | 3 pares de links internos abaixo de 150 palavras de distância (laboratórios 109, cidades 15, teleconsulta 53) | `laboratorios-hapvida-capitais` movido para a FAQ 5, `hapvida-cidades` para a FAQ 10, `como-contratar-hapvida` para a FAQ 15; 9 links internos, menor vão agora 297 palavras |
+
+Efeito medido no `checkpoint_doorway_final.py`: D1 (texto que sobrevive à troca
+de cidade) caiu de 26,9% para 25,5%; limite 45%.

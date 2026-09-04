@@ -3,14 +3,14 @@ CHECKPOINT PRECO-PRIMEIRO [V7.5] — artigos/plano-hapvida-divinopolis/artigo.ht
 ========================================================================
 
 [H2 encontrados: 9 | de preco: 1 | de outros assuntos: 8]
-   PRECO    2%  quanto custa o plano hapvida em divinopolis
+   PRECO    2%  o preco do plano hapvida em divinopolis, faixa a faixa
            17%  por que divinopolis e um caso diferente
            25%  como escolher o plano hapvida em divinopolis
-           33%  a rede propria da hapvida em divinopolis
-           43%  de qual bairro voce chega mais rapido
+           32%  a rede propria da hapvida em divinopolis
+           42%  de qual bairro voce chega mais rapido
            52%  o mercado de saude de divinopolis
-           60%  como contratar o plano hapvida em divinopolis
-           68%  perguntas de quem mora em divinopolis
+           60%  o que decidir antes de assinar em divinopolis
+           67%  perguntas de quem mora em divinopolis
            86%  vale a pena o plano hapvida em divinopolis?
 
 [Regra 0 — lead-heroi (v7.4)]
@@ -18,14 +18,14 @@ CHECKPOINT PRECO-PRIMEIRO [V7.5] — artigos/plano-hapvida-divinopolis/artigo.ht
 
 [Regra 1 — tabela primeiro]
    - primeira tabela: shortcode [divinopolis_menortabela]
-   - texto visivel antes dela: 1335 caracteres (a 4% do arquivo)
+   - texto visivel antes dela: 1346 caracteres (a 4% do arquivo)
    - sumario (toc-list) a 5% do arquivo
 
 [Regra 1b — formulario colado na tabela, sumario depois dele (v7.5)]
    - texto visivel entre a tabela e o sumario: 184 caracteres (limite: 600)
 
 [Regra 2 — H2 de preco na frente]
-   - ok: o primeiro H2 de conteudo e de preco ("quanto custa o plano hapvida em divinopolis")
+   - ok: o primeiro H2 de conteudo e de preco ("o preco do plano hapvida em divinopolis, faixa a faixa")
 
 [Formulario — v7.5: colado na tabela, antes do sumario]
    - ok: id="cotacao-1" colado na tabela, a 4% do arquivo

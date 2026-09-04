@@ -4,8 +4,8 @@ tipo: city | cidade: Divinopolis | ancoras carregadas: 14 | irmaos: 12
 ======================================================================
 
 D1 · TESTE DE SUBSTITUICAO
-   texto visivel julgado: 3244 palavras
-   em paragrafos SEM ancora local: 26.9%
+   texto visivel julgado: 3305 palavras
+   em paragrafos SEM ancora local: 25.5%
    - <p> valores por faixa etaria conforme tabela vigente sujeitos a alteracao por modalidade acomodacao e condicoes comerciais...
    - <p> o valor da tabela e a mensalidade em plano com coparticipacao cada consulta ou exame usado tem uma...
    - <p> isso muda a conta na ponta do lapis quem usa muito a rede propria da cidade sente mais...
@@ -14,7 +14,7 @@ D1 · TESTE DE SUBSTITUICAO
    - <p> consulta exame e terapia na rede propria com pagamento por uso e a modalidade que a tabela desta...
    - <p> a via de contratacao mais usada numa praca industrial as regras de vidas minimas e de carencia mudam...
    - <p> a modalidade ambulatorial e a base de quase toda a oferta de entrada e e onde mora a...
-   (+14 paragrafos genericos)
+   (+13 paragrafos genericos)
 
 D2 · SECAO SEM ANCORA LOCAL
    nenhuma — toda secao tem ancora local
@@ -32,7 +32,7 @@ D4 · SOBREPOSICAO COM ARTIGOS IRMAOS
    - plano-hapvida-limeira.html               0.0% de shingles | maior trecho identico: 0 palavras
    - plano-hapvida-lins.html                  0.2% de shingles | maior trecho identico: 13 palavras
    - plano-hapvida-parauapebas.html           0.1% de shingles | maior trecho identico: 12 palavras
-   - plano-hapvida-santa-luzia.html           0.0% de shingles | maior trecho identico: 8 palavras
+   - plano-hapvida-santa-luzia.html           0.1% de shingles | maior trecho identico: 9 palavras
    - plano-hapvida-uberaba.html               0.0% de shingles | maior trecho identico: 0 palavras
    - plano-hapvida-uberlandia.html            0.0% de shingles | maior trecho identico: 0 palavras
 
