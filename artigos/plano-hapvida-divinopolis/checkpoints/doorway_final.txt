@@ -1,6 +1,6 @@
 ======================================================================
 VARREDURA FINAL ANTI-DOORWAY [V7.2] — artigos/plano-hapvida-divinopolis/artigo.html
-tipo: city | cidade: Divinopolis | ancoras carregadas: 14 | irmaos: 0
+tipo: city | cidade: Divinopolis | ancoras carregadas: 14 | irmaos: 12
 ======================================================================
 
 D1 · TESTE DE SUBSTITUICAO
@@ -23,14 +23,23 @@ D3 · CLICHE DE OPERADORA / REGULATORIO
    nenhum da lista
 
 D4 · SOBREPOSICAO COM ARTIGOS IRMAOS
-   nenhum irmao passado em --outros
+   - plano-hapvida-araraquara.html            0.0% de shingles | maior trecho identico: 0 palavras
+   - plano-hapvida-belo-horizonte.html        0.0% de shingles | maior trecho identico: 0 palavras
+   - plano-hapvida-betim.html                 0.0% de shingles | maior trecho identico: 0 palavras
+   - plano-hapvida-contagem.html              0.0% de shingles | maior trecho identico: 0 palavras
+   - plano-hapvida-franca.html                0.1% de shingles | maior trecho identico: 12 palavras
+   - plano-hapvida-itapevi.html               0.0% de shingles | maior trecho identico: 0 palavras
+   - plano-hapvida-limeira.html               0.0% de shingles | maior trecho identico: 0 palavras
+   - plano-hapvida-lins.html                  0.2% de shingles | maior trecho identico: 13 palavras
+   - plano-hapvida-parauapebas.html           0.1% de shingles | maior trecho identico: 12 palavras
+   - plano-hapvida-santa-luzia.html           0.0% de shingles | maior trecho identico: 8 palavras
+   - plano-hapvida-uberaba.html               0.0% de shingles | maior trecho identico: 0 palavras
+   - plano-hapvida-uberlandia.html            0.0% de shingles | maior trecho identico: 0 palavras
 
 D5 · TITULO E META NO TESTE DE SUBSTITUICAO
    title e meta citam a cidade
 
 ----------------------------------------------------------------------
-🟡 AVISOS (1)
-   - D4 varredura rodou SEM comparar com artigos irmaos — passe --outros com os artigos do mesmo cluster
 
 ✅ APROVADO — nenhuma medida de doorway estourou o limite.
    Lembrete: o script mede repeticao e ausencia de ancora. A consulta

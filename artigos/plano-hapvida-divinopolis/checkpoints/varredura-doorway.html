@@ -1,0 +1,252 @@
+<title>Varredura Anti-Doorway Divinópolis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#f6f7f9; --surface:#ffffff; --surface-2:#eef1f5; --line:#dbe1ea;
+  --ink:#0f1723; --ink-2:#3d4956; --muted:#6b7684;
+  --navy:#16213e; --navy-soft:#2b3d63; --brand:#e85d00;
+  --pass:#136f45; --pass-bg:#e6f4ec;
+  --warn:#a3600a; --warn-bg:#fbf0dd;
+  --stop:#a92222; --stop-bg:#fbe9e9;
+  --shadow:0 1px 2px rgba(15,23,35,.05),0 8px 24px -16px rgba(15,23,35,.28);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0d1220; --surface:#151d2e; --surface-2:#1d283c; --line:#2c3a52;
+    --ink:#eef2f8; --ink-2:#c2cbd8; --muted:#8d9aab;
+    --navy:#b9c8e6; --navy-soft:#8fa4cc; --brand:#ff8a3d;
+    --pass:#5fcf9c; --pass-bg:#123326;
+    --warn:#e6b45f; --warn-bg:#3a2c11;
+    --stop:#f08a8a; --stop-bg:#3a1717;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0d1220; --surface:#151d2e; --surface-2:#1d283c; --line:#2c3a52;
+  --ink:#eef2f8; --ink-2:#c2cbd8; --muted:#8d9aab;
+  --navy:#b9c8e6; --navy-soft:#8fa4cc; --brand:#ff8a3d;
+  --pass:#5fcf9c; --pass-bg:#123326;
+  --warn:#e6b45f; --warn-bg:#3a2c11;
+  --stop:#f08a8a; --stop-bg:#3a1717;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:40px 22px 72px;display:flex;flex-direction:column;gap:34px}
+h1,h2,h3{font-family:"Bricolage Grotesque","Source Sans 3",sans-serif;text-wrap:balance;margin:0;letter-spacing:-.015em}
+h1{font-size:clamp(28px,4.4vw,40px);font-weight:800;line-height:1.08}
+h2{font-size:20px;font-weight:700;color:var(--ink)}
+h3{font-size:15.5px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted)}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+/* verdict */
+.verdict{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;border-top:5px solid var(--warn)}
+.verdict-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 16px}
+.verdict-tag{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;color:var(--warn)}
+.verdict p{color:var(--ink-2);max-width:64ch}
+.scope{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.scope span{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--surface-2)}
+
+/* measures */
+.measures{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.m{background:var(--surface);padding:15px 16px 16px;display:flex;flex-direction:column;gap:5px}
+.m-id{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.08em}
+.m-val{font-family:"Bricolage Grotesque",sans-serif;font-size:25px;font-weight:800;line-height:1;color:var(--ink)}
+.m-lab{font-size:12.5px;color:var(--ink-2);line-height:1.35}
+.m-lim{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted)}
+
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:"JetBrains Mono",monospace;
+  font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  padding:3px 9px;border-radius:5px;white-space:nowrap}
+.c-pass{background:var(--pass-bg);color:var(--pass)}
+.c-warn{background:var(--warn-bg);color:var(--warn)}
+.c-stop{background:var(--stop-bg);color:var(--stop)}
+
+section{display:flex;flex-direction:column;gap:16px}
+.sec-head{display:flex;flex-direction:column;gap:5px;border-bottom:2px solid var(--navy);padding-bottom:9px}
+.sec-head p{font-size:14.5px;color:var(--muted);max-width:66ch}
+
+/* findings */
+.find{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);
+  border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:9px}
+.find.stop{border-left-color:var(--stop)}
+.find.warn{border-left-color:var(--warn)}
+.find.pass{border-left-color:var(--pass)}
+.find-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.find p{font-size:14.8px;color:var(--ink-2);max-width:68ch}
+.ev{background:var(--surface-2);border-radius:7px;padding:10px 12px;font-family:"JetBrains Mono",monospace;
+  font-size:12.3px;color:var(--ink-2);line-height:1.65;overflow-x:auto}
+.ev b{color:var(--ink);font-weight:600}
+.fix{font-size:14.5px;color:var(--ink)}
+.fix strong{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;color:var(--navy)}
+
+/* table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th{background:var(--surface-2);text-align:left;padding:10px 14px;font-family:"JetBrains Mono",monospace;
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600;
+  border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 14px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
+
+ol.acts{margin:0;padding:0;list-style:none;counter-reset:a;display:flex;flex-direction:column;gap:11px}
+ol.acts li{counter-increment:a;display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;
+  font-size:15px;color:var(--ink-2)}
+ol.acts li::before{content:counter(a);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;
+  color:var(--surface);background:var(--navy);border-radius:6px;width:26px;height:26px;
+  display:flex;align-items:center;justify-content:center;margin-top:1px}
+ol.acts b{color:var(--ink)}
+
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted);max-width:70ch}
+footer code{font-family:"JetBrains Mono",monospace;font-size:12px}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Varredura final anti-doorway &middot; Agente 21 &middot; 04 set 2026</p>
+  <h1>Plano Hapvida Divinópolis</h1>
+  <div class="scope">
+    <span>post 39808 &middot; rascunho</span>
+    <span>3.244 palavras julgadas</span>
+    <span>12 artigos irmãos comparados</span>
+    <span>14 âncoras locais</span>
+  </div>
+</header>
+
+<div class="verdict">
+  <div class="verdict-top">
+    <span class="verdict-tag">Liberado com ressalvas</span>
+    <span class="chip c-warn">3 ajustes antes de publicar</span>
+  </div>
+  <p>A metade mecânica passou com folga: contra doze artigos irmãos publicados, o maior trecho idêntico tem <b>13 palavras</b> — abaixo até do shingle de comparação. Nenhum dos quatro overlaps de risco alto catalogados no banco foi reproduzido. O que aparece é do outro tipo: <b>moldura repetida</b> — dois H2 que só trocam o nome da cidade, duas FAQ próximas de irmãs publicadas, e dois bridges que citam um guia sem linkar para ele.</p>
+</div>
+
+<section>
+  <div class="sec-head">
+    <h2>Metade mecânica</h2>
+    <p><span class="mono">checkpoint_doorway_final.py</span> — as cinco medidas, contra os corpos editoriais de doze artigos de cidade publicados.</p>
+  </div>
+  <div class="measures">
+    <div class="m"><span class="m-id">D1</span><span class="m-val">26,9%</span>
+      <span class="m-lab">do texto em parágrafos sem âncora local</span>
+      <span class="m-lim">🟡 30% · 🔴 45%</span><span class="chip c-pass" style="align-self:start">passa</span></div>
+    <div class="m"><span class="m-id">D2</span><span class="m-val">0</span>
+      <span class="m-lab">seções sem nenhuma âncora local</span>
+      <span class="m-lim">🔴 qualquer uma</span><span class="chip c-pass" style="align-self:start">passa</span></div>
+    <div class="m"><span class="m-id">D3</span><span class="m-val">0</span>
+      <span class="m-lab">clichês de operadora ou regulatórios</span>
+      <span class="m-lim">🔴 parágrafo inteiro</span><span class="chip c-pass" style="align-self:start">passa</span></div>
+    <div class="m"><span class="m-id">D4</span><span class="m-val">0,2%</span>
+      <span class="m-lab">maior sobreposição de shingles (Lins)</span>
+      <span class="m-lim">🔴 15% ou 40 palavras</span><span class="chip c-pass" style="align-self:start">passa</span></div>
+    <div class="m"><span class="m-id">D5</span><span class="m-val">Sim</span>
+      <span class="m-lab">title e meta citam a praça</span>
+      <span class="m-lim">🔴 servem p/ qualquer praça</span><span class="chip c-pass" style="align-self:start">passa</span></div>
+  </div>
+  <div class="ev">Maior trecho idêntico por irmão — <b>0 palavras</b> em Araraquara, BH, Betim, Contagem, Itapevi, Limeira, Uberaba e Uberlândia · <b>8</b> em Santa Luzia · <b>12</b> em Franca e Parauapebas · <b>13</b> em Lins.</div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>O que o banco viu que o script não vê</h2>
+    <p>A trava mede o texto. O banco sabe do site — overlaps catalogados, catálogo de FAQ, proibições de pillar e saturação de destinos.</p>
+  </div>
+
+  <div class="find stop">
+    <div class="find-head"><span class="chip c-stop">corrigir</span><h3>Dois bridges prometem um guia e não linkam para ele</h3></div>
+    <p>A caixa Portabilidade diz que as condições “estão no guia de portabilidade do site” — e não há link. A caixa Importante da S7 cita prazos de carência e a Lei 9.656/98 sem linkar o pillar de carências. Bridge sem link é a semente exata do conteúdo duplicado que as proibições de pillar existem para impedir: o leitor não vai ao hub, e a próxima revisão tende a “completar” a explicação aqui.</p>
+    <div class="ev">Busca por <b>&lt;a href&gt;</b> na vizinhança dos dois trechos: <b>nenhum link</b>. É defeito meu, não do texto herdado.</div>
+    <p class="fix"><strong>Correção:</strong> linkar <span class="mono">/portabilidade-para-hapvida/</span> e <span class="mono">/plano-de-saude-hapvida-carencia/</span> — ou tirar a promessa do texto. Os dois destinos estão saturados (28 e 53 backlinks), então a decisão é sua; a alternativa é reescrever as duas caixas sem prometer guia.</p>
+  </div>
+
+  <div class="find warn">
+    <div class="find-head"><span class="chip c-warn">renomear</span><h3>Dois H2 são a moldura de irmãos publicados</h3></div>
+    <p>Sete dos nove H2 são únicos. Dois repetem o molde exato, trocando só a cidade — e o overlap catalogado sobre “Quanto custa o Plano Hapvida em [cidade]” já traz a ação recomendada: renomear para evitar H2 idêntico. Na SERP, esse é o padrão doorway mais visível, porque aparece no título do resultado.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>H2 no rascunho</th><th>Irmãos com o mesmo molde</th><th class="num">Ocorr.</th></tr></thead>
+        <tbody>
+          <tr><td>Como contratar o plano Hapvida em Divinópolis</td><td>Araraquara, Franca, Itapevi</td><td class="num">3</td></tr>
+          <tr><td>Quanto custa o plano Hapvida em Divinópolis</td><td>Uberaba</td><td class="num">1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fix"><strong>Correção:</strong> trocar por títulos que carreguem o ângulo desta praça — algo como “O que decidir antes de assinar em Divinópolis” e “Quanto custa o plano no grupo tarifário do interior mineiro”.</p>
+  </div>
+
+  <div class="find warn">
+    <div class="find-head"><span class="chip c-warn">reescrever</span><h3>Duas FAQ chegam perto de irmãs publicadas</h3></div>
+    <p>Comparei as 15 perguntas contra 160 FAQ únicas dos doze irmãos, ignorando o nome da cidade. Duas passam do limiar de semelhança. Nenhuma das duas tem resposta copiada — o problema é a pergunta, que é o que a SERP e o schema mostram.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="num">Sem.</th><th>No rascunho</th><th>Irmão publicado</th></tr></thead>
+        <tbody>
+          <tr><td class="num">0,88</td><td>A Hapvida tem atendimento 24 horas em Divinópolis?</td><td>Betim — “A Hapvida em Betim tem pronto atendimento 24 horas?”</td></tr>
+          <tr><td class="num">0,60</td><td>Onde faço exame de imagem pela Hapvida sem sair de Divinópolis?</td><td>Lins — “Onde faço exames de imagem pela Hapvida Lins?”</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fix"><strong>Correção:</strong> puxar as duas para o que só vale aqui — o plantão contínuo registrado no CNES 2159376, e o fato de o exame sair no mesmo endereço da consulta.</p>
+  </div>
+
+  <div class="find warn">
+    <div class="find-head"><span class="chip c-warn">conhecido</span><h3>A S3 cai na família de overlap “Tipos de Planos Disponíveis”</h3></div>
+    <p>O overlap catalogado de risco médio manda que a S3 traga <em>produtos locais reais, não modalidades ANS</em>. A seção atual descreve modalidades — ambulatorial, ambulatorial mais hospitalar, coletivo por CNPJ — porque nenhuma fonte pública nomeia produto vendido em Divinópolis. É a mesma lacuna que o juiz de pesquisa já tinha apontado, não um achado novo.</p>
+    <p class="fix"><strong>Correção:</strong> depende de você. Com a lista de produtos da praça, a S3 vira cards de produto real e sai da família de overlap.</p>
+  </div>
+
+  <div class="find pass">
+    <div class="find-head"><span class="chip c-pass">limpo</span><h3>Nenhum overlap de risco alto foi reproduzido</h3></div>
+    <p>Os quatro overlaps de seção marcados como risco alto no banco — tabela de carências da ANS, tabelas de coparticipação total e parcial, tabela de preços das dez faixas e a FAQ do registro ANS 359017 — não aparecem no rascunho. A coparticipação entra por dois shortcodes e um link; a tabela de preços é o shortcode da cidade, renderizado no servidor; o registro ANS não é citado em lugar nenhum.</p>
+  </div>
+
+  <div class="find pass">
+    <div class="find-head"><span class="chip c-pass">dentro da regra</span><h3>Sete dos nove links internos vão a destino não saturado</h3></div>
+    <div class="ev">Subutilizados (≤5): <b>laboratorios-hapvida-capitais</b> 4 · <b>teleconsulta-hapvida</b> 4 · <b>plano-hapvida-uberlandia</b> 2<br>
+Normais: <b>o-que-e-plano-ambulatorial-2</b> 8 · <b>rede-credenciada-hapvida</b> 9 · <b>hapvida-cidades</b> 10 · <b>plano-hapvida-belo-horizonte</b> 12<br>
+Saturados: <b>coparticipacao-guia-completo</b> 58 · <b>como-contratar-hapvida</b> 26</div>
+    <p>Os dois saturados são bridges obrigatórios pelas proibições de pillar — a saturação é o preço de não explicar coparticipação e contratação dentro do artigo de cidade.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>Canibalização</h2>
+    <p>O sexto item do procedimento, e o único que não dá para fechar agora.</p>
+  </div>
+  <div class="find warn">
+    <div class="find-head"><span class="chip c-warn">não mensurável</span><h3>A página ainda é rascunho</h3></div>
+    <p>Na SERP de “plano hapvida divinopolis” quem ocupa a posição do site hoje é a <b>home</b>, em 9º orgânico — não existe página de cidade. Não há duas URLs suas competindo porque só há uma. A medida real é depois da publicação: se a home ceder a posição para a city page, funcionou; se as duas passarem a alternar, é canibalização e vira diagnóstico.</p>
+    <p class="fix"><strong>Quando medir:</strong> D+30 da publicação, com <span class="mono">serp_local</span> na keyword principal.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>O que eu faria, nesta ordem</h2>
+    <p>Nada foi alterado no rascunho nem gravado no banco — isto é proposta.</p>
+  </div>
+  <ol class="acts">
+    <li><b>Resolver os dois bridges sem link.</b> É o único achado que muda a natureza do conteúdo, e não depende de dado novo.</li>
+    <li><b>Renomear os dois H2 de molde.</b> Cinco minutos, e tira o padrão doorway do lugar mais visível.</li>
+    <li><b>Reescrever a FAQ 3 e a FAQ 5</b> com o recorte que só Divinópolis tem.</li>
+    <li><b>Registrar no banco</b>, depois de publicar: as FAQ locais, os links com âncora, os hospitais e — se você quiser — os dois overlaps novos que esta varredura encontrou.</li>
+    <li><b>Refazer a S3</b> quando a lista de produtos da praça existir.</li>
+  </ol>
+</section>
+
+<footer>
+  Fontes desta varredura: <code>checkpoint_doorway_final.py</code> sobre o HTML do rascunho contra doze corpos editoriais baixados do ar em 04/09/2026; <code>consultar_overlaps_doorway</code>, <code>consultar_faqs_catalogo</code> e <code>consultar_saturacao_destinos</code> no Supabase; comparação de H2 e de FAQ feita por normalização com o nome da cidade removido. O script mede repetição e ausência de âncora — o julgamento de moldura repetida é do agente, e está identificado como tal acima.
+</footer>
+
+</div>

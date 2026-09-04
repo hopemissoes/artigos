@@ -156,3 +156,30 @@ endereços de Belo Horizonte.
    a região imediata como geografia, nunca como cobertura.
 4. **Schema JSON-LD** — execução separada, só sob pedido.
 5. **Registro no banco** — só após a publicação.
+
+## Varredura anti-doorway (2026-09-04)
+
+Rodada com 12 artigos irmãos baixados do ar em `--outros`. Saída em
+`checkpoints/doorway_final.txt`; relatório em `checkpoints/varredura-doorway.html`.
+
+**Veredito: LIBERADO com ressalvas — 3 ajustes antes de publicar.**
+
+Mecânica: D1 26,9% (limite 45%) · D2 zero seção sem âncora · D3 zero clichê ·
+D4 maior trecho idêntico 13 palavras em 12 irmãos · D5 title e meta citam a praça.
+
+Achados que dependem de decisão:
+1. 🔴 Dois bridges sem link — a caixa Portabilidade promete "o guia de
+   portabilidade do site" e não linka; a caixa de carência da S7 também não.
+   Os dois destinos estão saturados (28 e 53), então é decisão do usuário:
+   linkar mesmo assim, ou tirar a promessa do texto.
+2. 🟡 Dois H2 repetem o molde de irmãos: "Como contratar o plano Hapvida em
+   Divinópolis" (= Araraquara, Franca, Itapevi) e "Quanto custa o plano Hapvida
+   em Divinópolis" (= Uberaba). O overlap catalogado já manda renomear.
+3. 🟡 FAQ 3 tem 0,88 de semelhança com a de Betim; FAQ 5 tem 0,60 com a de Lins.
+4. 🟡 S3 na família de overlap "Tipos de Planos Disponíveis" — lacuna já conhecida.
+5. 🟢 Nenhum dos 4 overlaps de risco ALTO catalogados foi reproduzido.
+6. 🟢 7 dos 9 links internos vão a destino NORMAL ou SUBUTILIZADO.
+7. Canibalização não mensurável: a página é rascunho. Hoje quem ocupa a SERP da
+   cidade é a home (9º orgânico). Medir em D+30.
+
+Nada foi alterado no rascunho nem gravado no banco.
