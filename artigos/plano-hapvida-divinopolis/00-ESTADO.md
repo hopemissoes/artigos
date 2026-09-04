@@ -299,3 +299,36 @@ teste de substituição de cidade (serve para qualquer praça). "Padre Libério"
 só de Divinópolis, então segura o D5 do anti-doorway e ainda cabe no espaço.
 
 `checkpoint_onpage` e `checkpoint_doorway_final` reaprovados com o título novo.
+
+## Links de entrada criados (2026-09-04)
+
+Pedido expresso do usuário: linkar de `plano-hapvida-uberaba`,
+`plano-hapvida-uberlandia` e `promed-plano-de-saude` para
+`https://tabelaplanos.com.br/plano-hapvida-divinopolis/`.
+
+| Origem | Post | Como | Âncora |
+|---|---|---|---|
+| `promed-plano-de-saude` | 36005 | `inserir_link_interno` — a página **já citava** "Divinópolis" na lista de praças mineiras, no mesmo parágrafo em que "Uberlândia" já era link | Divinópolis |
+| `plano-hapvida-uberlandia` | 29907 | `substituir_no_artigo` — frase nova no parágrafo da tabela própria × tabela regional | plano Hapvida em Divinópolis |
+| `plano-hapvida-uberaba` | 35817 | `substituir_no_artigo` — frase nova no parágrafo que contrasta o desenho de rede de Uberlândia e Uberaba | plano Hapvida em Divinópolis |
+
+**Por que dois exigiram texto novo:** `inserir_link_interno` só transforma
+frase existente em link, e nem Uberaba nem Uberlândia mencionavam Divinópolis
+— natural, a página é nova. Link contextual para cidade não citada exige
+acrescentar a menção. Cada um levou **uma frase**, com fato já verificado na
+FASE 0 (grupo tarifário "demais praças"; hospital, centro clínico e imagem no
+mesmo endereço).
+
+Dry-run rodado antes de cada gravação. Conferido no ar depois: Uberlândia e
+Promed já servindo o link; Uberaba ainda em cache na hora da checagem, mas o
+link confirmado no corpo do post pela leitura do próprio WordPress.
+
+### Duas coisas que ficaram de fora, de propósito
+
+1. **O destino ainda é rascunho** — `https://tabelaplanos.com.br/plano-hapvida-divinopolis/`
+   devolve **404** hoje. Os três links só passam a valer quando o post 39808
+   for publicado. Avisado ao usuário antes de gravar.
+2. **Nada foi registrado no Supabase.** `registrar_links_artigo` gravaria links
+   apontando para um slug que ainda não existe na tabela de artigos, o que a
+   `consultar_links_quebrados` leria como link morto. O momento certo é depois
+   da publicação, junto com `registrar_artigo_novo`.
