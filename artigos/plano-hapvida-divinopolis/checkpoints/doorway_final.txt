@@ -1,0 +1,37 @@
+======================================================================
+VARREDURA FINAL ANTI-DOORWAY [V7.2] — artigos/plano-hapvida-divinopolis/artigo.html
+tipo: city | cidade: Divinopolis | ancoras carregadas: 14 | irmaos: 0
+======================================================================
+
+D1 · TESTE DE SUBSTITUICAO
+   texto visivel julgado: 3244 palavras
+   em paragrafos SEM ancora local: 26.9%
+   - <p> valores por faixa etaria conforme tabela vigente sujeitos a alteracao por modalidade acomodacao e condicoes comerciais...
+   - <p> o valor da tabela e a mensalidade em plano com coparticipacao cada consulta ou exame usado tem uma...
+   - <p> isso muda a conta na ponta do lapis quem usa muito a rede propria da cidade sente mais...
+   - <p> a economia sustenta essa demanda o pib municipal foi de r 8 33 bilhoes em 2021 segundo o...
+   - <p> ser polo tem um efeito colateral que ninguem conta a fila de exame e de consulta da cidade...
+   - <p> consulta exame e terapia na rede propria com pagamento por uso e a modalidade que a tabela desta...
+   - <p> a via de contratacao mais usada numa praca industrial as regras de vidas minimas e de carencia mudam...
+   - <p> a modalidade ambulatorial e a base de quase toda a oferta de entrada e e onde mora a...
+   (+14 paragrafos genericos)
+
+D2 · SECAO SEM ANCORA LOCAL
+   nenhuma — toda secao tem ancora local
+
+D3 · CLICHE DE OPERADORA / REGULATORIO
+   nenhum da lista
+
+D4 · SOBREPOSICAO COM ARTIGOS IRMAOS
+   nenhum irmao passado em --outros
+
+D5 · TITULO E META NO TESTE DE SUBSTITUICAO
+   title e meta citam a cidade
+
+----------------------------------------------------------------------
+🟡 AVISOS (1)
+   - D4 varredura rodou SEM comparar com artigos irmaos — passe --outros com os artigos do mesmo cluster
+
+✅ APROVADO — nenhuma medida de doorway estourou o limite.
+   Lembrete: o script mede repeticao e ausencia de ancora. A consulta
+   ao banco (overlaps, FAQs, saturacao) continua sendo do Agente 21.

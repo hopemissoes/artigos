@@ -1,0 +1,18 @@
+
+===========================================================================
+CHECKPOINT — CITABILIDADE GEO/AEO (artigo.html)
+===========================================================================
+Seções (<h2>) analisadas: 9
+  ✅ Abertura citável (faixa ideal):  7
+  ⚠️  Aceitável / atenção:            2
+  ❌ Reprovadas:                      0
+Links externos de fonte (rel=nofollow): 3
+Seções com abertura SEM número-âncora: 4 (considere ancorar com um dado da cidade/hospital)
+
+⚠️  ATENÇÃO (2):
+   • A rede propria da Hapvida em Divinopolis — 39 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • O mercado de saude de Divinopolis — 38 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+
+✅ CHECKPOINT DE CITABILIDADE APROVADO (heurístico/direcional).
+   Confirme manualmente que cada abertura é específica da cidade — o script
+   mede forma, não unicidade. Anti-doorway continua sendo julgamento humano.
