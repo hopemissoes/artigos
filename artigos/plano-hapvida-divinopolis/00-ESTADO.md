@@ -50,7 +50,7 @@
 | Tamanho de parágrafo (`checkpoint_paragrafos.py`) | ✅ aprovado | 45/46 ≤380 chars, 1 no limite (417) |
 | Citabilidade (`checkpoint_citabilidade.py`) | ✅ aprovado | 7 ideais, 2 aceitáveis, 0 reprovadas |
 | Distância entre links internos (≥150 palavras) | ✅ aprovado | 9 links, menor vão 297 palavras |
-| Registro no banco Supabase | ⬜ pendente | só após publicação |
+| Registro no banco Supabase | ✅ feito (parcial) | artigo id 196, status `pendente`; 3 links de entrada + 9 de saída + histórico id 47. Falta: hospitais, FAQs e virar `publicado` |
 | Envio ao WordPress (rascunho) | ✅ feito | post 39808, status draft, 89.982 chars no WP (85.442 locais); texto visível e estrutura conferidos idênticos ao arquivo local em 2026-09-04 |
 | Schema JSON-LD | ⬜ pendente | execução separada, só sob pedido |
 
@@ -328,7 +328,42 @@ link confirmado no corpo do post pela leitura do próprio WordPress.
 1. **O destino ainda é rascunho** — `https://tabelaplanos.com.br/plano-hapvida-divinopolis/`
    devolve **404** hoje. Os três links só passam a valer quando o post 39808
    for publicado. Avisado ao usuário antes de gravar.
-2. **Nada foi registrado no Supabase.** `registrar_links_artigo` gravaria links
-   apontando para um slug que ainda não existe na tabela de artigos, o que a
-   `consultar_links_quebrados` leria como link morto. O momento certo é depois
-   da publicação, junto com `registrar_artigo_novo`.
+2. ~~Nada foi registrado no Supabase.~~ **Registrado em 2026-09-04** a pedido
+   do usuário — ver a seção seguinte.
+
+## Registro no Supabase (2026-09-04)
+
+Pedido do usuário: "registre no banco".
+
+**A ordem importou.** `registrar_links_artigo` para um slug ausente da tabela
+de artigos viraria link morto, então o artigo foi registrado primeiro.
+Conferido depois: `consultar_links_quebrados` **não** lista
+`plano-hapvida-divinopolis`.
+
+| O que | Função | Resultado |
+|---|---|---|
+| Artigo | `registrar_artigo_novo` | **id 196**, tipo `cidade`, status **`pendente`**, versão v7.5, Divinópolis/MG, com os 9 H2, os 5 concorrentes da CI-1 e as observações |
+| 3 links de entrada | `registrar_links_artigo` × 3 | uberaba (S4 rede), uberlandia (S2 preço), promed (rede MG) |
+| 9 links de saída | `registrar_links_artigo` | os 9 destinos do artigo, com contexto e seção |
+| Histórico | `registrar_atualizacao` | **id 47** |
+
+Gêmeo de slug conferido no inventário antes de registrar (armadilha 6): não
+existe variante de `plano-hapvida-divinopolis` no banco.
+
+### Por que `pendente` e não `publicado`
+
+O post 39808 ainda é rascunho e a URL responde 404. O enum `artigo_status` só
+aceita `publicado` e `pendente` — não existe "rascunho" —, então `pendente` é o
+valor honesto.
+
+### ⚠️ Ao publicar, NÃO rode `registrar_artigo_novo` de novo
+
+O artigo já existe como id 196. Publicar exige:
+
+1. `atualizar_artigo` para virar `publicado` (o slug é a chave; não muda);
+2. `registrar_hospitais_artigo` — **ainda não feito**, as 4 unidades próprias;
+3. `registrar_faqs_artigo` — **ainda não feito**, as 15 FAQs;
+4. `registrar_uso_faq` para as FAQs estruturais;
+5. `registrar_atualizacao` da publicação.
+
+Rodar `registrar_artigo_novo` de novo criaria duplicata.
