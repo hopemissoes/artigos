@@ -17,9 +17,9 @@
 ## Fase atual
 
 - **Fase:** ESTÁGIO 2.5 — portão de pesquisa; state file aprovado pelo usuário em 2026-09-01
-- **Próximo passo concreto:** o usuário responder os 3 itens da seção 15 do
-  state file (produtos da praça, prefixo/valor do shortcode, abrangência
-  contratual). Sem eles a S3 e o lead-herói não podem ser escritos.
+- **Próximo passo concreto:** o usuário revisar o rascunho no WordPress
+  (post 39808) e resolver as 3 pendências abertas: URL da imagem de abertura,
+  imagem da tabela (cotador) e abrangência contratual.
 - **Bloqueios:** (1) produtos comerciais vendidos em Divinópolis — nenhuma
   fonte pública nomeia; a S3 fica órfã; (2) prefixo do shortcode e valor de
   entrada — sem eles não há lead-herói nem tabela; (3) abrangência contratual
@@ -36,13 +36,15 @@
 | Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` |
 | Juiz 24 (P-B, originalidade/valor) | 🟡 BLOQUEOU; 2 🔴 corrigidos | notas 6 e 7 |
 | Juiz 23 (P-A, suficiência/verdade) | 🔴 BLOQUEOU; 11 🔴, 8 corrigidos | notas 4 e 5 — 3 dependem do usuário |
-| Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
-| Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | |
-| Voz humana (`checkpoint_voz.py`) | ⬜ pendente | |
-| Completude (`checkpoint_completude.py`) | ⬜ pendente | |
-| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ⬜ pendente | |
-| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ pendente | |
-| Registro no banco Supabase | ⬜ pendente | |
+| Kit on-page (`checkpoint_onpage.py`) | ✅ aprovado | 7/7 posições |
+| Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ✅ aprovado | ordem v7.5 |
+| Voz humana (`checkpoint_voz.py`) | ✅ aprovado | 0 🔴 |
+| Completude (`checkpoint_completude.py`) | ✅ aprovado | 9 H2 · 15 FAQ · 3.831 palavras |
+| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ✅ aprovado | 65 tokens armados |
+| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ✅ aprovado | 🟡 sem `--outros` |
+| Registro no banco Supabase | ⬜ pendente | só após publicação |
+| Envio ao WordPress (rascunho) | ✅ feito | post 39808, status draft, 84.246 chars |
+| Schema JSON-LD | ⬜ pendente | execução separada, só sob pedido |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
 
@@ -134,3 +136,23 @@ serve para você, porque muda o deslocamento, não a mensalidade. O artigo
 responde a uma pergunta prática: onde você vai ser atendido, de fato, nesta
 cidade — e por que o guia médico que aparece primeiro no Google leva a
 endereços de Belo Horizonte.
+
+## Envio ao WordPress (2026-09-04)
+
+- **Post 39808**, slug `plano-hapvida-divinopolis`, **status draft** — não publicado.
+- Corpo enviado em 5 partes via `substituir_no_artigo`; o tamanho bateu exato em
+  todas as etapas (17.222 → 34.488 → 51.538 → 68.683 → **84.246**, igual ao
+  arquivo local). Amostragem confirmou `[divinopolis_menorvalor]` 8×,
+  `Rua Pedro Ferreira do Amaral, 33` 6×.
+- Meta title e meta description gravados no Rank Math; o ano vai por
+  `%currentyear%`.
+
+### Pendências antes de publicar
+
+1. **URL da imagem de abertura** — a `<figure>` da S1 está com `[URL_DA_IMAGEM]`.
+2. **Imagem da tabela** — não gerada: Divinópolis não está na fila do cotador e a
+   regra proíbe inventar valor para imagem.
+3. **Abrangência contratual por produto** — segue sem confirmação; o artigo trata
+   a região imediata como geografia, nunca como cobertura.
+4. **Schema JSON-LD** — execução separada, só sob pedido.
+5. **Registro no banco** — só após a publicação.
