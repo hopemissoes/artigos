@@ -367,3 +367,39 @@ O artigo já existe como id 196. Publicar exige:
 5. `registrar_atualizacao` da publicação.
 
 Rodar `registrar_artigo_novo` de novo criaria duplicata.
+
+## Correção: distância de 150 palavras nos 3 links de entrada (2026-09-04)
+
+**Erro meu.** Medi a distância entre links internos no artigo de Divinópolis e
+não medi nos três artigos que editei. Os três links que criei nasceram abaixo
+do piso de 150 palavras. O usuário apontou.
+
+| Artigo | Vão antes da correção | Depois | Onde o link foi parar |
+|---|---|---|---|
+| `plano-hapvida-uberaba` | **103** (de `plano-empresarial-hapvida`) | **342** | parágrafo "A Hapvida não comprou um hospital em Uberaba" — o do modelo de rede |
+| `plano-hapvida-uberlandia` | **42** (de `tabela-de-preco-hapvida`) | **573** | parágrafo do comparativo de mercado, sobre o modelo verticalizado |
+| `promed-plano-de-saude` | **8** (de `plano-hapvida-uberlandia`) | **646** | seção "a cobertura chega ao interior", onde o texto fala de atendimento fora de BH |
+
+Em cada um: a frase antiga foi revertida ao texto original e o link entrou de
+novo num parágrafo com espaço, escolhido pela medição, não pelo olho.
+
+O caso do Promed era o pior e o mais instrutivo: o link estava dentro de uma
+**lista de cidades**, a 8 palavras do link de Uberlândia. Lista de cidades
+nunca comporta link interno novo — os vizinhos já são links.
+
+### Violações que ficaram, e não são minhas
+
+Pré-existentes, encontradas na mesma medição. **Não mexi** — não foram pedidas:
+
+| Artigo | Par | Vão |
+|---|---|---|
+| `plano-hapvida-uberaba` | `plano-de-saude-hapvida-carencia` → `portabilidade-para-hapvida` | 58 |
+| `plano-hapvida-uberaba` | `portabilidade-para-hapvida` → `como-contratar-hapvida` | 54 |
+| `plano-hapvida-uberlandia` | `nosso-plano-hapvida` → `plano-empresarial-hapvida` | 45 |
+| `promed-plano-de-saude` | `plano-hapvida-belo-horizonte` → `plano-hapvida-uberlandia` | 35 |
+
+### Lição para a próxima
+
+Editar artigo alheio para inserir link exige medir a distância **no artigo de
+destino da edição**, não só no artigo novo. O script de medição está em
+`docs/` — rodar antes de gravar, não depois.
