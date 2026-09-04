@@ -269,3 +269,33 @@ Encontrados ao comparar o rascunho do WordPress com o arquivo local, não pedido
 **Nota de ambiente:** os módulos `HDATA_*.md` da skill `hapvida-data` moram em
 `/mnt/project/`, que não existe neste ambiente — só o resumo do `SKILL.md` está
 acessível aqui.
+
+## Título SEO com shortcode de preço (2026-09-04)
+
+Pedido: "o titulo seo precisa conter o shortcode de preço".
+
+| | valor |
+|---|---|
+| Antes | `Plano Hapvida Divinópolis: a rede própria no Padre Libério` (58 chars) |
+| Depois | `Plano Hapvida Divinópolis: Padre Libério a partir de [divinopolis_menorvalor]` (77 crus) |
+| Renderizado | ~62 caracteres, quando o shortcode virar o valor |
+
+Campo alterado: `rank_math_title` do post 39808 (o título do post, o H1 e a meta
+description ficaram como estavam).
+
+**Verificado antes de escrever, não presumido:** o shortcode renderiza mesmo no
+título SEO. `plano-hapvida-salvador2` tem
+`rank_math_title = "Plano Hapvida Salvador [ano_atual]: Rede e Promoções de [salvador_menorvalor]"`
+e a página no ar devolve
+`<title>Plano Hapvida Salvador 2026: Rede e Promoções de R$ 145,72</title>`.
+
+**Nota:** a fila do cotador (`cotador_fila`) tem só belo horizonte, fortaleza,
+goiania, recife e sao paulo — Divinópolis não está lá, e Salvador também não.
+A fila é o robô de coleta, não a fonte do shortcode; os dois assuntos são
+separados. A imagem da tabela continua pendente por outro motivo.
+
+**Por que este texto e não o padrão de Salvador:** "rede e preços de" passa no
+teste de substituição de cidade (serve para qualquer praça). "Padre Libério" é
+só de Divinópolis, então segura o D5 do anti-doorway e ainda cabe no espaço.
+
+`checkpoint_onpage` e `checkpoint_doorway_final` reaprovados com o título novo.
