@@ -1,0 +1,551 @@
+<title>Psicólogo Hapvida Frente a Frente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ground:#F4F6F5;
+    --surface:#FFFFFF;
+    --surface-2:#EDF1EF;
+    --ink:#141C1A;
+    --ink-2:#3B4A47;
+    --muted:#667874;
+    --rule:#D6DEDB;
+    --rule-soft:#E5EAE8;
+    --teal:#0B6355;
+    --teal-soft:#E2EFEB;
+    --clay:#9B5227;
+    --clay-soft:#F3E9E1;
+    --crit:#A32017;
+    --crit-soft:#F7E5E3;
+    --warn:#7A5600;
+    --warn-soft:#F6EEDA;
+    --ok:#2A5F30;
+    --ok-soft:#E4EEE2;
+    --shadow:0 1px 2px rgba(20,28,26,.05), 0 8px 24px -18px rgba(20,28,26,.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0F1413;
+      --surface:#171E1D;
+      --surface-2:#1E2726;
+      --ink:#E9EEEC;
+      --ink-2:#C2CECB;
+      --muted:#8B9C98;
+      --rule:#2C3836;
+      --rule-soft:#232D2C;
+      --teal:#61C4AE;
+      --teal-soft:#16302B;
+      --clay:#D9986A;
+      --clay-soft:#2E211A;
+      --crit:#F0938A;
+      --crit-soft:#331A18;
+      --warn:#D9B45C;
+      --warn-soft:#2C2413;
+      --ok:#87C58C;
+      --ok-soft:#1A2A1B;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0F1413;
+    --surface:#171E1D;
+    --surface-2:#1E2726;
+    --ink:#E9EEEC;
+    --ink-2:#C2CECB;
+    --muted:#8B9C98;
+    --rule:#2C3836;
+    --rule-soft:#232D2C;
+    --teal:#61C4AE;
+    --teal-soft:#16302B;
+    --clay:#D9986A;
+    --clay-soft:#2E211A;
+    --crit:#F0938A;
+    --crit-soft:#331A18;
+    --warn:#D9B45C;
+    --warn-soft:#2C2413;
+    --ok:#87C58C;
+    --ok-soft:#1A2A1B;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:40px 22px 90px}
+  @media (max-width:620px){ .wrap{padding:26px 16px 60px} }
+
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px;
+  }
+  h1{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600;font-size:clamp(30px,5.2vw,44px);line-height:1.12;
+    letter-spacing:-.015em;margin:0 0 14px;text-wrap:balance;
+  }
+  .dek{
+    font-family:"Newsreader", Georgia, serif;
+    font-size:clamp(17px,2.4vw,20px);line-height:1.5;color:var(--ink-2);
+    max-width:60ch;margin:0;
+  }
+  h2{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600;font-size:26px;line-height:1.2;letter-spacing:-.01em;
+    margin:0;text-wrap:balance;
+  }
+  h3{
+    font-family:"IBM Plex Sans",sans-serif;font-weight:600;font-size:15px;
+    margin:0;letter-spacing:.005em;
+  }
+  p{margin:0;max-width:68ch}
+
+  section{margin-top:52px}
+  .sec-head{
+    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+    padding-bottom:12px;border-bottom:1px solid var(--rule);margin-bottom:22px;
+  }
+  .sec-head .n{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--teal);
+    letter-spacing:.1em;
+  }
+  .stack{display:flex;flex-direction:column;gap:18px}
+  .stack-sm{display:flex;flex-direction:column;gap:10px}
+
+  /* ---- verdict ---- */
+  .verdict{
+    background:var(--surface);border:1px solid var(--rule);
+    border-left:4px solid var(--teal);
+    border-radius:3px;padding:22px 24px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .verdict p{font-size:17px;line-height:1.55}
+  .verdict strong{font-weight:600}
+  .scoreline{
+    display:flex;flex-wrap:wrap;gap:8px;
+    font-family:"IBM Plex Mono",monospace;font-size:12px;
+  }
+  .tag{
+    padding:3px 9px;border-radius:2px;letter-spacing:.03em;
+    border:1px solid transparent;white-space:nowrap;
+  }
+  .tag.win{background:var(--ok-soft);color:var(--ok);border-color:var(--ok)}
+  .tag.lose{background:var(--crit-soft);color:var(--crit);border-color:var(--crit)}
+  .tag.even{background:var(--surface-2);color:var(--muted);border-color:var(--rule)}
+
+  /* ---- table ---- */
+  .tablebox{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:600px;font-size:14.5px}
+  caption{
+    text-align:left;padding:14px 16px 0;color:var(--muted);
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+    letter-spacing:.1em;text-transform:uppercase;
+  }
+  th,td{padding:11px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule-soft)}
+  thead th{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--muted);font-weight:500;
+    border-bottom:1px solid var(--rule);white-space:nowrap;
+  }
+  thead th.mine{color:var(--teal)}
+  thead th.hers{color:var(--clay)}
+  tbody th{font-weight:500;color:var(--ink-2);white-space:nowrap}
+  tbody tr:last-child th, tbody tr:last-child td{border-bottom:none}
+  td.num{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace;font-size:13.5px}
+  .mark{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
+  .good{color:var(--ok);font-weight:500}
+  .bad{color:var(--crit);font-weight:500}
+
+  code{
+    font-family:"IBM Plex Mono",monospace;font-size:.88em;
+    background:var(--surface-2);padding:1px 5px;border-radius:2px;
+    color:var(--ink);word-break:break-word;
+  }
+
+  /* ---- defect rows ---- */
+  .defect{
+    background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+    display:grid;grid-template-columns:88px 1fr;gap:0;overflow:hidden;
+  }
+  @media (max-width:560px){ .defect{grid-template-columns:1fr} }
+  .sev{
+    display:flex;align-items:flex-start;justify-content:center;
+    padding:16px 10px;font-family:"IBM Plex Mono",monospace;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;font-weight:500;
+  }
+  @media (max-width:560px){ .sev{justify-content:flex-start;padding:12px 16px 0} }
+  .sev.c1{background:var(--crit-soft);color:var(--crit)}
+  .sev.c2{background:var(--warn-soft);color:var(--warn)}
+  .sev.c3{background:var(--surface-2);color:var(--muted)}
+  .sev.done{background:var(--ok-soft);color:var(--ok)}
+  .defect.resolvido h3{text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:var(--muted);color:var(--muted)}
+  .fixnote{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ok);
+    border-left:2px solid var(--ok);padding-left:11px;line-height:1.5;
+  }
+  .defect-body{padding:16px 18px;display:flex;flex-direction:column;gap:7px}
+  .defect-body p{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+  .evidence{
+    font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);
+    border-left:2px solid var(--rule);padding-left:11px;line-height:1.5;
+    word-break:break-word;
+  }
+
+  /* ---- fact check ---- */
+  .fact{
+    border:1px solid var(--rule);border-radius:3px;background:var(--surface);
+    padding:20px 22px;display:flex;flex-direction:column;gap:9px;
+  }
+  .fact .who{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.09em;
+    text-transform:uppercase;
+  }
+  .fact.mine-right{border-top:3px solid var(--ok)}
+  .fact.mine-right .who{color:var(--ok)}
+  .fact.both-right{border-top:3px solid var(--teal)}
+  .fact.both-right .who{color:var(--teal)}
+  .fact p{font-size:14.5px;color:var(--ink-2)}
+  .quote{
+    font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:15.5px;
+    color:var(--ink);border-left:2px solid var(--clay);padding-left:13px;
+    line-height:1.5;
+  }
+  .quote.self{border-left-color:var(--teal)}
+
+  /* ---- fix list ---- */
+  ol.fixes{margin:0;padding:0;list-style:none;counter-reset:fix;display:flex;flex-direction:column;gap:0}
+  ol.fixes li{
+    counter-increment:fix;display:grid;grid-template-columns:38px 1fr auto;
+    gap:14px;align-items:baseline;padding:13px 4px;border-bottom:1px solid var(--rule-soft);
+  }
+  ol.fixes li:last-child{border-bottom:none}
+  ol.fixes li::before{
+    content:counter(fix,decimal-leading-zero);
+    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--teal);
+  }
+  ol.fixes .what{font-size:15px;color:var(--ink)}
+  ol.fixes .where{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted);
+    white-space:nowrap;
+  }
+  @media (max-width:560px){
+    ol.fixes li{grid-template-columns:30px 1fr}
+    ol.fixes .where{grid-column:2;white-space:normal}
+  }
+
+  /* ---- two-up ---- */
+  .twoup{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:640px){ .twoup{grid-template-columns:1fr} }
+  .panel{
+    background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+    padding:18px 20px;display:flex;flex-direction:column;gap:11px;
+  }
+  .panel h3{padding-bottom:9px;border-bottom:1px solid var(--rule-soft)}
+  .panel.copy h3{color:var(--clay)}
+  .panel.keep h3{color:var(--teal)}
+  .panel ul{margin:0;padding-left:17px;display:flex;flex-direction:column;gap:8px}
+  .panel li{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+
+  footer{
+    margin-top:60px;padding-top:20px;border-top:1px solid var(--rule);
+    font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:8px;
+  }
+  footer a{color:var(--teal)}
+  footer .src{font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.7}
+  a:focus-visible, th:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+  @media (prefers-reduced-motion:no-preference){
+    .verdict{transition:none}
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Auditoria comparativa · medida em 08/09/2026 · 17 correções aplicadas no mesmo dia</p>
+    <h1>Psicólogo Hapvida frente a frente</h1>
+    <p class="dek">Sua página <code>/hapvida-cobre-psicologo/</code> contra a página <code>/psicologo-hapvida/</code> da Jocross (descontoplanodesaude.com.br), lidas hoje no HTML publicado.</p>
+  </header>
+
+  <section>
+    <div class="verdict">
+      <p><strong>Seu artigo ganha no conteúdo e está certo no fato que mais importa. Dos oito defeitos medidos na sua página, seis foram corrigidos e conferidos no ar hoje.</strong></p>
+      <p style="font-size:15px;color:var(--ink-2)">Ela erra o fato central (diz que não precisa de encaminhamento médico) e se contradiz no próprio FAQ. Você acerta esse ponto, tem 58% mais texto, tem preço e tem tabela. Restam duas frentes abertas: a página segue <em>sem nenhum schema</em> e <em>sem imagem no corpo</em> — é aí que ela ainda leva vantagem.</p>
+      <div class="scoreline">
+        <span class="tag win">Conteúdo: você</span>
+        <span class="tag win">Exatidão: você</span>
+        <span class="tag win">Preço e links: corrigidos</span>
+        <span class="tag lose">Schema: ela</span>
+        <span class="tag lose">E-E-A-T visível: ela</span>
+        <span class="tag lose">Imagem: ela</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">01</span><h2>O placar, linha por linha</h2></div>
+    <div class="tablebox">
+      <table>
+        <caption>Medido no HTML publicado em 08/09/2026</caption>
+        <thead>
+          <tr>
+            <th scope="col">Critério</th>
+            <th scope="col" class="mine">Você · tabelaplanos</th>
+            <th scope="col" class="hers">Ela · descontoplanodesaude</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">URL</th>
+            <td><code>/hapvida-cobre-psicologo/</code></td>
+            <td><code>/psicologo-hapvida/</code></td>
+          </tr>
+          <tr>
+            <th scope="row">Keyword do título</th>
+            <td>“Hapvida cobre psicólogo?” <span class="mark">(pergunta)</span></td>
+            <td>“Psicólogo Hapvida” <span class="mark">(termo-cabeça)</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Publicado em</th>
+            <td class="num">06/03/2026</td>
+            <td class="num">10/10/2025</td>
+          </tr>
+          <tr>
+            <th scope="row">Última edição</th>
+            <td class="num good">08/09/2026 · hoje</td>
+            <td class="num">04/09/2026 · há 4 dias</td>
+          </tr>
+          <tr>
+            <th scope="row">Palavras no corpo</th>
+            <td class="num good">4.623</td>
+            <td class="num">2.930 <span class="mark">(página inteira)</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Estrutura</th>
+            <td class="num">13 H2 · 15 H3</td>
+            <td class="num">19 H2 de conteúdo</td>
+          </tr>
+          <tr>
+            <th scope="row">Tabelas</th>
+            <td class="num good">3</td>
+            <td class="num">0</td>
+          </tr>
+          <tr>
+            <th scope="row">Imagens no conteúdo</th>
+            <td class="num bad">0</td>
+            <td class="num good">16 na página</td>
+          </tr>
+          <tr>
+            <th scope="row">Preço / coparticipação</th>
+            <td class="good">Sim — R$ 24,27 por sessão</td>
+            <td class="bad">Nenhum valor em toda a página</td>
+          </tr>
+          <tr>
+            <th scope="row">JSON-LD (schema)</th>
+            <td class="bad">Nenhum tipo encontrado</td>
+            <td class="good">WebPage, WebSite, BlogPosting, Person, ImageObject</td>
+          </tr>
+          <tr>
+            <th scope="row">Autor assinado</th>
+            <td class="bad">Não</td>
+            <td class="good">João Pinheiro (Jocross Corretora), com bio</td>
+          </tr>
+          <tr>
+            <th scope="row">FAQ</th>
+            <td class="num">19 perguntas <span class="mark">· sem FAQPage</span></td>
+            <td class="num">15 perguntas <span class="mark">· sem FAQPage</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Âncora “fonte oficial”</th>
+            <td class="num">2 links externos <span class="mark">(ANS, OMS)</span></td>
+            <td class="num good">4 blocos + seção “Sobre este guia”</td>
+          </tr>
+          <tr>
+            <th scope="row">Dado proprietário Hapvida</th>
+            <td class="good">Telepsicologia, Linhas de Cuidado, coparticipação, rede</td>
+            <td class="bad">Nenhum — só regra geral de ANS</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">02</span><h2>Conferência do fato que decide a página</h2></div>
+    <div class="stack">
+
+      <div class="fact both-right">
+        <span class="who">RN 541/2022 · os dois acertam</span>
+        <p>Os dois artigos citam a <strong>RN 541/2022</strong> como a norma que acabou com o limite de sessões. Está certo: publicada em 11/07/2022, em vigor desde 01/08/2022, revogou as Diretrizes de Utilização que limitavam sessões de psicólogo, fonoaudiólogo, terapeuta ocupacional e fisioterapeuta.</p>
+      </div>
+
+      <div class="fact mine-right">
+        <span class="who">Encaminhamento médico · você acerta, ela erra</span>
+        <p>Este é o ponto que separa as duas páginas, e é dinheiro e saúde do leitor.</p>
+        <p class="quote">“o psicólogo Hapvida tem acesso direto, bastando agendar a consulta pelo aplicativo, portal ou central de atendimento, <strong>sem necessidade de pedido médico</strong>.” — corpo da página dela</p>
+        <p class="quote">“Preciso de encaminhamento para consultar psicólogo? <strong>Não</strong>, psicologia é especialidade de acesso direto.” — FAQ dela</p>
+        <p>No mesmo FAQ, três linhas acima, ela escreve o contrário: <em>“a ANS eliminou o limite de sessões de psicoterapia, <strong>desde que indicadas pelo médico assistente</strong>”</em>. É uma contradição dentro da própria página.</p>
+        <p class="quote self">“(2) encaminhamento médico (clínico geral, psiquiatra ou outro especialista); (3) o encaminhamento deve conter o CID” — corpo da sua página</p>
+        <p>A ANS diz que o tratamento “deve ser autorizado conforme prescrição do profissional médico assistente”. Sua redação está alinhada com o texto oficial; a dela promete ao leitor um acesso que a operadora pode negar.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">03</span><h2>Defeitos medidos — e o que já saiu do ar</h2></div>
+    <div class="stack">
+
+      <div class="defect resolvido">
+        <div class="sev done">Corrigido</div>
+        <div class="defect-body">
+          <h3>Três shortcodes apareciam como texto cru no ar</h3>
+          <p>O leitor lia o código em vez do valor. Nos dois primeiros, o acento em “neurológicas” quebrava o shortcode. No terceiro, o do Elementor tinha acento (“templaté”) e aspas curvas — e era duplicata de um bloco correto logo acima, então foi removido.</p>
+          <p class="evidence">[demais_capitais_terapias_neurológicas] → [demais_capitais_terapias_neurologicas]<br>[sp_bh_terapias_neurológicas] → [sp_bh_terapias_neurologicas]<br>[elementor-templaté id=”11215″] × 2 → removidos</p>
+          <p class="fixnote">Conferido no ar: nenhum shortcode cru na página; R$ 78,87 renderiza na tabela.</p>
+        </div>
+      </div>
+
+      <div class="defect resolvido">
+        <div class="sev done">Corrigido</div>
+        <div class="defect-body">
+          <h3>Preço errado na meta description</h3>
+          <p>A descrição no Google prometia um valor menor do que a página entrega. Em vez de trocar por outro número fixo — que envelheceria igual —, o valor agora vem do mesmo shortcode do corpo, ligado ao banco.</p>
+          <p class="evidence">antes: “Coparticipação a partir de R$ 23/sessão […] Guia completo 2026”<br>agora: “coparticipação a partir de [demais_capitais_demais_terapias] por sessão […] em [ano_atual]”</p>
+          <p class="fixnote">Conferido no ar: a meta renderiza “R$ 24,27 por sessão […] em 2026”. O shortcode funciona no campo do Rank Math.</p>
+        </div>
+      </div>
+
+      <div class="defect resolvido">
+        <div class="sev done">Corrigido</div>
+        <div class="defect-body">
+          <h3>Um link interno morto no corpo</h3>
+          <p>Devolvia 404. Apontado para o destino vivo.</p>
+          <p class="evidence">/plano-de-saúde-hapvida-salvador/ (404) → /plano-hapvida-salvador2/</p>
+          <p class="fixnote">Conferido no ar: o destino novo está na página e a URL morta sumiu.</p>
+        </div>
+      </div>
+
+      <div class="defect resolvido">
+        <div class="sev done">Corrigido</div>
+        <div class="defect-body">
+          <h3>Cinco links internos passavam por redirecionamento 301</h3>
+          <p>Funcionavam, mas jogavam fora um pedaço da força do link. Cada um agora aponta direto ao destino final.</p>
+          <p class="evidence">
+            plano-de-saúde-hapvida-recife → plano-hapvida-recife<br>
+            plano-de-saúde-hapvida-fortaleza → plano-hapvida-fortaleza<br>
+            plano-de-saúde-hapvida-belo-horizonte → plano-hapvida-belo-horizonte<br>
+            plano-hapvida-sao-paulo → plano-hapvida-sao-paulo2<br>
+            hapvida-ou-unimed → hapvida-vs-unimed
+          </p>
+          <p class="fixnote">Conferido no ar: os seis destinos finais presentes; nenhum resto de slug antigo.</p>
+        </div>
+      </div>
+
+      <div class="defect resolvido">
+        <div class="sev done">Corrigido</div>
+        <div class="defect-body">
+          <h3>Sete erros de acentuação no texto publicado</h3>
+          <p>Do mesmo tipo de corrupção que quebrou os shortcodes. Numa página de saúde, derrubava a percepção de cuidado editorial. Um deles não era só acento: <em>“a cobertura e obrigatória é ilimitada”</em> virou <em>“a cobertura é obrigatória e ilimitada”</em>.</p>
+          <p class="evidence">“diagnósticara” · “principaís” · “éxiste” · “necessaria” · “faixas etarias” · “Peca a negativa” · “a cobertura e obrigatória”</p>
+          <p class="fixnote">Conferido no ar: as sete sumiram do texto.</p>
+        </div>
+      </div>
+
+      <div class="defect">
+        <div class="sev c1">Aberto</div>
+        <div class="defect-body">
+          <h3>Nenhum schema na página</h3>
+          <p>A busca por JSON-LD no HTML publicado não encontra nenhum tipo. Sem Article, sem FAQPage (com 19 perguntas prontas na página) e sem Person. A concorrente publica cinco tipos em todas as seis páginas, incluindo Person com bio do autor — e mesmo assim <strong>nenhuma delas tem FAQPage</strong>. É o buraco disponível.</p>
+        </div>
+      </div>
+
+      <div class="defect">
+        <div class="sev c2">Aberto</div>
+        <div class="defect-body">
+          <h3>Nenhuma imagem no conteúdo</h3>
+          <p>Zero <code>&lt;img&gt;</code> dentro do corpo do post. As três tabelas seguram a leitura, mas não há nada que renda impressão em Google Imagens — canal em que suas páginas de cidade já colhem milhares de impressões por mês.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">04</span><h2>O que falta</h2></div>
+    <p style="margin-bottom:18px;color:var(--ink-2);font-size:15px">As 17 edições de texto, link e metadado foram aplicadas em 08/09/2026 e conferidas no HTML publicado. Sobraram duas frentes, as duas maiores.</p>
+    <ol class="fixes">
+      <li><span class="what">Publicar o schema: Article + FAQPage (19 perguntas) + Person da DRV</span><span class="where">execução separada</span></li>
+      <li><span class="what">Inserir a imagem da tabela de coparticipação de psicologia, com alt e legenda</span><span class="where">corpo do post 36525</span></li>
+      <li><span class="what">Registrar a alteração no histórico do banco</span><span class="where">registrar_atualizacao</span></li>
+      <li><span class="what">Corrigir o laço de redirecionamento de /rede-psiquiatrica-hapvida/</span><span class="where">Rank Math</span></li>
+      <li><span class="what">Acertar no banco a URL do id 71 e o status do id 86 (404 marcado como publicado)</span><span class="where">Supabase</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">05</span><h2>O que copiar dela — e o que não</h2></div>
+    <div class="twoup">
+      <div class="panel copy">
+        <h3>Vale copiar</h3>
+        <ul>
+          <li><strong>Autor assinado com bio e Person schema, em série.</strong> As seis páginas dela carregam o mesmo Person “João Pinheiro” ligado a Organization. Você tem a DRV com 11 anos e certificação Safira e não assina a página.</li>
+          <li><strong>Quatro blocos “🔗 Fonte oficial”</strong> ancorados na Lei 9.656/98 e na ANS, espalhados pelo corpo. Você tem só dois links externos, ambos no começo.</li>
+          <li><strong>Bloco “Sobre este guia”</strong> declarando em que norma o texto se baseia.</li>
+          <li><strong>Cadência de edição.</strong> As seis páginas dela foram reeditadas entre 04 e 05/09/2026 — passada em lote, não página a página.</li>
+        </ul>
+      </div>
+      <div class="panel keep">
+        <h3>Não copiar</h3>
+        <ul>
+          <li><strong>A repetição de “psicólogo Hapvida”.</strong> O termo aparece em quase todo parágrafo — leitura travada e risco de excesso de keyword.</li>
+          <li><strong>A promessa de acesso sem encaminhamento.</strong> É o erro de fato dela, e contradiz o próprio FAQ da página.</li>
+          <li><strong>A ausência de preço.</strong> Ela não dá um único valor. Sua coparticipação por sessão é sua maior vantagem de conteúdo — reforce, não abandone.</li>
+          <li><strong>Zero tabela.</strong> Toda a comparação dela é em prosa.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="n">06</span><h2>Achados vizinhos, fora do que você pediu</h2></div>
+    <div class="stack-sm">
+      <div class="defect">
+        <div class="sev c2">Alto</div>
+        <div class="defect-body">
+          <h3><code>/rede-psiquiatrica-hapvida/</code> está em laço de redirecionamento</h3>
+          <p>Responde 301 apontando para ela mesma, com <code>x-redirect-by: Rank Math</code>. A página não abre.</p>
+        </div>
+      </div>
+      <div class="defect">
+        <div class="sev c3">Médio</div>
+        <div class="defect-body">
+          <h3>Duas inconsistências entre banco e site</h3>
+          <p><code>/cobertura-psicologia-hapvida/</code> devolve 404, mas o banco (id 86) marca o artigo como “publicado”. E o banco registra o id 71 na URL <code>/cobertura/hapvida-cobre-psicologo/</code>, que hoje é apenas um 301 para a URL real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Como cada dado foi obtido.</strong> Nada aqui saiu de memória ou de ficha de cadastro.</p>
+    <p class="src">
+      página da concorrente — lida inteira em 08/09/2026 via workflow n8n (rota 2 do CI-1 sem egresso), porque curl e WebFetch estão bloqueados nesta sessão<br>
+      sua página — HTML no ar lido em 08/09/2026 pelo mesmo workflow; corpo e metas lidos no WordPress (post 36525)<br>
+      status dos links — 7 URLs medidas sem seguir redirecionamento, 08/09/2026<br>
+      R$ 24,27 e R$ 78,87 — <code>consultar_coparticipacao</code> no Supabase, região “demais_capitais”<br>
+      nome certo dos shortcodes — lidos no corpo do pillar de coparticipação (post 22798), onde renderizam<br>
+      schema das 6 páginas dela — blocos <code>ld+json</code> lidos e parseados em 08/09/2026<br>
+      as 17 correções — simuladas com <code>apply: false</code>, gravadas uma a uma, e o resultado relido no HTML no ar<br>
+      RN 541/2022 — texto na Biblioteca Virtual em Saúde do Ministério da Saúde e comunicado da ANS
+    </p>
+  </footer>
+
+</div>
