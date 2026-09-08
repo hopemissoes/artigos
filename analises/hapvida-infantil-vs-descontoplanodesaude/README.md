@@ -1,31 +1,42 @@
-# Comparativo — plano infantil Hapvida (08/09/2026)
+# Análise de construção — página infantil do concorrente (08/09/2026)
 
 Concorrente: `descontoplanodesaude.com.br/plano-hapvida-infantil/` (nota 14 do banco).
-Minhas páginas: `/plano-de-saude-hapvida-infantil/` e `/como-incluir-dependentes-no-seu-plano-hapvida/`.
+Minha página: `/plano-de-saude-hapvida-infantil/`.
 
-**Veredito:** a minha ganha onde importa. Na SERP de "plano hapvida infantil"
-(Brasil, celular, 08/09/2026, DataForSeo serp_local depth 20) a minha página é a
-2ª orgânica — 1ª que não é da própria Hapvida. O concorrente não aparece até a
-16ª orgânica. Ele tem 4.692 palavras e 27 H2 contra 2.711 e 7 H2 da minha, mas
-não publica nenhum valor em R$; a minha tem tabela de preço de 4 cidades e o
-Google destaca "a partir de R$ 71,98" no trecho.
+**Eixo:** duas escolas. Ela faz página-monólito (27 H2, cobertura de toda a jornada,
+linguagem sem afirmação absoluta). Eu faço nó de cluster (7 H2, tema profundo
+delegado a hub, dado exato).
 
-**Duas páginas, sem canibalização:** no GSC (01/08–06/09/2026) os conjuntos de
-consulta não se cruzam — a infantil pega "valor do plano da hapvida infantil"
-(pos. 2,8) e a de dependentes pega "hapvida adicionar dependente" (pos. 2,1).
-Manter separadas.
+**Técnicas dela, medidas no HTML:** bloco padronizado (H2 + linha-resumo + 3
+parágrafos); 27 H2 / 15 H3 cobrindo cauda longa (viagem, sazonalidade, gêmeos,
+erros comuns); FAQ de 15 perguntas com resposta de 1-2 frases; 3 caixas "Fonte
+oficial" com link para Lei 9.656/98 e ANS; faixa de 4 números citáveis; hospitais
+pediátricos nomeados; bloco de autor + "Sobre este guia"; 36 "costuma" (blindagem
+YMYL); keyword exata 33x, 19 em negrito; preço em faixa aproximada (4 referências,
+sem tabela).
 
-**Lacunas de conteúdo dele que a minha não cobre:** tabela de carência infantil,
-hospitais pediátricos nomeados, seções por faixa etária/adolescente,
-odontopediatria, comparação com outras operadoras, bloco de autor visível.
+**Minha página:** 19 valores exatos em R$, 4 cidades, Art. 12 da Lei 9.656/98,
+RN 566/2022, ANS 359017, 27 links internos, FAQPage + 5 tipos de schema.
 
-**Reparos na minha:** dois links internos para URL antiga
-(`/hapvida-rede-pediatrica-2025/` → `/hapvida-rede-pediatrica/`;
-`/plano-hapvida-sao-paulo/` → `/plano-hapvida-sao-paulo2/`) e ausência de schema
-na página de dependentes (há 6 FAQs prontas no banco).
+**A copiar:** linha-resumo sob cada H2; nomear hospitais pediátricos (tenho página
+própria de vários); caixa de fonte oficial com link externo; ampliar FAQ para a
+cauda dela; bloco de autor e declaração de fontes. **Não copiar:** keyword em
+negrito 19x; e nenhuma das seções cujo tema tem hub próprio.
+
+**Sete menções sem link na minha página** (destinos existentes e subutilizados):
+teleconsulta-hapvida, aplicativo-hapvida, plano-odontologico-hapvida,
+hapvida-cobre-fisioterapia, hapvida-cobre-psicologo, convenio-medico-para-mei,
+hospital-mandacaru-hapvida-recife. Hubs de carência (53), coparticipação (59) e
+contratar (27) estão SATURADOS — não linkar mais.
+
+## Correções de afirmações anteriores desta sessão
+
+1. "A página dela não traz nenhum valor em R$" — FALSO. Traz R$ 150-160
+   (individual) e ~R$ 100 (empresarial). O teste rodou sobre um recorte de 9.000
+   caracteres e a seção de preço estava fora dele.
+2. "Falta tabela de carência na minha página" — não é lacuna: a página linka o hub
+   `/plano-de-saude-hapvida-carencia/`. É o anti-doorway funcionando.
 
 Documento visual: `comparativo.html`.
-Dados brutos da leitura on-page: `dados/extracao-onpage-2026-09-08.jsonl`.
-
-CI-1: rota 2 (workflow n8n `NUUZmP5y4AtFb2jL`), porque WebFetch e curl seguem
-bloqueados para site externo neste ambiente.
+Textos completos das duas páginas: `dados/*.md`. Extração on-page: `dados/*.jsonl`.
+CI-1: rota 2 (workflow n8n `NUUZmP5y4AtFb2jL`) — egress externo bloqueado.
