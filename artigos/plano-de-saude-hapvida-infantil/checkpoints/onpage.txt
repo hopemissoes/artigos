@@ -1,0 +1,15 @@
+==============================================================
+CHECKPOINT ON-PAGE [V5] — matriz de posicionamento de keywords
+==============================================================
+Principal: plano de saúde hapvida infantil
+Secundárias (6): valor do plano da hapvida infantil; hapvida infantil; plano de saúde infantil hapvida; plano de saude infantil sem carencia; melhor plano de saude infantil; plano hapvida para criança
+--------------------------------------------------------------
+  ✅ Principal no 1º parágrafo do corpo ✔
+  ✅ Principal em 2 H2 ✔ (ex.: "O que é o plano de saúde Hapvida infantil e quem pode contratar")
+  ✅ Secundárias em 5 H2 ✔ (mín. 2)
+  ✅ Principal no H1 ✔
+  ✅ Principal no Title SEO ✔
+  ✅ Principal no URL/slug ✔
+  ✅ Principal no Meta description ✔
+--------------------------------------------------------------
+✅ APROVADO

@@ -1,0 +1,90 @@
+### checkpoint_paragrafos
+CHECKPOINT — TAMANHO DE PARÁGRAFO (artigo.html)
+===========================================================================
+Total <p> de corpo: 39
+  ✅ Aprovados (≤380 chars):     39
+  ⚠️  No limite (381-480 chars): 0
+  ❌ Reprovados (>480 chars):     0
+
+✅ CHECKPOINT APROVADO — bloco pode ser apresentado ao usuário.
+
+### checkpoint_ritmo_visual
+CHECKPOINT — RITMO VISUAL (artigo.html)
+===========================================================================
+Total de seções analisadas: 11
+  ✅ Aprovadas (≤3 P consecutivos):       11
+  ⚠️  Em aviso (4 P consecutivos):         0
+  ❌ Reprovadas (≥5 P consecutivos):      0
+
+✅ CHECKPOINT APROVADO — ritmo visual OK em todas as seções.
+
+### checkpoint_citabilidade
+  ✅ Abertura citável (faixa ideal):  7
+  ⚠️  Aceitável / atenção:            3
+  ❌ Reprovadas:                      0
+Links externos de fonte (rel=nofollow): 3
+Seções com abertura SEM número-âncora: 4 (considere ancorar com um dado da cidade/hospital)
+
+⚠️  ATENÇÃO (3):
+   • Quanto custa o plano Hapvida infantil — 39 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • O que é o plano de saúde Hapvida infantil e quem pode contra — 65 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+   • O que a Hapvida vende para crianças — 34 palavras na abertura — fora da faixa ideal 40-60 (aceitável)
+
+✅ CHECKPOINT DE CITABILIDADE APROVADO (heurístico/direcional).
+   Confirme manualmente que cada abertura é específica da cidade — o script
+   mede forma, não unicidade. Anti-doorway continua sendo julgamento humano.
+
+### checkpoint_voz --rigor alto
+====================================================================
+
+🔴 nenhum tique bloqueante.
+
+🟡 nenhum aviso de densidade.
+
+--------------------------------------------------------------------
+Lembrete da regra-mãe: mexer em palavra e ritmo, NUNCA em fato.
+Se limpar o tique custar precisão, o tique fica e o editor anota o porquê.
+--------------------------------------------------------------------
+
+✅ APROVADO
+
+### checkpoint_completude
+Checkpoint COMPLETUDE (city) — artigo.html
+--------------------------------------------------------
+  [OK   ] Secoes (<h2>): 10 (min. 8)
+  [OK   ] Perguntas de FAQ: 16 (min. 12)
+  [OK   ] Palavras de corpo: 3415 (min. 1200)
+  [OK   ] Dica DRV (E-E-A-T): sim
+  [OK   ] Secao de rede: sim
+  [OK   ] Faixas 'Fonte oficial' (class=fonte-oficial): 2 (min. 1)
+  [OK   ] Caixa 'Sobre este guia' (class=guia-box): 1 (exatamente 1)
+--------------------------------------------------------
+✅ APROVADO — piso de completude/profundidade atingido.
+   (Lembrete: piso de TAMANHO/ESTRUTURA. Rede COMPLETA vs catalogo do banco
+    e qualidade do conteudo continuam sendo Agente 2 / editor-chefe / juizes.)
+
+### checkpoint_verificar
+Checkpoint VERIFICAR — artigo.html
+--------------------------------------------------------
+--------------------------------------------------------
+✅ APROVADO — nenhum dado [VERIFICAR]/perigoso afirmado no texto.
+   (Lembrete: trava mecanica. Nuance de 'unidade opera hoje' continua
+    sendo julgamento do editor-chefe / Agente 12 veracidade.)
+
+### checkpoint_preco_primeiro (exceção registrada — opção A)
+   - lead-heroi na posicao 0; maior <p> dentro dele: 59 palavras
+
+[Regra 1 — tabela primeiro]
+   - NENHUMA tabela de preco encontrada
+
+[Regra 2 — H2 de preco na frente]
+   - ok: o primeiro H2 de conteudo e de preco ("quanto custa o plano hapvida infantil")
+
+[Formulario — v7.5: colado na tabela, antes do sumario]
+   - ok: id="cotacao-1" colado na tabela, a 7% do arquivo
+
+------------------------------------------------------------------------
+   ERRO: Nenhum shortcode/imagem de TABELA de preco encontrado no artigo.
+------------------------------------------------------------------------
+
+❌ REPROVADO — 1 erro(s), 0 aviso(s).

@@ -1,0 +1,37 @@
+======================================================================
+VARREDURA FINAL ANTI-DOORWAY [V7.2] — artigos/plano-de-saude-hapvida-infantil/artigo.html
+tipo: pillar | cidade: infantil | ancoras carregadas: 20 | irmaos: 3
+======================================================================
+
+D1 · TESTE DE SUBSTITUICAO
+   texto visivel julgado: 2660 palavras
+   em paragrafos SEM ancora local: 11.8%
+   - <p> nao e um produto separado e a faixa etaria mais barata da tabela...
+   - <p> cada cidade tem tabela propria ligada ao custo da rede local e a variavel que mais pesa e...
+   - <p> ambulatorial ou nosso plano a diferenca entre os dois e internacao e cirurgia e ela aparece na mensalidade...
+   - <p> total ou parcial muda a mensalidade e muda o quanto se paga por consulta e exame ao longo...
+   - <p> compare sempre a mesma coluna entre cidades nunca colunas diferentes um ambulatorial com coparticipacao total em uma praca...
+   - <p> sintoma que aparece de madrugada nem sempre exige sair de casa o atendimento por video funciona 24 horas...
+   - <p> a regra que mais gera duvida e mais custa caro quando passa despercebida...
+   - <p> o ponto que decide quase todos os casos e geografico o modelo da operadora entrega custo baixo porque...
+   (+3 paragrafos genericos)
+
+D2 · SECAO SEM ANCORA LOCAL
+   nenhuma — toda secao tem ancora local
+
+D3 · CLICHE DE OPERADORA / REGULATORIO
+   nenhum da lista
+
+D4 · SOBREPOSICAO COM ARTIGOS IRMAOS
+   - como-incluir-dependentes-no-seu-plano-   0.0% de shingles | maior trecho identico: 0 palavras
+   - plano-de-saude-para-recem-nascido.html   0.0% de shingles | maior trecho identico: 0 palavras
+   - hapvida-rede-pediatrica.html             0.0% de shingles | maior trecho identico: 0 palavras
+
+D5 · TITULO E META NO TESTE DE SUBSTITUICAO
+   pulado (artigo nao-geografico)
+
+----------------------------------------------------------------------
+
+✅ APROVADO — nenhuma medida de doorway estourou o limite.
+   Lembrete: o script mede repeticao e ausencia de ancora. A consulta
+   ao banco (overlaps, FAQs, saturacao) continua sendo do Agente 21.

@@ -405,3 +405,25 @@ coletado_em: 2026-09-07  # gsc (janela 11/08 a 07/09/2026)
 18 anos o preço é o mesmo; o que faz a mensalidade dobrar é a cidade, a acomodação e a
 coparticipação. O guia mostra o número de cada combinação, diz quanto custa usar e admite
 para quem não compensa.
+
+---
+
+## EXCEÇÃO REGISTRADA — checkpoint_preco_primeiro (Regra 1)
+
+- **Data:** 08/09/2026
+- **Trava:** `checkpoint_preco_primeiro.py` → `ERRO: Nenhum shortcode/imagem de TABELA de preço encontrado`.
+- **Por que reprova:** o script classifica shortcode com sufixo `_0`
+  (`RE_SHORTCODE_PONTUAL`) como **valor pontual**, não como tabela. A tabela de
+  4 cidades desta página é montada com **16 shortcodes pontuais**
+  (`[cidade_emp_<produto>_0]`) dentro de um `<table>` HTML. A trava, portanto,
+  não enxerga a tabela — não é falso positivo do conteúdo, é o critério do script.
+- **Decisão do usuário (opção A):** **manter a tabela de 4 cidades como está.**
+  Ela é a tabela que já roda no site, alimentada pelos shortcodes vivos; trocar
+  por um shortcode de tabela agregada exigiria criar um novo shortcode no
+  WordPress e perderia a comparação entre praças, que é o eixo do artigo.
+- **Consequência aceita:** `checkpoint_preco_primeiro` fica **vermelho por desenho**
+  neste artigo. As outras regras do mesmo script estão verdes:
+  Regra 0 (lead-herói na posição 0), Regra 2 (primeiro H2 de conteúdo é de preço),
+  Formulário (`id="cotacao-1"` colado na tabela, a 7% do arquivo).
+- **Quem revisar não deve "consertar"** removendo a tabela: a exceção é decisão
+  editorial registrada, não pendência.

@@ -11,14 +11,20 @@
 - **Skill em uso:** hapvida-article-builder-v7
 - **Aberto em:** 2026-09-08
 - **URL de destino:** https://tabelaplanos.com.br/plano-de-saude-hapvida-infantil/ (MANTER — sem 301)
-- **Keyword principal:** plano hapvida infantil (a decidir no DR2: "valor do plano da hapvida infantil" é a de maior clique)
+- **Keyword principal:** plano de saúde hapvida infantil (140/mês, KD 2) — o campo de marca soma ~860/mês
+- **Title SEO proposto:** Plano de Saúde Hapvida Infantil: Valores 2026 por Cidade
+- **H1 proposto:** Plano de saúde Hapvida infantil: quanto custa e o que cobre
+- **Meta proposta:** Veja o valor do plano de saúde Hapvida infantil em 2026, faixa 0 a 18 anos, o que cada modalidade cobre e as regras de carência do bebê.
 
 ## Fase atual
 
-- **Fase:** FASE 0 concluída (DR1+DR2) → **aguardando o PORTÃO HUMANO** para liberar o Bloco A
-- **Próximo passo concreto:** o usuário aprovar (ou corrigir) o state file. Aprovado,
-  entra o Bloco A na ordem v7.5: lead-herói → H2 de preço + tabela → formulário → sumário
-- **Bloqueios:** nenhum bloqueio técnico; falta só a aprovação humana do state file
+- **Fase:** artigo escrito. Blocos A+B+C prontos e concatenados em `artigo.html`
+  (3.415 palavras · 10 H2 · 16 FAQ). Toda a bateria mecânica verde, com uma
+  exceção registrada por escrito (`checkpoint_preco_primeiro`, opção A).
+- **Próximo passo concreto:** 🚦 **PORTÃO HUMANO** — o usuário lê `artigo.html` e
+  aprova ou corrige. Nada é publicado no WordPress nem registrado no Supabase
+  antes disso, e só a pedido expresso.
+- **Bloqueios:** nenhum bloqueio técnico. Falta a aprovação humana do artigo.
 
 ## DECISÃO DE ARQUITETURA (2026-09-08) — duas páginas, não uma
 
@@ -70,15 +76,21 @@ impressões · pos. 4,9 em 28 dias) — não é caso de trocar o eixo. Campo gen
 |---|---|---|
 | CI-1 — concorrente lido (`checkpoint_ci1.py`) | ✅ aprovado | `checkpoints/ci1.txt` — 3 lidos (desconto 43 headings · tabelasaude 22 · joov 7), rota n8n |
 | FASE 0 (`checkpoint_fase0.py`) | ✅ aprovado | `checkpoints/fase0.txt` — 25 FAQ · 8 secundárias · 7 dados nível 1-2 · 9 fan-out |
-| Aprovação humana do state file | ⬜ pendente | |
+| Aprovação humana do state file | ✅ aprovado | usuário: "sim, siga" (08/09) |
 | Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` — 0 seção órfã · 8% FAQ sem âncora · ganho nível 1 |
-| Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
-| Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | |
-| Voz humana (`checkpoint_voz.py`) | ⬜ pendente | |
-| Completude (`checkpoint_completude.py`) | ⬜ pendente | |
-| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ⬜ pendente | |
-| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ⬜ pendente | |
-| Registro no banco Supabase | ⬜ pendente | |
+| Tamanho de parágrafo (`checkpoint_paragrafos.py`) | ✅ aprovado | `checkpoints/artigo-completo.txt` — 39 `<p>`, nenhum >380 chars |
+| Ritmo visual (`checkpoint_ritmo_visual.py`) | ✅ aprovado | 11 seções, nenhuma com 4+ `<p>` seguidos |
+| Citabilidade GEO/AEO (`checkpoint_citabilidade.py`) | ✅ aprovado | 7 aberturas na faixa ideal, 3 aceitáveis, 0 reprovadas |
+| Kit on-page (`checkpoint_onpage.py`) | ✅ aprovado | `checkpoints/onpage.txt` — principal em H1/title/URL/meta/1º parágrafo/2 H2; secundárias em 5 H2 |
+| Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | 🟡 exceção registrada | Regras 0, 2 e formulário ✅. Regra 1 vermelha por desenho: a tabela é feita de 16 shortcodes `_0` (pontuais), que o script não conta como tabela. Decisão do usuário (opção A) documentada no state file |
+| Voz humana (`checkpoint_voz.py --rigor alto`) | ✅ aprovado | 3.351 palavras · nenhum tique bloqueante · nenhum aviso de densidade |
+| Completude (`checkpoint_completude.py`) | ✅ aprovado | 10 H2 · 16 FAQ · 3.415 palavras · 2 fontes oficiais · 1 guia-box · Dica DRV · seção de rede |
+| `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ✅ aprovado | nenhum dado marcado afirmado no texto |
+| Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ✅ aprovado | `checkpoints/doorway-final.txt` — D1 11,8% (limite 45%) · D2 nenhuma seção sem âncora · D4 0,0% de sobreposição com os 3 irmãos |
+| 🚦 **PORTÃO HUMANO — aprovação do artigo** | ⬜ **pendente** | nada vai ao ar sem isto |
+| Imagem da tabela de preço | ⬜ pendente | precisa dos 10 valores de faixa etária; `<figure>` da tabela foi removida do artigo |
+| Schema JSON-LD | ⬜ pendente | execução separada, só quando o usuário pedir |
+| Registro no banco Supabase | ⬜ pendente | só após publicação, e só a pedido |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
 
@@ -86,12 +98,38 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
 
 <!-- uma linha por decisão, com data. Serve para a próxima sessão não reabrir. -->
 - 2026-09-08 — pasta criada, tipo pillar.
+- 2026-09-08 — **URL mantida**, sem 301: a página é #2 orgânica nas duas head
+  keywords e fonte #1 do AI Overview de "valor do plano da hapvida infantil";
+  tem 8 links internos apontando para ela. Detalhe em `FASE-P0.md`.
+- 2026-09-08 — **eixo mantido no campo de marca** (~860 buscas/mês). As
+  secundárias genéricas ("plano de saude infantil valores" 880, "individual" 590)
+  saem deste kit: 5 dos 9 primeiros orgânicos delas são multimarca. Medição em
+  `DECISAO-ARQUITETURA.html`. O artigo multimarca ficou fora de escopo a pedido
+  do usuário ("esqueça a multimarca").
+- 2026-09-08 — **opção A: tabela de 4 cidades mantida**, com a exceção do
+  `checkpoint_preco_primeiro` registrada por escrito no state file.
+- 2026-09-08 — link para odontológico corrigido para a **URL canônica**
+  `/plano-odonto-hapvida/` (a URL antiga responde 200 mas canonicaliza para essa).
+- 2026-09-08 — **bug da skill corrigido no artigo**: o `<style>` obrigatório traz
+  `.v5-hero-conv>p{display:none!important}`, que esconderia o parágrafo citável
+  do lead-herói da v7.4. Trocado por `display:block!important` e retirado da lista
+  anti-wpautop.
+- 2026-09-08 — anti-doorway de pillar é medido **por produto**, não por cidade:
+  `checkpoints/ancoras-produto.txt` (20 âncoras: infantil, criança, bebê,
+  pediatra, faixa 0 a 18...). Com âncora de cidade o script reprova por desenho.
 
 ## Dados que faltam
 
-<!-- o que ficou como [VERIFICAR] ou nao_encontrado, e onde procurar -->
+- **Imagem da tabela de preço** — `gerar_imagem_artigo.py` precisa dos 10 valores
+  por faixa etária. A `<figure>` que a referenciava foi removida do artigo porque
+  o arquivo `Tabela-Hapvida-Infantil-*.png` não existe no site (só existe
+  `img-plano-hapvida-infantil.webp`, que segue no artigo como imagem de abertura).
+- **Nada marcado `[VERIFICAR]`** no corpo: `checkpoint_verificar` está verde.
 
 ## Fio condutor
 
-<!-- 2-3 linhas: a voz e o ângulo único deste artigo (Agente 5). Todos os blocos
-     honram isto. Preencher ao fim da FASE 0. -->
+A criança não tem plano próprio: ela é a faixa mais barata da mesma tabela do
+adulto. O que decide o preço dela não é a idade — é a **praça** e a **coluna**
+(ambulatorial ou Nosso Plano, coparticipação total ou parcial). O artigo mostra
+a mesma criança custando valores diferentes em quatro cidades e ensina a
+comparar coluna com coluna, não cidade com cidade.
