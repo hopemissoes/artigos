@@ -427,3 +427,20 @@ para quem não compensa.
   Formulário (`id="cotacao-1"` colado na tabela, a 7% do arquivo).
 - **Quem revisar não deve "consertar"** removendo a tabela: a exceção é decisão
   editorial registrada, não pendência.
+
+### Adendo (08/09/2026) — a exceção é PERMANENTE
+
+Decisão do usuário, em duas frases: **"os valores serão somente dessa tabela
+aqui mesmo"** e **"a outra imagem não precisa existir, apenas uma, a que já
+fizemos"**.
+
+Consequências, para quem revisar depois:
+
+1. Não existe, e não vai existir, **imagem da tabela de preço** neste artigo.
+   A única imagem é a de abertura (`img-plano-hapvida-infantil.webp`), dentro
+   da primeira seção CORE, com `alt`, `title` e `figcaption` próprios.
+2. Não existe tabela de **10 faixas etárias** a levantar. O preço da página vem
+   dos **16 shortcodes** `[cidade_emp_<produto>_0]` da tabela de 4 cidades.
+3. Portanto o `checkpoint_preco_primeiro` fica vermelho na Regra 1 **para
+   sempre** neste artigo — não é pendência, não é contorno temporário, e não
+   deve ser "resolvido" por ninguém em sessão futura.

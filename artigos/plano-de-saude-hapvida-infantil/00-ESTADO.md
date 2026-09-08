@@ -88,7 +88,7 @@ impressões · pos. 4,9 em 28 dias) — não é caso de trocar o eixo. Campo gen
 | `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ✅ aprovado | nenhum dado marcado afirmado no texto |
 | Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ✅ aprovado | `checkpoints/doorway-final.txt` — D1 11,8% (limite 45%) · D2 nenhuma seção sem âncora · D4 0,0% de sobreposição com os 3 irmãos |
 | 🚦 **PORTÃO HUMANO — aprovação do artigo** | ⬜ **pendente** | nada vai ao ar sem isto |
-| Imagem da tabela de preço | ⬜ pendente | precisa dos 10 valores de faixa etária; `<figure>` da tabela foi removida do artigo |
+| Imagem da tabela de preço | ❌ **não se aplica** | decisão do usuário (08/09): o artigo tem **uma imagem só**, a de abertura. Não existe imagem de tabela, e os valores saem **apenas dos shortcodes da tabela de 4 cidades** |
 | Schema JSON-LD | ⬜ pendente | execução separada, só quando o usuário pedir |
 | Registro no banco Supabase | ⬜ pendente | só após publicação, e só a pedido |
 
@@ -120,11 +120,14 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
 
 ## Dados que faltam
 
-- **Imagem da tabela de preço** — `gerar_imagem_artigo.py` precisa dos 10 valores
-  por faixa etária. A `<figure>` que a referenciava foi removida do artigo porque
-  o arquivo `Tabela-Hapvida-Infantil-*.png` não existe no site (só existe
-  `img-plano-hapvida-infantil.webp`, que segue no artigo como imagem de abertura).
-- **Nada marcado `[VERIFICAR]`** no corpo: `checkpoint_verificar` está verde.
+- **Nada.** A `<figure>` da tabela de preço foi encerrada por decisão do usuário
+  (08/09): o artigo tem **uma imagem só**, a de abertura
+  (`img-plano-hapvida-infantil.webp`, com `alt`, `title` e `figcaption`).
+- Os **valores de preço saem exclusivamente dos 16 shortcodes** da tabela de
+  4 cidades. Não há tabela de 10 faixas etárias a levantar, nem shortcode de
+  tabela agregada a criar. Isso torna a exceção do `checkpoint_preco_primeiro`
+  **permanente**, não um contorno temporário.
+- `checkpoint_verificar` verde: nada marcado `[VERIFICAR]` no corpo.
 
 ## Fio condutor
 
