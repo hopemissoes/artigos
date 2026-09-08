@@ -1,0 +1,26 @@
+========================================================================
+CHECKPOINT PRECO-PRIMEIRO [V7.5] — artigos/plano-de-saude-hapvida-infantil/blocos/bloco-a.html (tipo: pillar)
+========================================================================
+
+[H2 encontrados: 3 | de preco: 1 | de outros assuntos: 2]
+   PRECO    6%  quanto custa o plano hapvida infantil
+           73%  o que e o plano de saude hapvida infantil e quem pode contratar
+           87%  o que a hapvida vende para criancas
+
+[Regra 0 — lead-heroi (v7.4)]
+   - lead-heroi na posicao 0; maior <p> dentro dele: 59 palavras
+
+[Regra 1 — tabela primeiro]
+   - NENHUMA tabela de preco encontrada
+
+[Regra 2 — H2 de preco na frente]
+   - ok: o primeiro H2 de conteudo e de preco ("quanto custa o plano hapvida infantil")
+
+[Formulario — v7.5: colado na tabela, antes do sumario]
+   - ok: id="cotacao-1" colado na tabela, a 19% do arquivo
+
+------------------------------------------------------------------------
+   ERRO: Nenhum shortcode/imagem de TABELA de preco encontrado no artigo.
+------------------------------------------------------------------------
+
+❌ REPROVADO — 1 erro(s), 0 aviso(s).
