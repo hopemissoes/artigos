@@ -20,6 +20,22 @@
   entra o Bloco A na ordem v7.5: lead-herói → H2 de preço + tabela → formulário → sumário
 - **Bloqueios:** nenhum bloqueio técnico; falta só a aprovação humana do state file
 
+## DECISÃO DE ARQUITETURA (2026-09-08) — duas páginas, não uma
+
+O usuário propôs separar marca × genérico. **Medido e confirmado:** a SERP de
+"plano de saúde infantil valores" é multimarca (5 dos 9 orgânicos comparam operadoras;
+o #1 é "Preços de 12 Operadoras"); o concorrente líder (tabelasaude) já opera as duas
+páginas separadas; e esta página é a 2ª mais forte do site (347 cliques · 15.148
+impressões · pos. 4,9 em 28 dias) — não é caso de trocar o eixo. Campo genérico
+≈ 4.600 buscas/mês (KD 0-6) contra ≈ 860 do campo de marca.
+
+- **Esta página:** reforma dentro do campo de marca. Secundárias genéricas SAEM do kit.
+- **Artigo novo (a abrir):** multimarca para "plano de saúde infantil" — FASE 0 própria,
+  depois que esta reforma estiver publicada.
+- **Sem canibalização com** `/plano-de-saude-para-recem-nascido/`: ele vive de "bebê/RN"
+  e não recebe nenhuma busca com "infantil" ou "criança".
+- Documento com as medições: `DECISAO-ARQUITETURA.html`.
+
 ## FASE 0 — veredito (2026-09-08)
 
 - **Eixo (P4):** o preço do plano infantil não muda com a idade — muda com a praça e a

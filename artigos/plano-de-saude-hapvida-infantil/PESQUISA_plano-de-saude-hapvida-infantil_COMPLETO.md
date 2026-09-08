@@ -34,6 +34,15 @@ coletado_em: 2026-09-08  # serp
 
 ## 2. Kit on-page [V5]
 
+> **[REVISÃO 08/09/2026 — decisão de arquitetura]** A SERP de "plano de saúde infantil
+> valores" é multimarca (5 dos 9 primeiros orgânicos comparam operadoras; o #1 é
+> "Preços de 12 Operadoras", do tabelasaude, que opera duas páginas separadas). Decisão:
+> **as secundárias genéricas saem deste kit** e viram a principal de um **artigo novo
+> multimarca**. Este pillar fica com o campo de marca (~860 buscas/mês), que é o que ele
+> já ganha (347 cliques · 15.148 impressões · posição 4,9 em 28 dias). Detalhe medido em
+> `DECISAO-ARQUITETURA.html`. As linhas marcadas [→ ARTIGO NOVO] abaixo ficam registradas
+> como histórico da coleta, não como alvo desta página.
+
 - principal: kw: plano de saúde hapvida infantil | volume: 140/mês | dificuldade: 2 |
   intenção: comercial. Casa com a URL, com o H1 e com o title. As variantes de marca
   ("hapvida infantil" 320 · "valor do plano da hapvida infantil" 320 · "plano de saude
@@ -41,10 +50,10 @@ coletado_em: 2026-09-08  # serp
   mesmo campo semântico.
 - secundarias:
   - kw: valor do plano da hapvida infantil | volume: 320 | KD 0 | intencao: commercial | veredito: qualificada | onde entra: H2 de preço + FAQ | cluster_candidata: não (é a mesma intenção da página)
-  - kw: plano de saude infantil valores | volume: 880 | KD 0 | intencao: informational-de-compra | veredito: qualificada | onde entra: H2 de preço + passagem citável | cluster_candidata: não
-  - kw: plano de saude infantil individual | volume: 590 | KD 6 | intencao: informational-de-compra | veredito: qualificada | onde entra: H2 de modalidades | cluster_candidata: sim — spoke "plano de saúde infantil individual"
-  - kw: plano de saude infantil individual preço | volume: 210 | KD 0 | intencao: commercial | veredito: qualificada | onde entra: H3 dentro do H2 de preço | cluster_candidata: não
-  - kw: plano de saude infantil barato | volume: 140 | KD 0 | intencao: commercial | veredito: qualificada | onde entra: H2 do eixo (por que o preço muda) | cluster_candidata: não
+  - [→ ARTIGO NOVO] kw: plano de saude infantil valores | volume: 880 | KD 0 | intencao: informational-de-compra | veredito: qualificada | onde entra: H2 de preço + passagem citável | cluster_candidata: não
+  - [→ ARTIGO NOVO] kw: plano de saude infantil individual | volume: 590 | KD 6 | intencao: informational-de-compra | veredito: qualificada | onde entra: H2 de modalidades | cluster_candidata: sim — spoke "plano de saúde infantil individual"
+  - [→ ARTIGO NOVO] kw: plano de saude infantil individual preço | volume: 210 | KD 0 | intencao: commercial | veredito: qualificada | onde entra: H3 dentro do H2 de preço | cluster_candidata: não
+  - [→ ARTIGO NOVO] kw: plano de saude infantil barato | volume: 140 | KD 0 | intencao: commercial | veredito: qualificada | onde entra: H2 do eixo (por que o preço muda) | cluster_candidata: não
   - kw: plano de saude infantil sem carencia | volume: 30 | intencao: informational-de-compra | veredito: qualificada | onde entra: H3 recém-nascido 30 dias + FAQ | cluster_candidata: não
   - kw: melhor plano de saude infantil | volume: 50 | intencao: commercial | veredito: qualificada | onde entra: P9 (vale a pena / não compensa) | cluster_candidata: não
   - kw: hapvida infantil | volume: 320 | KD 0 | intencao: informational | veredito: qualificada | onde entra: H1/lead | cluster_candidata: não

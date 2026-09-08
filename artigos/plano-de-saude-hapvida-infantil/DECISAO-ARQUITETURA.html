@@ -1,0 +1,208 @@
+<title>Uma Página ou Duas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#F2F5F4;--surface:#FFFFFF;--surface-2:#E9EEEC;--ink:#13202A;--ink-soft:#4E6069;
+    --line:#D3DCD9;--mine:#0E6E5E;--mine-soft:#DCEDE8;--rival:#A9522A;--rival-soft:#F2E3DA;
+    --alert:#8A3324;--alert-soft:#F6E0DC;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0F1518;--surface:#161F23;--surface-2:#1D272B;--ink:#E3EAE8;--ink-soft:#9BAAAF;
+      --line:#2A363B;--mine:#4CC0A6;--mine-soft:#12332E;--rival:#D98A5E;--rival-soft:#33231A;
+      --alert:#E8917E;--alert-soft:#331C18;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0F1518;--surface:#161F23;--surface-2:#1D272B;--ink:#E3EAE8;--ink-soft:#9BAAAF;
+    --line:#2A363B;--mine:#4CC0A6;--mine-soft:#12332E;--rival:#D98A5E;--rival-soft:#33231A;
+    --alert:#E8917E;--alert-soft:#331C18;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+    line-height:1.6;margin:0;padding:clamp(20px,4vw,56px) clamp(16px,4vw,32px) 72px}
+  main{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(30px,5vw,50px)}
+  .eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+  h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(33px,6vw,52px);
+    line-height:1.08;margin:0 0 14px;text-wrap:balance}
+  h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(23px,3.4vw,30px);
+    line-height:1.2;margin:0;text-wrap:balance}
+  h3{font-size:15px;font-weight:600;margin:0}
+  p{margin:0 0 14px;max-width:68ch}
+  p:last-child{margin-bottom:0}
+  section{display:flex;flex-direction:column;gap:16px}
+  .sub{color:var(--ink-soft);margin:0;max-width:72ch}
+  .verdict{border-left:4px solid var(--mine);background:var(--surface);padding:clamp(20px,3vw,30px);
+    display:flex;flex-direction:column;gap:12px}
+  .verdict p{font-size:17px}
+  .verdict b{color:var(--mine)}
+  .fix{background:var(--alert-soft);border-left:4px solid var(--alert);padding:18px 20px;font-size:14.5px}
+  .fix h3{color:var(--alert);margin-bottom:8px;font-family:"IBM Plex Mono",monospace;
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+  .scroll{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:640px}
+  caption{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-soft);padding-bottom:10px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  tbody th{font-weight:500}
+  td.num{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+  tr.eu td,tr.eu th{background:var(--mine-soft)}
+  tr.multi td:first-child{color:var(--rival);font-weight:600}
+  .serp{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1px;background:var(--line)}
+  .serp li{background:var(--surface);display:grid;grid-template-columns:34px 1fr auto;gap:14px;
+    align-items:baseline;padding:9px 14px;font-size:14px}
+  .serp .pos{font-family:"IBM Plex Mono",monospace;color:var(--ink-soft);font-size:13px}
+  .serp .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--rival)}
+  .serp li.is-mine{background:var(--mine-soft)}
+  .serp li.is-mine .tag{color:var(--mine)}
+  .grid2{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .pane{background:var(--surface);padding:18px 20px;display:flex;flex-direction:column;gap:10px;border-top:3px solid var(--mine)}
+  .pane.nova{border-top-color:var(--rival)}
+  .pane ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+  .pane li{font-size:14px;border-bottom:1px dotted var(--line);padding-bottom:5px;display:flex;justify-content:space-between;gap:12px}
+  .pane li span:last-child{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;color:var(--ink-soft);white-space:nowrap}
+  .pane .url{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);word-break:break-all}
+  ol.steps{counter-reset:g;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  ol.steps li{counter-increment:g;background:var(--surface);padding:14px 16px 14px 52px;position:relative}
+  ol.steps li::before{content:counter(g);position:absolute;left:16px;top:14px;
+    font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--mine)}
+  ol.steps p{margin:3px 0 0;font-size:14px;color:var(--ink-soft)}
+  blockquote{margin:0;padding:12px 16px;background:var(--surface-2);border-left:3px solid var(--line);
+    font-size:14px;color:var(--ink-soft);max-width:72ch}
+  blockquote p{margin:0}
+  .note{background:var(--surface-2);padding:16px 18px;font-size:13.5px;color:var(--ink-soft)}
+  .note p{max-width:none}
+  code{font-family:"IBM Plex Mono",monospace;font-size:12.5px}
+  hr{border:0;border-top:1px solid var(--line);margin:0}
+</style>
+
+<main>
+  <header>
+    <p class="eyebrow">Decisão de arquitetura · 8 de setembro de 2026</p>
+    <h1>Duas páginas, não uma: o que a SERP diz sobre "infantil" de marca e "infantil" genérico</h1>
+    <p class="sub">A proposta é separar: melhorar <em>/plano-de-saude-hapvida-infantil/</em> no que ela já é, e criar um segundo artigo multimarca para "plano de saúde infantil". Aqui está a medição que sustenta — ou derruba — essa decisão.</p>
+  </header>
+
+  <div class="verdict">
+    <p><b>Você está certo, e por três razões medidas — não por opinião.</b></p>
+    <p><b>1. A SERP genérica é multimarca.</b> Em "plano de saúde infantil valores", dos 9 primeiros orgânicos <b>5 são comparativos de várias operadoras</b>. O 1º lugar é literalmente "Plano de Saúde Infantil 2026: <b>Preços de 12 Operadoras</b>". Sua página de marca única está em 4º apesar de ser o formato errado para aquela busca.</p>
+    <p><b>2. O concorrente líder já faz exatamente o que você propôs.</b> O tabelasaude opera <b>duas páginas separadas</b>: <code>/plano-de-saude-infantil/</code> (multimarca, 1º na genérica) e <code>/plano-de-saude-infantil/hapvida/</code> (de marca, 3º na de marca). A arquitetura que você desenhou é a que está vencendo as duas SERPs.</p>
+    <p><b>3. Sua página não é caso de reforma de eixo — é a 2ª mais forte do site.</b> 347 cliques e 15.148 impressões em 28 dias, posição média 4,9. Trocar o eixo dela pela keyword genérica seria apostar uma página que ganha.</p>
+  </div>
+
+  <div class="fix">
+    <h3>Corrijo o que registrei na FASE 0</h3>
+    <p>Eu montei o kit on-page metendo as genéricas de alto volume ("plano de saúde infantil valores" 880, "…individual" 590, "…barato" 140) como <b>secundárias da página Hapvida</b>. Com a divisão, elas saem de lá e viram a <b>principal do artigo novo</b>. O eixo do pillar Hapvida (o preço muda com a praça, não com a idade) continua válido — ele é de marca e sustenta a página como ela é. O state file precisa desse ajuste antes do Bloco A.</p>
+  </div>
+
+  <section>
+    <h2>A SERP genérica, medida hoje</h2>
+    <p class="sub">DataForSeo <code>serp_local</code> · "plano de saude infantil valores" · Brasil · celular · 08/09/2026 11h22 UTC. Acima de tudo há AI Overview.</p>
+    <ol class="serp">
+      <li class="multi"><span class="pos">1</span><span>tabelasaude.com/plano-de-saude-infantil/ — "Preços de 12 Operadoras"</span><span class="tag">multimarca</span></li>
+      <li><span class="pos">2</span><span>gndi.com.br — plano de saúde para crianças</span><span class="tag">operadora</span></li>
+      <li class="multi"><span class="pos">3</span><span>conveniosmedicossp.com.br — lista Amil, Ampla, Bio… com preço</span><span class="tag">multimarca</span></li>
+      <li class="is-mine"><span class="pos">4</span><span>tabelaplanos.com.br/plano-de-saude-hapvida-infantil/</span><span class="tag">sua, de marca</span></li>
+      <li><span class="pos">5</span><span>instagram — post de corretora</span><span class="tag">social</span></li>
+      <li class="multi"><span class="pos">6</span><span>tabelasdeplanosdesaude.com.br — tabelas por cidade</span><span class="tag">multimarca</span></li>
+      <li><span class="pos">7</span><span>planoamil.com.br</span><span class="tag">marca</span></li>
+      <li class="multi"><span class="pos">8</span><span>doutorconvenios.com.br — infantil em São Paulo</span><span class="tag">multimarca</span></li>
+      <li><span class="pos">9</span><span>portoseguro.com.br</span><span class="tag">operadora</span></li>
+      <li class="multi"><span class="pos">10</span><span>pedranoseguros.com.br — Amil, SulAmérica, Bradesco com preço</span><span class="tag">multimarca</span></li>
+    </ol>
+    <blockquote><p>As perguntas que o Google exibe na mesma tela confirmam o desenho da intenção: "Quanto custa um convênio infantil?", "Qual o valor do plano Hapvida infantil?", <b>"Qual o valor do Unimed para crianças?"</b>. Quem busca a genérica quer comparar operadoras — e é por isso que a sua página, que só tem uma, para no 4º lugar.</p></blockquote>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>O tamanho do prêmio</h2>
+    <div class="scroll">
+      <table>
+        <caption>Volume mensal e dificuldade · DataForSeo keyword_suggestions, Brasil, 08/09/2026</caption>
+        <thead><tr><th scope="col">Keyword</th><th scope="col">Volume/mês</th><th scope="col">KD</th><th scope="col">Campo</th></tr></thead>
+        <tbody>
+          <tr class="multi"><td>plano de saúde infantil</td><td class="num">1.900</td><td class="num">0</td><td>genérico</td></tr>
+          <tr class="multi"><td>plano de saúde infantil valores</td><td class="num">880</td><td class="num">0</td><td>genérico</td></tr>
+          <tr class="multi"><td>plano de saúde infantil valor</td><td class="num">880</td><td class="num">0</td><td>genérico</td></tr>
+          <tr class="multi"><td>plano de saúde infantil individual</td><td class="num">590</td><td class="num">6</td><td>genérico</td></tr>
+          <tr class="multi"><td>plano de saúde infantil individual preço</td><td class="num">210</td><td class="num">0</td><td>genérico</td></tr>
+          <tr class="multi"><td>plano de saúde infantil barato</td><td class="num">140</td><td class="num">0</td><td>genérico</td></tr>
+          <tr class="eu"><td>hapvida infantil</td><td class="num">320</td><td class="num">0</td><td>marca</td></tr>
+          <tr class="eu"><td>valor do plano da hapvida infantil</td><td class="num">320</td><td class="num">0</td><td>marca</td></tr>
+          <tr class="eu"><td>plano de saúde hapvida infantil</td><td class="num">140</td><td class="num">2</td><td>marca</td></tr>
+          <tr class="eu"><td>plano de saúde infantil hapvida</td><td class="num">40</td><td class="num">2</td><td>marca</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Somando as variantes: <b>o campo genérico vale ~4.600 buscas/mês e o campo de marca ~860</b> — cinco vezes maior, com dificuldade de 0 a 6. E você já entra nele por acidente: sua página de marca colheu 481 impressões em "plano de saúde infantil valores" e 108 em "plano de saúde infantil barato" nos últimos 28 dias, na posição 5,6 e 6,6, com CTR abaixo de 1%.</p>
+  </section>
+
+  <section>
+    <h2>A divisão de território, sem canibalização</h2>
+    <div class="grid2">
+      <div class="pane">
+        <h3>Fica como está (melhorada)</h3>
+        <p class="url">/plano-de-saude-hapvida-infantil/</p>
+        <ul>
+          <li><span>hapvida infantil</span><span>320</span></li>
+          <li><span>valor do plano da hapvida infantil</span><span>320</span></li>
+          <li><span>plano de saúde hapvida infantil</span><span>140</span></li>
+          <li><span>plano infantil hapvida</span><span>30</span></li>
+        </ul>
+        <p style="font-size:14px;color:var(--ink-soft)">Eixo: o preço não muda com a idade, muda com a praça. Reforma = fechar os 6 itens do arquétipo P1-P9 que ela reprova hoje, sem tocar na passagem que o AI Overview já cita.</p>
+      </div>
+      <div class="pane nova">
+        <h3>Artigo novo, multimarca</h3>
+        <p class="url">/plano-de-saude-infantil/ (slug a confirmar)</p>
+        <ul>
+          <li><span>plano de saúde infantil</span><span>1.900</span></li>
+          <li><span>plano de saúde infantil valores</span><span>880 + 880</span></li>
+          <li><span>plano de saúde infantil individual</span><span>590</span></li>
+          <li><span>plano de saúde infantil barato</span><span>140</span></li>
+        </ul>
+        <p style="font-size:14px;color:var(--ink-soft)">Formato que a SERP premia: comparativo de operadoras com preço real. Conclui Hapvida pelo dado, não pelo pódio.</p>
+      </div>
+    </div>
+    <p class="sub">Checagem de vizinhança: <code>/plano-de-saude-para-recem-nascido/</code> não é atingido. Ele vive de "bebê", "recém-nascido" e "RN" (55 cliques, 3.208 impressões em 28 dias) e <b>não recebe uma única busca com "infantil" ou "criança"</b>. Os dois vocabulários não se cruzam.</p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>O modelo multimarca já funciona no seu site</h2>
+    <div class="scroll">
+      <table>
+        <caption>Search Console · 11/08 a 07/09/2026 · páginas comparativas publicadas</caption>
+        <thead><tr><th scope="col">Página</th><th scope="col">Cliques</th><th scope="col">Impressões</th><th scope="col">Posição</th></tr></thead>
+        <tbody>
+          <tr class="eu"><th scope="row">/plano-de-saude-hapvida-infantil/ (de marca)</th><td class="num">347</td><td class="num">15.148</td><td class="num">4,9</td></tr>
+          <tr><th scope="row">/plano-de-saude-em-recife/ (multioperadora)</th><td class="num">92</td><td class="num">7.063</td><td class="num">6,6</td></tr>
+          <tr><th scope="row">/plano-de-saude-fortaleza/ (multioperadora)</th><td class="num">68</td><td class="num">4.138</td><td class="num">5,7</td></tr>
+          <tr><th scope="row">/plano-de-saude-para-recem-nascido/</th><td class="num">55</td><td class="num">3.208</td><td class="num">6,4</td></tr>
+          <tr><th scope="row">/plano-de-saude-bh/ (multioperadora)</th><td class="num">43</td><td class="num">4.261</td><td class="num">7,2</td></tr>
+          <tr><th scope="row">/plano-de-saude-para-idosos/ (multimarca, 2 semanas no ar)</th><td class="num">7</td><td class="num">879</td><td class="num">7,4</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Não é experimento: o site já tem cinco páginas comparativas rodando, e as maduras entregam entre 43 e 92 cliques por mês. O <b>/plano-de-saude-para-idosos/</b> é o precedente mais próximo — multimarca nacional, mesma família de "público específico", publicado há duas semanas e já com 879 impressões.</p>
+  </section>
+
+  <section>
+    <h2>O risco que existe, e o que o contém</h2>
+    <ol class="steps">
+      <li><b>A armadilha do listicle.</b><p>A própria skill avisa: um comparativo escrito por corretora mono-marca pode virar fonte para a IA <em>recomendar o concorrente</em> que você listou. A contenção é a regra da v6 — <b>ser a fonte do dado, não do ranking</b>: publicar o preço real por operadora e concluir por critério verificável, nunca premiar a si mesmo.</p></li>
+      <li><b>Transferência de impressões, não perda.</b><p>Hoje as 481 impressões da genérica caem na página Hapvida. Quando o artigo novo entrar, elas migram. Isso é o desejado — mas exige kit on-page separado (nada de "plano de saúde infantil valores" como H2 nas duas) e link cruzado nos dois sentidos.</p></li>
+      <li><b>Preço de operadora que não é a sua.</b><p>Publicar valor de Unimed, Amil ou Bradesco é dado que você não controla e envelhece. Ou entra com data e fonte declaradas, ou entra em faixa. É a decisão que precisa ser tomada na FASE 0 do artigo novo, não durante a escrita.</p></li>
+      <li><b>Ordem de execução.</b><p>Reformar primeiro a página Hapvida (state file já aprovado nas três travas) e só depois abrir a FASE 0 do multimarca. Fazer os dois em paralelo cria dois textos sobre o mesmo tema sem que nenhum esteja publicado para servir de referência anti-doorway ao outro.</p></li>
+    </ol>
+  </section>
+
+  <div class="note">
+    <p><b>Como foi medido.</b> SERP: DataForSeo <code>serp_local</code>, "plano de saude infantil valores", Brasil, celular, depth 15, 08/09/2026 11h22 UTC. Volumes e dificuldade: DataForSeo <code>keyword_suggestions</code> (sementes "hapvida infantil" e "plano de saude infantil"), Brasil, 08/09/2026. Desempenho das páginas: Search Console, propriedade <code>sc-domain:tabelaplanos.com.br</code>, 11/08 a 07/09/2026, dimensões page e query. Vizinhança do recém-nascido: <code>gsc_queries_for_page</code> na mesma janela.</p>
+    <p><b>Limites.</b> Volume do DataForSeo é estimativa de plataforma, não medição do Google. A SERP é a foto de um dia. E nada aqui garante que o artigo novo ranqueie: garante que o formato que ranqueia naquela busca é o multimarca, e que o seu site já executa esse formato com resultado.</p>
+  </div>
+</main>
