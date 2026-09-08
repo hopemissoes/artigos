@@ -277,13 +277,13 @@
   <section>
     <div class="verdict">
       <p><strong>Seu artigo ganha no conteúdo e está certo no fato que mais importa. Dos oito defeitos medidos na sua página, seis foram corrigidos e conferidos no ar hoje.</strong></p>
-      <p style="font-size:15px;color:var(--ink-2)">Ela erra o fato central (diz que não precisa de encaminhamento médico) e se contradiz no próprio FAQ. Você acerta esse ponto, tem 58% mais texto, tem preço e tem tabela. Restam duas frentes abertas: a página segue <em>sem nenhum schema</em> e <em>sem imagem no corpo</em> — é aí que ela ainda leva vantagem.</p>
+      <p style="font-size:15px;color:var(--ink-2)">Ela erra o fato central (diz que não precisa de encaminhamento médico) e se contradiz no próprio FAQ. Você acerta esse ponto, tem 58% mais texto, tem preço e tem tabela. O schema já está gerado e é mais completo que o dela — inclui FAQPage com as 20 perguntas, que nenhuma das seis páginas dela tem. Falta colar no Rank Math e pôr uma imagem no corpo.</p>
       <div class="scoreline">
         <span class="tag win">Conteúdo: você</span>
         <span class="tag win">Exatidão: você</span>
         <span class="tag win">Preço e links: corrigidos</span>
-        <span class="tag lose">Schema: ela</span>
-        <span class="tag lose">E-E-A-T visível: ela</span>
+        <span class="tag win">Schema: gerado, mais completo</span>
+        <span class="tag lose">Bio do autor: ela</span>
         <span class="tag lose">Imagem: ela</span>
       </div>
     </div>
@@ -354,12 +354,12 @@
           </tr>
           <tr>
             <th scope="row">Autor assinado</th>
-            <td class="bad">Não</td>
+            <td class="good">Jessica Mendes, abaixo do H1</td>
             <td class="good">João Pinheiro (Jocross Corretora), com bio</td>
           </tr>
           <tr>
             <th scope="row">FAQ</th>
-            <td class="num">19 perguntas <span class="mark">· sem FAQPage</span></td>
+            <td class="num good">20 perguntas <span class="mark">· agora com FAQPage</span></td>
             <td class="num">15 perguntas <span class="mark">· sem FAQPage</span></td>
           </tr>
           <tr>
@@ -460,10 +460,11 @@
       </div>
 
       <div class="defect">
-        <div class="sev c1">Aberto</div>
+        <div class="sev c2">Gerado, falta colar</div>
         <div class="defect-body">
           <h3>Nenhum schema na página</h3>
-          <p>A busca por JSON-LD no HTML publicado não encontra nenhum tipo. Sem Article, sem FAQPage (com 19 perguntas prontas na página) e sem Person. A concorrente publica cinco tipos em todas as seis páginas, incluindo Person com bio do autor — e mesmo assim <strong>nenhuma delas tem FAQPage</strong>. É o buraco disponível.</p>
+          <p>A busca por JSON-LD no HTML publicado não encontrava nenhum tipo. O arquivo já está pronto com cinco: WebPage, Article, Person (Jessica Mendes, a autora que já assina a página), BreadcrumbList e <strong>FAQPage com as 20 perguntas</strong> — nenhuma das seis páginas da concorrente tem FAQPage.</p>
+          <p class="evidence">schema-hapvida-cobre-psicologo.html · colar no Rank Math → Schema → Import → JSON-LD/Custom Code</p>
         </div>
       </div>
 
@@ -482,8 +483,9 @@
     <div class="sec-head"><span class="n">04</span><h2>O que falta</h2></div>
     <p style="margin-bottom:18px;color:var(--ink-2);font-size:15px">As 17 edições de texto, link e metadado foram aplicadas em 08/09/2026 e conferidas no HTML publicado. Sobraram duas frentes, as duas maiores.</p>
     <ol class="fixes">
-      <li><span class="what">Publicar o schema: Article + FAQPage (19 perguntas) + Person da DRV</span><span class="where">execução separada</span></li>
+      <li><span class="what">Colar o schema já gerado no Rank Math (5 tipos, FAQPage com 20 perguntas)</span><span class="where">arquivo pronto</span></li>
       <li><span class="what">Inserir a imagem da tabela de coparticipação de psicologia, com alt e legenda</span><span class="where">corpo do post 36525</span></li>
+      <li><span class="what">Corrigir “coparticipação total é parcial” na pergunta 20 (deveria ser “e”)</span><span class="where">substituir_no_artigo</span></li>
       <li><span class="what">Registrar a alteração no histórico do banco</span><span class="where">registrar_atualizacao</span></li>
       <li><span class="what">Corrigir o laço de redirecionamento de /rede-psiquiatrica-hapvida/</span><span class="where">Rank Math</span></li>
       <li><span class="what">Acertar no banco a URL do id 71 e o status do id 86 (404 marcado como publicado)</span><span class="where">Supabase</span></li>
@@ -496,7 +498,7 @@
       <div class="panel copy">
         <h3>Vale copiar</h3>
         <ul>
-          <li><strong>Autor assinado com bio e Person schema, em série.</strong> As seis páginas dela carregam o mesmo Person “João Pinheiro” ligado a Organization. Você tem a DRV com 11 anos e certificação Safira e não assina a página.</li>
+          <li><strong>Bio do autor visível, não só a assinatura.</strong> Você assina com “Jessica Mendes” abaixo do H1, mas sem bio nem credencial na página; ela fecha o texto com um parágrafo sobre quem é o autor e a corretora.</li>
           <li><strong>Quatro blocos “🔗 Fonte oficial”</strong> ancorados na Lei 9.656/98 e na ANS, espalhados pelo corpo. Você tem só dois links externos, ambos no começo.</li>
           <li><strong>Bloco “Sobre este guia”</strong> declarando em que norma o texto se baseia.</li>
           <li><strong>Cadência de edição.</strong> As seis páginas dela foram reeditadas entre 04 e 05/09/2026 — passada em lote, não página a página.</li>
