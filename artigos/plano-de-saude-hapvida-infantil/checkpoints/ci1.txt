@@ -1,0 +1,40 @@
+==========================================================================
+CHECKPOINT CI-1 [V7.3] — o concorrente foi LIDO? — artigos/plano-de-saude-hapvida-infantil/PESQUISA_plano-de-saude-hapvida-infantil_COMPLETO.md
+==========================================================================
+
+CONCORRENTES LIDOS DE VERDADE: 3 (min. 3)
+
+  [OK] https://descontoplanodesaude.com.br/plano-hapvida-infantil/
+       43 headings literais (H2/H3) | rota: n8n
+  [OK] https://tabelasaude.com/plano-de-saude-infantil/hapvida/
+       22 headings literais (H2/H3) | rota: n8n
+  [OK] https://joov.com.br/qual-o-valor-do-plano-da-hapvida-infantil/
+       7 headings literais (H2/H3) | rota: n8n
+
+NAO CONTAM (6):
+
+  [X] https://descontoplanodesaude.com.br/plano-hapvida-infantil/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://tabelasaude.com/plano-de-saude-infantil/hapvida/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://joov.com.br/qual-o-valor-do-plano-da-hapvida-infantil/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://blog.facaseuplanodesaude.com.br/tabela-preco-hapvida-2023/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www.garantiaseg.com.br/plano-de-saude/plano-de-saude-hapvida-tabela-de-precos/
+      - headings literais H2/H3 (achei 0, min. 3)
+      - coletado_em ausente
+      - rota nao declarada
+  [X] https://www2.hapvida.com.br/institucional/sobre-o-grupo
+      - headings literais H2/H3 (achei 0, min. 3)
+      - rota nao declarada
+
+--------------------------------------------------------------------------

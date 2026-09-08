@@ -15,11 +15,25 @@
 
 ## Fase atual
 
-- **Fase:** FASE P0 concluída → FASE 0 (pesquisa) pendente de início
-- **Próximo passo concreto:** CI-1 — ler tabelasaude.com e joov.com.br (os dois
-  concorrentes que ranqueiam junto), montar a matriz de cobertura e só então preencher
-  `PESQUISA_plano-de-saude-hapvida-infantil_COMPLETO.md` + rodar `checkpoint_fase0.py`
-- **Bloqueios:** aguardando aprovação do usuário para seguir da P0 para a FASE 0
+- **Fase:** FASE 0 concluída (DR1+DR2) → **aguardando o PORTÃO HUMANO** para liberar o Bloco A
+- **Próximo passo concreto:** o usuário aprovar (ou corrigir) o state file. Aprovado,
+  entra o Bloco A na ordem v7.5: lead-herói → H2 de preço + tabela → formulário → sumário
+- **Bloqueios:** nenhum bloqueio técnico; falta só a aprovação humana do state file
+
+## FASE 0 — veredito (2026-09-08)
+
+- **Eixo (P4):** o preço do plano infantil não muda com a idade — muda com a praça e a
+  modalidade. Defensibilidade 1 (tabela vigente por cidade). Nenhum dos 3 concorrentes
+  lidos monta essa comparação.
+- **Keyword principal:** plano de saúde hapvida infantil (140/mês, KD 2). Campo de marca
+  soma 860/mês. Secundárias genéricas de alto volume e KD 0-6: "plano de saúde infantil
+  valores" (880), "…individual" (590), "…individual preço" (210), "…barato" (140).
+- **Descartadas pelo veto de intenção:** todo o cluster de emergência infantil (390+320+320)
+  — é de quem já é cliente e pertence a `/urgencia-e-emergencia-hapvida/`. Vira link.
+- **Ressalva do checkpoint:** as 2 "FAQ sem âncora" apontadas pela trava de suficiência são
+  H2 do concorrente citados na seção 5, não perguntas nossas.
+- **MODO: monomodelo** declarado — a linha de 25 agentes não foi disparada; o portão humano
+  vale mais e nenhuma trava mecânica foi dispensada.
 
 ## FASE P0 — veredito (2026-09-08) · detalhe em `FASE-P0.md`
 
@@ -38,10 +52,10 @@
 
 | Portão | Status | Evidência |
 |---|---|---|
-| CI-1 — concorrente lido (`checkpoint_ci1.py`) | ⬜ pendente | |
-| FASE 0 (`checkpoint_fase0.py`) | ⬜ pendente | |
+| CI-1 — concorrente lido (`checkpoint_ci1.py`) | ✅ aprovado | `checkpoints/ci1.txt` — 3 lidos (desconto 43 headings · tabelasaude 22 · joov 7), rota n8n |
+| FASE 0 (`checkpoint_fase0.py`) | ✅ aprovado | `checkpoints/fase0.txt` — 25 FAQ · 8 secundárias · 7 dados nível 1-2 · 9 fan-out |
 | Aprovação humana do state file | ⬜ pendente | |
-| Suficiência (`checkpoint_suficiencia.py`) | ⬜ pendente | |
+| Suficiência (`checkpoint_suficiencia.py`) | ✅ aprovado | `checkpoints/suficiencia.txt` — 0 seção órfã · 8% FAQ sem âncora · ganho nível 1 |
 | Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
 | Preço-primeiro / lead-herói (`checkpoint_preco_primeiro.py`) | ⬜ pendente | |
 | Voz humana (`checkpoint_voz.py`) | ⬜ pendente | |

@@ -1,0 +1,32 @@
+======================================================================
+SUFICIÊNCIA DA PESQUISA [V7.2] — PESQUISA_plano-de-saude-hapvida-infantil_COMPLETO.md
+tipo: pillar | cidade/eixo: infantil | âncoras: 0
+======================================================================
+
+A · MATRIZ DE SUFICIÊNCIA POR SEÇÃO (itens da pesquisa que a sustentam)
+   P1-P2 o que é / para quem                9 item(ns)
+   P3 preços                               49 item(ns)
+   P4-P5 cobertura e regras                45 item(ns)
+   P6 comparação                           18 item(ns)
+   P7-P8 como contratar                    15 item(ns)
+   P9 compensa / não compensa               7 item(ns)
+
+B · FAQ — LOCAL DE VERDADE?
+   perguntas: 25 | sem âncora local: 2 (8.0%, limite 20%)
+   - "Enfermaria ou apartamento? Coparticipação total ou parcial?
+   - "Como funciona o agendamento de Consultas e Exames?
+
+C · VETO DE INTENÇÃO NAS SECUNDÁRIAS
+   secundárias qualificadas com intenção de quem JÁ é cliente: 0
+
+D · GANHO DE INFORMAÇÃO (CI-2) — nível de defensibilidade
+   nível declarado: 1
+
+E · DIFERENCIAIS COM ÂNCORA LOCAL
+   diferenciais: 5 | sem âncora local: 0 (0%)
+
+----------------------------------------------------------------------
+
+✅ APROVADO — a pesquisa cobre todas as seções previstas.
+   Isto NÃO é juízo de qualidade: os juízes 23 e 24 ainda decidem se o
+   que foi coletado presta (references/juiz-pesquisa.md).
