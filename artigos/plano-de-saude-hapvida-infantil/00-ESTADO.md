@@ -18,12 +18,16 @@
 
 ## Fase atual
 
-- **Fase:** artigo escrito. Blocos A+B+C prontos e concatenados em `artigo.html`
-  (3.415 palavras · 10 H2 · 16 FAQ). Toda a bateria mecânica verde, com uma
-  exceção registrada por escrito (`checkpoint_preco_primeiro`, opção A).
-- **Próximo passo concreto:** 🚦 **PORTÃO HUMANO** — o usuário lê `artigo.html` e
-  aprova ou corrige. Nada é publicado no WordPress nem registrado no Supabase
-  antes disso, e só a pedido expresso.
+- **Fase:** ✅ **PUBLICADO** no WordPress em 08/09/2026 às 10:15, a pedido expresso
+  do usuário. Post 12185, corpo sobrescrito de 64.596 para 78.514 caracteres.
+  Conteúdo conferido no ar com cache furado: sha256 do corpo idêntico ao
+  `artigo.html`, 16 FAQ, 2 quadros compensa/não compensa, 2 fontes oficiais,
+  10 grifos, 1 figcaption e **os 16 shortcodes da tabela resolvidos**
+  (Fortaleza R$ 107,83 · BH R$ 71,98 · SP R$ 56,94 · Belém R$ 101,96 na 1ª coluna).
+- **Próximo passo concreto:** decidir sobre o que NÃO foi tocado (só a pedido):
+  meta title, meta description e H1 continuam os antigos; `registrar_atualizacao`
+  e `registrar_links_artigo` no Supabase não foram gravados; schema JSON-LD segue
+  pendente.
 - **Bloqueios:** nenhum bloqueio técnico. Falta a aprovação humana do artigo.
 
 ## DECISÃO DE ARQUITETURA (2026-09-08) — duas páginas, não uma
@@ -87,10 +91,12 @@ impressões · pos. 4,9 em 28 dias) — não é caso de trocar o eixo. Campo gen
 | Completude (`checkpoint_completude.py`) | ✅ aprovado | 10 H2 · 16 FAQ · 3.415 palavras · 2 fontes oficiais · 1 guia-box · Dica DRV · seção de rede |
 | `[VERIFICAR]` / tokens proibidos (`checkpoint_verificar.py`) | ✅ aprovado | nenhum dado marcado afirmado no texto |
 | Varredura anti-doorway final (`checkpoint_doorway_final.py`) | ✅ aprovado | `checkpoints/doorway-final.txt` — D1 11,8% (limite 45%) · D2 nenhuma seção sem âncora · D4 0,0% de sobreposição com os 3 irmãos |
-| 🚦 **PORTÃO HUMANO — aprovação do artigo** | ⬜ **pendente** | nada vai ao ar sem isto |
+| 🚦 **PORTÃO HUMANO — aprovação do artigo** | ✅ aprovado | usuário: "atualize agora o meu artigo no wordpress" (08/09) |
+| Publicação no WordPress (post 12185) | ✅ feito | dry-run + apply + conferência no ar; backups em `fontes/wp-12185-antes.html` e `wp-12185-depois.html` |
 | Imagem da tabela de preço | ❌ **não se aplica** | decisão do usuário (08/09): o artigo tem **uma imagem só**, a de abertura. Não existe imagem de tabela, e os valores saem **apenas dos shortcodes da tabela de 4 cidades** |
 | Schema JSON-LD | ⬜ pendente | execução separada, só quando o usuário pedir |
-| Registro no banco Supabase | ⬜ pendente | só após publicação, e só a pedido |
+| Registro no banco Supabase (`registrar_atualizacao`, `registrar_links_artigo`) | ⬜ pendente | REGRA ZERO: só com pedido expresso |
+| Meta title / meta description / H1 no WordPress | ⬜ pendente | continuam os antigos; H1 no ar ainda é "Como escolher o melhor plano de saúde hapvida infantil para seu filho" |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
 
