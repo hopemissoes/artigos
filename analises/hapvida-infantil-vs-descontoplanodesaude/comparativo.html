@@ -1,0 +1,244 @@
+<title>Duelo do Plano Infantil</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#F2F5F4;
+    --surface:#FFFFFF;
+    --surface-2:#E9EEEC;
+    --ink:#13202A;
+    --ink-soft:#4E6069;
+    --line:#D3DCD9;
+    --mine:#0E6E5E;
+    --mine-soft:#DCEDE8;
+    --rival:#A9522A;
+    --rival-soft:#F2E3DA;
+    --warn:#8A6D1F;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0F1518;
+      --surface:#161F23;
+      --surface-2:#1D272B;
+      --ink:#E3EAE8;
+      --ink-soft:#9BAAAF;
+      --line:#2A363B;
+      --mine:#4CC0A6;
+      --mine-soft:#12332E;
+      --rival:#D98A5E;
+      --rival-soft:#33231A;
+      --warn:#D8B25C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0F1518;
+    --surface:#161F23;
+    --surface-2:#1D272B;
+    --ink:#E3EAE8;
+    --ink-soft:#9BAAAF;
+    --line:#2A363B;
+    --mine:#4CC0A6;
+    --mine-soft:#12332E;
+    --rival:#D98A5E;
+    --rival-soft:#33231A;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+    line-height:1.6;
+    margin:0;
+    padding:clamp(20px,4vw,56px) clamp(16px,4vw,32px) 72px;
+  }
+  main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(32px,5vw,52px)}
+  .eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:"Newsreader",Georgia,serif;font-weight:600;
+    font-size:clamp(34px,6vw,54px);line-height:1.08;margin:0 0 14px;text-wrap:balance;
+  }
+  h2{
+    font-family:"Newsreader",Georgia,serif;font-weight:600;
+    font-size:clamp(23px,3.4vw,30px);line-height:1.2;margin:0 0 6px;text-wrap:balance;
+  }
+  h3{font-size:15px;font-weight:600;margin:0 0 4px}
+  p{margin:0 0 14px;max-width:66ch}
+  section{display:flex;flex-direction:column;gap:16px}
+  .sub{color:var(--ink-soft);margin:0;max-width:70ch}
+
+  .verdict{
+    border-left:4px solid var(--mine);
+    background:var(--surface);
+    padding:clamp(20px,3vw,30px);
+  }
+  .verdict p{font-size:17px;margin-bottom:0}
+  .verdict strong{color:var(--mine)}
+
+  .scroll{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:640px}
+  caption{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-soft);padding-bottom:10px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  tbody th{font-weight:500}
+  td.num{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace}
+  .col-mine{background:var(--mine-soft)}
+  .col-rival{background:var(--rival-soft)}
+  th.col-mine{color:var(--mine)}
+  th.col-rival{color:var(--rival)}
+
+  .serp{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1px;background:var(--line)}
+  .serp li{background:var(--surface);display:grid;grid-template-columns:44px 1fr auto;gap:14px;
+    align-items:baseline;padding:10px 14px}
+  .serp .pos{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;color:var(--ink-soft);font-size:13px}
+  .serp .dom{font-size:14px;word-break:break-word}
+  .serp .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+  .serp li.is-mine{background:var(--mine-soft)}
+  .serp li.is-mine .tag{color:var(--mine)}
+  .absent{
+    background:var(--rival-soft);border:1px dashed var(--rival);color:var(--rival);
+    padding:12px 14px;font-size:14px;margin-top:1px;
+  }
+
+  .split{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .pane{background:var(--surface);padding:18px 20px;border-top:3px solid var(--mine)}
+  .pane ul{margin:8px 0 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:5px}
+  .pane li{display:flex;justify-content:space-between;gap:12px;font-size:14px;border-bottom:1px dotted var(--line);padding-bottom:4px}
+  .pane li span:last-child{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;color:var(--ink-soft);white-space:nowrap}
+  .pane .url{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);word-break:break-all}
+
+  ol.gaps{counter-reset:g;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  ol.gaps li{counter-increment:g;background:var(--surface);padding:14px 16px 14px 52px;position:relative}
+  ol.gaps li::before{
+    content:counter(g);position:absolute;left:16px;top:14px;
+    font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--rival);
+  }
+  ol.gaps b{font-weight:600}
+  ol.gaps p{margin:2px 0 0;font-size:14px;color:var(--ink-soft)}
+
+  .note{background:var(--surface-2);padding:16px 18px;font-size:13.5px;color:var(--ink-soft)}
+  .note p{margin:0 0 8px;max-width:none}
+  .note p:last-child{margin:0}
+  .note code{font-family:"IBM Plex Mono",monospace;font-size:12.5px}
+  a{color:var(--mine)}
+  hr{border:0;border-top:1px solid var(--line);margin:0}
+</style>
+
+<main>
+  <header>
+    <p class="eyebrow">Inteligência competitiva · 8 de setembro de 2026</p>
+    <h1>Plano infantil: minhas duas páginas contra a do concorrente</h1>
+    <p class="sub">tabelaplanos.com.br <em>/plano-de-saude-hapvida-infantil/</em> e <em>/como-incluir-dependentes-no-seu-plano-hapvida/</em> contra descontoplanodesaude.com.br <em>/plano-hapvida-infantil/</em> — conteúdo, construção on-page e desempenho real na busca.</p>
+  </header>
+
+  <div class="verdict">
+    <p>A minha está melhor <strong>onde o Google decide</strong>: na busca por “plano hapvida infantil” (Brasil, celular, 08/09/2026) a minha página é o <strong>1º resultado que não é da própria Hapvida</strong> — 2ª posição orgânica. A do concorrente <strong>não aparece nas 16 primeiras posições orgânicas</strong>, ou seja, nem nas duas primeiras páginas. Ela é mais longa e mais completa em texto; ainda assim, não ranqueia.</p>
+  </div>
+
+  <section>
+    <h2>A SERP real, medida hoje</h2>
+    <p class="sub">DataForSeo · <code>serp_local</code> · keyword “plano hapvida infantil” · location 2076 (Brasil) · celular · profundidade 20.</p>
+    <ol class="serp">
+      <li><span class="pos">1</span><span class="dom">www2.hapvida.com.br — Planos de Saúde para Você</span><span class="tag">operadora</span></li>
+      <li class="is-mine"><span class="pos">2</span><span class="dom">tabelaplanos.com.br — /plano-de-saude-hapvida-infantil/</span><span class="tag">minha</span></li>
+      <li><span class="pos">3</span><span class="dom">www2.hapvida.com.br — Seja cliente</span><span class="tag">operadora</span></li>
+      <li><span class="pos">4</span><span class="dom">tabelasaude.com — tabela de preços por cidade</span><span class="tag">concorrente</span></li>
+      <li><span class="pos">5</span><span class="dom">joov.com.br — Qual o valor do plano infantil</span><span class="tag">concorrente</span></li>
+      <li><span class="pos">6</span><span class="dom">instagram.com — post de vendas</span><span class="tag">social</span></li>
+      <li><span class="pos">7</span><span class="dom">gndi.com.br — plano de saúde para crianças</span><span class="tag">operadora</span></li>
+      <li class="is-mine"><span class="pos">14</span><span class="dom">tabelaplanos.com.br — /hapvida-rede-pediatrica/</span><span class="tag">minha</span></li>
+    </ol>
+    <p class="absent">descontoplanodesaude.com.br — ausente do 1º ao 16º resultado orgânico (as 25 posições absolutas verificadas cobrem 2 páginas de resultados).</p>
+    <p class="sub">Acima do orgânico ainda aparecem, nesta ordem: resposta de IA (AI Overview), bloco de imagens e “as pessoas também perguntam”. A minha página é a 5ª coisa que a pessoa vê na tela; o preço destacado no trecho é <strong>“a partir de R$ 71,98 por mês”</strong>.</p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Construção on-page, lado a lado</h2>
+    <div class="scroll">
+      <table>
+        <caption>Leitura do HTML publicado das três páginas, 08/09/2026</caption>
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col" class="col-mine">Minha — infantil</th>
+            <th scope="col" class="col-mine">Minha — dependentes</th>
+            <th scope="col" class="col-rival">Concorrente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Palavras no corpo</th><td class="num col-mine">2.711</td><td class="num col-mine">2.656</td><td class="num col-rival">4.692</td></tr>
+          <tr><th scope="row">Seções (H2 / H3)</th><td class="num col-mine">7 / 3</td><td class="num col-mine">5 / 13</td><td class="num col-rival">27 / 15</td></tr>
+          <tr><th scope="row">Tabela de preço com valor em R$</th><td class="col-mine">Sim — 4 cidades × 4 modalidades</td><td class="col-mine">Não</td><td class="col-rival">Não — a página não traz nenhum valor em R$</td></tr>
+          <tr><th scope="row">Tabela de carência</th><td class="col-mine">Não — remete ao guia de carências</td><td class="col-mine">Não</td><td class="col-rival">Sim — 5 situações e prazos</td></tr>
+          <tr><th scope="row">Dados estruturados (schema)</th><td class="col-mine">FAQPage, BreadcrumbList, InsuranceAgency, Offer, Service</td><td class="col-mine">Nenhum</td><td class="col-rival">BlogPosting, Person, WebPage</td></tr>
+          <tr><th scope="row">Links internos no corpo</th><td class="num col-mine">27</td><td class="num col-mine">16</td><td class="num col-rival">15</td></tr>
+          <tr><th scope="row">Assinatura e data</th><td class="col-mine">DRV Corretora · atualizada 07/09/2026</td><td class="col-mine">Sem autor visível</td><td class="col-rival">Autor nomeado, data de publicação, “leitura de 19 minutos”, atualizada julho/2026</td></tr>
+          <tr><th scope="row">Formulário de cotação</th><td class="col-mine">Sim, com contagem regressiva</td><td class="col-mine">Sim</td><td class="col-rival">Sim, no topo</td></tr>
+          <tr><th scope="row">Posição orgânica na keyword-cabeça</th><td class="num col-mine">2</td><td class="col-mine">não compete</td><td class="col-rival">fora do top 16</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Minhas duas páginas não brigam entre si</h2>
+    <p class="sub">Search Console, 01/08 a 06/09/2026. As buscas que entram em cada página não se cruzam: uma é de preço, a outra é de processo. Não há canibalização entre elas nesse recorte.</p>
+    <div class="split">
+      <div class="pane">
+        <h3>/plano-de-saude-hapvida-infantil/</h3>
+        <p class="url">intenção: quanto custa</p>
+        <ul>
+          <li><span>valor do plano da hapvida infantil</span><span>13 cliques · pos. 2,8</span></li>
+          <li><span>plano de saúde infantil valores</span><span>12 cliques · pos. 5,3</span></li>
+          <li><span>hapvida infantil</span><span>7 cliques · pos. 3,9</span></li>
+          <li><span>hapvida criança</span><span>3 cliques · pos. 3,2</span></li>
+          <li><span>plano de saúde infantil individual preço</span><span>3 cliques · pos. 4,6</span></li>
+        </ul>
+      </div>
+      <div class="pane">
+        <h3>/como-incluir-dependentes-no-seu-plano-hapvida/</h3>
+        <p class="url">intenção: como faço</p>
+        <ul>
+          <li><span>hapvida adicionar dependente</span><span>14 cliques · pos. 2,1</span></li>
+          <li><span>hapvida dependentes</span><span>11 cliques · pos. 2,3</span></li>
+          <li><span>inclusão de dependentes hapvida</span><span>11 cliques · pos. 1,8</span></li>
+          <li><span>incluir dependente hapvida</span><span>10 cliques · pos. 2,0</span></li>
+          <li><span>incluir dependente hapvida empresa</span><span>7 cliques · pos. 5,0</span></li>
+        </ul>
+      </div>
+    </div>
+    <p>O concorrente resolve as duas intenções numa página só — tem seção de preço, de carência e de “como incluir seu filho no plano”. Eu resolvo com duas páginas especializadas, e as duas ranqueiam entre a 1ª e a 3ª posição nas suas próprias buscas. <strong>A divisão está funcionando; não junte as páginas.</strong></p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>O que a página dele tem e a minha não</h2>
+    <p class="sub">Ele perde na busca, mas cobre assuntos que a minha página de infantil não cobre. São as lacunas de conteúdo que sobraram — em ordem de tamanho da lacuna.</p>
+    <ol class="gaps">
+      <li><b>Carência do plano infantil, em tabela.</b><p>Ele resolve na própria página, com prazos por situação. A minha manda o leitor para o guia de carências — um clique a mais numa dúvida que aparece junto com o preço.</p></li>
+      <li><b>Rede pediátrica nomeada.</b><p>Ele cita hospitais 100% pediátricos pelo nome e cidade. A minha fala em “86 hospitais próprios com UTI neonatal” e remete à página de rede pediátrica, sem nomear nenhum.</p></li>
+      <li><b>O que muda conforme a criança cresce.</b><p>Ele tem seções de adolescente, check-up por faixa etária, triagem neonatal, saúde mental infantil e odontopediatria. A minha trata a faixa 0–18 como bloco único.</p></li>
+      <li><b>Comparação com outras operadoras.</b><p>Ele tem uma seção de “Hapvida infantil × outras operadoras”. A minha não compara — e comparação é o que a pessoa faz antes de fechar.</p></li>
+      <li><b>Assinatura humana visível.</b><p>Autor nomeado, data e tempo de leitura no topo. A minha tem a credencial da DRV no texto, mas não o bloco de autor — sinal de E-E-A-T que hoje é dele.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Dois reparos pequenos na minha página</h2>
+    <ol class="gaps">
+      <li><b>Dois links internos apontam para URL antiga.</b><p><code>/hapvida-rede-pediatrica-2025/</code> e <code>/plano-hapvida-sao-paulo/</code> respondem, mas com canônica para <code>/hapvida-rede-pediatrica/</code> e <code>/plano-hapvida-sao-paulo2/</code>. Trocar as âncoras para a URL final.</p></li>
+      <li><b>A página de dependentes está sem dados estruturados.</b><p>Nenhum schema no HTML — e ela tem 6 perguntas frequentes prontas no banco, que dariam um FAQPage como o da página infantil.</p></li>
+    </ol>
+  </section>
+
+  <div class="note">
+    <p><b>Como foi medido.</b> As três páginas foram lidas inteiras (HTML publicado) em 08/09/2026 por um fluxo n8n, porque este ambiente não alcança site externo direto. Posição de busca: DataForSeo <code>serp_local</code>, “plano hapvida infantil”, Brasil, celular, profundidade 20, coletado em 08/09/2026 10h01 UTC. Cliques e posição: Search Console, propriedade <code>sc-domain:tabelaplanos.com.br</code>, 01/08 a 06/09/2026.</p>
+    <p><b>Limites.</b> Uma SERP é a foto de um dia — a ausência do concorrente foi medida numa keyword, não no domínio inteiro. Os assuntos listados como “lacuna” são o que a página dele cobre; nada aqui atesta que os dados dele estejam corretos.</p>
+  </div>
+</main>
