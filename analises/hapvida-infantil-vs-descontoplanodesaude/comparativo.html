@@ -2,55 +2,26 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   :root{
-    --paper:#F2F5F4;
-    --surface:#FFFFFF;
-    --surface-2:#E9EEEC;
-    --ink:#13202A;
-    --ink-soft:#4E6069;
-    --line:#D3DCD9;
-    --mine:#0E6E5E;
-    --mine-soft:#DCEDE8;
-    --rival:#A9522A;
-    --rival-soft:#F2E3DA;
-    --alert:#8A3324;
-    --alert-soft:#F6E0DC;
+    --paper:#F2F5F4;--surface:#FFFFFF;--surface-2:#E9EEEC;--ink:#13202A;--ink-soft:#4E6069;
+    --line:#D3DCD9;--mine:#0E6E5E;--mine-soft:#DCEDE8;--rival:#A9522A;--rival-soft:#F2E3DA;
+    --alert:#8A3324;--alert-soft:#F6E0DC;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --paper:#0F1518;
-      --surface:#161F23;
-      --surface-2:#1D272B;
-      --ink:#E3EAE8;
-      --ink-soft:#9BAAAF;
-      --line:#2A363B;
-      --mine:#4CC0A6;
-      --mine-soft:#12332E;
-      --rival:#D98A5E;
-      --rival-soft:#33231A;
-      --alert:#E8917E;
-      --alert-soft:#331C18;
+      --paper:#0F1518;--surface:#161F23;--surface-2:#1D272B;--ink:#E3EAE8;--ink-soft:#9BAAAF;
+      --line:#2A363B;--mine:#4CC0A6;--mine-soft:#12332E;--rival:#D98A5E;--rival-soft:#33231A;
+      --alert:#E8917E;--alert-soft:#331C18;
     }
   }
   :root[data-theme="dark"]{
-    --paper:#0F1518;
-    --surface:#161F23;
-    --surface-2:#1D272B;
-    --ink:#E3EAE8;
-    --ink-soft:#9BAAAF;
-    --line:#2A363B;
-    --mine:#4CC0A6;
-    --mine-soft:#12332E;
-    --rival:#D98A5E;
-    --rival-soft:#33231A;
-    --alert:#E8917E;
-    --alert-soft:#331C18;
+    --paper:#0F1518;--surface:#161F23;--surface-2:#1D272B;--ink:#E3EAE8;--ink-soft:#9BAAAF;
+    --line:#2A363B;--mine:#4CC0A6;--mine-soft:#12332E;--rival:#D98A5E;--rival-soft:#33231A;
+    --alert:#E8917E;--alert-soft:#331C18;
   }
   *{box-sizing:border-box}
-  body{
-    background:var(--paper);color:var(--ink);
+  body{background:var(--paper);color:var(--ink);
     font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
-    line-height:1.6;margin:0;padding:clamp(20px,4vw,56px) clamp(16px,4vw,32px) 72px;
-  }
+    line-height:1.6;margin:0;padding:clamp(20px,4vw,56px) clamp(16px,4vw,32px) 72px}
   main{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(30px,5vw,50px)}
   .eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
@@ -79,28 +50,22 @@
   th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
   tbody th{font-weight:500}
-  td.num,td .num{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace}
-  .yes{color:var(--mine);font-weight:600}
-  .no{color:var(--rival);font-weight:600}
-  .col-mine{background:var(--mine-soft)}
-  .col-rival{background:var(--rival-soft)}
+  td.num{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+  .ok{color:var(--mine);font-weight:600}
+  .bad{color:var(--alert);font-weight:600}
+  tr.falha td,tr.falha th{background:var(--alert-soft)}
+  .skeleton{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .skeleton li{background:var(--surface);border:1px solid var(--line);padding:7px 12px;font-size:13.5px}
+  .skeleton li.fixo{border-color:var(--rival);color:var(--rival)}
+  .skeleton .arrow{color:var(--ink-soft);font-family:"IBM Plex Mono",monospace}
   ol.steps{counter-reset:g;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
   ol.steps li{counter-increment:g;background:var(--surface);padding:14px 16px 14px 52px;position:relative}
   ol.steps li::before{content:counter(g);position:absolute;left:16px;top:14px;
     font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--mine)}
   ol.steps p{margin:3px 0 0;font-size:14px;color:var(--ink-soft)}
-  .grid2{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-  .pane{background:var(--surface);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
-  .pane.mine{border-top:3px solid var(--mine)}
-  .pane.rival{border-top:3px solid var(--rival)}
-  .pane ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px}
-  .pane li{display:flex;justify-content:space-between;gap:14px;font-size:14px;
-    border-bottom:1px dotted var(--line);padding-bottom:5px}
-  .pane li span:last-child{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
-    color:var(--ink-soft);white-space:nowrap}
   blockquote{margin:0;padding:12px 16px;background:var(--surface-2);border-left:3px solid var(--line);
     font-size:14px;color:var(--ink-soft);max-width:72ch}
-  blockquote p{margin:0;font-style:italic}
+  blockquote p{margin:0}
   .note{background:var(--surface-2);padding:16px 18px;font-size:13.5px;color:var(--ink-soft)}
   .note p{max-width:none}
   code{font-family:"IBM Plex Mono",monospace;font-size:12.5px}
@@ -109,192 +74,125 @@
 
 <main>
   <header>
-    <p class="eyebrow">Análise de construção · 8 de setembro de 2026</p>
-    <h1>Como a página infantil dela é construída — e o que disso cabe no meu site</h1>
-    <p class="sub">descontoplanodesaude.com.br/plano-hapvida-infantil/ lido inteiro (4.692 palavras) contra tabelaplanos.com.br/plano-de-saude-hapvida-infantil/ (2.711 palavras). Análise de método, não de posição.</p>
+    <p class="eyebrow">Skill × concorrente · 8 de setembro de 2026</p>
+    <h1>A sua skill já cobre o que ela faz melhor. Quem não cumpre é a página.</h1>
+    <p class="sub">Quatro artigos de descontoplanodesaude.com.br lidos inteiros contra o arquétipo P1-P9 da hapvida-article-builder-v7 e contra o HTML no ar de /plano-de-saude-hapvida-infantil/.</p>
   </header>
 
   <div class="verdict">
-    <p>São <b>duas escolas diferentes</b>, não uma melhor que a outra. Ela constrói <b>uma página-monólito</b>: 27 seções em bloco padronizado, cobertura de toda a jornada da criança, linguagem que nunca crava um número. Você constrói <b>um nó de cluster</b>: 7 seções, cada tema profundo delegado a um hub, e o dado exato no lugar da generalidade.</p>
-    <p>O que ela faz melhor é <b>a arquitetura do bloco e a amplitude de intenção</b> — e as duas coisas dá para copiar sem quebrar o seu anti-doorway. O que você faz melhor é <b>dado verificável</b>: 19 valores em reais, artigo de lei, número de RN da ANS, registro da operadora. A página dela tem 4 referências de preço, todas em faixa aproximada.</p>
+    <p><b>O método dela é template, e repete.</b> Nos quatro artigos: 22 a 26 H2, exatamente 3 cartões "Fonte oficial", exatamente 1 caixa "Sobre este guia", exatamente 15 perguntas na FAQ, "Leitura de 18/19 minutos" e o mesmo rodapé de seções. Não é talento por artigo — é uma linha de produção.</p>
+    <p><b>A sua skill cobre praticamente tudo isso — e duas coisas ela já copiou dela.</b> A v7.6 nasceu da CI-1 na página <code>fonoaudiologia-hapvida</code> do mesmo site, em 05/09/2026: é de lá que vieram o cartão "Fonte oficial" e a caixa "Sobre este guia", hoje obrigatórios e travados no <code>checkpoint_completude.py</code>.</p>
+    <p><b>O buraco não está na skill, está na página.</b> A infantil é de 2024, foi construída antes de tudo isso e hoje <b>reprovaria no checkpoint da sua própria skill</b>: 7 H2 (mínimo 8), 3 H3 (mínimo 15), 7 FAQ (mínimo 12), zero cartão de fonte oficial, zero caixa "Sobre este guia", schema sem nó Person.</p>
   </div>
 
   <div class="fix">
-    <h3>Corrijo duas coisas que eu disse antes</h3>
+    <h3>Corrijo o documento anterior</h3>
     <ul>
-      <li><b>"A página dela não traz nenhum valor em R$" — falso.</b> Traz: individual "em torno de R$ 150 a R$ 160/mês" e empresarial "em torno de R$ 100", repetidos na FAQ. Meu teste rodou sobre um recorte de 9.000 caracteres do texto e a seção de preço está depois disso. O certo: ela dá preço <em>em faixa aproximada</em>, você dá <em>valor exato por cidade</em>.</li>
-      <li><b>"Falta tabela de carência na sua página" — não é lacuna, é regra.</b> Sua página remete ao hub <code>/plano-de-saude-hapvida-carencia/</code> com âncora no corpo. Isso é o anti-doorway funcionando. A recomendação anterior mandava você criar uma seção duplicada de um pillar — ignore.</li>
+      <li><b>"Falta a linha-resumo sob cada H2" — ela já existe</b> na sua página ("Valores do Plano Infantil Hapvida" → "Confira os preços atualizados por cidade e modalidade"). O padrão é o mesmo dela.</li>
+      <li><b>"Falta link para fonte oficial" — o link existe</b>: sua página aponta para <code>planalto.gov.br</code> (Lei 9.656/1998) e <code>gov.br/ans</code> (RN 566/2022). O que não existe é o <em>cartão</em> <code>fonte-oficial</code> da v7.6 — nenhuma ocorrência no HTML. É diferença de componente, não de conteúdo.</li>
     </ul>
   </div>
 
   <section>
-    <h2>O método dela, item por item</h2>
-    <p class="sub">Cada linha foi contada no HTML publicado, não estimada.</p>
+    <h2>O método se repete — quatro artigos, a mesma régua</h2>
     <div class="scroll">
       <table>
-        <caption>Técnicas identificadas na página de descontoplanodesaude.com.br</caption>
+        <caption>Impressão digital dos quatro artigos lidos em 08/09/2026</caption>
         <thead>
-          <tr><th scope="col">Técnica</th><th scope="col">Evidência medida</th><th scope="col">Para que serve</th><th scope="col">Você tem?</th></tr>
+          <tr><th scope="col">Artigo</th><th scope="col">Palavras</th><th scope="col">H2</th><th scope="col">H3</th><th scope="col">FAQ</th><th scope="col">"Fonte oficial"</th><th scope="col">"Sobre este guia"</th><th scope="col">Leitura</th><th scope="col">"costuma"</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">Bloco padronizado</th>
-            <td>H2 + uma linha de resumo + exatamente 3 parágrafos curtos, repetido em quase todas as 27 seções</td>
-            <td>Cada bloco é uma passagem autossuficiente — extraível por IA e por trecho destacado sem depender do texto anterior</td>
-            <td class="no">Não — suas seções variam de tamanho e não têm a linha-resumo</td>
-          </tr>
-          <tr>
-            <th scope="row">Amplitude de intenção</th>
-            <td>27 H2 e 15 H3, incluindo viagem, sazonalidade de inverno e verão, gêmeos, erros comuns, documentos do dia a dia, marcos do desenvolvimento</td>
-            <td>Captura cauda longa e perguntas do "as pessoas também perguntam" que ninguém escreve</td>
-            <td class="no">Não — 7 H2 e 3 H3</td>
-          </tr>
-          <tr>
-            <th scope="row">FAQ larga e rasa</th>
-            <td>15 perguntas, respostas de 1 a 2 frases</td>
-            <td>Volume de perguntas em linguagem de busca; resposta curta é a que a IA copia inteira</td>
-            <td>Parcial — 7 perguntas, respostas longas e mais precisas que as dela</td>
-          </tr>
-          <tr>
-            <th scope="row">Caixa "Fonte oficial"</th>
-            <td>3 caixas com link externo para a Lei 9.656/98 e para regras da ANS</td>
-            <td>Sinal de confiabilidade visível, e link de saída para fonte primária</td>
-            <td>Parcial — você cita Art. 12 da Lei 9.656/98 e a RN 566/2022 no texto, sem caixa nem link externo</td>
-          </tr>
-          <tr>
-            <th scope="row">Faixa de números citáveis</th>
-            <td>3 hospitais 100% pediátricos · 15 capitais com UTI neonatal · 30 dias · 24h</td>
-            <td>Quatro fatos curtos, prontos para virar resposta de IA</td>
-            <td>Parcial — você tem os números (86 hospitais, ANS 359017, 77% de resolução), soltos no texto</td>
-          </tr>
-          <tr>
-            <th scope="row">Entidade nomeada</th>
-            <td>Cita os hospitais pediátricos pelo nome: Mandacaru (Recife), Rio Solimões (Manaus), Infantil Intermédica (RJ)</td>
-            <td>Nome próprio é entidade — é o que conecta a página ao grafo de conhecimento do Google</td>
-            <td class="no">Não — sua página fala em "86 hospitais próprios" sem nomear nenhum</td>
-          </tr>
-          <tr>
-            <th scope="row">Assinatura e método</th>
-            <td>Autor nomeado com bio e empresa, data, "leitura de 19 minutos", bloco "Sobre este guia" declarando as fontes usadas</td>
-            <td>E-E-A-T explícito: quem escreveu, quando, e com base em quê</td>
-            <td>Parcial — credencial da DRV no texto e data de atualização, sem autor nem declaração de fontes</td>
-          </tr>
-          <tr>
-            <th scope="row">Blindagem YMYL</th>
-            <td>36 ocorrências de "costuma" e 18 de "vale confirmar/vale a pena"</td>
-            <td>Nenhuma afirmação absoluta sobre cobertura — difícil de contestar, difícil de errar</td>
-            <td>Você crava mais (3 "costuma"), porque tem o dado da corretora para sustentar</td>
-          </tr>
-          <tr>
-            <th scope="row">Keyword em negrito</th>
-            <td>"plano Hapvida infantil" 33 vezes, 19 delas em negrito</td>
-            <td>Reforço de termo exato — técnica antiga, hoje de retorno duvidoso</td>
-            <td>Você usa 10 vezes. <b>Não copie esta.</b></td>
-          </tr>
-          <tr>
-            <th scope="row">Preço que não envelhece</th>
-            <td>"em torno de R$ 150 a R$ 160", "em torno de R$ 100" — sem tabela, sem cidade</td>
-            <td>Nunca fica desatualizado, nunca exige manutenção</td>
-            <td>Oposto — 19 valores exatos por cidade e modalidade, que exigem manutenção mensal</td>
-          </tr>
+          <tr><th scope="row">plano-hapvida-infantil</th><td class="num">4.692</td><td class="num">27</td><td class="num">15</td><td class="num">15</td><td class="num">3</td><td class="num">1</td><td class="num">19 min</td><td class="num">36</td></tr>
+          <tr><th scope="row">carencia-hapvida</th><td class="num">4.361</td><td class="num">26</td><td class="num">12</td><td class="num">15</td><td class="num">3</td><td class="num">1</td><td class="num">18 min</td><td class="num">17</td></tr>
+          <tr><th scope="row">quais-cirurgias-o-hapvida-cobre</th><td class="num">4.951</td><td class="num">22</td><td class="num">21</td><td class="num">15</td><td class="num">3</td><td class="num">1</td><td class="num">19 min</td><td class="num">25</td></tr>
+          <tr><th scope="row">psicologo-hapvida</th><td class="num">2.926</td><td class="num">22</td><td class="num">5</td><td class="num">15</td><td class="num">3</td><td class="num">1</td><td class="num">18 min</td><td class="num">16</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="sub">E o fim dos quatro é literalmente o mesmo encadeamento, mudando só o tema:</p>
+    <ul class="skeleton">
+      <li class="fixo">Erros comuns na hora de…</li><li class="arrow">→</li>
+      <li class="fixo">Vale a pena…</li><li class="arrow">→</li>
+      <li class="fixo">Conclusão: [keyword], …</li><li class="arrow">→</li>
+      <li class="fixo">Perguntas frequentes sobre [keyword] · 15</li><li class="arrow">→</li>
+      <li class="fixo">Sobre este guia</li><li class="arrow">→</li>
+      <li class="fixo">bio do autor</li><li class="arrow">→</li>
+      <li class="fixo">Quer um Plano Hapvida com Condições Exclusivas?</li>
+    </ul>
+    <blockquote><p>Ler um artigo dela é ler os quatro. O que muda entre eles é o miolo temático; a moldura é fixa. É exatamente o que a sua skill também faz — só que a régua dela é mais alta em quantidade de seção e a sua é mais alta em exigência de dado.</p></blockquote>
   </section>
 
   <hr>
 
   <section>
-    <h2>O que copiar — e o que cada coisa custa</h2>
+    <h2>Ponto forte dela × o que a skill já manda fazer</h2>
+    <div class="scroll">
+      <table>
+        <caption>Cobertura da hapvida-article-builder-v7</caption>
+        <thead>
+          <tr><th scope="col">O que ela faz</th><th scope="col">A skill cobre?</th><th scope="col">Onde está</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cartão "Fonte oficial" com link para lei/ANS</td><td class="ok">Sim — obrigatório</td><td>v7.6, 1 a 3 por artigo, só planalto/gov.br/in.gov.br, travado no <code>checkpoint_completude.py</code>. <b>Veio da CI-1 nela.</b></td></tr>
+          <tr><td>Caixa "Sobre este guia"</td><td class="ok">Sim — exatamente 1</td><td>v7.6, último bloco da conclusão. <b>Também veio dela.</b></td></tr>
+          <tr><td>FAQ larga (15 perguntas)</td><td class="ok">Sim — mais exigente</td><td>Pillar de produto: mínimo 12, alvo 15-17. FASE 0.2 manda colher 15-20 do "as pessoas também perguntam"</td></tr>
+          <tr><td>Muitas seções e subseções</td><td class="ok">Sim — mais exigente</td><td>P1-P9: mínimo 8 H2 e 15 H3, alvo 9 H2 e 22-28 H3, 3.500-4.500 palavras</td></tr>
+          <tr><td>Passagem que responde sozinha</td><td class="ok">Sim — com auditor</td><td><code>checkpoint_citabilidade.py</code> + agente que classifica cada seção e FAQ em 🔴/🟡/🟢</td></tr>
+          <tr><td>Autor visível e assinado</td><td class="ok">Sim</td><td>v7.4: widget de autor + nó <code>Person</code> no schema (Jessica/Victor), com <code>knowsAbout</code></td></tr>
+          <tr><td>Números citáveis em destaque</td><td class="ok">Sim</td><td>Componentes <code>v5-countup</code> (2 no pillar de referência) e <code>v5-trust</code></td></tr>
+          <tr><td>Linha-resumo sob o H2</td><td class="ok">Sim — já no ar</td><td>Padrão de seção da v5; sua página infantil já usa</td></tr>
+          <tr><td>Quadro comparativo lado a lado</td><td class="ok">Sim</td><td>v7.6, <code>quadro-comp</code>, até 2 por artigo</td></tr>
+          <tr><td>Data de atualização e fontes no rodapé</td><td class="ok">Sim</td><td>Regra da v5: nota de rodapé com fontes e data em todos os artigos; <code>dateModified</code> só com revisão real</td></tr>
+          <tr><td>Seção fixa "Erros comuns na hora de…"</td><td class="bad">Não como seção padrão</td><td>A skill trata "erros comuns" como conteúdo do pillar <em>Como Contratar</em> — para os outros artigos é bridge + link. Cabe adotar <b>só</b> se for erro específico do tema (autorização de cirurgia, prazo dos 30 dias), nunca erro de contratação</td></tr>
+          <tr><td>"Leitura de 18 minutos" no topo</td><td class="bad">Não</td><td>Não existe na skill. É sinal de UX, não de ranqueamento — item de menor valor da lista</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <blockquote><p>Onde a skill é <b>mais forte que ela</b>: a P9 exige as <b>duas</b> listas — "costuma compensar para" e "pode não compensar para". Nos quatro artigos dela, a seção "Vale a pena" só tem o lado positivo. Admitir para quem o produto não serve é o sinal de E-E-A-T que ela não dá.</p></blockquote>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>A página infantil contra o mínimo da sua própria skill</h2>
+    <p class="sub">O banco classifica <code>plano-de-saude-hapvida-infantil</code> como <code>pillar_produto</code> — o arquétipo P1-P9. Contagens medidas no HTML publicado em 08/09/2026.</p>
+    <div class="scroll">
+      <table>
+        <caption>Arquétipo P1-P9 × página no ar</caption>
+        <thead>
+          <tr><th scope="col">Requisito</th><th scope="col">Mínimo</th><th scope="col">Alvo</th><th scope="col">Na página</th><th scope="col">Situação</th></tr>
+        </thead>
+        <tbody>
+          <tr class="falha"><th scope="row">H2 de corpo</th><td class="num">8</td><td class="num">9</td><td class="num">7</td><td class="bad">reprova</td></tr>
+          <tr class="falha"><th scope="row">H3</th><td class="num">15</td><td class="num">22-28</td><td class="num">3</td><td class="bad">reprova</td></tr>
+          <tr class="falha"><th scope="row">FAQ (<code>details</code>)</th><td class="num">12</td><td class="num">15-17</td><td class="num">7</td><td class="bad">reprova</td></tr>
+          <tr class="falha"><th scope="row">Cartão <code>fonte-oficial</code></th><td class="num">1</td><td class="num">1-3</td><td class="num">0</td><td class="bad">reprova</td></tr>
+          <tr class="falha"><th scope="row">Caixa <code>guia-box</code></th><td class="num">1</td><td class="num">1</td><td class="num">0</td><td class="bad">reprova</td></tr>
+          <tr class="falha"><th scope="row">Schema com <code>Person</code></th><td>obrigatório</td><td>+ <code>knowsAbout</code></td><td class="num">0</td><td class="bad">ausente</td></tr>
+          <tr><th scope="row">Palavras de corpo</th><td class="num">2.500</td><td class="num">3.500-4.500</td><td class="num">2.711</td><td>passa raspando</td></tr>
+          <tr><th scope="row">Links internos únicos</th><td class="num">8</td><td class="num">12-16</td><td class="num">21</td><td class="ok">acima</td></tr>
+          <tr><th scope="row">Links externos</th><td class="num">2</td><td class="num">3-4</td><td class="num">3</td><td class="ok">passa</td></tr>
+          <tr><th scope="row">Tabela de preço</th><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="ok">passa</td></tr>
+          <tr><th scope="row"><code>destaque-laranja-suave</code></th><td>ritmo a cada ~240 palavras</td><td class="num">19</td><td class="num">16</td><td class="ok">passa</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Traduzindo: <b>a página não está atrás dela por falta de método — está atrás por não ter passado pelo método.</b> Rodar a v7 nela fecha, de uma vez, os seis itens em vermelho e a diferença de amplitude que a página dela tem.</p>
+  </section>
+
+  <section>
+    <h2>Se for reformar a página, nesta ordem</h2>
     <ol class="steps">
-      <li><b>A linha-resumo abaixo de cada H2.</b><p>Uma frase que responde a seção antes dos parágrafos. É a mudança mais barata da lista: 7 frases novas, zero conteúdo novo, e cada seção sua vira uma passagem extraível.</p></li>
-      <li><b>Nomear os hospitais pediátricos.</b><p>Você tem páginas próprias de Mandacaru, Layr Maia, Nilton Lins e outros — ela só tem o nome. Nomear e linkar entrega entidade e link de cluster no mesmo movimento, e é informação que ela não consegue igualar.</p></li>
-      <li><b>A caixa "Fonte oficial" com link externo.</b><p>Você já cita a Lei 9.656/98 e a RN 566/2022; falta o link para o texto da norma. Custo: dois links de saída.</p></li>
-      <li><b>Ampliar a FAQ para as perguntas de cauda que ela cobre.</b><p>Perder o prazo dos 30 dias, gêmeos, viagem, enteado, transição do pediatra. Em FAQ, não em seção nova — resposta curta não vira doorway.</p></li>
-      <li><b>Bloco de autor e declaração de fontes.</b><p>É o único item de E-E-A-T em que ela está claramente à frente. A DRV tem credencial melhor que a dela; ela só está usando a dela de forma mais visível.</p></li>
+      <li><b>FASE P0 antes de escrever.</b><p>É obrigatória no arquétipo de pillar: GSC da página, quem ranqueia a keyword, quantos links internos ela já recebe (8, pelo banco) e o que o banco diz dela. Decide se o problema é conteúdo, ângulo, title/meta ou canibalização — e se a URL fica de pé.</p></li>
+      <li><b>Fechar os seis vermelhos.</b><p>H2, H3, FAQ, cartão de fonte oficial, caixa "Sobre este guia" e o nó Person no schema. São os itens que o próprio <code>checkpoint_completude.py</code> reprova hoje.</p></li>
+      <li><b>Achar o eixo (P4) — a seção que ela não tem.</b><p>O eixo tem de ser dado de nível 1-2: o que a DRV sabe e o site dela não. Preço real por cidade e os hospitais pediátricos que você tem página própria são candidatos; "rede pediátrica é boa" não é.</p></li>
+      <li><b>Cobrir a amplitude dela por FAQ, não por seção.</b><p>Perder o prazo dos 30 dias, gêmeos, viagem, enteado, transição do pediatra. Ir de 7 para 15-17 perguntas cobre a cauda dela sem criar seção sobre tema que já tem hub.</p></li>
+      <li><b>P9 com as duas listas.</b><p>É onde a skill bate o método dela. "Pode não compensar para" é o parágrafo mais barato e mais raro da SERP inteira.</p></li>
     </ol>
   </section>
 
-  <section>
-    <h2>O que NÃO copiar — a trava anti-doorway</h2>
-    <p class="sub">Metade do volume dela vem de temas que, no seu site, pertencem a outra página. Escrever essas seções na página infantil recria exatamente o overlap que o banco já cataloga como risco alto.</p>
-    <div class="scroll">
-      <table>
-        <caption>Seção dela × dono do tema no tabelaplanos</caption>
-        <thead>
-          <tr><th scope="col">Seção da página dela</th><th scope="col">Dono do tema no seu site</th><th scope="col">Ação certa</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="col-rival">Carência do plano infantil (com tabela)</td><td class="col-mine">/plano-de-saude-hapvida-carencia/</td><td>Já resolvido — ponte de 2 frases + link. Manter como está.</td></tr>
-          <tr><td class="col-rival">Inclusão do recém-nascido em 30 dias</td><td class="col-mine">/plano-de-saude-para-recem-nascido/</td><td>Já linkado. É o único tema em que a profundidade dela se justifica na página infantil, porque é o gatilho de compra.</td></tr>
-          <tr><td class="col-rival">Como incluir seu filho no plano</td><td class="col-mine">/como-incluir-dependentes-no-seu-plano-hapvida/</td><td>Já linkado. Não expandir — essa página é #2 nas buscas dela.</td></tr>
-          <tr><td class="col-rival">Emergência pediátrica 24 horas</td><td class="col-mine">/urgencia-e-emergencia-hapvida/</td><td>Já linkado. Manter em uma frase.</td></tr>
-          <tr><td class="col-rival">Odontopediatria</td><td class="col-mine">página de plano odontológico</td><td>Mencionada no seu texto <b>sem link</b>. Linkar.</td></tr>
-          <tr><td class="col-rival">Crianças com condição preexistente / CPT</td><td class="col-mine">/doenca-preexistente-plano-de-saude/</td><td>Não mencionada e não linkada. Uma frase + link.</td></tr>
-          <tr><td class="col-rival">Individual, familiar ou empresarial</td><td class="col-mine">páginas de individual, empresarial, adesão e MEI</td><td>Você já tem a seção "Tipos de Planos". O banco marca "Tipos de Planos/Modalidades" como overlap de risco médio — vale conferir se a sua não repete o pillar.</td></tr>
-          <tr><td class="col-rival">Comparação com outras operadoras</td><td class="col-mine">/hapvida-vs-amil-comparativo/ e hapvida-vs-unimed</td><td>Não escrever a seção. Uma linha de ponte + link.</td></tr>
-          <tr><td class="col-rival">Sazonalidade, kit de viagem, marcos do desenvolvimento</td><td class="col-mine">ninguém — e tudo bem</td><td>É conteúdo genérico de plano de saúde, sem vantagem informacional. É o que infla as 4.692 palavras dela. Ignorar.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section>
-    <h2>Sete menções sem link na sua página</h2>
-    <p class="sub">Sua página já cita o assunto, o destino já existe e está subutilizado. É link interno de graça, sem escrever uma palavra nova — e é o caminho anti-doorway para cobrir os temas dela.</p>
-    <div class="scroll">
-      <table>
-        <caption>Menção no texto → destino existente → backlinks internos hoje</caption>
-        <thead>
-          <tr><th scope="col">O que sua página já diz</th><th scope="col">Destino</th><th scope="col">Links que ele recebe hoje</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>"Teleconsulta Pediátrica … pelo aplicativo Hapvida"</td><td><code>teleconsulta-hapvida</code></td><td class="num">6 · normal</td></tr>
-          <tr><td>"a inclusão pode ser feita pelo aplicativo Hapvida"</td><td><code>aplicativo-hapvida</code></td><td class="num">1 · subutilizado</td></tr>
-          <tr><td>"tratamentos com odontopediatras especializados"</td><td><code>plano-odontologico-hapvida</code></td><td class="num">2 · subutilizado</td></tr>
-          <tr><td>"fonoaudiologia, terapia ocupacional, fisioterapia e psicologia"</td><td><code>hapvida-cobre-fisioterapia</code></td><td class="num">3 · subutilizado</td></tr>
-          <tr><td>a mesma frase, para o lado da saúde mental</td><td><code>hapvida-cobre-psicologo</code></td><td class="num">5 · subutilizado</td></tr>
-          <tr><td>"é possível contratar como MEI a partir de 2 vidas"</td><td><code>convenio-medico-para-mei</code></td><td class="num">5 · subutilizado</td></tr>
-          <tr><td>"86 hospitais próprios com UTI neonatal" (nomear um)</td><td><code>hospital-mandacaru-hapvida-recife</code></td><td class="num">2 · subutilizado</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <blockquote><p>Nenhum destino da lista está saturado. Os hubs que sua página já linka — carências (53 links), coparticipação (59) e contratar (27) — estão saturados: não adicionar mais nenhum link para eles.</p></blockquote>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>Onde cada página é mais forte</h2>
-    <div class="grid2">
-      <div class="pane mine">
-        <h3>Sua página infantil</h3>
-        <ul>
-          <li><span>Valores exatos em reais</span><span>19</span></li>
-          <li><span>Cidades com preço próprio</span><span>4</span></li>
-          <li><span>Normas citadas com artigo</span><span>2</span></li>
-          <li><span>Links internos no corpo</span><span>27</span></li>
-          <li><span>Dados estruturados</span><span>FAQPage + 5</span></li>
-          <li><span>Última atualização</span><span>07/09/2026</span></li>
-        </ul>
-      </div>
-      <div class="pane rival">
-        <h3>A página dela</h3>
-        <ul>
-          <li><span>Seções (H2)</span><span>27</span></li>
-          <li><span>Perguntas na FAQ</span><span>15</span></li>
-          <li><span>Hospitais nomeados</span><span>3</span></li>
-          <li><span>Links para fonte oficial</span><span>3</span></li>
-          <li><span>Links internos no corpo</span><span>15</span></li>
-          <li><span>Autor visível</span><span>sim</span></li>
-        </ul>
-      </div>
-    </div>
-    <p>Resumindo o eixo: ela otimizou para <b>ser copiada por uma IA</b> — bloco curto, resposta curta, fato citável, zero risco. Você otimizou para <b>converter quem chegou</b> — preço na primeira tela, formulário, credencial. As duas coisas somam; a arquitetura de bloco dela cabe dentro da sua página sem tirar nada do que já está lá.</p>
-  </section>
-
   <div class="note">
-    <p><b>Como foi medido.</b> As duas páginas foram baixadas inteiras em 08/09/2026 por um fluxo n8n (este ambiente não alcança site externo direto) e o texto foi contado por script, não por leitura amostral. Contagens de H2/H3, ocorrências de keyword, "costuma", valores em R$ e perguntas de FAQ vêm desse texto. Saturação de links internos e overlaps doorway: banco Supabase, funções <code>consultar_saturacao_destinos</code> e <code>consultar_overlaps_doorway</code>, 08/09/2026.</p>
-    <p><b>Limites.</b> Nada aqui atesta que os dados da página dela estejam corretos — a análise é de construção, não de veracidade. O slug do destino odontológico aparece como <code>plano-odontologico-hapvida</code> no banco e <code>plano-odonto-hapvida</code> no site; confirmar qual está no ar antes de linkar.</p>
+    <p><b>Como foi medido.</b> Quatro páginas de descontoplanodesaude.com.br (infantil, carência, cirurgias, psicólogo) e a página infantil do tabelaplanos baixadas inteiras em 08/09/2026 por fluxo n8n; contagens de H2/H3, FAQ, cartões, "costuma" e marcadores de classe feitas por script sobre o HTML, não por leitura amostral. Requisitos: <code>references/artigo-pillar-produto.md</code> (limites P1-P9), SKILL.md v7.6 (fonte oficial, guia-box, quadro comparativo) e v7.4 (autor/Person) da hapvida-article-builder-v7. Tipo do artigo (<code>pillar_produto</code>): banco Supabase.</p>
+    <p><b>Limites.</b> A contagem de H2 no HTML bruto da sua página dá 8; 7 é o número de H2 do corpo, depois de descontar cabeçalho e rodapé — de um jeito ou de outro fica no limite do mínimo. A ausência de widget de autor não foi confirmada por classe; o que está confirmado é a ausência do nó <code>Person</code> no JSON-LD. Nada aqui atesta que os dados das páginas dela estejam corretos.</p>
   </div>
 </main>

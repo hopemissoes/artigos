@@ -1,42 +1,56 @@
-# Análise de construção — página infantil do concorrente (08/09/2026)
+# Skill v7 × concorrente descontoplanodesaude.com.br (08/09/2026)
 
-Concorrente: `descontoplanodesaude.com.br/plano-hapvida-infantil/` (nota 14 do banco).
-Minha página: `/plano-de-saude-hapvida-infantil/`.
+## 1. O método dela é template, e repete
 
-**Eixo:** duas escolas. Ela faz página-monólito (27 H2, cobertura de toda a jornada,
-linguagem sem afirmação absoluta). Eu faço nó de cluster (7 H2, tema profundo
-delegado a hub, dado exato).
+Quatro artigos lidos inteiros (infantil, carência, cirurgias, psicólogo):
 
-**Técnicas dela, medidas no HTML:** bloco padronizado (H2 + linha-resumo + 3
-parágrafos); 27 H2 / 15 H3 cobrindo cauda longa (viagem, sazonalidade, gêmeos,
-erros comuns); FAQ de 15 perguntas com resposta de 1-2 frases; 3 caixas "Fonte
-oficial" com link para Lei 9.656/98 e ANS; faixa de 4 números citáveis; hospitais
-pediátricos nomeados; bloco de autor + "Sobre este guia"; 36 "costuma" (blindagem
-YMYL); keyword exata 33x, 19 em negrito; preço em faixa aproximada (4 referências,
-sem tabela).
+| Artigo | Palavras | H2 | H3 | FAQ | Fonte oficial | Sobre este guia | Leitura |
+|---|---|---|---|---|---|---|---|
+| plano-hapvida-infantil | 4.692 | 27 | 15 | 15 | 3 | 1 | 19 min |
+| carencia-hapvida | 4.361 | 26 | 12 | 15 | 3 | 1 | 18 min |
+| quais-cirurgias-o-hapvida-cobre | 4.951 | 22 | 21 | 15 | 3 | 1 | 19 min |
+| psicologo-hapvida | 2.926 | 22 | 5 | 15 | 3 | 1 | 18 min |
 
-**Minha página:** 19 valores exatos em R$, 4 cidades, Art. 12 da Lei 9.656/98,
-RN 566/2022, ANS 359017, 27 links internos, FAQPage + 5 tipos de schema.
+Rodapé idêntico nos quatro: Erros comuns → Vale a pena → Conclusão: [keyword] →
+Perguntas frequentes (15) → Sobre este guia → bio do autor → CTA.
 
-**A copiar:** linha-resumo sob cada H2; nomear hospitais pediátricos (tenho página
-própria de vários); caixa de fonte oficial com link externo; ampliar FAQ para a
-cauda dela; bloco de autor e declaração de fontes. **Não copiar:** keyword em
-negrito 19x; e nenhuma das seções cujo tema tem hub próprio.
+## 2. A skill cobre — e duas coisas já vieram dela
 
-**Sete menções sem link na minha página** (destinos existentes e subutilizados):
-teleconsulta-hapvida, aplicativo-hapvida, plano-odontologico-hapvida,
-hapvida-cobre-fisioterapia, hapvida-cobre-psicologo, convenio-medico-para-mei,
-hospital-mandacaru-hapvida-recife. Hubs de carência (53), coparticipação (59) e
-contratar (27) estão SATURADOS — não linkar mais.
+A v7.6 nasceu da CI-1 na página `fonoaudiologia-hapvida` do mesmo site (05/09/2026):
+cartão "Fonte oficial" e caixa "Sobre este guia" são de lá, hoje obrigatórios e
+travados no `checkpoint_completude.py`. FAQ 15-17, 8-9 H2, 15-28 H3, citabilidade,
+autor/Person, countup/trust, linha-resumo, quadro comparativo e nota de rodapé com
+data: tudo já está na skill, com régua igual ou mais alta.
 
-## Correções de afirmações anteriores desta sessão
+NÃO coberto (2 itens menores): seção fixa "Erros comuns na hora de…" (a skill trata
+erros comuns como conteúdo do pillar Como Contratar) e "Leitura de X minutos".
+A skill é MAIS forte num ponto: P9 exige as duas listas (compensa / não compensa);
+ela só publica o lado positivo.
 
-1. "A página dela não traz nenhum valor em R$" — FALSO. Traz R$ 150-160
-   (individual) e ~R$ 100 (empresarial). O teste rodou sobre um recorte de 9.000
-   caracteres e a seção de preço estava fora dele.
-2. "Falta tabela de carência na minha página" — não é lacuna: a página linka o hub
-   `/plano-de-saude-hapvida-carencia/`. É o anti-doorway funcionando.
+## 3. O buraco é a página, não a skill
 
-Documento visual: `comparativo.html`.
-Textos completos das duas páginas: `dados/*.md`. Extração on-page: `dados/*.jsonl`.
+`plano-de-saude-hapvida-infantil` é `pillar_produto` (arquétipo P1-P9) e reprovaria
+no checkpoint da própria skill:
+
+| Requisito | Mínimo | Na página |
+|---|---|---|
+| H2 de corpo | 8 | 7 |
+| H3 | 15 | 3 |
+| FAQ (details) | 12 | 7 |
+| cartão fonte-oficial | 1 | 0 |
+| caixa guia-box | 1 | 0 |
+| schema com Person | obrigatório | ausente |
+| palavras | 2.500 (alvo 3.500-4.500) | 2.711 |
+| links internos únicos | 8 | 21 (ok) |
+| links externos | 2 | 3 (ok) |
+
+A página é de 2024 e foi construída antes da v7.
+
+## Correções do documento anterior
+
+- "Falta linha-resumo sob cada H2" — já existe na página.
+- "Falta link para fonte oficial" — os links existem (planalto + gov.br/ans);
+  o que falta é o cartão `fonte-oficial` da v7.6 (0 ocorrências no HTML).
+
+Documento visual: `comparativo.html`. Textos completos: `dados/*.md`.
 CI-1: rota 2 (workflow n8n `NUUZmP5y4AtFb2jL`) — egress externo bloqueado.
