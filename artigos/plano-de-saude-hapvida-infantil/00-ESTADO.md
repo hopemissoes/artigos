@@ -94,8 +94,8 @@ impressões · pos. 4,9 em 28 dias) — não é caso de trocar o eixo. Campo gen
 | 🚦 **PORTÃO HUMANO — aprovação do artigo** | ✅ aprovado | usuário: "atualize agora o meu artigo no wordpress" (08/09) |
 | Publicação no WordPress (post 12185) | ✅ feito | dry-run + apply + conferência no ar; backups em `fontes/wp-12185-antes.html` e `wp-12185-depois.html` |
 | Imagem da tabela de preço | ❌ **não se aplica** | decisão do usuário (08/09): o artigo tem **uma imagem só**, a de abertura. Não existe imagem de tabela, e os valores saem **apenas dos shortcodes da tabela de 4 cidades** |
-| Schema JSON-LD | ⬜ pendente | execução separada, só quando o usuário pedir |
-| Registro no banco Supabase (`registrar_atualizacao`, `registrar_links_artigo`) | ⬜ pendente | REGRA ZERO: só com pedido expresso |
+| Schema JSON-LD | ✅ no ar | conferido em 08/09: 1 bloco ld+json, FAQPage com 16 perguntas, Article com author = #organization (DRV), Service sem offers, AggregateOffer eliminado, 0 colchete cru (os 7 shortcodes resolveram em R$) |
+| Registro no banco Supabase | ✅ feito | `registrar_atualizacao` id 48 · `atualizar_artigo` id 57 (V7.6.0) · 13 links de saída · 16 FAQs |
 | Meta title / meta description / H1 no WordPress | ⬜ pendente | continuam os antigos; H1 no ar ainda é "Como escolher o melhor plano de saúde hapvida infantil para seu filho" |
 
 Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `checkpoints/`)
