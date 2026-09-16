@@ -4,13 +4,13 @@ tipo: hospital | cidade/eixo: Guarulhos | âncoras: 0
 ======================================================================
 
 A · MATRIZ DE SUFICIÊNCIA POR SEÇÃO (itens da pesquisa que a sustentam)
-   HS1 o hospital                         150 item(ns)
-   HS2 estrutura e serviços                90 item(ns)
-   HS3 como usar                            7 item(ns)
-   HS4 rede em volta                       81 item(ns)
+   HS1 o hospital                         164 item(ns)
+   HS2 estrutura e serviços                97 item(ns)
+   HS3 como usar                           12 item(ns)
+   HS4 rede em volta                      114 item(ns)
 
 B · FAQ — LOCAL DE VERDADE?
-   perguntas: 28 | sem âncora local: 2 (7.1%, limite 20%)
+   perguntas: 13 | sem âncora local: 2 (15.4%, limite 20%)
    - Quais hospitais o Hapvida atende?
    - Quais hospitais em São Paulo aceitam o plano de saúde Hapvida?
 

@@ -93,3 +93,38 @@ nutrição, lactário, lavanderia, manutenção e ambulância TERCEIRIZADOS.
   ⚠️ **Dois telefones diferentes**: CNES 11 3155-2000 × site da operadora (11) 2463-8610. Nenhum entra no
   artigo (regra do checkpoint_verificar).
 - https://www.segs.com.br/... — **bloqueado por Cloudflare** (403, "Just a moment..."). Não lido.
+
+## 5. Rodada 3 (execução 33233, 2026-09-16 10:18) — reforço de fontes
+
+### Saúde Business — 13/11/2025 (veículo setorial, fora da imprensa local)
+https://www.saudebusiness.com/hospitais/hospital-hapvida-ganha-espaco-para-mulheres-vitimas-violencia-de-genero/
+- "A Sala Lilás é a primeira da rede privada, no Brasil, disponível para o acolhimento de todas as meninas
+  e mulheres em situação de violência"
+- "O espaço, aberto oficialmente na última segunda-feira — chamado de Sala Lilás —, está localizado no
+  Hospital Keila Ferreira, antigo Hospital e Maternidade Guarulhos, na grande São Paulo."
+→ é a fonte que sustenta o superlativo com mais força que a imprensa local.
+
+### Jornal Exempplar — https://jornalexempplar.com.br/saude/hapvida-implanta-sala-lilas-e-renomeia-hospital-em-homenagem-a-bispa-keila-ferreira/
+- "a Hapvida inaugurou, nesta segunda-feira (10), a sua primeira Sala Lilás, localizada no Hospital Keila
+  Ferreira, antigo Hospital e Maternidade Guarulhos"; repete "113 leitos".
+
+### Joi / oitapecericano — https://www.oitapecericano.com.br/noticia/hospital-guarulhos-passa-a-se-chamar-hospital-keila-ferreira
+- "ao pronto-socorro adulto, infantil, ortopédico e à maternidade, bem como exames de tomografia, raio-x,
+  ultrassom, endoscopia e colonoscopia."
+- "Endereço: Avenida Tiradentes, 1015 – Jardim Santa Edwirges, Guarulhos (SP)"
+- "Keila Ferreira era casada com o bispo Samuel Ferreira da Assembleia de Deus do Brás, zona leste de São
+  Paulo, onde ambos atuavam como líderes."
+- repete 113 leitos / 30 de UTI / 10 neonatais.
+
+### O que NÃO veio (registrado como limitação, não como ausência de fato)
+- https://www.gndi.com.br/nossas-unidades e https://www2.hapvida.com.br/unidades — 320 e 307 palavras de
+  menu: são SPA, a lista de unidades só existe depois do JavaScript. **A segunda lista da rede (guia
+  oficial) continua indisponível nesta sessão.**
+- https://transportes.guarulhos.sp.gov.br/ — sem HTML. https://www.guarulhos.sp.gov.br/servico/itinerario-de-onibus
+  — página de serviço, sem itinerário no HTML. **Nenhuma linha de ônibus confirmada.**
+
+### Leitura do orquestrador sobre "113 leitos / 30 UTI / 10 neonatais"
+Quatro veículos publicam o número (Guarulhos Todo Dia, Click Guarulhos, Jornal Exempplar, Joi) com a mesma
+frase. Isso é **uma cadeia de divulgação, não quatro fontes independentes**. Tratamento adotado, conforme o
+veredito do Agente 23: entra no máximo uma vez, atribuído e datado, fora do lead, do title e de qualquer H2,
+e nunca no meio da lista traduzida do CNES — que é a estrutura verificável do artigo.

@@ -25,9 +25,9 @@ CHECKPOINT FASE 0 [V7.2] — PESQUISA_hospital-hapvida-maternidade-guarulhos_COM
 
 3 · VOLUME DE COLETA (contado, não procurado)
    unidades com endereço preenchido: 5 (mín. 1)
-   perguntas de FAQ: 29 (mín. 10)
-   secundárias qualificadas: 7 (mín. 6)
-   dados de defensibilidade nível 1-2: 10 (mín. 3)
+   perguntas de FAQ: 13 (mín. 10)
+   secundárias qualificadas: 6 (mín. 6)
+   dados de defensibilidade nível 1-2: 14 (mín. 3)
    sub-perguntas de fan-out: 9 (mín. 5)
    dados únicos declarados: 20 (mín. 10)
 
@@ -37,6 +37,7 @@ CHECKPOINT FASE 0 [V7.2] — PESQUISA_hospital-hapvida-maternidade-guarulhos_COM
    2026-09-16  -                         0 dias
    2026-09-16  -                         0 dias
    2026-09-16  -                         0 dias
+   2026-09-16  concorrentes              0 dias
    2026-09-16  rede                      0 dias
    2026-09-16  rede                      0 dias
    2026-09-16  serp                      0 dias
@@ -46,11 +47,12 @@ CHECKPOINT FASE 0 [V7.2] — PESQUISA_hospital-hapvida-maternidade-guarulhos_COM
    aprovação explícita na linha do rótulo: sim
 
 6 · SEÇÃO 9 — FORBIDDEN_TOKENS
-   12 token(s) proibido(s): Hospital Bispa Keila Ferreira, 88 hospitais, 10 anos, (11) 2463-8610, 3155-2000
+   20 token(s) proibido(s): Hospital Bispa Keila Ferreira, 88 hospitais, 10 anos, (11) 2463-8610, 3155-2000
 
 --------------------------------------------------------------------
-🟡 AVISOS (1)
+🟡 AVISOS (2)
    - fonte de agregador/rede social citada (instagram.com) — regra 2: no máximo pista, nunca fonte factual
+   - 1 item(ns) [VERIFICAR] — NÃO podem entrar no artigo
 
 ✅ APROVADO — state file completo e preenchido.
    Atenção: APROVADO aqui = dado coletado e com fonte. NÃO é juízo de

@@ -58,8 +58,11 @@ coletado_em: 2026-09-16  # serp
   - a frase exata pedida ("hospital hapvida e maternidade guarulhos") tem **volume não medido**
     (`items_count: 0` no DataForSeo) — é cauda longa; entra como variação natural, não como âncora do title.
 - secundarias:
-  - kw: hospital keila ferreira | volume: 9.900 | intencao: navigational | veredito: qualificada | onde entra: H1/lead/HS1
-    (ressalva: parte do volume pode ser busca pela pessoa homenageada, não pelo hospital — ver seção 8)
+  - kw: hospital keila ferreira | volume: 9.900 | intencao: navigational | veredito: **qualificada com
+    desconto** | onde entra: lead e HS1, **não no title nem como promessa de tráfego**
+    (o volume saltou de 0 para 12-18 mil entre out/2025 e jan/2026, exatamente quando a bispa homenageada
+    morreu e o hospital foi renomeado; o `keyword_data` não separa busca pela pessoa de busca pelo hospital.
+    Tratar como teto, nunca como previsão — ver seção 8)
   - kw: hospital e maternidade guarulhos | volume: 1.600 | intencao: navigational | veredito: qualificada | onde entra: H2 da HS1
   - kw: hospital keila ferreira guarulhos | volume: 590 | intencao: navigational | veredito: qualificada | onde entra: H2 da HS3
   - kw: hospital hapvida guarulhos | volume: 260 (+191% no ano) | intencao: navigational + transactional | veredito: qualificada | onde entra: title e H2 da HS4
@@ -93,7 +96,8 @@ coletado_em: 2026-09-16  # serp
 - populacao: 1.291.771 habitantes (Censo 2022) — fonte: IBGE Cidades — https://cidades.ibge.gov.br/brasil/sp/guarulhos/panorama
   - rota: WebSearch com `allowed_domains: ibge.gov.br` — [INDEXADO — NAO E LEITURA DE PAGINA]
 - densidade: 4.053,57 hab/km² (2022) — fonte: IBGE Cidades — https://www.ibge.gov.br/cidades-e-estados/sp/guarulhos.html
-- posicao: 2ª cidade mais populosa de SP e maior cidade brasileira que não é capital — fonte: IBGE (a confirmar na leitura da página)
+- posicao no ranking de municípios: `[VERIFICAR]` — a leitura da página do IBGE não foi possível (egress).
+  Fica FORA do artigo enquanto não for conferida.
 - CNES do estabelecimento: código 9255826 — **ficha LIDA em 2026-09-16 pela rota n8n** — fonte: CNES/DataSUS
   - estabelecimento: **HOSPITAL KEILA FERREIRA** (o registro federal já usa o nome novo)
   - nome empresarial: NOTRE DAME INTERMEDICA SAUDE S A · diretor clínico: FUAD MASSABKI JUNIOR
@@ -112,8 +116,21 @@ coletado_em: 2026-09-16  # serp
   - apoio próprio: farmácia, central de esterilização, serviço social, prontuário. Terceirizados: nutrição,
     lactário, lavanderia, ambulância.
   - fonte transcrita em `fontes/ci1-rodada2-fontes-primarias.md`
-- acessibilidade / vias: Av. Tiradentes é eixo central de Guarulhos; proximidade da Rod. Presidente Dutra
-  citada no artigo de cidade já publicado — fonte: artigo de cidade (dado da casa), a reancorar
+### Material da HS3 (como chegar e informações práticas) — coletado para fechar a seção órfã
+- endereço no registro federal: **Av. Tiradentes, nº 1015, complemento "1 037"** — fonte: ficha CNES 9255826.
+  O complemento explica a related_search medida "Avenida Tiradentes 1037 Guarulhos": são o mesmo endereço.
+- **divergência de bairro, registrada de propósito:** o CNES diz "JARDIM GUARULHOS"; o site da operadora e a
+  imprensa dizem "Jardim Santa Edwirges" — fontes: ficha CNES × gndi.com.br/unidades/hospital-keila-ferreira ×
+  Joi (16/09/2026). Quem procura pelo bairro errado no mapa não acha. É material de HS3, não erro a esconder.
+- CEP: 07090000 — fonte: ficha CNES
+- coordenadas da unidade: -23.46507433030174 / -46.53342107370293 — fonte: gndi.com.br (HTML da página da unidade)
+- referências a pé, do próprio CNES: serviço de hemoterapia na mesma Av. Tiradentes a **0,1 km**;
+  Hospital da Criança 12 de Outubro na Av. Paulo Faccini a **0,2 km**; consultórios na Rua Antônio Vita a
+  0,1-0,2 km — fonte: bloco "Unidades Próximas" do espelho do CNES
+- eixo viário: a Av. Tiradentes corta a região central de Guarulhos — fonte: Guarulhos Todo Dia 11/11/2025
+  ("fica na Av. Tiradentes, 1015, na região central de Guarulhos")
+- **não confirmado e declarado como tal:** linha de ônibus (a página de itinerário da prefeitura não publica
+  o dado no HTML) e estacionamento (nenhuma fonte)
 
 ## 4. Rede assistencial (consultar_rede ANTES da web)
 
@@ -152,8 +169,17 @@ Fonte: MCP `BD - Consultar` → `consultar_rede` (catálogo próprio) — tabela
 - fonte: consultar_rede (id 298, pagina_pdf 220)
 - defensibilidade: 1
 
-**Regra das duas listas:** catálogo (5 unidades) × guia oficial (não lido nesta sessão — egress).
-O que o catálogo confirma pode ser afirmado; o que só aparece na SERP entra atribuído à fonte.
+**Regra das duas listas — aplicada, com o resultado declarado:**
+- lista A (catálogo da casa, `consultar_rede`): 5 unidades próprias em Guarulhos.
+- lista B (guia oficial da operadora): **não obtida**. As duas páginas de unidades (gndi.com.br/nossas-unidades
+  e www2.hapvida.com.br/unidades) foram buscadas em 2026-09-16 pela rota n8n e voltaram com 320 e 307 palavras
+  de menu — são SPA, a lista só existe depois do JavaScript.
+- **Consequência para a escrita, sem exceção:** o artigo NÃO afirma que a Hapvida tem 5 unidades em Guarulhos
+  como fato do mundo. Escreve **atribuído ao catálogo** ("no catálogo de rede da operadora constam...") e
+  **nunca** afirma ausência ("não há outra unidade em X") — ausência no catálogo não é prova de ausência na
+  rede. As 3 unidades que o artigo de cidade cita e o catálogo confirma são as únicas nomeadas.
+- unidade-objeto: o catálogo está **comprovadamente desatualizado** nela (registra o nome antigo enquanto o
+  CNES e o site já usam o novo). Para o hospital, a fonte que manda é a ficha CNES 9255826, não o catálogo.
 
 ## 5. Desmontagem de concorrentes [V4 / CI-1]
 
@@ -251,7 +277,7 @@ O que o catálogo confirma pode ser afirmado; o que só aparece na SERP entra at
 | **Mudança de nome (nov/2025)** | não | não | não | não | não | **só nós** |
 | **Sala Lilás** | não | não | não | não | não | **só nós** |
 | Estrutura real (salas, UTI, PS) | não | cobre mal | não | não | cobre (CNES cru) | cobre traduzido (HS1/HS2) |
-| PS 24h — responde? | não | não | não | não | **"ligue para confirmar"** | **responde (HS2)** |
+| PS — o que o registro mostra | não | não | não | não | "ligue para confirmar" | **diz quais PS existem no registro federal (geral, obstétrico, pediátrico, traumato-ortopédico) e diz que o horário não consta em fonte nenhuma** |
 | Parto / alto risco | não | cobre mal | não | não | cobre (código CNES) | cobre (HS2 + FAQ) |
 | Como chegar / transporte | não | não | não | não | só botão de mapa | cobre (HS3) |
 | O que levar / visita / acompanhante | não | não | não | não | não | **só nós** (depende de fonte) |
@@ -273,11 +299,23 @@ catálogo de rede da casa (nível 1) e com a leitura de quem contrata. Nenhum do
 - **MUST-MATCH** (≥2 concorrentes cobrem bem; faltar = perder): endereço completo com bairro · quais planos
   dão acesso ao hospital · especialidades e serviços do hospital · contato/como agendar · menção de preço
   com faixa · maternidade.
+  - **como o MUST-MATCH "contato/como agendar" é coberto sem o telefone** (achado 🔴 do juiz P-B): os dois
+    números divergem entre CNES e site da operadora, então nenhum entra. No lugar, os canais oficiais que
+    o rodapé de hapvida.com.br publica — aplicativo, área do beneficiário, "Agendamento de Consultas e Exames"
+    e o 0800 nacional — mais a instrução de confirmar o atendimento antes de ir à unidade. É mais honesto que
+    publicar um dos dois números e mais útil que "ligue para confirmar", que é a resposta do concorrente.
 - **BRECHAS** (todos cobrem mal ou ninguém cobre):
-  1. **Nenhum dos cinco avisa que o hospital mudou de nome.** Quem busca "Hospital e Maternidade Guarulhos"
-     e chega numa placa escrita "Hospital Keila Ferreira" não encontra a ponte em lugar nenhum da SERP.
-  2. **A pergunta do pronto-socorro 24h fica sem resposta.** O espelho do CNES a faz e responde
-     "ligue para confirmar"; os outros nem perguntam.
+  1. **Nenhum dos cinco concorrentes avisa que o hospital mudou de nome.** Quem busca "Hospital e Maternidade
+     Guarulhos" e chega numa placa escrita "Hospital Keila Ferreira" não encontra a ponte em nenhuma das
+     páginas que ranqueiam. Ressalva honesta (achado 🟡 do juiz P-B): **o nosso próprio artigo de cidade já
+     traz "(ex-Hospital e Maternidade GRU)" no card e na FAQ 2** — de passagem, entre parênteses, sem explicar
+     quando nem por quê. Isso muda o tamanho do ganho, não a sua existência: aqui a ponte é o eixo do artigo,
+     com data, motivo, fonte oficial e o que mudou dentro do hospital; lá é uma abreviação.
+  2. **A pergunta do pronto-socorro fica sem resposta útil.** O espelho do CNES pergunta e responde
+     "ligue para confirmar"; os outros nem perguntam. **O que nós podemos fazer — e ninguém faz — é dizer
+     QUAIS pronto-socorros a unidade tem registrados no CNES (geral/clínico, obstétrico, pediátrico e
+     traumato-ortopédico) e dizer com todas as letras que o HORÁRIO não está publicado em fonte alguma.**
+     Isso é mais útil que "ligue para confirmar" e é verdadeiro. Proibido afirmar 24h.
   3. **Ninguém traduz o CNES.** O `agendarconsulta` publica os códigos crus (112-004, 162-002, 140-013);
      nenhum concorrente explica que aquilo quer dizer parto de alto risco, UTI neonatal e PS obstétrico.
   4. **Ninguém dá instrução prática** — como chegar, o que levar para internar, visita, acompanhante.
@@ -287,9 +325,17 @@ catálogo de rede da casa (nível 1) e com a leitura de quem contrata. Nenhum do
   mostra que a unidade faz hoje.* Duas camadas que nenhum concorrente tem:
   - **a ponte de nome**, ancorada em fonte primária: o CNES já registra o estabelecimento 9255826 como
     HOSPITAL KEILA FERREIRA, no mesmo CNPJ e no mesmo endereço do antigo Hospital e Maternidade Guarulhos;
-  - **a tradução do registro oficial**: PS obstétrico, pediátrico e traumato-ortopédico; parto e parto em
-    gestação de alto risco; UTI adulto e neonatal; 5 salas de cirurgia; 8 leitos de RN patológico;
+  - **a tradução do registro oficial**: PS geral, obstétrico, pediátrico e traumato-ortopédico; parto e
+    parto em gestação de alto risco; UTI adulto e neonatal; 5 salas de cirurgia; 8 leitos de RN patológico;
     13 de alojamento conjunto; 16 incubadoras.
+  - ⚠️ **RECONCILIAÇÃO OBRIGATÓRIA COM O ARTIGO DE CIDADE (achado 🔴 do juiz P-B).** O artigo publicado diz:
+    "Para partos de alto risco ou UTI neonatal de alta complexidade, a referência é o Hospital e Maternidade
+    N. Sra. do Rosário (Vila Maria, SP capital)". Não é contradição, e o artigo novo **não pode** deixar
+    parecer que é. As duas coisas convivem: **ter o serviço registrado no CNES** (a unidade tem) é diferente
+    de **ser a referência da rede para os casos mais complexos** (é o Rosário). Forma obrigatória de escrever:
+    dizer o que o registro federal lista, atribuindo ao CNES, e na mesma passagem manter o encaminhamento de
+    alta complexidade para o Rosário, com link. **Proibido** escrever que este hospital é referência em alto
+    risco, e proibido omitir o Rosário na seção que fala de parto.
   - defensibilidade: **4** para o dado CNES isolado (público-trabalhoso: exige abrir a ficha, ler o código e
     traduzir) — mas o ganho **não** é o dado cru: é o cruzamento dele com o catálogo de rede da casa
     (nível 1) e com a leitura de quem contrata. Cruzamento de nível 1-2 sobre base pública trabalhosa.
@@ -311,10 +357,28 @@ catálogo de rede da casa (nível 1) e com a leitura de quem contrata. Nenhum do
 - dado_proprietario: o catálogo interno ainda registra o nome antigo enquanto o site oficial e o CNES já usam
   o novo — defensibilidade: 2 — fonte: cruzamento `consultar_rede` × `consultar_artigo` × ficha CNES 9255826
   (vira pendência de catálogo: `rede_unidades` id 290 a atualizar para "Hospital Keila Ferreira")
+### Material da HS4 (quais planos dão acesso) — coletado para fechar a seção órfã
+- produtos comercializados em Guarulhos: **Nosso Plano** (rede 100% própria), **Plano Mix** (híbrido) e
+  **Ambulatorial** (sem internação) — defensibilidade: 1 — fonte: `consultar_artigo` do artigo de cidade
+  (campo `produtos`, banco da casa)
+- regra que liga produto a esta unidade: o hospital é **rede própria**, então entra nos planos que incluem
+  internação em rede própria (Nosso Plano e Mix). **O plano Ambulatorial não cobre internação** — quem tem
+  só ambulatorial usa a rede para consulta e exame, não para internar ou parir aqui — defensibilidade: 1 —
+  fonte: banco (`produtos` do artigo de cidade) + pillar `o-que-e-plano-ambulatorial-2`
+- internação e cirurgia em rede própria são isentas de coparticipação — defensibilidade: 1 —
+  fonte: `consultar_coparticipacao` + artigo de cidade. No artigo: 1 frase, sem explicar a mecânica.
+- **proibições dos pillars a respeitar na HS4** (fonte: `consultar_pillars_proibicoes`): não descrever o
+  produto Nosso Plano, não explicar o modelo híbrido do Mix, não analisar perfil ideal, não comparar
+  produtos. Só a ponte produto → acesso a esta unidade, e link.
 - dado_proprietario: estrutura divulgada pela Hapvida em nov/2025 — 113 leitos de internação, 30 de UTI e
   10 neonatais; pronto-socorro adulto, infantil, ortopédico e maternidade — defensibilidade: 4 —
-  fonte: Guarulhos Todo Dia 11/11/2025 e Click Guarulhos 12/11/2025 (duas fontes independentes, mesmo número).
-  No artigo entra **atribuído** ("segundo a Hapvida, em novembro de 2025"), nunca como dado nosso.
+  fonte: **uma única cadeia de divulgação** reproduzida por 4 veículos (Guarulhos Todo Dia 11/11/2025,
+  Click Guarulhos 12/11/2025, Jornal Exempplar e Joi) com a mesma frase — **não são 4 fontes independentes**.
+  A ficha CNES lida NÃO traz total de leitos (só 8 de RN patológico e 13 de alojamento conjunto).
+  Tratamento obrigatório no artigo: no máximo **uma** aparição, atribuída e datada ("segundo a divulgação da
+  Hapvida, em novembro de 2025"), **fora** do lead, do title/meta e de qualquer H2, e **nunca** misturada à
+  lista traduzida do CNES. Sem superlativo e sem comparação em cima dele. Se a atribuição não couber em uma
+  frase, o número sai — a estrutura verificável do artigo é a do CNES.
 
 ## 8. Não encontrado [V7.2]
 
@@ -342,12 +406,29 @@ FORBIDDEN_TOKENS:
 - (11) 2463-8610
 - 3155-2000
 - pronto-socorro 24 horas
+- pronto socorro 24 horas
 - PS 24h
+- funciona 24 horas
+- aberto 24 horas
+- atendimento ininterrupto
+- tomografia
+- tomografo
+- colonoscopia
 - ONA
 - parto humanizado
 - Hospital e Maternidade Sao Luiz Guarulhos
 - Rede D'Or
 - maior hospital de Guarulhos
+- referencia em alta complexidade
+
+<!-- Notas do orquestrador sobre esta lista:
+     · "24 horas" está proibido para o PRONTO-SOCORRO. A Sala Lilás tem 24h confirmado por escrito em 4
+       fontes — para ela, escrever "funciona o dia inteiro, todos os dias" ou citar a fonte, nunca colar a
+       expressão ao lado de pronto-socorro.
+     · tomografia e colonoscopia aparecem na divulgação da operadora, mas o inventário de equipamentos da
+       ficha CNES traz raio-X, 1 ultrassom e 3 endoscópios — nenhum tomógrafo. Fora do artigo.
+     · "referência em alta complexidade" é o posicionamento que o artigo de cidade dá ao Hospital N. Sra. do
+       Rosário (Vila Maria); não pode migrar para este hospital. -->
 
 ## 10. PLANO_MODELOS [V7.2]
 
@@ -398,22 +479,39 @@ ci-2 | ganho de informação | forte | opus | decide o eixo do artigo; erro aqui
 
 coletado_em: 2026-09-16  # serp
 coletado_em: 2026-09-16  # rede
-coletado_em: —           # concorrentes (CI-1 não realizada)
+coletado_em: 2026-09-16  # concorrentes (CI-1 realizada pela rota n8n; 5 concorrentes lidos)
 
 ## 12. FAQ local
 
-- O Hospital e Maternidade Guarulhos mudou de nome?
-- O Hospital e Maternidade Guarulhos é o mesmo Hospital Keila Ferreira?
-- Onde fica o Hospital e Maternidade Guarulhos da Hapvida?
-- O pronto-socorro do Hospital e Maternidade Guarulhos funciona 24 horas?
-- O Hospital e Maternidade Guarulhos atende criança no pronto-socorro?
-- O Hospital e Maternidade Guarulhos ainda faz parto?
-- O que é a Sala Lilás do Hospital e Maternidade Guarulhos?
-- Preciso de encaminhamento para ser atendido no Hospital e Maternidade Guarulhos?
-- Quais planos Hapvida dão acesso ao Hospital e Maternidade Guarulhos?
-- Quem mora fora de Guarulhos pode ser internado no Hospital e Maternidade Guarulhos?
-- O Hospital e Maternidade Guarulhos faz exame de imagem ou tenho de ir ao diagnóstico?
-- Internação no Hospital e Maternidade Guarulhos tem coparticipação?
+Regra aplicada aqui: **toda pergunta tem o nome do hospital, zero overlap com as 15 FAQ do artigo de cidade
+(seção 16) e um item de pesquisa com fonte atrás.** As três perguntas que a seção 16 marcou como queimadas
+foram removidas; as quatro substitutas sem fonte (o que levar, visita, acompanhante, estacionamento) também
+saíram — pergunta sem dado não entra, mesmo sendo boa pergunta.
+
+- O Hospital e Maternidade Guarulhos mudou de nome? — fonte: ficha CNES 9255826 + 4 veículos (nov/2025)
+- Quem foi Keila Ferreira, que dá nome ao Hospital e Maternidade Guarulhos? — fonte: Click Guarulhos,
+  Guarulhos Todo Dia e Joi (Ciben, Corafesp, Ideas; casada com o bispo Samuel Ferreira, Assembleia de Deus do Brás)
+- O que é a Sala Lilás do Hospital e Maternidade Guarulhos? — fonte: Saúde Business 13/11/2025 + 3 veículos
+- Mulher sem plano de saúde é atendida na Sala Lilás do Hospital e Maternidade Guarulhos? — fonte: Guarulhos
+  Todo Dia ("aberto a todas as mulheres - inclusive as que não tem plano de saúde")
+- Que tipos de pronto-socorro o Hospital e Maternidade Guarulhos tem registrados? — fonte: ficha CNES
+  (140-019 geral/clínico, 140-013 obstétrico, 140-012 pediátrico, 140-016 traumato-ortopédico)
+- O bebê que nasce no Hospital e Maternidade Guarulhos fica no mesmo quarto da mãe? — fonte: ficha CNES
+  (13 leitos de alojamento conjunto)
+- Quantas salas de cirurgia o Hospital e Maternidade Guarulhos tem no registro oficial? — fonte: ficha CNES
+  (5 salas de cirurgia, 1 sala de recuperação, 1 de pré-parto, 1 de parto normal)
+- Em que bairro fica o Hospital e Maternidade Guarulhos? — fonte: ficha CNES (Jardim Guarulhos) × site da
+  operadora e imprensa (Jardim Santa Edwirges) — a resposta é a divergência, e ela é útil a quem usa mapa
+- Quais planos Hapvida dão acesso ao Hospital e Maternidade Guarulhos? — fonte: banco (`produtos` do artigo
+  de cidade) + regra de rede própria; o plano Ambulatorial não cobre internação
+- Como agendar consulta ou exame no Hospital e Maternidade Guarulhos? — fonte: canais oficiais publicados no
+  rodapé de hapvida.com.br (app, área do beneficiário, agendamento de consultas e exames e o 0800 nacional).
+  **Sem o telefone da unidade** — há dois números divergentes entre CNES e site (seção 8).
+
+**Perguntas que NÃO entram, e por quê:** "o PS funciona 24 horas?" (nenhuma fonte diz o horário — e o artigo
+de cidade já responde o que dá para responder); "ainda faz parto?" (FAQ 2 do artigo de cidade); "quem mora
+fora de Guarulhos pode ser internado?" (FAQ 11 do artigo de cidade); "preciso de encaminhamento?" (nenhuma
+fonte sobre encaminhamento nesta unidade).
 
 ## 13. Anti-doorway
 
@@ -446,8 +544,9 @@ coletado_em: —           # concorrentes (CI-1 não realizada)
   CNPJ e no mesmo endereço (Tiradentes, 1015) do antigo Hospital e Maternidade Guarulhos
 - titulo: O que o registro oficial diz que a unidade faz — âncora: códigos 112-004 (parto de alto risco),
   162-002 (UTI neonatal), 140-013 (PS obstétrico) e 140-016 (PS traumato-ortopédico) na ficha de Guarulhos
-- titulo: A primeira Sala Lilás da Hapvida — âncora: inaugurada nesta unidade em 10/11/2025, 24h, aberta
-  inclusive a mulheres sem convênio
+- titulo: A primeira Sala Lilás — âncora: inaugurada nesta unidade em 10/11/2025, funciona 24h e atende
+  inclusive mulheres sem convênio. O superlativo tem fonte setorial, não só imprensa local: Saúde Business
+  (13/11/2025) escreve "a primeira da rede privada, no Brasil". No artigo, atribuído a essa fonte.
 - titulo: O que se resolve no hospital e o que se resolve na clínica de Guarulhos — âncora: as 5 unidades
   próprias da cidade no catálogo (Centro Clínico I e II, Clínica Jardim, NotreLabs Imedi, o hospital)
 - titulo: Quem vem de fora da cidade — âncora: a Av. Tiradentes e o acesso pela Dutra, no eixo central
@@ -485,14 +584,14 @@ Queimadas (não repetir, nem reformuladas): "O Hospital Keila Ferreira tem mater
 "Quanto tempo leva do Aeroporto GRU até o Hospital Keila Ferreira?" · "A Hapvida de Guarulhos atende moradores de
 Arujá e Itaquaquecetuba?" · "O segundo hospital da operadora na cidade já foi inaugurado?"
 
-Consequência para a FAQ da seção 12: caem por overlap **"O Hospital e Maternidade Guarulhos ainda faz parto?"**
-(≈ FAQ 2 do de cidade), **"O pronto-socorro funciona 24 horas?"** (≈ FAQ 9) e **"Quem mora fora de Guarulhos pode
-ser internado?"** (≈ FAQ 11). Entram no lugar, todas com o nome do hospital e sem eco no de cidade:
-- O que levar para internar no Hospital e Maternidade Guarulhos?
-- Qual o horário de visita no Hospital e Maternidade Guarulhos?
-- O acompanhante pode ficar com o paciente internado no Hospital e Maternidade Guarulhos?
-- O Hospital e Maternidade Guarulhos tem estacionamento?
-Estas quatro dependem de fonte viva (site oficial / CNES / regimento da unidade) e hoje estão bloqueadas pelo egress.
+Consequência para a FAQ, **já aplicada na seção 12**: saíram por overlap "ainda faz parto?" (≈ FAQ 2 do de
+cidade), "o pronto-socorro funciona 24 horas?" (≈ FAQ 9) e "quem mora fora de Guarulhos pode ser internado?"
+(≈ FAQ 11). As quatro substitutas que a versão anterior desta seção prescrevia — o que levar, horário de
+visita, acompanhante e estacionamento — **também saíram**: nenhuma fonte publica esses dados (nem o CNES, nem
+a operadora, nem os 5 concorrentes lidos), e pergunta sem dado atrás não entra, por melhor que seja.
+A FAQ final tem 10 perguntas, todas com fonte nomeada — ver seção 12.
+**Pauta registrada, não usada:** as quatro perguntas sem fonte são material de uma futura atualização, se a
+unidade publicar regimento de visita ou se o usuário trouxer o dado.
 
 ### Catálogo de FAQs do banco (categoria "hospital")
 Templates já em uso que NÃO podem virar pergunta deste artigo: "O Hospital [X] tem maternidade ativa?" (id 12,
