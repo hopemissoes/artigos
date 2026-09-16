@@ -6,7 +6,8 @@ Seções (<h2>) analisadas: 6
   ✅ Abertura citável (faixa ideal):  6
   ⚠️  Aceitável / atenção:            0
   ❌ Reprovadas:                      0
-Links externos de fonte (rel=nofollow): 4
+Links externos de fonte (rel=nofollow): 5
+Seções com abertura SEM número-âncora: 1 (considere ancorar com um dado da cidade/hospital)
 
 ✅ CHECKPOINT DE CITABILIDADE APROVADO (heurístico/direcional).
    Confirme manualmente que cada abertura é específica da cidade — o script

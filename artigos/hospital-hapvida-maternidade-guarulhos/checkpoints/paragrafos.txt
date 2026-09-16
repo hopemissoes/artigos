@@ -2,8 +2,8 @@
 ===========================================================================
 CHECKPOINT — TAMANHO DE PARÁGRAFO (artigo.html)
 ===========================================================================
-Total <p> de corpo: 34
-  ✅ Aprovados (≤380 chars):     34
+Total <p> de corpo: 35
+  ✅ Aprovados (≤380 chars):     35
   ⚠️  No limite (381-480 chars): 0
   ❌ Reprovados (>480 chars):     0
 

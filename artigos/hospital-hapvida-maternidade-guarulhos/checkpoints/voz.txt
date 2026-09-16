@@ -1,13 +1,11 @@
 ====================================================================
 CHECKPOINT DE VOZ HUMANA [V6] — artigos/hospital-hapvida-maternidade-guarulhos/artigo.html
-2616 palavras · 72 parágrafos · 122 frases · rigor: medio
+2693 palavras · 73 parágrafos · 125 frases · rigor: medio
 ====================================================================
 
 🔴 nenhum tique bloqueante.
 
-🟡 DENSIDADE — o editor decide
-
-  • travessão: 6 (2.3 por 1.000 palavras; alvo ≤ 2)
+🟡 nenhum aviso de densidade.
 
 --------------------------------------------------------------------
 Lembrete da regra-mãe: mexer em palavra e ritmo, NUNCA em fato.

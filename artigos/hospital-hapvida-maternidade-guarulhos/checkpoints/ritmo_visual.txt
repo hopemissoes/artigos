@@ -3,8 +3,12 @@
 CHECKPOINT — RITMO VISUAL (artigo.html)
 ===========================================================================
 Total de seções analisadas: 7
-  ✅ Aprovadas (≤3 P consecutivos):       7
-  ⚠️  Em aviso (4 P consecutivos):         0
+  ✅ Aprovadas (≤3 P consecutivos):       6
+  ⚠️  Em aviso (4 P consecutivos):         1
   ❌ Reprovadas (≥5 P consecutivos):      0
+
+⚠️  SEÇÕES NO LIMITE (1) — considerar inserir break:
+   S3: O que o registro oficial diz que o Hospital e Maternidade Gu
+        Sequências: [4, 1, 2] | Pior bloco: 4 P
 
 ✅ CHECKPOINT APROVADO — ritmo visual OK em todas as seções.

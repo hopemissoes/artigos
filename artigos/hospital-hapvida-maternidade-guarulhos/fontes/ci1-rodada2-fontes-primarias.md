@@ -144,3 +144,27 @@ que estava na seção 3 do state file era falsa e foi apagada; (2) distância ca
 medida oficial; (3) o Hospital da Criança 12 de Outubro é unidade **municipal** — citá-lo a 0,2 km numa
 página sobre hospital de operadora mistura rede pública e rede privada e induz o leitor ao erro.
 Fica registrado aqui como fonte lida, fora do artigo.
+
+## 7. As duas leis das faixas "Fonte oficial" — lidas pelo n8n em 2026-09-16 (execução 33235)
+
+O Agente 12 (veracidade) apontou, com razão, que as duas citações legais do artigo não tinham lastro
+registrado em `fontes/`. Tinham sido conferidas, mas a conferência não havia sido transcrita. Segue a
+transcrição, com a ementa literal de cada uma, como o Planalto serve:
+
+### Lei 10.778, de 24 de novembro de 2003 — https://www.planalto.gov.br/ccivil_03/leis/2003/l10.778.htm
+Resposta: 200, 11.306 bytes. Ementa literal servida na página:
+> "LEI N o 10.778, DE 24 DE NOVEMBRO DE 2003. [...] Estabelece a notificação compulsória, no território
+> nacional, do caso de violência contra a mulher que for atendida em serviços de saúde públicos ou privados."
+
+É a norma que sustenta a frase do artigo sobre notificação compulsória, e casa com o que a imprensa
+publicou sobre a Sala Lilás ("O atendimento é de notificação compulsória, conforme determina a legislação
+federal" — Guarulhos Todo Dia, 11/11/2025).
+
+### Lei 9.656, de 3 de junho de 1998 — https://www.planalto.gov.br/ccivil_03/leis/l9656.htm
+Resposta: 200, 355.155 bytes. Ementa literal servida na página:
+> "LEI N° 9.656, DE 3 DE JUNHO DE 1998. Texto compilado Vigência (Vide ADI n° 1.931) Dispõe sobre os planos
+> e seguros privados de assistência à saúde."
+
+É a norma que define as segmentações do plano (entre elas a ambulatorial, sem internação) — o ponto da HS4.
+**Limite honesto do que foi conferido:** a ementa e o fato de a URL responder 200 com o texto compilado.
+O artigo cita a lei pelo que ela regula, não por artigo ou inciso — e assim deve permanecer.

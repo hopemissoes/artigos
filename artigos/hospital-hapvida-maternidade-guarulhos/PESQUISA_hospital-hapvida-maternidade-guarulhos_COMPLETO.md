@@ -400,6 +400,17 @@ catálogo de rede da casa (nível 1) e com a leitura de quem contrata. Nenhum do
   lista traduzida do CNES. Sem superlativo e sem comparação em cima dele. Se a atribuição não couber em uma
   frase, o número sai — a estrutura verificável do artigo é a do CNES.
 
+## 7b. Legislação citada (lastro das faixas "Fonte oficial")
+
+- Lei 10.778/2003 — notificação compulsória de violência contra a mulher em serviço de saúde, público ou
+  privado — fonte: planalto.gov.br, lida em 2026-09-16 pela rota n8n (200, ementa transcrita em
+  `fontes/ci1-rodada2-fontes-primarias.md`, seção 7). Sustenta a passagem da Sala Lilás.
+- Lei 9.656/1998 — dispõe sobre os planos e seguros privados de assistência à saúde; é onde estão as
+  segmentações (ambulatorial, hospitalar, com obstetrícia) — fonte: planalto.gov.br, lida em 2026-09-16
+  pela rota n8n (200, ementa transcrita na mesma seção 7). Sustenta a passagem da HS4.
+- **Limite:** foi conferida a ementa e a resposta 200, não artigo nem inciso. O artigo cita as duas pelo
+  que regulam, sem número de artigo — e é assim que tem de continuar.
+
 ## 8. Não encontrado [V7.2]
 
 nao_encontrado:

@@ -20,8 +20,11 @@
   O juiz P-B liberou (9/9/9/8). O juiz P-A ficou em 7/7/8/7 e apontou 2 achados vermelhos, os dois já
   corrigidos no state file. A skill manda escalar ao humano quando as 2 rodadas acabam: a decisão de
   seguir para a redação é do usuário.
-- **Bloqueios:** nenhum mecânico. `checkpoint_fase0`, `checkpoint_suficiencia`, `checkpoint_ci1` e
-  `checkpoint_modelos` aprovados.
+- **Bloqueios:** nenhum mecânico no artigo novo. **Mas há um achado que afeta conteúdo JÁ PUBLICADO:**
+  o Hospital N. Sra. do Rosário (Vila Maria) encerrou maternidade e PS de ginecologia e obstetrícia em
+  06/10/2025, e a FAQ 2 do artigo de cidade de Guarulhos ainda manda gestante de alto risco para lá.
+  O banco já registrava o mesmo problema na FAQ 6 do pillar `plano-hapvida-sao-paulo2`. É correção de
+  site, não deste artigo — e depende de autorização expressa do usuário (REGRA ZERO).
 
 ## Portões
 
@@ -62,6 +65,11 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
 - 2026-09-16 — refino rodada 1: 3ª coleta pelo n8n, HS3 e HS4 deixam de ser órfãs, FAQ reescrita com fonte,
   113 leitos reclassificado como cadeia única de divulgação, reconciliação com o artigo de cidade.
 - 2026-09-16 — juízes, rodada 2: P-B LIBEROU (9/9/9/8, zero vermelhos); P-A BLOQUEOU (7/7/8/7, 2 vermelhos).
+- 2026-09-16 — artigo escrito (redator opus), editor-chefe (fable) costurou, 4 auditorias rodaram em
+  modelos distintos: voz 🟢, veracidade 🟡, anti-doorway 🟡, GEO pendente.
+- 2026-09-16 — 🔴 ACHADO DO ANTI-DOORWAY, confirmado no banco: o Rosário encerrou a maternidade em
+  06/10/2025. O artigo novo mandava gestante de alto risco para lá (seguindo o artigo de cidade).
+  Corrigido: agora o texto avisa do encerramento e manda confirmar a maternidade de referência no pré-natal.
 - 2026-09-16 — os 2 vermelhos do P-A foram corrigidos: (a) apagado o bloco de distâncias que eu havia
   atribuído ao CNES sem estar no CNES; (b) escrita a reconciliação da urgência ortopédica com a FAQ 9 do
   artigo de cidade. Mais 5 amarelos (HS4 vira inferência declarada, Sala Lilás 24h atribuída, 0800 certo
