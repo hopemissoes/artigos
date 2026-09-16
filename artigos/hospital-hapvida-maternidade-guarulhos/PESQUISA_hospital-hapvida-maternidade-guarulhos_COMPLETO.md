@@ -121,12 +121,14 @@ coletado_em: 2026-09-16  # serp
   O complemento explica a related_search medida "Avenida Tiradentes 1037 Guarulhos": são o mesmo endereço.
 - **divergência de bairro, registrada de propósito:** o CNES diz "JARDIM GUARULHOS"; o site da operadora e a
   imprensa dizem "Jardim Santa Edwirges" — fontes: ficha CNES × gndi.com.br/unidades/hospital-keila-ferreira ×
-  Joi (16/09/2026). Quem procura pelo bairro errado no mapa não acha. É material de HS3, não erro a esconder.
+  Joi/oitapecericano.com.br (https://www.oitapecericano.com.br/noticia/hospital-guarulhos-passa-a-se-chamar-hospital-keila-ferreira, lido em 2026-09-16). Quem procura pelo bairro errado no mapa não acha. É material de HS3, não erro a esconder.
 - CEP: 07090000 — fonte: ficha CNES
 - coordenadas da unidade: -23.46507433030174 / -46.53342107370293 — fonte: gndi.com.br (HTML da página da unidade)
-- referências a pé, do próprio CNES: serviço de hemoterapia na mesma Av. Tiradentes a **0,1 km**;
-  Hospital da Criança 12 de Outubro na Av. Paulo Faccini a **0,2 km**; consultórios na Rua Antônio Vita a
-  0,1-0,2 km — fonte: bloco "Unidades Próximas" do espelho do CNES
+- ❌ **bloco de "referências a pé" REMOVIDO** (achado 🔴 do juiz P-A, rodada 2). As distâncias de 0,1-0,2 km
+  vinham do widget "Unidades Próximas" do agregador, não de campo do CNES, e a atribuição anterior estava
+  errada. A transcrição literal ficou salva em `fontes/ci1-rodada2-fontes-primarias.md`, seção 6, **fora do
+  artigo**: distância de widget não é medida oficial, e uma das unidades listadas é hospital municipal —
+  citá-la aqui misturaria rede pública e rede própria.
 - eixo viário: a Av. Tiradentes corta a região central de Guarulhos — fonte: Guarulhos Todo Dia 11/11/2025
   ("fica na Av. Tiradentes, 1015, na região central de Guarulhos")
 - **não confirmado e declarado como tal:** linha de ônibus (a página de itinerário da prefeitura não publica
@@ -302,7 +304,9 @@ catálogo de rede da casa (nível 1) e com a leitura de quem contrata. Nenhum do
   - **como o MUST-MATCH "contato/como agendar" é coberto sem o telefone** (achado 🔴 do juiz P-B): os dois
     números divergem entre CNES e site da operadora, então nenhum entra. No lugar, os canais oficiais que
     o rodapé de hapvida.com.br publica — aplicativo, área do beneficiário, "Agendamento de Consultas e Exames"
-    e o 0800 nacional — mais a instrução de confirmar o atendimento antes de ir à unidade. É mais honesto que
+    e o **0800 018 3456**, que é o número do Sul/Sudeste/Centro-Oeste, a região de Guarulhos (o outro,
+    0800 280 9130, é Norte/Nordeste — citar o número errado repetiria o erro dos dois telefones da unidade) —
+    mais a instrução de confirmar o atendimento antes de ir à unidade. É mais honesto que
     publicar um dos dois números e mais útil que "ligue para confirmar", que é a resposta do concorrente.
 - **BRECHAS** (todos cobrem mal ou ninguém cobre):
   1. **Nenhum dos cinco concorrentes avisa que o hospital mudou de nome.** Quem busca "Hospital e Maternidade
@@ -328,6 +332,17 @@ catálogo de rede da casa (nível 1) e com a leitura de quem contrata. Nenhum do
   - **a tradução do registro oficial**: PS geral, obstétrico, pediátrico e traumato-ortopédico; parto e
     parto em gestação de alto risco; UTI adulto e neonatal; 5 salas de cirurgia; 8 leitos de RN patológico;
     13 de alojamento conjunto; 16 incubadoras.
+  - ⚠️ **SEGUNDA RECONCILIAÇÃO OBRIGATÓRIA — URGÊNCIA ORTOPÉDICA (achado 🔴 do juiz P-A, rodada 2).**
+    A FAQ 9 do artigo de cidade publicado diz: "Para atendimento especializado **fora do horário comercial**,
+    como ortopedia de urgência, o beneficiário pode acessar o pronto-socorro Hapvida em SP capital, onde
+    unidades como o Salvalus e o Bosque da Saúde operam 24h". O artigo novo vai dizer que o CNES registra
+    PS traumato-ortopédico (140-016) nesta unidade. Sem regra, o mesmo site daria duas orientações sobre
+    onde levar uma fratura de madrugada — e isso é pior que doorway, é dano ao leitor.
+    **Forma obrigatória:** o registro no CNES diz que o serviço EXISTE na unidade; **não** diz em que horário
+    funciona — e nenhuma fonte diz. Então a passagem que citar o PS traumato-ortopédico tem de, na mesma
+    respiração, (a) dizer que o horário não está publicado, (b) mandar confirmar antes de sair de casa e
+    (c) manter o encaminhamento à capital fora do horário comercial, com o link `pronto-socorro-hapvida-sp`.
+    **Proibido** escrever que a unidade resolve ortopedia de urgência a qualquer hora.
   - ⚠️ **RECONCILIAÇÃO OBRIGATÓRIA COM O ARTIGO DE CIDADE (achado 🔴 do juiz P-B).** O artigo publicado diz:
     "Para partos de alto risco ou UTI neonatal de alta complexidade, a referência é o Hospital e Maternidade
     N. Sra. do Rosário (Vila Maria, SP capital)". Não é contradição, e o artigo novo **não pode** deixar
@@ -361,10 +376,15 @@ catálogo de rede da casa (nível 1) e com a leitura de quem contrata. Nenhum do
 - produtos comercializados em Guarulhos: **Nosso Plano** (rede 100% própria), **Plano Mix** (híbrido) e
   **Ambulatorial** (sem internação) — defensibilidade: 1 — fonte: `consultar_artigo` do artigo de cidade
   (campo `produtos`, banco da casa)
-- regra que liga produto a esta unidade: o hospital é **rede própria**, então entra nos planos que incluem
-  internação em rede própria (Nosso Plano e Mix). **O plano Ambulatorial não cobre internação** — quem tem
-  só ambulatorial usa a rede para consulta e exame, não para internar ou parir aqui — defensibilidade: 1 —
-  fonte: banco (`produtos` do artigo de cidade) + pillar `o-que-e-plano-ambulatorial-2`
+- regra que liga produto a esta unidade: **INFERÊNCIA, não dado de fonte** (rebaixamento pedido pelo juiz
+  P-A, rodada 2). O hospital é rede própria, e planos com internação em rede própria (Nosso Plano, Mix)
+  cobrem internação em unidade própria; o **plano Ambulatorial não cobre internação**, então quem tem só
+  ambulatorial usa a rede para consulta e exame. O que é dado: a lista de produtos de Guarulhos
+  (`consultar_artigo`, banco) e a definição de ambulatorial (pillar `o-que-e-plano-ambulatorial-2`).
+  O que é inferência: o mapeamento produto → esta unidade específica.
+  **Forma obrigatória na HS4:** escrever o raciocínio (rede própria × ambulatorial) e mandar **conferir a
+  rede do plano no guia médico oficial antes de contratar**. **Proibido** escrever "o plano X dá acesso a
+  este hospital" como fato — nenhuma fonte publica esse mapeamento (o guia oficial é SPA e não abriu).
 - internação e cirurgia em rede própria são isentas de coparticipação — defensibilidade: 1 —
   fonte: `consultar_coparticipacao` + artigo de cidade. No artigo: 1 frase, sem explicar a mecânica.
 - **proibições dos pillars a respeitar na HS4** (fonte: `consultar_pillars_proibicoes`): não descrever o
@@ -393,7 +413,13 @@ nao_encontrado:
 - horário do pronto-socorro — o CNES registra PS geral, obstétrico, pediátrico e traumato-ortopédico, mas
   não registra horário; o espelho responde "informação não disponível". Só a Sala Lilás tem 24h por escrito.
   O artigo NÃO afirma pronto-socorro 24h.
-- certificação ONA — onde foi procurado: CNES e as 7 páginas lidas. Não consta.
+- certificação ONA — onde foi procurado: CNES e as páginas lidas. Não consta.
+- **mapeamento oficial produto → esta unidade** ("quais planos incluem o Hospital Keila Ferreira na rede") —
+  onde foi procurado: página da unidade em gndi.com.br e www2.hapvida.com.br (as duas trazem o botão
+  "Compare planos que incluem ... na rede", mas o conteúdo é SPA e não abre pela rota n8n) e guia médico.
+  **Não obtido.** É por isso que a HS4 escreve raciocínio e manda conferir no guia médico, em vez de afirmar.
+- linhas de ônibus que servem a Av. Tiradentes, 1015 — a página de itinerário da prefeitura não publica o
+  dado no HTML. Não confirmado. **E as distâncias do widget do agregador foram descartadas** (ver seção 3).
 - quanto do volume de "hospital keila ferreira" é busca pela bispa homenageada — `keyword_data` não separa.
 - volume da frase exata "hospital hapvida e maternidade guarulhos" — items_count 0.
 
@@ -422,9 +448,10 @@ FORBIDDEN_TOKENS:
 - referencia em alta complexidade
 
 <!-- Notas do orquestrador sobre esta lista:
-     · "24 horas" está proibido para o PRONTO-SOCORRO. A Sala Lilás tem 24h confirmado por escrito em 4
-       fontes — para ela, escrever "funciona o dia inteiro, todos os dias" ou citar a fonte, nunca colar a
-       expressão ao lado de pronto-socorro.
+     · "24 horas" está proibido para o PRONTO-SOCORRO. Para a Sala Lilás o 24h aparece em duas veiculações
+       que reproduzem a mesma divulgação da operadora (Guarulhos Todo Dia e Click Guarulhos) — mesmo
+       de-rateio que se fez nos leitos. Então: escrever **atribuído** ("segundo a Hapvida, funciona 24 horas
+       por dia"), nunca como fato do artigo, e nunca colado à expressão pronto-socorro.
      · tomografia e colonoscopia aparecem na divulgação da operadora, mas o inventário de equipamentos da
        ficha CNES traz raio-X, 1 ultrassom e 3 endoscópios — nenhum tomógrafo. Fora do artigo.
      · "referência em alta complexidade" é o posicionamento que o artigo de cidade dá ao Hospital N. Sra. do
@@ -489,8 +516,10 @@ foram removidas; as quatro substitutas sem fonte (o que levar, visita, acompanha
 saíram — pergunta sem dado não entra, mesmo sendo boa pergunta.
 
 - O Hospital e Maternidade Guarulhos mudou de nome? — fonte: ficha CNES 9255826 + 4 veículos (nov/2025)
-- Quem foi Keila Ferreira, que dá nome ao Hospital e Maternidade Guarulhos? — fonte: Click Guarulhos,
-  Guarulhos Todo Dia e Joi (Ciben, Corafesp, Ideas; casada com o bispo Samuel Ferreira, Assembleia de Deus do Brás)
+- Quem foi Keila Ferreira, que dá nome ao Hospital e Maternidade Guarulhos? — fonte: Click Guarulhos
+  (Ciben, Corafesp, Ideas) e Guarulhos Todo Dia (liderava a Assembleia de Deus no Brás; morreu em fev/2025).
+  O detalhe do casamento com o bispo Samuel Ferreira aparece **só** em oitapecericano.com.br — se entrar,
+  entra atribuído a essa fonte; biografia de pessoa real recém-falecida não se escreve de oitiva.
 - O que é a Sala Lilás do Hospital e Maternidade Guarulhos? — fonte: Saúde Business 13/11/2025 + 3 veículos
 - Mulher sem plano de saúde é atendida na Sala Lilás do Hospital e Maternidade Guarulhos? — fonte: Guarulhos
   Todo Dia ("aberto a todas as mulheres - inclusive as que não tem plano de saúde")
@@ -549,7 +578,10 @@ fonte sobre encaminhamento nesta unidade).
   (13/11/2025) escreve "a primeira da rede privada, no Brasil". No artigo, atribuído a essa fonte.
 - titulo: O que se resolve no hospital e o que se resolve na clínica de Guarulhos — âncora: as 5 unidades
   próprias da cidade no catálogo (Centro Clínico I e II, Clínica Jardim, NotreLabs Imedi, o hospital)
-- titulo: Quem vem de fora da cidade — âncora: a Av. Tiradentes e o acesso pela Dutra, no eixo central
+- titulo: O endereço que aparece de dois jeitos — âncora: a ficha CNES registra bairro "Jardim Guarulhos" e
+  complemento "1 037"; o site da operadora e a imprensa dizem "Jardim Santa Edwirges". Quem procura pelo
+  bairro errado no mapa não acha a unidade — e a related_search medida "Avenida Tiradentes 1037 Guarulhos"
+  mostra que a confusão já acontece na busca
 
 ## 15. Fio condutor
 

@@ -128,3 +128,19 @@ Quatro veículos publicam o número (Guarulhos Todo Dia, Click Guarulhos, Jornal
 frase. Isso é **uma cadeia de divulgação, não quatro fontes independentes**. Tratamento adotado, conforme o
 veredito do Agente 23: entra no máximo uma vez, atribuído e datado, fora do lead, do title e de qualquer H2,
 e nunca no meio da lista traduzida do CNES — que é a estrutura verificável do artigo.
+
+## 6. Bloco "Unidades Próximas" do espelho do CNES — transcrição literal (para conferência)
+
+Lido em 2026-09-16 (execução 33232), na página https://guia.agendarconsulta.com/sao-paulo/guarulhos/hospital-e-maternidade-guarulhos-hapvida-9255826:
+
+> "Unidades Próximas  Hemoterapia AT HOSP GUARULHOS SP AV TIRADENTES 0,1 km  Consultório MARIA REGINA
+> ORSINI HEHL MADEIRA RUA ANTONIO VITA 0,1 km  Consultório ADRIANA TEIXEIRA RODRIGUES RUA ANTONIO VITA
+> 0,2 km  Clínica CLINICA MAYA RUA ANTONIO VITA 0,2 km  Hospital Esp. HOSPITAL DA CRIANCA 12 DE OUTUBRO
+> AVENIDA PAULO FACCINI 0,2 km"
+
+**Veredito do orquestrador sobre este bloco (achado 🔴 nº 1 do juiz P-A, rodada 2): NÃO USAR no artigo.**
+Três motivos, todos dele: (1) é widget do agregador, não campo do CNES — a atribuição "do próprio CNES"
+que estava na seção 3 do state file era falsa e foi apagada; (2) distância calculada por widget não é
+medida oficial; (3) o Hospital da Criança 12 de Outubro é unidade **municipal** — citá-lo a 0,2 km numa
+página sobre hospital de operadora mistura rede pública e rede privada e induz o leitor ao erro.
+Fica registrado aqui como fonte lida, fora do artigo.
