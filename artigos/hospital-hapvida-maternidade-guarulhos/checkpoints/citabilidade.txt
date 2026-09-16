@@ -1,0 +1,13 @@
+
+===========================================================================
+CHECKPOINT — CITABILIDADE GEO/AEO (artigo.html)
+===========================================================================
+Seções (<h2>) analisadas: 6
+  ✅ Abertura citável (faixa ideal):  6
+  ⚠️  Aceitável / atenção:            0
+  ❌ Reprovadas:                      0
+Links externos de fonte (rel=nofollow): 4
+
+✅ CHECKPOINT DE CITABILIDADE APROVADO (heurístico/direcional).
+   Confirme manualmente que cada abertura é específica da cidade — o script
+   mede forma, não unicidade. Anti-doorway continua sendo julgamento humano.

@@ -440,7 +440,7 @@ FORBIDDEN_TOKENS:
 - tomografia
 - tomografo
 - colonoscopia
-- ONA
+- certificacao ONA
 - parto humanizado
 - Hospital e Maternidade Sao Luiz Guarulhos
 - Rede D'Or

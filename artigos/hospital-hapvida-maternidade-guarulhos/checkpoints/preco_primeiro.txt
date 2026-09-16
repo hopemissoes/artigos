@@ -1,0 +1,27 @@
+========================================================================
+CHECKPOINT PRECO-PRIMEIRO [V7.5] — artigos/hospital-hapvida-maternidade-guarulhos/artigo.html (tipo: hospital)
+========================================================================
+
+[H2 encontrados: 6 | de preco: 0 | de outros assuntos: 6]
+           15%  o que mudou no hospital e maternidade guarulhos — e o que nao mu
+           25%  o que o registro oficial diz que o hospital e maternidade guarul
+           45%  como chegar ao hospital keila ferreira em guarulhos
+           53%  quais planos hapvida dao acesso ao hospital e maternidade guarul
+           60%  duvidas sobre o hospital e maternidade guarulhos
+           80%  um hospital, dois nomes e uma ponte
+
+[Regra 1 — tabela primeiro]
+   - sem tabela de preco; tipo hospital: regra 1 dispensada
+
+[Regra 2 — H2 de preco na frente]
+   - sem H2 de preco; tipo hospital: ok
+
+[Formulario — v7.5: colado na tabela, antes do sumario]
+   - id="cotacao-1" DEPOIS do sumario (ver erro abaixo)
+
+------------------------------------------------------------------------
+   NOTA: Artigo de hospital sem tabela de preco — regra 1 nao se aplica (ok).
+   ERRO: O formulario id="cotacao-1" esta DEPOIS do sumario. Na v7.5 ele vem colado na tabela — a ordem e tabela -> formulario -> sumario.
+------------------------------------------------------------------------
+
+❌ REPROVADO — 1 erro(s), 0 aviso(s).
