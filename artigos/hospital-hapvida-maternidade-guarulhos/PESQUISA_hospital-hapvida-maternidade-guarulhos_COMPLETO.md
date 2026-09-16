@@ -69,6 +69,12 @@ coletado_em: 2026-09-16  # serp
   - kw: hospital e maternidade guarulhos telefone | volume: 90 | intencao: navigational | veredito: **descartada** — tráfego de quem já é paciente/cliente; o telefone é dado que a skill proíbe afirmar sem fonte viva
   - kw: hospital notredame guarulhos trabalhe conosco | volume: n/d | intencao: navigational | veredito: **descartada** — candidato a emprego, nunca vira cliente
   - kw: hospital maternidade guarulhos publico | volume: 20 | intencao: transactional | veredito: **descartada** — busca por maternidade do SUS, público que não contrata plano
+- **DECISÃO DO USUÁRIO (2026-09-16): a keyword principal é a PONTE entre os dois nomes.**
+  H1/title abrem com "Hospital e Maternidade Guarulhos" (nome antigo, onde está o volume) e trazem
+  "Hospital Keila Ferreira" entre parênteses. O lead responde a equivalência na primeira frase — é a
+  passagem citável e a brecha nº 1 da SERP.
+  - title proposto (60 chars): `Hospital e Maternidade Guarulhos Hapvida: agora Keila Ferreira`
+  - meta proposta: `O Hospital e Maternidade Guarulhos da Hapvida agora se chama Hospital Keila Ferreira. Mesmo endereço na Av. Tiradentes: o que atende, como chegar e quais planos dão acesso.`
 - matriz de posicionamento: principal em H1, title, URL (`/hospital-e-maternidade-guarulhos-hapvida/`),
   meta description, 1º parágrafo (lead) e no H2 da HS1. Secundárias em ≥2 H2 distintos (HS3 e HS4).
 - query fan-out (mínimo 5):
@@ -147,6 +153,19 @@ O que o catálogo confirma pode ser afirmado; o que só aparece na SERP entra at
 - rota 4 — n8n (MCP `SEO - Hapvida`): **indisponível**. O servidor exige autorização OAuth e esta sessão
   é não-interativa; as ferramentas não estão carregadas
 - rota 5 — `WebSearch`: usada só para achar URL e corroborar a renomeação. **NÃO conta como leitura.**
+
+**2ª rodada de tentativas — 2026-09-16, 09:55 (a pedido do usuário, "tente de novo"):**
+- `curl` nos 5 domínios de concorrente (carmelseguros, busqueplanodesaude, meuplanohap, guia.agendarconsulta,
+  intermedicanotredameplanos), com User-Agent de navegador: **todos 000 / CONNECT 403**
+- `WebFetch` em busqueplanodesaude.com.br: **EGRESS_BLOCKED**
+- MCP `SEO - Hapvida` (n8n, rota 4): **nenhuma ferramenta carregável** — o servidor exige autorização OAuth
+  e esta sessão é não-interativa
+- `/root/.ccr/README.md`, seção "403 / 407 from the proxy": *"The destination host is not allowed by your
+  organization's egress policy for this session. Do not retry or route around it — report the blocked host."*
+- veredito: **o bloqueio é de política do ambiente, não intermitência.** Repetir a chamada não muda o resultado.
+
+**Decisão do usuário registrada em 2026-09-16:** keyword principal = **ponte entre os dois nomes**
+(nome antigo no H1/title + nome novo entre parênteses). A CI-1 segue aberta.
 - concorrentes identificados e ainda NÃO lidos (alvos da CI-1 quando houver rota):
   - carmelseguros.com.br — url: https://www.carmelseguros.com.br/planos-saude/hapvida/duvidas-5394318-qual-endereco-hospital-guarulhos-plano-saude-hapvida-intermedica.html — lido_em: —
   - busqueplanodesaude.com.br — url: https://busqueplanodesaude.com.br/hospitais/hospital-e-maternidade-guarulhos — lido_em: —
