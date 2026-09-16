@@ -25,30 +25,33 @@ CHECKPOINT FASE 0 [V7.2] — PESQUISA_hospital-hapvida-maternidade-guarulhos_COM
 
 3 · VOLUME DE COLETA (contado, não procurado)
    unidades com endereço preenchido: 5 (mín. 1)
-   perguntas de FAQ: 22 (mín. 10)
+   perguntas de FAQ: 29 (mín. 10)
    secundárias qualificadas: 7 (mín. 6)
-   dados de defensibilidade nível 1-2: 11 (mín. 3)
+   dados de defensibilidade nível 1-2: 10 (mín. 3)
    sub-perguntas de fan-out: 9 (mín. 5)
-   dados únicos declarados: 12 (mín. 10)
+   dados únicos declarados: 20 (mín. 10)
 
 4 · RECÊNCIA DA COLETA
+   2026-09-16  -                         0 dias
+   2026-09-16  -                         0 dias
+   2026-09-16  -                         0 dias
+   2026-09-16  -                         0 dias
+   2026-09-16  -                         0 dias
    2026-09-16  rede                      0 dias
    2026-09-16  rede                      0 dias
    2026-09-16  serp                      0 dias
    2026-09-16  serp                      0 dias
 
 5 · ANTI-DOORWAY
-   aprovação explícita na linha do rótulo: NÃO
+   aprovação explícita na linha do rótulo: sim
 
 6 · SEÇÃO 9 — FORBIDDEN_TOKENS
-   11 token(s) proibido(s): Hospital Keila Ferreira é o maior, 88 hospitais, 10 anos, (11) 2463-8610, leitos
+   12 token(s) proibido(s): Hospital Bispa Keila Ferreira, 88 hospitais, 10 anos, (11) 2463-8610, 3155-2000
 
 --------------------------------------------------------------------
-🟡 AVISOS (2)
+🟡 AVISOS (1)
    - fonte de agregador/rede social citada (instagram.com) — regra 2: no máximo pista, nunca fonte factual
-   - 1 item(ns) [VERIFICAR] — NÃO podem entrar no artigo
 
-🔴 BLOQUEIOS (1)
-   - anti-doorway não está APROVADO na própria linha do rótulo (seção 4 do DR2)
-
-❌ REPROVADO — PROIBIDO escrever HTML até o state file estar completo.
+✅ APROVADO — state file completo e preenchido.
+   Atenção: APROVADO aqui = dado coletado e com fonte. NÃO é juízo de
+   qualidade. O HTML ainda exige o 'ok' EXPLÍCITO do usuário.

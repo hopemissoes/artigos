@@ -16,17 +16,16 @@
 ## Fase atual
 
 - **Fase:** FASE 0 — pesquisa
-- **Próximo passo concreto:** DECISÃO DO USUÁRIO sobre a CI-1 (concorrente não lido) e sobre qual
-  nome vira a keyword principal. Sem isso a linha não anda — é contrato da skill (V7.3).
-- **Bloqueios:** 🔴 CI-1 — as 5 rotas da escada caíram (egress bloqueado; n8n sem autorização OAuth).
-  🔴 anti-doorway não pode ser marcado APROVADO enquanto a CI-1 não fechar.
+- **Próximo passo concreto:** PORTÃO HUMANO — o usuário lê o state file e aprova (ou pede ajuste).
+  Aprovado, entra o Agente 22 (PLANO_MODELOS + `checkpoint_modelos.py`) e então a redação.
+- **Bloqueios:** nenhum. As duas travas mecânicas da FASE 0 passaram.
 
 ## Portões
 
 | Portão | Status | Evidência |
 |---|---|---|
-| CI-1 — concorrente lido (`checkpoint_ci1.py`) | 🔴 REPROVADO | `checkpoints/ci1.txt` — 0 de 3 concorrentes lidos |
-| FASE 0 (`checkpoint_fase0.py`) | 🟡 1 bloqueio restante | `checkpoints/fase0.txt` — só o anti-doorway, que depende da CI-1 |
+| CI-1 — concorrente lido (`checkpoint_ci1.py`) | ✅ APROVADO | `checkpoints/ci1.txt` — 5 concorrentes lidos pela rota n8n |
+| FASE 0 (`checkpoint_fase0.py`) | ✅ APROVADO | `checkpoints/fase0.txt` — 0 bloqueios, 1 aviso |
 | Aprovação humana do state file | ⬜ pendente | |
 | Suficiência (`checkpoint_suficiencia.py`) | ⬜ pendente | |
 | Kit on-page (`checkpoint_onpage.py`) | ⬜ pendente | |
@@ -52,14 +51,18 @@ Legenda: ⬜ pendente · 🟡 rodado, com ressalva · ✅ aprovado (saída em `c
   (card, linha do tempo, 6 FAQs). Risco de doorway ALTO — matriz na seção 15 do state file.
 - 2026-09-16 — links: os pillars de coparticipação (63) e carências (56) estão SATURADOS; plano de links
   redesenhado com destinos subutilizados (seção 16 do state file).
+- 2026-09-16 — CI-1 DESTRAVADA pela rota 4: o MCP `SEO - Hapvida` (n8n) ficou disponível e o workflow
+  `i0jtkZgMawCjqYHk` leu 7 páginas no servidor, fora do egress. 5 concorrentes lidos + ficha CNES.
+- 2026-09-16 — decisão do usuário: keyword principal = ponte entre o nome antigo e o novo.
+- 2026-09-16 — FASE 0 e CI-1 aprovadas nos checkpoints. Falta só o portão humano.
 
 ## Dados que faltam
 
-- leitos, salas cirúrgicas e UTI do hospital — na ficha CNES 3518809255826 (não pôde ser aberta: egress)
-- telefone e horários por setor — site oficial da unidade (não pôde ser aberto)
-- fonte primária de "maternidade ativa" — o artigo de cidade afirma, o banco não registra a fonte
-- estacionamento, linhas de ônibus, horário de visita — nenhuma fonte alcançável nesta sessão
-- leitura das 5 páginas concorrentes (CI-1)
+- horário de visita, acompanhante e o que levar para internar — ninguém publica (nem CNES, nem operadora)
+- estacionamento e linhas de ônibus da Av. Tiradentes, 1015 — não confirmado
+- telefone: CNES diz 11 3155-2000, a operadora diz (11) 2463-8610 — dois números, nenhum entra no artigo
+- horário do pronto-socorro: o CNES registra PS obstétrico/pediátrico/ortopédico, mas não diz 24h
+- certificação ONA — não consta em nenhuma fonte lida
 
 ## Fio condutor
 

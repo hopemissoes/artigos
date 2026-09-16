@@ -2,10 +2,20 @@
 CHECKPOINT CI-1 [V7.3] — o concorrente foi LIDO? — artigos/hospital-hapvida-maternidade-guarulhos/PESQUISA_hospital-hapvida-maternidade-guarulhos_COMPLETO.md
 ==========================================================================
 
-CONCORRENTES LIDOS DE VERDADE: 0 (min. 3)
+CONCORRENTES LIDOS DE VERDADE: 5 (min. 3)
 
+  [OK] https://www.carmelseguros.com.br/planos-saude/hapvida/duvidas-5394318-qual-endereco-hospital-guarulhos-plano-saude-hapvida-intermedica.html
+       5 headings literais (H2/H3) | rota: n8n
+  [OK] https://busqueplanodesaude.com.br/hospitais/hospital-e-maternidade-guarulhos
+       11 headings literais (H2/H3) | rota: n8n
+  [OK] https://www.meuplanohap.com.br/guia-medico/sp/guarulhos/
+       6 headings literais (H2/H3) | rota: n8n
+  [OK] https://intermedicanotredameplanos.com.br/hospitais-notredame-intermedica-guarulhos/
+       5 headings literais (H2/H3) | rota: n8n
+  [OK] https://guia.agendarconsulta.com/sao-paulo/guarulhos/hospital-e-maternidade-guarulhos-hapvida-9255826
+       12 headings literais (H2/H3) | rota: n8n
 
-NAO CONTAM (20):
+NAO CONTAM (15):
 
   [X] https://www2.hapvida.com.br/unidades/hospital-keila-ferreira
       - headings literais H2/H3 (achei 0, min. 3)
@@ -68,36 +78,8 @@ NAO CONTAM (20):
       - headings literais H2/H3 (achei 0, min. 3)
       - coletado_em ausente
       - rota nao declarada
-  [X] https://www.carmelseguros.com.br/planos-saude/hapvida/duvidas-5394318-qual-endereco-hospital-guarulhos-plano-saude-hapvida-intermedica.html
-      - headings literais H2/H3 (achei 0, min. 3)
-      - coletado_em ausente
-      - rota nao declarada
-  [X] https://busqueplanodesaude.com.br/hospitais/hospital-e-maternidade-guarulhos
-      - headings literais H2/H3 (achei 0, min. 3)
-      - coletado_em ausente
-      - rota nao declarada
-  [X] https://www.meuplanohap.com.br/guia-medico/sp/guarulhos/
-      - headings literais H2/H3 (achei 0, min. 3)
-      - coletado_em ausente
-      - rota nao declarada
-  [X] https://intermedicanotredameplanos.com.br/hospitais-notredame-intermedica-guarulhos/
-      - headings literais H2/H3 (achei 0, min. 3)
-      - coletado_em ausente
-      - rota nao declarada
-  [X] https://guia.agendarconsulta.com/sao-paulo/guarulhos/hospital-e-maternidade-guarulhos-hapvida-9255826
-      - headings literais H2/H3 (achei 0, min. 3)
-      - coletado_em ausente
-      - rota nao declarada
 
 --------------------------------------------------------------------------
-REPROVADO — so 0 concorrente(s) lido(s), minimo 3.
-
-   NAO ESCREVA HTML. NAO ENTREGUE A PESQUISA.
-   Desca a ESCADA DE ROTAS do SKILL.md, secao INTELIGENCIA COMPETITIVA:
-     1 WebFetch  2 curl  3 Playwright/Chromium
-     4 n8n  ->  assets/CI1-extrator-concorrentes.json  (roda fora do
-                conteiner, e a rota que salva quando o egress bloqueia)
-     5 WebSearch — ultimo recurso, NAO conta como leitura
-
-   Caiu nas cinco: PARE E PERGUNTE AO USUARIO.
-   Degradar em silencio e quebra de contrato da skill.
+APROVADO — 5 concorrentes lidos na pagina.
+   (Piso de EXECUCAO. Se a leitura sustenta o artigo continua
+    sendo CI-2, Agentes 23/24 e o painel do Estagio 5.)
