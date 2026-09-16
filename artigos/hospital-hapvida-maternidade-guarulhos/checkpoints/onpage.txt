@@ -1,0 +1,15 @@
+==============================================================
+CHECKPOINT ON-PAGE [V5] — matriz de posicionamento de keywords
+==============================================================
+Principal: hospital e maternidade guarulhos
+Secundárias (6): hospital keila ferreira; hospital keila ferreira guarulhos; hospital hapvida guarulhos; hospital e maternidade guarulhos hapvida; pronto socorro hapvida guarulhos; maternidade hapvida guarulhos
+--------------------------------------------------------------
+  ✅ Principal no 1º parágrafo do corpo ✔
+  ✅ Principal em 4 H2 ✔ (ex.: "O que mudou no Hospital e Maternidade Guarulhos (e o que não mudou)")
+  ✅ Secundárias em 2 H2 ✔ (mín. 2)
+  ✅ Principal no H1 ✔
+  ✅ Principal no Title SEO ✔
+  ✅ Principal no URL/slug ✔
+  ✅ Principal no Meta description ✔
+--------------------------------------------------------------
+✅ APROVADO
