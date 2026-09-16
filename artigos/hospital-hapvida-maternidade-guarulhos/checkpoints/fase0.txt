@@ -1,0 +1,54 @@
+====================================================================
+CHECKPOINT FASE 0 [V7.2] — PESQUISA_hospital-hapvida-maternidade-guarulhos_COMPLETO.md (tipo: hospital)
+====================================================================
+
+0 · SEÇÕES DO ROTEIRO
+   [OK   ] SERP real (serp_local)
+   [OK   ] Contexto local (IBGE/CNES)
+   [OK   ] [V4] Desmontagem de concorrentes
+   [OK   ] [V4] Ganho de informação / brechas
+   [OK   ] [V5] Kit on-page (matriz de posicionamento)
+   [OK   ] [V5] Formato de snippet registrado
+   [OK   ] [V6] Defensibilidade do dado
+   [OK   ] [V7.2] Dado proprietário (Parte 7)
+   [OK   ] [V7.2] Não encontrado (Parte 8)
+
+1 · GABARITO PREENCHIDO
+   marcadores de molde ainda no arquivo: 3 (limite 3)
+   - [X]            … irar pergunta deste artigo: "O Hospital [X] tem mater
+   - [cidade]       … ) · "Qual hospital Hapvida faz parto em [cidade]?" (id 11,
+   - [cidade]       … artigos) · "Tem hospital da Hapvida em [cidade]?" (id 10,
+
+2 · FONTE POR DADO
+   campos 'fonte:' vazios ou em molde: 0
+   URLs distintas: 14 | domínios: 12 | primários: 5 (cidades.ibge.gov.br, cnes2.datasus.gov.br, gndi.com.br, ibge.gov.br)
+
+3 · VOLUME DE COLETA (contado, não procurado)
+   unidades com endereço preenchido: 5 (mín. 1)
+   perguntas de FAQ: 22 (mín. 10)
+   secundárias qualificadas: 7 (mín. 6)
+   dados de defensibilidade nível 1-2: 11 (mín. 3)
+   sub-perguntas de fan-out: 9 (mín. 5)
+   dados únicos declarados: 12 (mín. 10)
+
+4 · RECÊNCIA DA COLETA
+   2026-09-16  rede                      0 dias
+   2026-09-16  rede                      0 dias
+   2026-09-16  serp                      0 dias
+   2026-09-16  serp                      0 dias
+
+5 · ANTI-DOORWAY
+   aprovação explícita na linha do rótulo: NÃO
+
+6 · SEÇÃO 9 — FORBIDDEN_TOKENS
+   11 token(s) proibido(s): Hospital Keila Ferreira é o maior, 88 hospitais, 10 anos, (11) 2463-8610, leitos
+
+--------------------------------------------------------------------
+🟡 AVISOS (2)
+   - fonte de agregador/rede social citada (instagram.com) — regra 2: no máximo pista, nunca fonte factual
+   - 1 item(ns) [VERIFICAR] — NÃO podem entrar no artigo
+
+🔴 BLOQUEIOS (1)
+   - anti-doorway não está APROVADO na própria linha do rótulo (seção 4 do DR2)
+
+❌ REPROVADO — PROIBIDO escrever HTML até o state file estar completo.
