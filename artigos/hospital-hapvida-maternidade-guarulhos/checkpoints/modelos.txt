@@ -1,0 +1,34 @@
+====================================================================
+CHECKPOINT DE MODELOS [V7.2] — artigos/hospital-hapvida-maternidade-guarulhos/PESQUISA_hospital-hapvida-maternidade-guarulhos_COMPLETO.md (tipo: hospital)
+====================================================================
+
+Agentes no plano: 27
+  1     buscas e tipo de págin medio   sonnet    
+  2     rede assistencial      medio   sonnet    
+  3     contexto local (IBGE/C barato  haiku     
+  4     keywords e perguntas ( medio   sonnet    
+  5     diferenciais, FAQ e fi forte   opus       🔒
+  6     conferente de fatos    forte   opus       🔒
+  7     conferente DataForSeo  barato  haiku     
+  8     redator do lead + HS1  forte   opus      
+  9     redator HS2 + HS3      medio   sonnet    
+  10    redator HS4 + FAQ + co medio   sonnet    
+  11    editor-chefe           forte   fable      🔒
+  12    auditoria de veracidad forte   sonnet     🔒
+  13    auditoria anti-doorway forte   sonnet     🔒
+  14    requisitos da skill    medio   haiku     
+  15    citabilidade e GEO     forte   opus       🔒
+  17    schema JSON-LD         medio   sonnet    
+  18    registro no banco      barato  haiku     
+  19    voz humana             medio   sonnet    
+  21    varredura final anti-d forte   opus       🔒
+  22    roteador de modelos    barato  haiku     
+  23    juiz P-A — suficiência forte   opus       🔒
+  24    juiz P-B — originalida forte   sonnet     🔒
+  16a   juiz A — lente factual forte   opus       🔒
+  16b   juiz B — lente anti-do forte   sonnet     🔒
+  16c   juiz C — lente do leit forte   fable      🔒
+  ci-1  desmontagem de concorr forte   opus       🔒
+  ci-2  ganho de informação    forte   opus       🔒
+
+✅ APROVADO — roteamento coerente com as travas T1/T2/T3/T7.

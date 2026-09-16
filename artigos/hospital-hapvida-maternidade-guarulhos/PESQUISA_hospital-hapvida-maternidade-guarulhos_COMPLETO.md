@@ -165,7 +165,7 @@ O que o catálogo confirma pode ser afirmado; o que só aparece na SERP entra at
 
 ### https://www.carmelseguros.com.br/planos-saude/hapvida/duvidas-5394318-qual-endereco-hospital-guarulhos-plano-saude-hapvida-intermedica.html
 - coletado_em: 2026-09-16 | rota: n8n (HTTP Request rodando no servidor, fora do gateway)
-- title: "Qual é o endereço do Hospital Guarulhos do Plano de Saúde Hapvida Intermédica?"
+- titulo_da_pagina: Qual é o endereço do Hospital Guarulhos do Plano de Saúde Hapvida Intermédica
   h2_literais:
   - "Qual é o endereço do Hospital Guarulhos do Plano de Saúde Hapvida Intermédica?"
   - "Outras dúvidas sobre o Plano de saúde Hapvida"
@@ -265,6 +265,11 @@ com material local, não com enchimento.
 
 ## 6. Ganho de informação / brechas [V4 / CI-2]
 
+resumo: ponte entre os dois nomes do hospital + tradução do registro CNES + Sala Lilás.
+defensibilidade: 2 — o ganho não é o dado público cru: é o cruzamento da ficha CNES 9255826 com o
+catálogo de rede da casa (nível 1) e com a leitura de quem contrata. Nenhum dos 5 concorrentes lidos tem.
+
+
 - **MUST-MATCH** (≥2 concorrentes cobrem bem; faltar = perder): endereço completo com bairro · quais planos
   dão acesso ao hospital · especialidades e serviços do hospital · contato/como agendar · menção de preço
   com faixa · maternidade.
@@ -346,7 +351,48 @@ FORBIDDEN_TOKENS:
 
 ## 10. PLANO_MODELOS [V7.2]
 
-<!-- a preencher pelo Agente 22 antes do Estágio 1 de redação -->
+Agente 22 · 2026-09-16 · orquestrador: sessão principal
+
+Modelos disponíveis nesta sessão para subagente: opus · sonnet · haiku · fable.
+Degrau = quanto julgamento o assento exige. Modelo = qual cérebro senta nele. São coisas diferentes.
+
+PLANO_MODELOS:
+1 | buscas e tipo de página (SERP) | medio | sonnet | SERP já coletada pelo orquestrador com DataForSeo
+2 | rede assistencial | medio | sonnet | catálogo do banco + ficha CNES; conferido pelo 6
+3 | contexto local (IBGE/CNES) | barato | haiku | dado público, conferido pelo 6
+4 | keywords e perguntas (fan-out) | medio | sonnet | volume real do DataForSeo, conferido pelo 7
+ci-1 | desmontagem de concorrentes | forte | opus | 5 páginas lidas pela rota n8n; julgar enquadramento é julgamento
+ci-2 | ganho de informação | forte | opus | decide o eixo do artigo; erro aqui não é pego por trava
+5 | diferenciais, FAQ e fio condutor | forte | opus | síntese da pesquisa
+6 | conferente de fatos | forte | opus | T2: modelo diferente do agente 2 (sonnet)
+7 | conferente DataForSeo | barato | haiku | T2: modelo diferente do agente 4 (sonnet); número confere número
+8 | redator do lead + HS1 | forte | opus | hospital entrega em bloco único; 8 escreve a abertura e a HS1
+9 | redator HS2 + HS3 | medio | sonnet | experiência do paciente e como chegar
+10 | redator HS4 + FAQ + conclusão | medio | sonnet | a seção de maior risco de doorway, curta e em bridge
+11 | editor-chefe | forte | fable | T2: modelo diferente de 8 (opus), 9 e 10 (sonnet)
+19 | voz humana | medio | sonnet | T2: modelo diferente do editor-chefe (fable)
+12 | auditoria de veracidade | forte | sonnet | YMYL: cada número contra a fonte
+13 | auditoria anti-doorway | forte | sonnet | T2: modelo diferente do agente 5 (opus)
+14 | requisitos da skill | medio | haiku | roda os checkpoints; o script é que julga
+15 | citabilidade e GEO | forte | opus | passagem citável é julgamento, não contagem
+16a | juiz A — lente factual/YMYL | forte | opus | painel multimodelo
+16b | juiz B — lente anti-doorway/SEO | forte | sonnet | painel multimodelo
+16c | juiz C — lente do leitor | forte | fable | T3: 16a e 16b diferem do editor-chefe (fable)
+21 | varredura final anti-doorway | forte | opus | T2: modelo diferente do agente 13 (sonnet)
+23 | juiz P-A — suficiência e verdade | forte | opus | portão de pesquisa
+24 | juiz P-B — originalidade e valor | forte | sonnet | T2: modelo diferente de 23; e do agente 5
+17 | schema JSON-LD | medio | sonnet | execução separada, só sob pedido
+18 | registro no banco | barato | haiku | só depois do artigo aprovado e publicado
+22 | roteador de modelos | barato | haiku | este documento
+
+## Observações do roteamento
+- **Não é monomodelo.** Quatro modelos distintos sentam na linha.
+- Agente 0 (diagnóstico de pillar) não entra: o artigo é novo e não é pillar.
+- Agente 20 (imagem da tabela) não entra: artigo de hospital não tem seção de preço própria —
+  o preço aparece só como chamariz na HS4, por shortcode.
+- Nenhum agente 🔒 foi rebaixado de degrau.
+- Rebaixamentos em agentes não travados: 3 e 7 em barato (dado público e conferência numérica,
+  ambos com trava a jusante); 14 em haiku porque quem julga ali é o script, não o modelo.
 
 ## 11. Datas de coleta
 
@@ -391,10 +437,22 @@ coletado_em: —           # concorrentes (CI-1 não realizada)
 - frases_genericas: 0 toleradas. Proibido no artigo: "modelo verticalizado", "rede própria sempre que possível",
   "atendimento de qualidade", "tranquilidade para você e sua família", "como qualquer plano regulado pela ANS".
 - anti-doorway: APROVADO — CI-1 fechada com 5 concorrentes lidos (checkpoint_ci1 aprovado em 2026-09-16),
-  matriz contra o artigo de cidade fechada na seção 15, e o ganho de informação não existe em nenhuma das
+  matriz contra o artigo de cidade fechada na seção 16, e o ganho de informação não existe em nenhuma das
   5 páginas concorrentes nem no artigo de cidade.
 
-## 14. Fio condutor
+## 14. Diferenciais do artigo (com âncora local)
+
+- titulo: A ponte entre os dois nomes — âncora: o CNES 9255826 registra HOSPITAL KEILA FERREIRA no mesmo
+  CNPJ e no mesmo endereço (Tiradentes, 1015) do antigo Hospital e Maternidade Guarulhos
+- titulo: O que o registro oficial diz que a unidade faz — âncora: códigos 112-004 (parto de alto risco),
+  162-002 (UTI neonatal), 140-013 (PS obstétrico) e 140-016 (PS traumato-ortopédico) na ficha de Guarulhos
+- titulo: A primeira Sala Lilás da Hapvida — âncora: inaugurada nesta unidade em 10/11/2025, 24h, aberta
+  inclusive a mulheres sem convênio
+- titulo: O que se resolve no hospital e o que se resolve na clínica de Guarulhos — âncora: as 5 unidades
+  próprias da cidade no catálogo (Centro Clínico I e II, Clínica Jardim, NotreLabs Imedi, o hospital)
+- titulo: Quem vem de fora da cidade — âncora: a Av. Tiradentes e o acesso pela Dutra, no eixo central
+
+## 15. Fio condutor
 
 Este é o hospital que mudou de nome e ninguém avisou a quem busca. O artigo é a ponte entre os dois nomes:
 começa respondendo "sim, é o mesmo hospital, na mesma Av. Tiradentes, 1015" e, a partir daí, conta o que
@@ -402,7 +460,7 @@ mudou de verdade dentro dele — a Sala Lilás — e o que o paciente precisa sa
 Tom de quem já levou gente naquele pronto-socorro, não de quem copiou a ficha do Maps.
 
 
-## 15. O QUE NÃO REPRODUZIR — matriz contra o artigo de cidade (obrigatória no arquétipo hospital)
+## 16. O QUE NÃO REPRODUZIR — matriz contra o artigo de cidade (obrigatória no arquétipo hospital)
 
 Fonte: leitura do HTML publicado de `/plano-hapvida-guarulhos/` (post 31688, 81.700 caracteres,
 modificado em 2026-08-19), salvo em `fontes/artigo-cidade-guarulhos.html`.
@@ -441,7 +499,7 @@ Templates já em uso que NÃO podem virar pergunta deste artigo: "O Hospital [X]
 usado em Limeira, Bauru, Joinville, Lins) · "Qual hospital Hapvida faz parto em [cidade]?" (id 11, 8 artigos) ·
 "Tem hospital da Hapvida em [cidade]?" (id 10, 10 artigos).
 
-## 16. Plano de links (governança de âncoras + saturação)
+## 17. Plano de links (governança de âncoras + saturação)
 
 Fonte: `consultar_saturacao_destinos` (2026-09-16). Regra da casa: nunca linkar destino SATURADO (≥15).
 

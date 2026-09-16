@@ -1,0 +1,31 @@
+======================================================================
+SUFICIÊNCIA DA PESQUISA [V7.2] — PESQUISA_hospital-hapvida-maternidade-guarulhos_COMPLETO.md
+tipo: hospital | cidade/eixo: Guarulhos | âncoras: 0
+======================================================================
+
+A · MATRIZ DE SUFICIÊNCIA POR SEÇÃO (itens da pesquisa que a sustentam)
+   HS1 o hospital                         150 item(ns)
+   HS2 estrutura e serviços                90 item(ns)
+   HS3 como usar                            7 item(ns)
+   HS4 rede em volta                       81 item(ns)
+
+B · FAQ — LOCAL DE VERDADE?
+   perguntas: 28 | sem âncora local: 2 (7.1%, limite 20%)
+   - Quais hospitais o Hapvida atende?
+   - Quais hospitais em São Paulo aceitam o plano de saúde Hapvida?
+
+C · VETO DE INTENÇÃO NAS SECUNDÁRIAS
+   secundárias qualificadas com intenção de quem JÁ é cliente: 0
+
+D · GANHO DE INFORMAÇÃO (CI-2) — nível de defensibilidade
+   nível declarado: 2
+
+E · DIFERENCIAIS COM ÂNCORA LOCAL
+   diferenciais: 5 | sem âncora local: 1 (20%)
+   - Quem vem de fora da cidade — âncora: a Av. Tiradentes e o acesso pela Dutra, no eixo cen
+
+----------------------------------------------------------------------
+
+✅ APROVADO — a pesquisa cobre todas as seções previstas.
+   Isto NÃO é juízo de qualidade: os juízes 23 e 24 ainda decidem se o
+   que foi coletado presta (references/juiz-pesquisa.md).
