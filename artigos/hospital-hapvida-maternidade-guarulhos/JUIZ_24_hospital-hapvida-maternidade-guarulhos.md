@@ -146,3 +146,120 @@ Volta ao Estágio 1: reconciliar seção 12 × seção 16 (FAQ), resolver a cont
 CNES × artigo de cidade sobre alto risco/UTI neonatal, destravar as 4 fontes vivas
 da FAQ nova, cobrir o must-match de contato/agendamento, e reavaliar a qualificação
 da keyword "hospital keila ferreira" (9.900).
+
+---
+---
+
+modelo: sonnet
+lente: P-B originalidade e valor
+rodada: 2
+state_file_sha256: 926b6e77294c8d674a7f599d6485cfa01b34d0668a3fd0021cdc1894c6506438
+
+# Rejulgamento — rodada 2
+
+Pergunta-mãe, sem crédito pelo esforço: **este artigo merece existir na SERP ao
+lado do nosso próprio artigo de cidade?**
+
+## Achado 1 — contradição CNES × Rosário (era 🔴)
+
+- severidade: 🟢 (resolvido)
+  achado: a seção 6 ganhou um bloco de RECONCILIAÇÃO OBRIGATÓRIA que separa
+  corretamente "ter o serviço registrado no CNES" de "ser a referência da rede
+  para os casos mais complexos" e prescreve a forma de escrever (CNES atribuído +
+  encaminhamento ao Rosário na mesma passagem, com link). "referencia em alta
+  complexidade" entrou no FORBIDDEN_TOKENS com a nota explícita de que esse
+  posicionamento é do Rosário, não desta unidade — o que também explica, sem
+  inconsistência, por que a seção 17 ainda descreve o link ao Rosário como
+  "referência de alta complexidade materno-infantil" (é o uso correto do termo,
+  aplicado ao hospital certo).
+  trecho: "ter o serviço registrado no CNES (a unidade tem) é diferente de ser a referência da rede para os casos mais complexos (é o Rosário). Forma obrigatória de escrever: dizer o que o registro federal lista, atribuindo ao CNES, e na mesma passagem manter o encaminhamento de alta complexidade para o Rosário, com link. Proibido escrever que este hospital é referência em alto risco, e proibido omitir o Rosário na seção que fala de parto."
+  volta para: —
+  correção: nenhuma. Fechado.
+
+## Achado 2 e 3 — FAQ com overlap e substitutas sem fonte (eram 🔴)
+
+- severidade: 🟢 (resolvido)
+  achado: a seção 12 foi reescrita do zero — 10 perguntas, cada uma com fonte
+  nomeada (CNES, imprensa local, veículo setorial ou banco da casa), zero overlap
+  com as 15 FAQ do artigo de cidade. As 3 queimadas ("ainda faz parto?", "PS 24h?",
+  "mora fora pode internar?") saíram; as 4 substitutas sem fonte (o que levar,
+  visita, acompanhante, estacionamento) também saíram e viraram pauta futura, não
+  FAQ publicada — decisão correta: pergunta sem dado não entra, por melhor que seja.
+  trecho: "As três perguntas que a seção 16 marcou como queimadas foram removidas; as quatro substitutas sem fonte (...) também saíram — pergunta sem dado não entra, mesmo sendo boa pergunta."
+  volta para: —
+  correção: nenhuma. Conferi as 10 perguntas uma a uma contra a lista de queimadas e contra o catálogo de FAQ do banco (seção 16): nenhuma colide.
+
+## Achado 4 — MUST-MATCH contato/como agendar (era 🔴)
+
+- severidade: 🟢 (resolvido)
+  achado: coberto sem inventar telefone — canais oficiais do rodapé de
+  hapvida.com.br (app, área do beneficiário, agendamento de consultas e exames,
+  0800 nacional) mais a instrução de confirmar antes de ir. É mais honesto que
+  publicar um dos dois números divergentes e mais útil que o "ligue para
+  confirmar" do concorrente-espelho do CNES.
+  trecho: "os canais oficiais que o rodapé de hapvida.com.br publica — aplicativo, área do beneficiário, 'Agendamento de Consultas e Exames' e o 0800 nacional — mais a instrução de confirmar o atendimento antes de ir à unidade."
+  volta para: —
+  correção: nenhuma. Todos os MUST-MATCH da seção 6 (endereço, planos, especialidades, contato, preço, maternidade) estão cobertos.
+
+## Achado 5 — o "ex-" já antecipado pelo artigo de cidade (era 🟡)
+
+- severidade: 🟢 (resolvido)
+  achado: registrado explicitamente na brecha 1 com a ressalva de tamanho —
+  reconhece que o site já "avisa" de raspão, entre parênteses, e distingue isso do
+  que o artigo novo entrega (eixo do artigo, com data, motivo e fonte oficial).
+  Isso muda a moldura do ganho de informação de "só nós avisamos" para "só nós
+  explicamos" — mais defensável e mais honesto.
+  trecho: "o nosso próprio artigo de cidade já traz \"(ex-Hospital e Maternidade GRU)\" no card e na FAQ 2 — de passagem, entre parênteses, sem explicar quando nem por quê. Isso muda o tamanho do ganho, não a sua existência"
+  volta para: —
+  correção: nenhuma.
+
+## Achado 6 — keyword de 9.900 contaminada (era 🟡)
+
+- severidade: 🟢 (resolvido, com uma pauta menor)
+  achado: passou a "qualificada com desconto", tirada do title e da promessa de
+  tráfego, com a razão do pico documentada (coincide com a morte da bispa
+  homenageada e a renomeação) e a instrução expressa de tratar como teto, nunca
+  como previsão.
+  trecho: "veredito: **qualificada com desconto** | onde entra: lead e HS1, **não no title nem como promessa de tráfego** (...) Tratar como teto, nunca como previsão"
+  volta para: —
+  correção: nenhuma obrigatória. Fica como pauta menor tentar segmentar via `keyword_ideas`/`related_keywords` numa rodada futura, para trocar o teto por uma estimativa — não bloqueia.
+
+## Achados novos nesta rodada
+
+- severidade: 🟡
+  achado: o tratamento do número "113 leitos / 30 UTI / 10 neonatais" foi
+  corrigido por iniciativa própria (não era um dos 6 achados originais) — a
+  seção 7 agora identifica que os 4 veículos que repetem o número são uma única
+  cadeia de divulgação, não fontes independentes, e restringe a 1 aparição,
+  atribuída, fora do lead/title/H2. É melhoria real de rigor, registro apenas
+  para constar que a rodada 2 também endureceu pontos que eu não havia cobrado —
+  não é achado que bloqueie.
+  trecho: "Guarulhos Todo Dia 11/11/2025, Click Guarulhos 12/11/2025, Jornal Exempplar e Joi) com a mesma frase — não são 4 fontes independentes."
+  volta para: —
+  correção: nenhuma.
+
+---
+
+## Rubrica — rodada 2 (0-10, sem suavizar)
+
+| Dimensão | Nota | Por quê |
+|---|---|---|
+| Suficiência por seção | 9 | FAQ reconciliada e sourced, HS3 e HS4 ganharam material próprio, MUST-MATCH de contato coberto sem invenção |
+| Verdade e fonte | 9 | contradição CNES × Rosário reconciliada com regra de escrita explícita; regra das duas listas aplicada com honestidade (lista B declarada indisponível, sem afirmar ausência); cadeia de divulgação dos "113 leitos" identificada e contida |
+| Originalidade (substituição) | 9 | núcleo do artigo segue não sobrevivendo à troca de cidade; ganho agora ainda mais preciso (divergência de bairro, referências a pé do CNES) |
+| Valor comercial | 8 | maior secundária descontada e hedgeada corretamente; FAQ cobre agendamento e acesso a plano; veto de intenção bem aplicado |
+
+**As 4 dimensões ≥ 8. Zero 🔴.**
+
+---
+
+## VEREDITO — RODADA 2: LIBERADO
+
+Os 4 achados 🔴 e os 2 🟡 da rodada 1 foram corrigidos, não apenas amenizados: a
+contradição factual com o artigo de cidade virou regra de escrita explícita (com
+FORBIDDEN_TOKENS), a FAQ foi reescrita com zero overlap e fonte nomeada em cada
+item, o must-match de contato foi coberto sem inventar telefone, e a keyword
+contaminada foi descontada e tirada do title. Libera para o Estágio 3, sob
+condição de que a redação siga a forma obrigatória de reconciliação da seção 6 ao
+pé da letra na HS2 — é o único ponto onde um redator descuidado ainda pode
+reintroduzir o achado 1.
